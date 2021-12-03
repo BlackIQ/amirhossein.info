@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+.main {
+  padding: 2%;
+  top: 50%;
+  font-family: "Lora", serif;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.black {
+  color: black;
+}
+
+.blue {
+  color: blue;
+}

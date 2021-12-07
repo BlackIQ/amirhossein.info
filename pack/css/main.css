@@ -1,6 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
 
+/* Main div */
 .main {
-  font-family: "Inter", sans-serif;
-  user-select: none;
+    font-family: "Inter", sans-serif;
+    user-select: none;
+    padding: 2%;
+}
+
+/* Common Classes */
+.click-to-download {
+    cursor: pointer;
+}
+
+.toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Light mode */
+.light {
+    background-color: #f3f3f3;
+    color: black;
+}
+.light .toggle {
+    color: black;
+}
+
+/* Dark mode */
+.dark {
+    background-color: #333;
+    color: white;
+}
+.dark .toggle {
+    color: yellow;
 }

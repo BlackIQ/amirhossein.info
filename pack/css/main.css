@@ -10,6 +10,12 @@
     color: black;
 }
 
+
+.welcome-image {
+    height: 100vh;
+    background: black;
+}
+
 .box-heading {
     font-size: 120%;
     font-weight: bold;

@@ -15,5 +15,5 @@ $('.toggle').click(function () {
 $('.not-robot').hide();
 
 $('.click-to-download').click(function () {
-    $('.not-robot').fadeIn();
+    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
 });

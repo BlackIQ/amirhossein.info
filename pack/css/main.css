@@ -1,19 +1,12 @@
 @font-face {
     font-family: 'helvetica';
-    src: url('pack/font/helvetica.ttf');
+    src: url('./pack/font/helvetica.ttf');
 }
 
 /* Main div */
 .main {
     font-family: "helvetica", sans-serif;
     user-select: none;
-    color: black;
-}
-
-
-.welcome-image {
-    height: 100vh;
-    background: black;
 }
 
 .box-heading {

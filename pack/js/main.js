@@ -12,6 +12,13 @@ $('.toggle').click(function () {
     }
 });
 
+$('.welcome-image').css(
+    {
+        'background': 'black',
+        'height': '100vh',
+    }
+);
+
 $('.not-robot').hide();
 
 $('.click-to-download').click(function () {

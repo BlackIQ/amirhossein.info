@@ -12,15 +12,6 @@ $('.toggle').click(function () {
     }
 });
 
-$('.welcome-image').css(
-    {
-        'background': 'black',
-        'height': '100vh',
-    }
-);
-
-$('.not-robot').hide();
-
-$('.click-to-download').click(function () {
+$('.download').click(function () {
     window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
 });

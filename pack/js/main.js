@@ -12,6 +12,13 @@ $('.toggle').click(function () {
     }
 });
 
+$('.download').text('Download CV');
+
+$('.download').css({
+    'cursor': 'pointer',
+    'font-weight': 'bold',
+});
+
 $('.download').click(function () {
     window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
 });

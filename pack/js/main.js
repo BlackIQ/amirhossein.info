@@ -7,6 +7,9 @@ document.getElementById('years').innerHTML = '2017 - ' + d.getFullYear();
 // Age
 document.getElementById('age').innerHTML = d.getFullYear() - 2003;
 
+window.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
 
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs
@@ -55,6 +58,11 @@ $('.xbox h4 .open').click(function () {
         $(this).removeClass('fa-times');
         $(this).addClass('fa-bars');
     }
+});
+
+// Open release
+$('.release').css({
+    'cursor': 'pointer',
 });
 
 // Toggle release

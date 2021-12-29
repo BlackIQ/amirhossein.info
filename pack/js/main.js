@@ -41,13 +41,13 @@ $('.open').css({
 // Toggle xBox list
 $('.xbox h4 .open').click(function () {
     $(this).parents('.xbox h4').next('.content-of-uls').slideToggle();
-    if ($(this).hasClass('fa-arrow-down')) {
-        $(this).removeClass('fa-arrow-down');
-        $(this).addClass('fa-arrow-up');
+    if ($(this).hasClass('fa-bars')) {
+        $(this).removeClass('fa-bars');
+        $(this).addClass('fa-times');
     }
     else {
-        $(this).removeClass('fa-arrow-up');
-        $(this).addClass('fa-arrow-down');
+        $(this).removeClass('fa-times');
+        $(this).addClass('fa-bars');
     }
 });
 

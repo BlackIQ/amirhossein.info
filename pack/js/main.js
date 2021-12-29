@@ -1,6 +1,12 @@
-// Year
+// Years stuff
 const d = new Date();
+
+// Fotter year
 document.getElementById('years').innerHTML = '2017 - ' + d.getFullYear();
+
+// Age
+document.getElementById('age').innerHTML = d.getFullYear() - 2003;
+
 
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs

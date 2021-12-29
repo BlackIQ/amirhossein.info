@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 @font-face {
     font-family: 'helvetica';
@@ -7,7 +8,7 @@
 
 /* Main div */
 .main {
-    font-family: "Merriweather", sans-serif;
+    font-family: "Itim", sans-serif;
     user-select: none;
 }
 
@@ -19,7 +20,7 @@
 .xbox {
     margin: 1%;
     padding: 1%;
-    font-size: 80%;
+    font-size: 90%;
     /* height: 100%; */
 }
 

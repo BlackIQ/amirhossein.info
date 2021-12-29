@@ -37,15 +37,15 @@ $('.open').css({
 });
 
 // Toggle xBox list
-$('.xbox h4').click(function () {
-    $(this).next('.content-of-uls').slideToggle();
-    if ($('.xbox h4 .open').hasClass('fa-arrow-down')) {
-        $('.xbox h4 .open').removeClass('fa-arrow-down');
-        $('.xbox h4 .open').addClass('fa-arrow-up');
+$('.xbox h4 .open').click(function () {
+    $(this).parents('.xbox h4').next('.content-of-uls').slideToggle();
+    if ($(this).hasClass('fa-arrow-down')) {
+        $(this).removeClass('fa-arrow-down');
+        $(this).addClass('fa-arrow-up');
     }
     else {
-        $('.xbox h4 .open').removeClass('fa-arrow-up');
-        $('.xbox h4 .open').addClass('fa-arrow-down');
+        $(this).removeClass('fa-arrow-up');
+        $(this).addClass('fa-arrow-down');
     }
 });
 

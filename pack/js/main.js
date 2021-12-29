@@ -1,5 +1,8 @@
-// Hide list
-$('.content-of-uls').hide();
+// const dt = new Date(yeargi);
+
+// Hide items
+$('.content-of-uls').hide(); // Hide ULs
+$('.release-details').hide(); // Hide details
 
 // Toggle theme
 $('.toggle').click(function () {
@@ -36,12 +39,17 @@ $('.open').css({
 // Toggle xBox list
 $('.xbox h4').click(function () {
     $(this).next('.content-of-uls').slideToggle();
-    if ($('.open').hasClass('fa-arrow-down')) {
-        $('.open').removeClass('fa-arrow-down');
-        $('.open').addClass('fa-arrow-up');
+    if ($('.xbox h4 .open').hasClass('fa-arrow-down')) {
+        $('.xbox h4 .open').removeClass('fa-arrow-down');
+        $('.xbox h4 .open').addClass('fa-arrow-up');
     }
     else {
-        $('.open').removeClass('fa-arrow-up');
-        $('.open').addClass('fa-arrow-down');
+        $('.xbox h4 .open').removeClass('fa-arrow-up');
+        $('.xbox h4 .open').addClass('fa-arrow-down');
     }
+});
+
+// Toggle release
+$('.release').click(function () {
+    $(this).next('.release-details').slideToggle();
 });

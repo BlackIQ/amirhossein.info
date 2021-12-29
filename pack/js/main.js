@@ -1,4 +1,6 @@
-// const dt = new Date(yeargi);
+// Year
+const d = new Date();
+document.getElementById('years').innerHTML = '2017 - ' + d.getFullYear();
 
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs

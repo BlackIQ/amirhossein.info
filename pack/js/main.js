@@ -1,3 +1,7 @@
+// Hide list
+$('.content-of-uls').hide();
+
+// Toggle theme
 $('.toggle').click(function () {
     if ($('.main').hasClass('light')) {
         $('.main').removeClass('light');
@@ -12,6 +16,7 @@ $('.toggle').click(function () {
     }
 });
 
+// Download CV
 $('.download').text('Download CV');
 
 $('.download').css({
@@ -21,4 +26,22 @@ $('.download').css({
 
 $('.download').click(function () {
     window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
+});
+
+// Open xBox
+$('.open').css({
+    'cursor': 'pointer',
+});
+
+// Toggle xBox list
+$('.xbox h4').click(function () {
+    $(this).next('.content-of-uls').slideToggle();
+    if ($('.open').hasClass('fa-arrow-down')) {
+        $('.open').removeClass('fa-arrow-down');
+        $('.open').addClass('fa-arrow-up');
+    }
+    else {
+        $('.open').removeClass('fa-arrow-up');
+        $('.open').addClass('fa-arrow-down');
+    }
 });

@@ -21,11 +21,10 @@
     margin: 1%;
     padding: 1%;
     font-size: 90%;
-    /* height: 100%; */
 }
 
 .home {
-    background: linear-gradient(-45deg, #01579B, #00B8D4);
+    background: linear-gradient(-45deg, navy, rgb(0, 47, 189));
     background-size: 250% 250%;
     animation: gradient 10s ease infinite;
 }
@@ -40,4 +39,16 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+.text-navy {
+    color: navy;
+}
+
+.footer {
+    background-color: navy;
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
 }

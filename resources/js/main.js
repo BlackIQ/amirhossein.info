@@ -15,6 +15,10 @@ window.addEventListener('contextmenu', function (event) {
 $('.content-of-uls').hide(); // Hide ULs
 $('.release-details').hide(); // Hide details
 
+$('.main').hide();
+
+$('.main').fadeIn(3000);
+
 // Toggle theme
 $('.toggle').click(function () {
     if ($('.main').hasClass('light')) {

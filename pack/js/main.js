@@ -69,3 +69,8 @@ $('.release').css({
 $('.release').click(function () {
     $(this).next('.release-details').slideToggle();
 });
+
+window.onload = function onOpen() {
+    console.log(navigator.userAgent);
+    document.getElementById('music').play();
+}

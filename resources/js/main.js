@@ -1,12 +1,8 @@
-// Years stuff
-const d = new Date();
+// Math items
+document.getElementById('years').innerHTML = '2017 - ' + new Date().getFullYear(); // Year
+document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // Age
 
-// Fotter year
-document.getElementById('years').innerHTML = '2017 - ' + d.getFullYear();
-
-// Age
-document.getElementById('age').innerHTML = d.getFullYear() - 2003;
-
+// Disable right click
 window.addEventListener('contextmenu', function (event) {
     event.preventDefault();
 });
@@ -14,10 +10,9 @@ window.addEventListener('contextmenu', function (event) {
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs
 $('.release-details').hide(); // Hide details
+$('.main').hide(); // Hide all page
 
-$('.main').hide();
-
-$('.main').fadeIn(3000);
+$('.main').fadeIn(3000); // Show page
 
 // Toggle theme
 $('.toggle').click(function () {
@@ -74,7 +69,8 @@ $('.release').click(function () {
     $(this).next('.release-details').slideToggle();
 });
 
+// Get user data
 window.onload = function onOpen() {
-    console.log(navigator.userAgent);
-    document.getElementById('music').play();
+    console.log(navigator.userAgent); // Log UserAgent
+    document.getElementById('music').play(); // Play music
 }

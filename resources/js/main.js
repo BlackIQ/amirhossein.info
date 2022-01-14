@@ -38,7 +38,7 @@ $('.download').css({
 });
 
 $('.download').click(function () {
-    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
+    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-en.pdf';
 });
 
 // Open xBox

@@ -1,2 +1,5 @@
 *.html linguist-detectable=false
 *.html linguist-documentation=false
+
+*.css linguist-detectable=false
+*.css linguist-documentation=false

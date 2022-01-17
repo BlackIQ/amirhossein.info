@@ -1,3 +1,5 @@
+console.log(navigator.userAgent); // Log UserAgent
+
 // Math items
 document.getElementById('years').innerHTML = '2017 - ' + new Date().getFullYear(); // Year
 document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // Age
@@ -68,9 +70,3 @@ $('.release').css({
 $('.release').click(function () {
     $(this).next('.release-details').slideToggle();
 });
-
-// Get user data
-window.onload = function onOpen() {
-    console.log(navigator.userAgent); // Log UserAgent
-    document.getElementById('music').play(); // Play music
-}

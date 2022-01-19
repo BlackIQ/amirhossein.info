@@ -32,15 +32,21 @@ $('.toggle').click(function () {
 });
 
 // Download CV
-$('.download').text('Download CV');
+$('.download').append(
+    '<span class="pointer en-cv">EN CV</span> - <span class="pointer fa-cv">FA CV</span>'
+);
 
-$('.download').css({
+$('.pointer').css({
     'cursor': 'pointer',
     'font-weight': 'bold',
 });
 
-$('.download').click(function () {
-    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-en.pdf';
+$('.en-cv').click(function () {
+    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohammadi-en.pdf';
+});
+
+$('.fa-cv').click(function () {
+    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
 });
 
 // Open xBox

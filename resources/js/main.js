@@ -64,13 +64,3 @@ $('.xbox h4 .open').click(function () {
         $(this).addClass('fa-bars');
     }
 });
-
-// Open release
-$('.release').css({
-    'cursor': 'pointer',
-});
-
-// Toggle release
-$('.release').click(function () {
-    $(this).next('.release-details').slideToggle();
-});

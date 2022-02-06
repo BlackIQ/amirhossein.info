@@ -1,3 +1,4 @@
+clipboard = new ClipboardJS('.copy');
 console.log(navigator.userAgent); // Log UserAgent
 
 // Math items

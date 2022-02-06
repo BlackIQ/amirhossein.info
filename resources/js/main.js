@@ -14,8 +14,6 @@ $('.content-of-uls').hide(); // Hide ULs
 $('.release-details').hide(); // Hide details
 $('.main').hide(); // Hide all page
 
-$('.main').fadeIn(3000); // Show page
-
 // Toggle theme
 $('.toggle').click(function () {
     if ($('.main').hasClass('light')) {

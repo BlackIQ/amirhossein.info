@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
-@font-face {
-  font-family: "helvetica";
-  src: url("../font/helvetica.ttf");
-}
 .main {
   font-family: "Itim", sans-serif;
   user-select: none;
@@ -51,7 +47,6 @@
 .qr {
   height: 20%;
   width: 20%;
-  size: 20%;
 }
 
 /*# sourceMappingURL=main.css.map */

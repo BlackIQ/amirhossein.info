@@ -12,7 +12,6 @@ window.addEventListener('contextmenu', function (event) {
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs
 $('.release-details').hide(); // Hide details
-$('.main').hide(); // Hide all page
 
 // Toggle theme
 $('.toggle').click(function () {
@@ -34,22 +33,12 @@ $('.download').append(
     '<span class="pointer en-cv">EN CV</span> - <span class="pointer fa-cv">FA CV</span>'
 );
 
-$('.pointer').css({
-    'cursor': 'pointer',
-    'font-weight': 'bold',
-});
-
 $('.en-cv').click(function () {
     window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohammadi-en.pdf';
 });
 
 $('.fa-cv').click(function () {
     window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
-});
-
-// Open xBox
-$('.open').css({
-    'cursor': 'pointer',
 });
 
 // Toggle xBox list

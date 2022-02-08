@@ -4,22 +4,6 @@ document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // A
 
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs
-$('.release-details').hide(); // Hide details
-
-// Toggle theme
-$('.toggle').click(function () {
-    if ($('.main').hasClass('light')) {
-        $('.main').removeClass('light');
-        $('.main').addClass('dark');
-        $('.toggle-icon').removeClass('fa-moon');
-        $('.toggle-icon').addClass('fa-sun');
-    } else if ($('.main').hasClass('dark')) {
-        $('.main').removeClass('dark');
-        $('.main').addClass('light');
-        $('.toggle-icon').removeClass('fa-sun');
-        $('.toggle-icon').addClass('fa-moon');
-    }
-});
 
 // Download CV
 $('.download').append(

@@ -1,6 +1,3 @@
-clipboard = new ClipboardJS('.copy');
-console.log(navigator.userAgent); // Log UserAgent
-
 // Math items
 document.getElementById('years').innerHTML = '2017 - ' + new Date().getFullYear(); // Year
 document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // Age

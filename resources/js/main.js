@@ -35,14 +35,14 @@ $('.fa-cv').click(function () {
 });
 
 // Toggle xBox list
-$('.xbox h4 .open').click(function () {
-    $(this).parents('.xbox h4').next('.content-of-uls').slideToggle();
-    if ($(this).hasClass('fa-bars')) {
-        $(this).removeClass('fa-bars');
-        $(this).addClass('fa-times');
+$('.xbox h4').click(function () {
+    $(this).next('.content-of-uls').slideToggle(800);
+    if ($(this).children('.open').hasClass('fa-chevron-down')) {
+        $(this).children('.open').removeClass('fa-chevron-down');
+        $(this).children('.open').addClass('fa-chevron-up');
     }
     else {
-        $(this).removeClass('fa-times');
-        $(this).addClass('fa-bars');
+        $(this).children('.open').removeClass('fa-chevron-up');
+        $(this).children('.open').addClass('fa-chevron-down');
     }
 });

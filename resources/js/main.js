@@ -2,11 +2,6 @@
 document.getElementById('years').innerHTML = '2017 - ' + new Date().getFullYear(); // Year
 document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // Age
 
-// Disable right click
-window.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
-});
-
 // Hide items
 $('.content-of-uls').hide(); // Hide ULs
 $('.release-details').hide(); // Hide details

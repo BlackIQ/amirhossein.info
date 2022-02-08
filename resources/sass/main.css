@@ -3,14 +3,10 @@
   font-family: "Itim", sans-serif;
 }
 
-.box-heading {
-  font-size: 120%;
-  font-weight: bold;
-}
-
-.xbox {
-  margin: 1%;
+.ibox {
   padding: 1%;
+}
+.ibox ul {
   font-size: 90%;
 }
 
@@ -31,7 +27,7 @@
     background-position: 0 50%;
   }
 }
-.text-navy {
+.itext {
   color: navy;
 }
 
@@ -41,11 +37,6 @@
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;
-}
-
-.qr {
-  height: 20%;
-  width: 20%;
 }
 
 .pointer {

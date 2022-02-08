@@ -3,13 +3,6 @@
   font-family: "Itim", sans-serif;
 }
 
-.ibox {
-  padding: 1%;
-}
-.ibox ul {
-  font-size: 90%;
-}
-
 .home {
   background: linear-gradient(-45deg, navy, #002fbd);
   background-size: 250% 250%;

@@ -32,8 +32,10 @@
   padding-bottom: 5%;
 }
 
+.desc {
+  font-size: 40%;
+}
+
 .pointer {
   cursor: pointer;
 }
-
-/*# sourceMappingURL=main.css.map */

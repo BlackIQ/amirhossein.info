@@ -15,7 +15,7 @@ $('.en-cv').click(function () {
 });
 
 $('.fa-cv').click(function () {
-    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohamamdi-fa.pdf';
+    window.location.href = 'https://github.com/BlackIQ/BlackIQ/raw/main/amirhossein-mohammadi-fa.pdf';
 });
 
 // Toggle xBox list

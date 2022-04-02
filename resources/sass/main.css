@@ -6,7 +6,20 @@
 .home {
   background: linear-gradient(-45deg, navy, #002fbd);
   background-size: 250% 250%;
-  animation: gradient 10s ease infinite;
+  -webkit-animation: gradient 10s ease infinite;
+          animation: gradient 10s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 
 @keyframes gradient {
@@ -20,6 +33,7 @@
     background-position: 0 50%;
   }
 }
+
 .itext {
   color: navy;
 }
@@ -36,4 +50,16 @@
   cursor: pointer;
 }
 
+.skill {
+  display: inline-block;
+  border: solid 1px navy;
+  border-radius: 5px;
+  color: navy;
+}
+
+.skill:hover {
+  cursor: pointer;
+  background: navy;
+  color: white;
+}
 /*# sourceMappingURL=main.css.map */

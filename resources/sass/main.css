@@ -53,12 +53,31 @@
 .skill {
   display: inline-block;
   border: solid 1px white;
-  border-radius: 5px;
   color: navy;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .skill:hover {
+  border-bottom: solid 1px navy;
+  font-size: 16px;
+}
+
+ul {
+  border-left: solid 1px navy;
+}
+
+ul li {
+  list-style: none;
   cursor: pointer;
-  border: solid 1px navy;
+}
+
+ul li:hover {
+  font-size: 110%;
+  color: black;
+}
+
+ul li small {
+  color: navy;
 }
 /*# sourceMappingURL=main.css.map */

@@ -38,9 +38,21 @@
   color: navy;
 }
 
-.footer {
-  background-color: navy;
+.projects {
+  background: navy;
   color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.projects .box {
+  border: solid 1px white;
+  border-radius: 10px;
+}
+
+.footer {
+  color: white;
+  background: #000080;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 5%;

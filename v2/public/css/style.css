@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.slide {
+    height: 100vh;
+    padding: 2%;
+}
+
+.red {
+    background: white;
+
+}
+
+.intro {
+    background: white;
+    font-family: 'Homemade Apple', cursive;
+    color: teal;
+}
+.intro span {
+    font-size: 150px;
+}

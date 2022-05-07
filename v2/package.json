@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/BlackIQ/amirhossein.info/issues"
   },
-  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme"
+  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2",
+    "morgan": "^1.10.0"
+  }
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 body {
     margin: 0;
@@ -10,16 +11,74 @@ body {
     padding: 2%;
 }
 
-.red {
-    background: white;
-
-}
-
 .intro {
-    background: white;
-    font-family: 'Homemade Apple', cursive;
-    color: teal;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Parisienne', cursive;
+    color: black;
+    background-image: radial-gradient(ellipse at 50% 100%, teal 0%, white 50%);
 }
-.intro span {
-    font-size: 150px;
+
+.intro h1 {
+    font-size: 5rem;
+}
+
+.intro p {
+    font-size: 2.5rem;
+}
+
+.outro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Parisienne', cursive;
+    color: black;
+    background-image: radial-gradient(ellipse at 50% 0%, teal 0%, white 50%);
+}
+
+.outro h1 {
+    font-size: 5rem;
+}
+
+.outro p {
+    font-size: 2.5rem;
+}
+
+.xtro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Parisienne', cursive;
+    color: black;
+    background-image: radial-gradient(ellipse at 100% 100%, teal 0%, white 50%);
+}
+
+.xtro h1 {
+    font-size: 5rem;
+}
+
+.xtro p {
+    font-size: 2.5rem;
+}
+
+.ytro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Parisienne', cursive;
+    color: black;
+    background-image: radial-gradient(ellipse at 100% 0%, teal 0%, white 50%);
+}
+
+.ytro h1 {
+    font-size: 5rem;
+}
+
+.ytro p {
+    font-size: 2.5rem;
 }

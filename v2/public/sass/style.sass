@@ -9,10 +9,10 @@
 
 .main
     font-family: "Vazirmatn", sans-serif
+    overflow: hidden
     margin: 0 !important
     padding: 0 !important
-
-
+    
 .home
     height: 100vh
     display: flex
@@ -25,14 +25,13 @@
     animation: gradient 10s ease infinite
     color: white
 
-
-.home
     .intro
         text-align: center
 
+        a
+            color: white
+            text-decoration: none
 
-.home
-    .intro
         .hello
             font-family: 'Meow Script', cursive
             font-size: 7rem
@@ -45,8 +44,6 @@
         background-position: 100% 50%
     100%
         background-position: 0 50%
-
-
 
 @keyframes gradient
     0%
@@ -78,19 +75,14 @@ ul
     border-bottom: solid 2px navy
     border-right: solid 2px navy
 
-ul
     li
         list-style: none
         cursor: pointer
 
-ul
-    li
         &:hover
             font-size: 110%
             color: black
 
-ul
-    li
         small
             color: navy
 
@@ -98,7 +90,6 @@ ul
     height: 100vh
     padding: 2rem
 
-.slide
     .slide-title
         height: 100vh
         display: flex
@@ -106,7 +97,6 @@ ul
         flex-wrap: wrap
         justify-content: center
 
-.slide
     .slide-content
         height: 100vh
         display: flex

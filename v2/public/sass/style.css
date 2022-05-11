@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Lalezar&family=Meow+Script&family=Patrick+Hand&family=Vazirmatn:wght@300&display=swap");
 .main {
   font-family: "Vazirmatn", sans-serif;
+  overflow: hidden;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -27,6 +28,11 @@
 
 .home .intro {
   text-align: center;
+}
+
+.home .intro a {
+  color: white;
+  text-decoration: none;
 }
 
 .home .intro .hello {

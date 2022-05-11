@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Boogaloo&family=Lalezar&family=Meow+Script&family=Patrick+Hand&family=Vazirmatn:wght@300&display=swap");
+.main {
+  font-family: "Vazirmatn", sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.home {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: linear-gradient(-45deg, navy, #002fbd);
+  background-size: 250% 250%;
+  -webkit-animation: gradient 10s ease infinite;
+  animation: gradient 10s ease infinite;
+  color: white;
+}
+
+.home .intro {
+  text-align: center;
+}
+
+.home .intro .hello {
+  font-family: 'Meow Script', cursive;
+  font-size: 7rem;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.itext {
+  color: navy;
+}
+
+.projects {
+  background: navy;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.projects .box {
+  border: solid 1px white;
+  border-radius: 10px;
+}
+
+.footer {
+  color: white;
+  background: #000080;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.skill {
+  display: inline-block;
+  border: solid 1px white;
+  color: navy;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.skill:hover {
+  border-bottom: solid 1px navy;
+  font-size: 16px;
+}
+
+ul {
+  border-left: solid 1px navy;
+}
+
+ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+ul li:hover {
+  font-size: 110%;
+  color: black;
+}
+
+ul li small {
+  color: navy;
+}
+
+.slide {
+  height: 100vh;
+  padding: 2rem;
+}
+
+.slide .slide-title {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slide .slide-content {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=style.css.map */

@@ -62,18 +62,6 @@
   color: navy;
 }
 
-.projects {
-  background: navy;
-  color: white;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-.projects .box {
-  border: solid 1px white;
-  border-radius: 10px;
-}
-
 .footer {
   color: white;
   background: #000080;
@@ -86,21 +74,10 @@
   cursor: pointer;
 }
 
-.skill {
-  display: inline-block;
-  border: solid 1px white;
-  color: navy;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.skill:hover {
-  border-bottom: solid 1px navy;
-  font-size: 16px;
-}
-
 ul {
-  border-left: solid 1px navy;
+  padding: 1rem;
+  border-bottom: solid 2px navy;
+  border-right: solid 2px navy;
 }
 
 ul li {

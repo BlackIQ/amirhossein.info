@@ -30,11 +30,6 @@
   text-align: center;
 }
 
-.home .intro a {
-  color: white;
-  text-decoration: none;
-}
-
 .home .intro .hello {
   font-family: 'Meow Script', cursive;
   font-size: 7rem;
@@ -68,6 +63,10 @@
   color: navy;
 }
 
+.itext:hover {
+  color: navy;
+}
+
 .footer {
   color: white;
   background: #000080;
@@ -78,6 +77,12 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.me {
+  padding: 1rem;
+  border-left: solid 2px navy;
+  border-top: solid 2px navy;
 }
 
 ul {

@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Lalezar&family=Meow+Script&family=Patrick+Hand&family=Vazirmatn:wght@300&display=swap');
+/*;
 
 font-family: 'Boogaloo', cursive;
 font-family: 'Lalezar', cursive;
@@ -6,179 +6,15 @@ font-family: 'Meow Script', cursive;
 font-family: 'Patrick Hand', cursive;
 font-family: 'Vazirmatn', sans-serif;
 
-body {
-    margin: 0 !important;
-    padding: 0 !important;
-}
+*/
 
-.slide {
-    height: 100vh;
-    padding: 2%;
-}
-
-.slide .titl {
-    font-size: 5rem;
-}
-
-.slide .par {
-    font-size: 2.5rem;
-}
-
-.intro {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: black;
-    background-image: radial-gradient(ellipse at 50% 100%, teal 0%, white 50%);
-}
-
-.intro h1 {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Meow Script', cursive;
-    font-size: 7rem;
-}
-
-.intro p {
-    font-family: 'Vazirmatn', cursive;
-    font-size: 2.5rem;
-}
-
-.outro {
-    color: black;
-    background-image: radial-gradient(ellipse at 50% 0%, teal 0%, white 50%);
-}
-
-.out-title {
-    font-family: 'Vazirmatn', cursive;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.out-title h1 {
-    color: teal;
-    font-size: 4rem;
-}
-
-.out-text h3 {
-    font-weight: bold;
-}
-
-.out-text {
-    font-family: 'Vazirmatn', cursive;
-    text-align: left;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.skills {
-    color: black;
-    background-image: radial-gradient(ellipse at 100% 100%, red 0%, white 50%);
-}
-
-.skills-title {
-    font-family: 'Patrick Hand', cursive;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.skills-title h1 {
-    color: red;
-    font-size: 4rem;
-}
-
-.skills-text {
-    font-family: 'Patrick Hand', cursive;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: right;
-}
-
-.skills-text .title {
-    color: red;
-}
-
-.skills-text .title .ttl {
-    font-size: 2rem;
-    color: red;
-}
-
-.skills-text .title .des {
-    font-size: 1rem;
-    color: red;
-}
-
-.skills-text .skill {
-    margin-bottom: 10px;
-}
-
-.skills-text .progress {
-    height: 25px !important;
-}
-
-.skills-text .progress-bar {
-    background: red !important;
-}
-
-.oskills {
-    color: black;
-    background-image: radial-gradient(ellipse at 100% 0%, red 0%, white 50%);
-}
-
-.oskills td {
-    color: red;
-    font-size: 2rem;
-}
-
-.atro {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: 'Parisienne', cursive;
-    color: black;
-    background-image: radial-gradient(ellipse at 0% 100%, purple 0%, white 50%);
-}
-
-.btro {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: 'Parisienne', cursive;
-    color: black;
-    background-image: radial-gradient(ellipse at 0% 0%, purple 0%, white 50%);
-}
-
-.wtro {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-family: 'Parisienne', cursive;
-    color: black;
-} */
-
-@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Lalezar&family=Meow+Script&family=Patrick+Hand&family=Vazirmatn:wght@300&display=swap');
 
 
 .main {
   font-family: "Vazirmatn", sans-serif;
-  overflow: auto;
+  margin: 0 !important;
+    padding: 0 !important;
 }
 
 .home {
@@ -194,12 +30,28 @@ body {
           color: white;
 }
 
+.home .intro {
+    text-align: center;
+}
+
 .home .intro .hello {
     font-family: 'Meow Script', cursive;
     font-size: 7rem;
 }
 
 @-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes gradient {
   0% {
     background-position: 0 50%;
   }
@@ -269,4 +121,24 @@ ul li:hover {
 ul li small {
   color: navy;
 }
-/*# sourceMappingURL=main.css.map */
+
+.slide {
+    height: 100vh;
+    padding: 2rem;
+}
+
+.slide .slide-title {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slide .slide-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}

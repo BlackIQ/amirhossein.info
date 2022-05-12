@@ -67,6 +67,27 @@
   color: navy;
 }
 
+.iput {
+  background: transparent !important;
+  color: white !important;
+}
+
+.iput::-webkit-input-placeholder {
+  color: white !important;
+}
+
+.iput:-ms-input-placeholder {
+  color: white !important;
+}
+
+.iput::-ms-input-placeholder {
+  color: white !important;
+}
+
+.iput::placeholder {
+  color: white !important;
+}
+
 .footer {
   color: white;
   background: #000080;

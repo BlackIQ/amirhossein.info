@@ -168,4 +168,10 @@ ul li small {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.message-title {
+  font-family: 'Meow Script', cursive;
+  font-size: 7rem;
+  color: navy;
+}
 /*# sourceMappingURL=style.css.map */

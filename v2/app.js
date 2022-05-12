@@ -10,4 +10,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.post('/send', (req, res) => {
+    res.send(req.body);
+})
+
 app.listen(3000, 'localhost');

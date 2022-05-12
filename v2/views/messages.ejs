@@ -26,15 +26,25 @@
         <div class="row">
             <% messages.forEach(message => { %>
                 <div class="col-md-4">
-                    <div class="card m-1 shadow-sm border">
-                        <div class="card-header"><%= message.title %> <span class="float-end"><%= message.read %></span></div>
+                    <div class="card my-3 mx-1 shadow-sm border">
+                        <div class="card-header">
+                            <%= message.title %>
+                            <div class="float-end">
+                                <% if (message.read) { %>
+                                    <input type="checkbox" class="form-check-input" checked/>
+                                <% } else { %>
+                                    <input type="checkbox" class="form-check-input"/>
+                                <% } %>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <span>Name: <%= message.name %></span>
                             <br/>
                             <span>Email: <%= message.email %></span>
                             <hr/>
                             <span>Message:</span>
-                            <p><%= message.message %></p>
+                            <br/>
+                            <span><%= message.message %></span>
                         </div>
                         <div class="card-footer"><%= message.createdAt %></div>
                     </div>

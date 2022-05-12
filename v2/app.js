@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
     res.send(req.body);
+});
+
+app.get('/messages', (req, res) => {
+    res.send('Messages list.');
 })
 
 app.listen(3000, 'localhost');

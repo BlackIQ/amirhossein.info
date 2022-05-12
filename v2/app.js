@@ -32,7 +32,7 @@ app.post('/send', (req, res) => {
     const message = new Message(body);
 
     message.save()
-        .then((result) => res.send(result))
+        .then((result) => res.redirect('/'))
         .catch((error) => res.send(error));
 });
 

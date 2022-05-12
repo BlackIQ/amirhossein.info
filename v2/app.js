@@ -21,7 +21,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
-    const message = new Message(req.body);
+    const body = {
+        title: req.body.title,
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message,
+        read: false
+    };
+
+    const message = new Message(body);
 
     message.save()
         .then((result) => res.send(result))

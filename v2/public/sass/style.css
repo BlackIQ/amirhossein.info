@@ -89,11 +89,19 @@
 }
 
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: white;
   background: #000080;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 5%;
 }
 
 .pointer {

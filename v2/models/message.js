@@ -18,6 +18,10 @@ const messageSchema = new Schema({
     message: {
         type: String,
         required: true,
+    },
+    message: {
+        type: Boolean,
+        required: true,
     }
 }, {
     timestamps: true

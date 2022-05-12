@@ -3,3 +3,6 @@
 
 *.css linguist-detectable=false
 *.css linguist-documentation=false
+
+# *.ejs linguist-detectable=false
+# *.ejs linguist-documentation=false

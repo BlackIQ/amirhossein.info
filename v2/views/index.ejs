@@ -309,8 +309,8 @@
             </div>
         </div>
     </div>
-    <svg id="contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000080" fill-opacity="1" d="M0,128L48,133.3C96,139,192,149,288,128C384,107,480,53,576,74.7C672,96,768,192,864,208C960,224,1056,160,1152,144C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-    <div class="footer">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000080" fill-opacity="1" d="M0,128L48,133.3C96,139,192,149,288,128C384,107,480,53,576,74.7C672,96,768,192,864,208C960,224,1056,160,1152,144C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    <div class="slide footer" id="contact">
         <div class="row">
             <div class="col-md-4">
                 <div class="m-3">
@@ -321,6 +321,15 @@
                             <i class="fa fa-github"></i>
                             Page source in Github
                         </a>
+                    </p>
+                    <br/>
+                    <p>
+                        May the force be with you.
+                        <span class="text-decoration-none float-end">
+                            <span class="download"></span>
+                            |
+                            <small id="years"></small>
+                        </span>
                     </p>
                 </div>
             </div>
@@ -346,9 +355,23 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <br/>
-        <p class="text-white">
+            <div class="col-md-4">
+                <div class="m-3">
+                    <b>Send a message</b>
+                    <hr>
+                    <form action="/send" method="post">
+                        <input class="form-control iput" placeholder="Name" type="text" id="name" name="name" required />
+                        <br/>
+                        <input class="form-control iput" placeholder="Title" type="text" id="title" name="title" required />
+                        <br/>
+                        <input class="form-control iput" placeholder="Email" type="email" id="email" name="email" required />
+                        <br/>
+                        <textarea class="form-control iput" placeholder="Message" id="message" name="message" rows="5" required></textarea>
+                        <br/>
+                        <button type="submit" class="btn btn-white w-100">Send it</button>
+                    </form>
+                </div>
+            </div>
             <span class="access">
                 <a href="#home" class="text-white">Home</a>
                 |
@@ -364,12 +387,7 @@
                 |
                 <a href="#contact" class="text-white">Contact</a>
             </span>
-            <span class="text-decoration-none float-end">
-                <span class="download"></span>
-                |
-                <small id="years"></small>
-            </span>
-        </p>
+        </div>        
     </div>
 
     <script src="js/jquery.min.js"></script>

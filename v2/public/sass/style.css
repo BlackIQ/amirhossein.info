@@ -169,7 +169,11 @@ ul li small {
           justify-content: center;
 }
 
-.message-title {
+.messages {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.messages .message-title {
   font-family: 'Meow Script', cursive;
   font-size: 7rem;
   color: navy;

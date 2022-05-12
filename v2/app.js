@@ -29,5 +29,9 @@ app.post('/send', (req, res) => {
 });
 
 app.get('/messages', (req, res) => {
-    res.send('Messages list.');
+    Message.find().sort({createdAt: -1})
+        .then((messages) => {
+            res.render('messages', {messages})
+        })
+        .catch((error) => res.send(error));
 });

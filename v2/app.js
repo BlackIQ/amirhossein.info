@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Message = require('./models/message');
 
 const app = express();
 
@@ -20,7 +21,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
-    res.send(req.body);
+    const message = new Message(req.body);
+
+    message.save()
+        .then((result) => res.send(result))
+        .catch((error) => res.send(error));
 });
 
 app.get('/messages', (req, res) => {

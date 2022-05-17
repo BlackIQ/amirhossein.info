@@ -73,19 +73,19 @@
 }
 
 .iput::-webkit-input-placeholder {
-  color: white !important;
+  color: #aaa !important;
 }
 
 .iput:-ms-input-placeholder {
-  color: white !important;
+  color: #aaa !important;
 }
 
 .iput::-ms-input-placeholder {
-  color: white !important;
+  color: #aaa !important;
 }
 
 .iput::placeholder {
-  color: white !important;
+  color: #aaa !important;
 }
 
 .footer {

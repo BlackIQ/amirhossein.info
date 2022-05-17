@@ -37,7 +37,7 @@
             </thead>
             <tbody>
                 <% messages.forEach(message => { %>
-                    <tr>
+                    <tr class="pointer" onclick="window.location.href = '/messages/<%= message.id %>'">
                         <th scope="row"><%= message.name %></th>
                         <th><%= message.title %></td>
                         <td><%= message.createdAt %></td>

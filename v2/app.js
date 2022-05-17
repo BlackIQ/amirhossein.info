@@ -41,8 +41,12 @@ app.post('/send', (req, res) => {
 
 app.get('/messages', (req, res) => {
     Message.find().sort({createdAt: -1})
-        .then((messages) => {
-            res.render('messages', {messages})
-        })
+        .then((messages) => res.render('messages', {messages}))
+        .catch((error) => res.send(error));
+});
+
+app.get('/messages/:id', (req, res) => {
+    Message.findById(req.params.id)
+        .then((message) => res.render('message', {message}))
         .catch((error) => res.send(error));
 });

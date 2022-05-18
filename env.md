@@ -4,7 +4,7 @@
 
 Mongodb connection stuff.
 
-```env
+```javascript
 MONGO_USER=""
 MONGO_PASSWORD=""
 MONGO_DATABASE=""
@@ -15,6 +15,6 @@ MONGO_COLLECTION=""
 
 Telegram bot token.
 
-```env
+```javascript
 BOT_TOKEN=""
 ```

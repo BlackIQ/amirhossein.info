@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amirhossein Mohammadi | <%= message.title %></title>
+    <link rel="stylesheet" type="text/css" href="sass/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/mdb.min.css" />
+    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1NSPH53B9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-D1NSPH53B9');
+    </script>
+</head>
+<body class="">
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="/">Amirhossein.info</a>
+        </div>
+    </nav>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="m-1">
+                    <div class="card">
+                        <div class="card-title"><h1><%= message.title %></h1></div>
+                        <div class="card-body">
+                            <p><%= message.message %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/mdb.min.js"></script>
+</body>
+</html>

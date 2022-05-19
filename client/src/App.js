@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Messages from './components/messages';
+
+import Messages from './pages/messages';
 
 function App() {
   return (

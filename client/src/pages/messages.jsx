@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
-import MessageItem from './messageitem';
+import MessageItem from '../components/messageitem';
 
 const { REACT_APP_EXPRESS_APP } = process.env;
 

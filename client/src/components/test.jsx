@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react';
+import Axios from 'axios';
+
 const { REACT_APP_EXPRESS_APP } = process.env;
 
 const Test = () => {
+    const [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        Axios.get("http://localhost:8000/")
+            .then((data) => setMessages(data))
+            .catch((error) => {});
+    }, []);
+
+    console.log(messages);
+
     return (
         <p>{REACT_APP_EXPRESS_APP}</p>
     );

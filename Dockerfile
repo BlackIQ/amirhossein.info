@@ -1,6 +1,7 @@
 FROM node:latest
 WORKDIR /usr/src/app
-COPY . .
+COPY api .
+WORKDIR /usr/src/app/api
 RUN npm install
-EXPOSE 3000
+EXPOSE 5000
 CMD [ "node", "app.js" ]

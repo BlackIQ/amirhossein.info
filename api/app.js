@@ -15,11 +15,16 @@ app.use(express.urlencoded({extended: true}));
 app.set('json spaces', 2);
 
 app.get('/', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
     const pkgs = require('./package.json');
+
     res.send(pkgs);
 });
 
 app.post('/send', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
     const message = new Message(req.body);
 
     message.save()
@@ -28,12 +33,16 @@ app.post('/send', (req, res) => {
 });
 
 app.get('/messages', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
     Message.find().sort({createdAt: -1})
         .then((messages) => res.send(messages))
         .catch((error) => res.send(error));
 });
 
 app.get('/messages/:id', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
     Message.findById(req.params.id)
         .then((message) => {
             if (message == null) res.send({});

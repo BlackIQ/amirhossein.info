@@ -7,46 +7,39 @@ require('dotenv').config();
 const app = express();
 
 const mdb = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_DATABASE}.ji4jf.mongodb.net/${process.env.MONGO_COLLECTION}?retryWrites=true&w=majority`;
-
 mongoose.connect(mdb)
-    .then((result) => {
-        console.log('Connected');
-        app.listen(process.env.PORT);
-    })
+    .then((connection) => console.log('Connected'))
     .catch((error) => console.log(error));
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
+app.set('json spaces', 2);
 
 app.get('/', (req, res) => {
-    res.render('index');
+    const pkgs = require('./package.json');
+    res.send(pkgs);
 });
 
 app.post('/send', (req, res) => {
-    const body = {
-        title: req.body.title,
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message,
-        read: false
-    };
-
-    const message = new Message(body);
+    const message = new Message(req.body);
 
     message.save()
-        .then((result) => res.redirect('/'))
+        .then((result) => res.redirect(process.env.REACT_APP))
         .catch((error) => res.send(error));
 });
 
 app.get('/messages', (req, res) => {
     Message.find().sort({createdAt: -1})
-        .then((messages) => res.render('messages', {messages}))
+        .then((messages) => res.send(messages))
         .catch((error) => res.send(error));
 });
 
 app.get('/messages/:id', (req, res) => {
     Message.findById(req.params.id)
-        .then((message) => res.render('message', {message}))
+        .then((message) => {
+            if (message == null) res.send({});
+            else res.send(message);
+        })
         .catch((error) => res.send(error));
 });
+
+app.listen(process.env.PORT);

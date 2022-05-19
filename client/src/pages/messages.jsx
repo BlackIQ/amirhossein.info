@@ -24,15 +24,33 @@ const Messages = () => {
             });
     }, []);
 
-    console.log(messages.map((message) => message));
-
     return (
-        loading ? <p>Loading</p> : error ? <p>Error</p> : <div>
-            {
-                messages.map((message) => {
-                    return <MessageItem message={message} />
-                })
-            }
+        <div className='container-fluid p-4'>
+            <table className='table table-bordered'>
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="row">Open</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        loading
+                        ?
+                        <p>Loading</p>
+                        :
+                        error
+                        ?
+                        <p>Error</p>
+                        :
+                        messages.map((message) => {
+                            return <MessageItem message={message} />
+                        })
+                    }
+                </tbody>
+            </table>
         </div>
     );
 }

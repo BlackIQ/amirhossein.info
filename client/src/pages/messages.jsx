@@ -35,21 +35,23 @@ const Messages = () => {
                         <th scope="row">Open</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {
-                        loading
-                        ?
-                        <p>Loading</p>
-                        :
-                        error
-                        ?
-                        <p>Error</p>
-                        :
-                        messages.map((message) => {
-                            return <MessageItem message={message} />
-                        })
-                    }
-                </tbody>
+                {
+                    loading
+                    ?
+                    <p className='py-5 text-center'>Loading</p>
+                    :
+                    error
+                    ?
+                    <p className='py-5 text-center'>Error</p>
+                    :
+                    <tbody>
+                        {
+                            messages.map((message) => {
+                                return <MessageItem message={message} />
+                            })
+                        }
+                    </tbody>
+                }
             </table>
         </div>
     );

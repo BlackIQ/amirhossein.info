@@ -7,7 +7,7 @@ const Test = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://localhost:8000/")
+        Axios.get(REACT_APP_EXPRESS_APP)
             .then((data) => setMessages(data))
             .catch((error) => {});
     }, []);

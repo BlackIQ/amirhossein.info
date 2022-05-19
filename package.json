@@ -4,7 +4,8 @@
   "description": "Second version and developed version of amirhossein.info website",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "test": "nodemon app.js"
   },
   "repository": {
     "type": "git",

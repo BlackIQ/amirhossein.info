@@ -11,7 +11,7 @@ const mdb = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWOR
 mongoose.connect(mdb)
     .then((result) => {
         console.log('Connected');
-        app.listen(process.env.PORT);
+        app.listen(3000);
     })
     .catch((error) => console.log(error));
 

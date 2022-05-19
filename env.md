@@ -1,6 +1,8 @@
 # Env variables
 
-## Mongodb
+## Back-Enc - API
+
+### Mongodb
 
 Mongodb connection stuff.
 
@@ -11,10 +13,19 @@ MONGO_DATABASE=""
 MONGO_COLLECTION=""
 ```
 
-## Telegram
+### Telegram
 
 Telegram bot token.
 
 ```javascript
 BOT_TOKEN=""
+```
+
+### Application
+
+Application variables.
+
+```javascript
+REACT_APP=""
+PORT=8000
 ```

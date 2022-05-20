@@ -2,6 +2,8 @@
 document.getElementById('years').innerHTML = '2017 - ' + new Date().getFullYear(); // Year
 document.getElementById('age').innerHTML = new Date().getFullYear() - 2003; // Age
 
+console.log('Ready');
+
 // Download CV
 $('.download').append(
     '<span class="pointer en-cv">EN CV</span> - <span class="pointer fa-cv">FA CV</span>'

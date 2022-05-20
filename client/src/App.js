@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        {/* <Switch> */}
           <Route path='/' exact><Home /></Route>
           <Route path='/messages' exact><Messages /></Route>
           <Route path='/messages/:id'><Message /></Route>
-        </Switch>
+        {/* </Switch> */}
       </Router>
     </div>
   );

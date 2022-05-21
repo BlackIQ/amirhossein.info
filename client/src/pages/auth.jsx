@@ -1,5 +1,5 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { login,googleAuth, auth } from '../firebase/reactfire';
+import { login, auth } from '../firebase/reactfire';
 import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -29,11 +29,7 @@ const Auth = () => {
                         <label className="form-label" htmlFor="password">Password</label>
                         <input id="password" className="form-control" placeholder="********" type='password' onChange={e => setPassword(e.target.value)} required />
                         <br/>
-                        <div className="login-btn">
-                            <button onClick={() => login(email, password)} className="btn btn-info w-100">Login</button>
-                            &nbsp;
-                            <button onClick={() => googleAuth()} className="btn btn-danger w-100">Google</button>
-                        </div>
+                        <button onClick={() => login(email, password)} className="btn btn-info w-100">Login</button>
                     </div>
                 </div>
             </div>

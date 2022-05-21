@@ -178,4 +178,17 @@ ul li small {
   font-size: 7rem;
   color: navy;
 }
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
 /*# sourceMappingURL=style.css.map */

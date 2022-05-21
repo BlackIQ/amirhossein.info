@@ -1,6 +1,6 @@
 # Env variables
 
-## Back-Enc - API
+## Back-End - API
 
 ### Mongodb
 
@@ -28,4 +28,14 @@ Application variables.
 ```javascript
 REACT_APP=""
 PORT=8000
+```
+
+## Front-End - Client
+
+### NodeJs Application
+
+Link of NodeJs app.
+
+```javascript
+REACT_APP_EXPRESS_APP=""
 ```

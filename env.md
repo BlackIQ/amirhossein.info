@@ -2,7 +2,17 @@
 
 ## Back-End - API
 
-### Mongodb
+### Location
+
+The dotfile is stored in here:
+
+```shell
+/api/.env
+```
+
+### Variables
+
+#### Mongodb
 
 Mongodb connection stuff.
 
@@ -13,7 +23,7 @@ MONGO_DATABASE=""
 MONGO_COLLECTION=""
 ```
 
-### Telegram
+#### Telegram
 
 Telegram bot token.
 
@@ -21,7 +31,7 @@ Telegram bot token.
 BOT_TOKEN=""
 ```
 
-### Application
+#### Application
 
 Application variables.
 
@@ -32,7 +42,17 @@ PORT=8000
 
 ## Front-End - Client
 
-### NodeJs Application
+### Location
+
+The dotfile is stored in here:
+
+```shell
+/api/.env
+```
+
+### Variables
+
+#### NodeJs Application
 
 Link of NodeJs app.
 

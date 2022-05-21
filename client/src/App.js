@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route path='/' exact><Home /></Route>
           <Route path='/auth' exact><Auth /></Route>
-          <Route path='/messages' exact><Messages /></Route>
+          <Route path='/panel' exact><Messages /></Route>
           <Route path='/messages/:id'><Message /></Route>
         </Switch>
       </Router>

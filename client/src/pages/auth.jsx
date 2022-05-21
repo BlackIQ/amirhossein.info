@@ -1,9 +1,20 @@
-import { login,googleAuth } from '../firebase/reactfire';
-import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { login,googleAuth, auth } from '../firebase/reactfire';
+import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Auth = () => {
     const [email, setEmail] = useState([]);
     const [password, setPassword] = useState([]);
+
+    const [user, loading, error] = useAuthState(auth);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (loading) return;
+        if (user) history.push('/panel');
+    }, [user, loading]);
 
     return (
         <div className="login">

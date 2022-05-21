@@ -1,3 +1,6 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { logout, auth } from '../firebase/reactfire';
+import { useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import MessageItem from '../components/messageitem';
@@ -5,27 +8,40 @@ import MessageItem from '../components/messageitem';
 const { REACT_APP_EXPRESS_APP } = process.env;
 
 const Messages = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [appLoading, setAppLoading] = useState(false);
+    const [appError, setAppError] = useState(false);
 
     const [messages, setMessages] = useState([]);
 
-    useEffect(() => {
-        setLoading(true);
+    const [user, loading, error] = useAuthState(auth);
 
-        Axios.get(`${REACT_APP_EXPRESS_APP}/messages`)
-            .then((data) => {
-                setLoading(false);
-                setMessages(data.data);
-            })
-            .catch((error) => {
-                setLoading(false);
-                setError(true);
-            });
-    }, []);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (loading) return;
+        if (!user) history.push('/');
+        else {
+            setAppLoading(true);
+
+            Axios.get(`${REACT_APP_EXPRESS_APP}/messages`)
+                .then((data) => {
+                    setAppLoading(false);
+                    setMessages(data.data);
+                })
+                .catch((error) => {
+                    setAppLoading(false);
+                    setAppError(true);
+                });
+        }
+    }, [user, loading]);
 
     return (
         <div className='container-fluid p-4'>
+            <p>
+                <b>Hello Amir!</b>
+                <span onClick={() => logout()} className='float-end text-danger pointer'>Logout</span>
+            </p>
+            <br/>
             <table className='table table-bordered'>
                 <thead class="table-primary">
                     <tr>
@@ -36,11 +52,11 @@ const Messages = () => {
                     </tr>
                 </thead>
                 {
-                    loading
+                    appLoading
                     ?
                     <p className='py-5 text-center'>Loading</p>
                     :
-                    error
+                    setAppLoading
                     ?
                     <p className='py-5 text-center'>Error</p>
                     :

@@ -3,7 +3,7 @@ import Auth from './pages/auth';
 import Home from './pages/home';
 import Message from './pages/message';
 
-import Messages from './pages/messages';
+import Panel from './pages/panel';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Switch>
           <Route path='/' exact><Home /></Route>
           <Route path='/auth' exact><Auth /></Route>
-          <Route path='/panel' exact><Messages /></Route>
+          <Route path='/panel' exact><Panel /></Route>
           <Route path='/messages/:id'><Message /></Route>
         </Switch>
       </Router>

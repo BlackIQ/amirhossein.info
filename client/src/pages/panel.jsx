@@ -8,7 +8,7 @@ import MessageItem from '../components/messageitem';
 const { REACT_APP_EXPRESS_APP } = process.env;
 
 const Panel = () => {
-    const [appLoading, setAppLoading] = useState(false);
+    const [appLoading, setAppLoading] = useState(true);
     const [appError, setAppError] = useState(false);
 
     const [messages, setMessages] = useState([]);
@@ -37,38 +37,52 @@ const Panel = () => {
 
     return (
         <div className='container-fluid p-4'>
-            <p>
-                <b>Hello Amir!</b>
-                <span onClick={() => logout()} className='float-end text-danger pointer'>Logout</span>
-            </p>
+            <div className='d-flex justify-content-between'>
+                <h3>Hello Amir!</h3>
+                <span onClick={() => logout()} className='text-danger pointer'>Logout</span>
+            </div>
             <br/>
-            <table className='table table-bordered'>
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Date</th>
-                        <th scope="row">Open</th>
-                    </tr>
-                </thead>
-                {
-                    appLoading
-                    ?
-                    <p className='py-5 text-center'>Loading</p>
-                    :
-                    appError
-                    ?
-                    <p className='py-5 text-center'>Error</p>
-                    :
-                    <tbody>
-                        {
-                            messages.map((message) => {
-                                return (<MessageItem message={message} />);
-                            })
-                        }
-                    </tbody>
-                }
-            </table>
+            {
+                appLoading
+                ?
+                <div className='d-flex align-items-center justify-content-center vh-100'>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                :
+                appLoading
+                ?
+                <div className='d-flex align-items-center justify-content-center vh-100'>
+                    <div className='card border border-danger py-5'>
+                        <div className="card-body text-danger text-center">
+                            <h1>Error</h1>
+                            <h3>Something went wrong.</h3>
+                            <span>Refresh the page, maybe be fixed</span>
+                        </div>
+                    </div>
+                </div>
+                :
+                <div className='table-responsive'>
+                    <table className='table table-bordered'>
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Date</th>
+                                <th scope="row">Open</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                messages.map((message) => {
+                                    return (<MessageItem message={message} />);
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     );
 }

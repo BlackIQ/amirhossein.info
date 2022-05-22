@@ -7,7 +7,7 @@ import MessageItem from '../components/messageitem';
 
 const { REACT_APP_EXPRESS_APP } = process.env;
 
-const Messages = () => {
+const Panel = () => {
     const [appLoading, setAppLoading] = useState(false);
     const [appError, setAppError] = useState(false);
 
@@ -56,14 +56,14 @@ const Messages = () => {
                     ?
                     <p className='py-5 text-center'>Loading</p>
                     :
-                    setAppLoading
+                    appError
                     ?
                     <p className='py-5 text-center'>Error</p>
                     :
                     <tbody>
                         {
                             messages.map((message) => {
-                                return <MessageItem message={message} />
+                                return (<MessageItem message={message} />);
                             })
                         }
                     </tbody>
@@ -73,4 +73,4 @@ const Messages = () => {
     );
 }
 
-export default Messages;
+export default Panel;

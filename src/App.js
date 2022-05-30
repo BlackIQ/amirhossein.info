@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
@@ -10,6 +11,16 @@ function App() {
         draggable: true,
         progress: undefined,
     });
+
+    const [subject, setSubject] = useState([]);
+    const [from, setFrom] = useState([]);
+    const [message, setMessage] = useState([]);
+
+    const submit = e => {
+        e.preventDefault();
+        
+        notify();
+    }
 
   return (
     <div className="App">
@@ -219,15 +230,15 @@ function App() {
                             <p>Send your messages directly to my email with using this form. Or you can send it with composing an email in your email panel.</p>
                             <div>
                                 <label className="form-label" for="subject">Subject</label>
-                                <input className="form-control" id="subject" placeholder="Subject" name="subject" />
+                                <input className="form-control" id="subject" placeholder="Subject" onChange={(e) => setSubject(e.target.value)} />
                                 <br/>
                                 <label className="form-label" for="from">From</label>
-                                <input className="form-control" id="from" placeholder="From" name="from" />
+                                <input className="form-control" id="from" placeholder="From" onChange={(e) => setFrom(e.target.value)} />
                                 <br/>
                                 <label className="form-label" for="message">Message</label>
-                                <textarea className="form-control" id="message" placeholder="Message" name="message" rows="5"></textarea>
+                                <textarea className="form-control" id="message" placeholder="Message" onChange={(e) => setMessage(e.target.value)} rows="5"></textarea>
                                 <br/>
-                                <button type='button' onClick={notify} className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
+                                <button type='button' onClick={submit} className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
                             </div>
                         </div>
                     </div>

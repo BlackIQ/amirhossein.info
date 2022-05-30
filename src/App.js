@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
@@ -12,14 +13,16 @@ function App() {
         progress: undefined,
     });
 
-    const [subject, setSubject] = useState([]);
-    const [from, setFrom] = useState([]);
-    const [message, setMessage] = useState([]);
+    const form = useRef();
 
     const submit = e => {
         e.preventDefault();
-        
-        notify();
+
+        emailjs.sendForm('service_fibzlrt', 'template_z0mlhu3', form.current, 'u5NdmwMtlY1BHPmDl')
+            .then(
+                (result) => console.log(notify()),
+                (error) => console.log(error.text)
+            );
     }
 
   return (
@@ -228,18 +231,18 @@ function App() {
                         </div>
                         <div className="card-body">
                             <p>Send your messages directly to my email with using this form. Or you can send it with composing an email in your email panel.</p>
-                            <div>
+                            <form ref={form} onSubmit={submit}>
                                 <label className="form-label" for="subject">Subject</label>
-                                <input className="form-control" id="subject" placeholder="Subject" onChange={(e) => setSubject(e.target.value)} />
+                                <input className="form-control" id="subject" placeholder="Subject" name='subject' />
                                 <br/>
                                 <label className="form-label" for="from">From</label>
-                                <input className="form-control" id="from" placeholder="From" onChange={(e) => setFrom(e.target.value)} />
+                                <input className="form-control" id="from" placeholder="From" name='from' />
                                 <br/>
                                 <label className="form-label" for="message">Message</label>
-                                <textarea className="form-control" id="message" placeholder="Message" onChange={(e) => setMessage(e.target.value)} rows="5"></textarea>
+                                <textarea className="form-control" id="message" placeholder="Message" name='message' rows="5"></textarea>
                                 <br/>
-                                <button type='button' onClick={submit} className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
-                            </div>
+                                <button type='submit' className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
+                            </form>
                         </div>
                     </div>
                     <div className="card rounded-0 shadow-0 mb-3">

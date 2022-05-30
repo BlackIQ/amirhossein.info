@@ -1,42 +1,43 @@
 function App() {
   return (
     <div className="App">
-      <nav class="navbar navbar-expand-lg navbar-dark shadow-0 darkbluenavy-bg">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
-                <a class="navbar-brand boogaloo-font">amirhossein</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <nav className="navbar navbar-expand-lg navbar-dark shadow-0 darkbluenavy-bg">
+            <div className="container">
+                <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i className="fas fa-bars"></i></button>
+                <a className="navbar-brand boogaloo-font">amirhossein</a>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="nav-link text-white">Projects</a>
-                        <a href="https://wa.me/989014784362" target="_blank" class="nav-link"><button class="btn btn-light shadow-0">Hire me</button></a>
+                    <div className="d-flex align-items-center">
+                        <a href="#" className="nav-link text-white">Projects</a>
+                        <a href="https://wa.me/989014784362" target="_blank" className="nav-link"><button className="btn btn-light shadow-0">Hire me</button></a>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="container-fluid pt-3 px-3 main">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card rounded-0 shadow-0 mt-2 mb-3">
-                        <div class="card-body intro">
-                            <div class="container">
-                                <div class="row justify-content-start align-items-center">
-                                    <div class="col-md-4">
-                                        <div class="m-1">
-                                            <img src="https://avatars.githubusercontent.com/u/55284339?v=4" class="rounded-circle w-100" />
+        <div className="container-fluid pt-3 px-3 main">
+            <div className="row">
+                <div className="col-md-8">
+                    <div className="card rounded-0 shadow-0 mt-2 mb-3">
+                        <div className="card-body intro">
+                            <div className="container">
+                                <div className="row justify-content-start align-items-center">
+                                    <div className="col-md-4">
+                                        <div className="m-1">
+                                            <img src="https://avatars.githubusercontent.com/u/55284339?v=4" className="rounded-circle w-100" />
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="m-1">
-                                            <h1 class="boogaloo-font">Amirhossein Mohammadi</h1>
+                                    <div className="col-md-8">
+                                        <div className="m-1">
+                                            <h1 className="apple-font">hello.</h1>
+                                            <h1 className="boogaloo-font">I'm Amirhossein Mohammadi</h1>
                                             <p><small>Software developer at </small><b>Narbon technologies</b></p>
                                             <p>
-                                                <span><i class="fa fa-building"></i> Narbon information technologies</span>
+                                                <span><i className="fa fa-building"></i> Narbon information technologies</span>
                                                 <br/>
-                                                <span><i class="fa fa-map-marker"></i> Turkey, Izmir</span>
+                                                <span><i className="fa fa-map-marker"></i> Turkey, Izmir</span>
                                                 <br/>
-                                                <span><i class="fa fa-birthday-cake"></i> Nov 20 2003</span>
+                                                <span><i className="fa fa-birthday-cake"></i> Nov 20 2003</span>
                                             </p>
                                         </div>
                                     </div>
@@ -44,23 +45,23 @@ function App() {
                             </div>
                         </div>
                     </div>
-                    <div class="card rounded-0 shadow-0 mb-3">
-                        <div class="card-header rounded-0">
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
                             About me
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <span>Software Developer talented at translating customer requirements into testable engineering plans. Maintains exceptional development quality from conception through distribution. Works alongside clients and colleagues through all stages of development to produce exceptional final products.</span>
                         </div>
                     </div>
-                    <div class="card rounded-0 shadow-0 mb-3">
-                        <div class="card-header rounded-0">
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
                             Experience
                         </div>
-                        <div class="card-body">
-                            <div class="job">
-                                <h3 class="font-weight-bold darkbluenavy-fore">Software developer</h3>
-                                <div class="d-flex justify-content-start align-items-end">
-                                    <h4 class="font-weight-bold">Narbon information technologies,</h4>
+                        <div className="card-body">
+                            <div className="job">
+                                <h3 className="font-weight-bold darkbluenavy-fore">Software developer</h3>
+                                <div className="d-flex justify-content-start align-items-end">
+                                    <h4 className="font-weight-bold">Narbon information technologies.</h4>
                                     &nbsp;
                                     <h5>Iran, Tehran</h5>
                                 </div>
@@ -73,10 +74,10 @@ function App() {
                                 </ul>
                             </div>
                             <hr/>
-                            <div class="job">
-                                <h3 class="font-weight-bold darkbluenavy-fore">Back-End developer</h3>
-                                <div class="d-flex justify-content-start align-items-end">
-                                    <h4 class="font-weight-bold">Narbon,</h4>
+                            <div className="job">
+                                <h3 className="font-weight-bold darkbluenavy-fore">Back-End developer</h3>
+                                <div className="d-flex justify-content-start align-items-end">
+                                    <h4 className="font-weight-bold">Narbon.</h4>
                                     &nbsp;
                                     <h5>Iran, Tehran</h5>
                                 </div>
@@ -93,55 +94,55 @@ function App() {
                             </div>
                         </div>
                     </div>
-                    <div class="card rounded-0 shadow-0 mb-3">
-                        <div class="card-header rounded-0">
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
                             Languages
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <ul>
                                 <li>
                                     Persian
-                                    <span class="float-end">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
                                     </span>
                                 </li>
                                 <li>
                                     English
-                                    <span class="float-end">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-o"></i>
                                     </span>
                                 </li>
                                 <li>
                                     German
-                                    <span class="float-end">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
                                     </span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="card rounded-0 shadow-0 mb-3">
-                        <div class="card-header rounded-0">
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
                             Skills
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <table className="table table-bordered">
                                     <tbody>
-                                        <tr class="darkbluenavy-td">
-                                            <td colspan="4" class="font-weight-bold">Front-End development</td>
+                                        <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Front-End development</td>
                                         </tr>
                                         <tr>
                                             <td><li>ReactJs</li></td>
@@ -149,8 +150,8 @@ function App() {
                                             <td><li>SASS</li></td>
                                             <td><li>Responsive</li></td>
                                         </tr>
-                                        <tr class="darkbluenavy-td">
-                                            <td colspan="4" class="font-weight-bold">Back-End development</td>
+                                        <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Back-End development</td>
                                         </tr>
                                         <tr>
                                             <td><li>NodeJs</li></td>
@@ -158,8 +159,8 @@ function App() {
                                             <td><li>Laravel</li></td>
                                             <td><li>Flask</li></td>
                                         </tr>
-                                        <tr class="darkbluenavy-td">
-                                            <td colspan="4" class="font-weight-bold">Database</td>
+                                        <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Database</td>
                                         </tr>
                                         <tr>
                                             <td><li>Firebase Firestore</li></td>
@@ -167,8 +168,8 @@ function App() {
                                             <td><li>MongoDB</li></td>
                                             <td><li>MariaDB</li></td>
                                         </tr>
-                                        <tr class="darkbluenavy-td">
-                                            <td colspan="4" class="font-weight-bold">Languages</td>
+                                        <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Languages</td>
                                         </tr>
                                         <tr>
                                             <td><li>Php</li></td>
@@ -182,8 +183,8 @@ function App() {
                                             <td></td>
                                             <td></td>
                                         </tr>
-                                        <tr class="darkbluenavy-td">
-                                            <td colspan="4" class="font-weight-bold">Others</td>
+                                        <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Others</td>
                                         </tr>
                                         <tr>
                                             <td><li>APIs</li></td>
@@ -197,51 +198,53 @@ function App() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card rounded-0 shadow-0 mt-2 mb-3">
-                        <div class="card-header rounded-0">
+                <div className="col-md-4">
+                    <div className="card rounded-0 shadow-0 mt-2 mb-3">
+                        <div className="card-header rounded-0">
                             Send me a message
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <p>Send your messages directly to my email with using this form. Or you can send it with composing an email in your email panel.</p>
                             <form>
-                                <label class="form-label" for="subject">Subject</label>
-                                <input class="form-control" id="subject" placeholder="Subject" name="subject" />
+                                <label className="form-label" for="subject">Subject</label>
+                                <input className="form-control" id="subject" placeholder="Subject" name="subject" />
                                 <br/>
-                                <label class="form-label" for="from">From</label>
-                                <input class="form-control" id="from" placeholder="From" name="from" />
+                                <label className="form-label" for="from">From</label>
+                                <input className="form-control" id="from" placeholder="From" name="from" />
                                 <br/>
-                                <label class="form-label" for="message">Message</label>
-                                <textarea class="form-control" id="message" placeholder="Message" name="message" rows="5"></textarea>
+                                <label className="form-label" for="message">Message</label>
+                                <textarea className="form-control" id="message" placeholder="Message" name="message" rows="5"></textarea>
                                 <br/>
-                                <button class="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
+                                <button className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
                             </form>
                         </div>
                     </div>
-                    <div class="card rounded-0 shadow-0 mt-2 mb-3">
-                        <div class="card-header rounded-0">
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
                             Contact me online
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <p>Most of the time I am online in Telegram and Twitter. So i will be glad if we have intraction togather.</p>
-                            <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i class="fab fa-telegram-plane"></i></button>
-                                <button type="button" class="btn btn-lg btn-dark btn-floating shadow-0 bg-gradient"><i class="fab fa-github"></i></button>
-                                <button type="button" class="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i class="fab fa-linkedin-in"></i></button>
-                                <button type="button" class="btn btn-lg btn-success btn-floating shadow-0 bg-gradient"><i class="fab fa-whatsapp"></i></button>
-                                <button type="button" class="btn btn-lg btn-info btn-floating shadow-0 bg-gradient"><i class="fab fa-twitter"></i></button>
-                                <button type="button" class="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i class="fab fa-facebook-f"></i></button>
+                            <div className="d-flex justify-content-between">
+                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-telegram-plane"></i></button>
+                                <button type="button" className="btn btn-lg btn-dark btn-floating shadow-0 bg-gradient"><i className="fab fa-github"></i></button>
+                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-linkedin-in"></i></button>
+                                <button type="button" className="btn btn-lg btn-success btn-floating shadow-0 bg-gradient"><i className="fab fa-whatsapp"></i></button>
+                                <button type="button" className="btn btn-lg btn-info btn-floating shadow-0 bg-gradient"><i className="fab fa-twitter"></i></button>
+                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-facebook-f"></i></button>
                             </div>
                             <hr/>
                             <h4>Also, remember my email and phone</h4>
                             <span>
-                                <i class="fas fa-envelope darkbluenavy-fore"></i>
-                                <a class="text-reset" href="mailto:amir@yahoo.com">amir@yahoo.com</a>
+                                <i className="fas fa-envelope darkbluenavy-fore"></i>
+                                &nbsp;
+                                <a className="text-reset" href="mailto:amir@yahoo.com">amir@yahoo.com</a>
                             </span>
                             <br/>
                             <span>
-                                <i class="fas fa-mobile-alt darkbluenavy-fore"></i>
-                                <a class="text-reset" href="tel:+989014784362">+98 901 4784 362</a>
+                                <i className="fas fa-mobile-alt darkbluenavy-fore"></i>
+                                &nbsp;
+                                <a className="text-reset" href="tel:+989014784362">+98 901 4784 362</a>
                             </span>
                         </div>
                     </div>

@@ -1,4 +1,16 @@
+import { ToastContainer, toast } from 'react-toastify';
+
 function App() {
+    const notify = () => toast.success('🦄 Message send!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-dark shadow-0 darkbluenavy-bg">
@@ -205,7 +217,7 @@ function App() {
                         </div>
                         <div className="card-body">
                             <p>Send your messages directly to my email with using this form. Or you can send it with composing an email in your email panel.</p>
-                            <form>
+                            <div>
                                 <label className="form-label" for="subject">Subject</label>
                                 <input className="form-control" id="subject" placeholder="Subject" name="subject" />
                                 <br/>
@@ -215,8 +227,8 @@ function App() {
                                 <label className="form-label" for="message">Message</label>
                                 <textarea className="form-control" id="message" placeholder="Message" name="message" rows="5"></textarea>
                                 <br/>
-                                <button className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
-                            </form>
+                                <button type='button' onClick={notify} className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
+                            </div>
                         </div>
                     </div>
                     <div className="card rounded-0 shadow-0 mb-3">
@@ -251,6 +263,17 @@ function App() {
                 </div>
             </div>
         </div>
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
     </div>
   );
 }

@@ -22,6 +22,12 @@ body {
   background: #434C56 !important;
 }
 
+.darkbluenavy-td {
+  background: #434C56 !important;
+  color: white;
+  border-color: #434C56;
+}
+
 .darkbluenavy-fore {
   color: #434C56 !important;
 }

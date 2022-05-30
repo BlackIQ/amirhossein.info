@@ -3,7 +3,17 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
-    const notify = () => toast.success('🦄 Message send!', {
+    const successNotify = () => toast.success('🦄 Message send!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
+    const errorNotify = () => toast.error('🦄 Oh, an error!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -20,8 +30,8 @@ function App() {
 
         emailjs.sendForm('service_fibzlrt', 'template_z0mlhu3', form.current, 'u5NdmwMtlY1BHPmDl')
             .then(
-                (result) => console.log(notify()),
-                (error) => console.log(error.text)
+                (result) => console.log(successNotify()),
+                (error) => console.log(errorNotify())
             );
     }
 

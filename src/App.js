@@ -3,6 +3,8 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
+    const env = process.env;
+
     const successNotify = () => toast.success('🦄 Message send!', {
         position: "top-right",
         autoClose: 5000,
@@ -28,7 +30,7 @@ function App() {
     const submit = e => {
         e.preventDefault();
 
-        emailjs.sendForm('service_fibzlrt', 'template_z0mlhu3', form.current, 'u5NdmwMtlY1BHPmDl')
+        emailjs.sendForm(env.REACT_APP_EMAIL_SERVICE_NAME, env.REACT_APP_EMAIL_TEMPLATE_NAME, form.current, env.REACT_APP_EMAIL_ACCOUNT_TOKEN)
             .then(
                 (result) => console.log(successNotify()),
                 (error) => console.log(errorNotify())

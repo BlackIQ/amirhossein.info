@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     });
 
     const form = useRef();
+    const history = useHistory();
 
     const submit = e => {
         e.preventDefault();
@@ -318,12 +320,12 @@ function App() {
                         <div className="card-body">
                             <p>Most of the time I am online in Telegram and Twitter. So i will be glad if we have intraction togather.</p>
                             <div className="d-flex justify-content-between">
-                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-telegram-plane"></i></button>
-                                <button type="button" className="btn btn-lg btn-dark btn-floating shadow-0 bg-gradient"><i className="fab fa-github"></i></button>
-                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-linkedin-in"></i></button>
-                                <button type="button" className="btn btn-lg btn-success btn-floating shadow-0 bg-gradient"><i className="fab fa-whatsapp"></i></button>
-                                <button type="button" className="btn btn-lg btn-info btn-floating shadow-0 bg-gradient"><i className="fab fa-twitter"></i></button>
-                                <button type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-facebook-f"></i></button>
+                                <button onClick={() => history.push('https://t.me/BlackIQ')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-telegram-plane"></i></button>
+                                <button onClick={() => history.push('https://github.com/BlackIQ')} type="button" className="btn btn-lg btn-dark btn-floating shadow-0 bg-gradient"><i className="fab fa-github"></i></button>
+                                <button onClick={() => history.push('https://www.linkedin.com/in/amirhosseinmohammadi/')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-linkedin-in"></i></button>
+                                <button onClick={() => history.push('https://wa.me/989014784362')} type="button" className="btn btn-lg btn-success btn-floating shadow-0 bg-gradient"><i className="fab fa-whatsapp"></i></button>
+                                <button onClick={() => history.push('https://twitter.com/GNU_Amir')} type="button" className="btn btn-lg btn-info btn-floating shadow-0 bg-gradient"><i className="fab fa-twitter"></i></button>
+                                <button onClick={() => history.push('https://facebook.com/gnu.amir')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-facebook-f"></i></button>
                             </div>
                             <hr/>
                             <h4>Also, remember my email and phone</h4>

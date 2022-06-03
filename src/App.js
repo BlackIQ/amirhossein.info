@@ -198,6 +198,21 @@ function App() {
                                             <td><li>Flask</li></td>
                                         </tr>
                                         <tr className="darkbluenavy-td">
+                                            <td colspan="4" className="font-weight-bold">Mobile development</td>
+                                        </tr>
+                                        <tr>
+                                            <td><li>Dart</li></td>
+                                            <td><li>Flutter</li></td>
+                                            <td><li>iOS development</li></td>
+                                            <td><li>Android development</li></td>
+                                        </tr>
+                                        <tr>
+                                            <td><li>Firebase</li></td>
+                                            <td><li>MongoDB</li></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr className="darkbluenavy-td">
                                             <td colspan="4" className="font-weight-bold">Database</td>
                                         </tr>
                                         <tr>
@@ -233,6 +248,45 @@ function App() {
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                    <div className="card rounded-0 shadow-0 mb-3">
+                        <div className="card-header rounded-0">
+                            Languages
+                        </div>
+                        <div className="card-body">
+                            <ul>
+                                <li>
+                                    Persian
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                    </span>
+                                </li>
+                                <li>
+                                    English
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-o"></i>
+                                    </span>
+                                </li>
+                                <li>
+                                    German
+                                    <span className="float-end">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
+                                        <i className="fa fa-star-o"></i>
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

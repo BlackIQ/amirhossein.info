@@ -298,30 +298,27 @@ function App() {
                     </div>
                     <div className="card rounded-0 shadow-0 mb-3">
                         <div className="card-header rounded-0">
-                            Contact me online
+                            Social medias
                         </div>
                         <div className="card-body">
-                            <p>Most of the time I am online in Telegram and Twitter. So i will be glad if we have intraction togather.</p>
-                            <div className="d-flex justify-content-between">
-                                <button onClick={() => history.push('https://t.me/BlackIQ')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-telegram-plane"></i></button>
-                                <button onClick={() => history.push('https://github.com/BlackIQ')} type="button" className="btn btn-lg btn-dark btn-floating shadow-0 bg-gradient"><i className="fab fa-github"></i></button>
-                                <button onClick={() => history.push('https://www.linkedin.com/in/amirhosseinmohammadi/')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-linkedin-in"></i></button>
-                                <button onClick={() => history.push('https://wa.me/989014784362')} type="button" className="btn btn-lg btn-success btn-floating shadow-0 bg-gradient"><i className="fab fa-whatsapp"></i></button>
-                                <button onClick={() => history.push('https://twitter.com/GNU_Amir')} type="button" className="btn btn-lg btn-info btn-floating shadow-0 bg-gradient"><i className="fab fa-twitter"></i></button>
-                                <button onClick={() => history.push('https://facebook.com/gnu.amir')} type="button" className="btn btn-lg btn-primary btn-floating shadow-0 bg-gradient"><i className="fab fa-facebook-f"></i></button>
-                            </div>
-                            <hr/>
-                            <h4>Also, remember my email and phone</h4>
+                            <p>Here are Github and LinkedIn links.</p>
                             <span>
-                                <i className="fas fa-envelope darkbluenavy-fore"></i>
+                                <i className="fab fa-github darkbluenavy-fore"></i>
                                 &nbsp;
-                                <a className="text-reset" href="mailto:amir@yahoo.com">amir@yahoo.com</a>
+                                <a className="text-reset" href="https://github.com/BlackIQ">Github</a>
                             </span>
                             <br/>
                             <span>
-                                <i className="fas fa-mobile-alt darkbluenavy-fore"></i>
+                                <i className="fab fa-linkedin-in darkbluenavy-fore"></i>
                                 &nbsp;
-                                <a className="text-reset" href="tel:+989014784362">+98 901 4784 362</a>
+                                <a className="text-reset" href="https://www.linkedin.com/in/amirhosseinmohammadi">LinkedIn</a>
+                            </span>
+                            <hr/>
+                            <h4>Also, remember my email</h4>
+                            <span>
+                                <i className="fas fa-envelope darkbluenavy-fore"></i>
+                                &nbsp;
+                                <a className="text-reset" href="mailto:amirhosseinmohammadi1380@yahoo.com">amirhosseinmohammadi1380@yahoo.com</a>
                             </span>
                         </div>
                     </div>

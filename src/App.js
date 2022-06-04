@@ -7,7 +7,7 @@ import Navbar from './components/navbar';
 function App() {
     const env = process.env;
 
-    const successNotify = () => toast.success('🦄 Message send!', {
+    const successNotify = () => toast.success('🥂 Message send!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -17,7 +17,7 @@ function App() {
         progress: undefined,
     });
 
-    const errorNotify = () => toast.error('🦄 Oh, an error!', {
+    const errorNotify = () => toast.error('🤷🏻‍♂️ Oh, an error!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

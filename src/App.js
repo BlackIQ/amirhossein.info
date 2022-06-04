@@ -49,7 +49,7 @@ function App() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
                     <div className="d-flex align-items-center">
-                        <a href="#" className="nav-link text-white">Projects</a>
+                        <a href="#projects" className="nav-link text-white">Projects</a>
                         <a href="https://wa.me/989014784362" target="_blank" className="nav-link"><button className="btn btn-light shadow-0">Hire me</button></a>
                     </div>
                 </div>
@@ -252,7 +252,7 @@ function App() {
                             </div>
                         </div>
                     </div>
-                    <div className="card rounded-0 shadow-0 mb-3">
+                    <div className="card rounded-0 shadow-0 mb-3" id='projects'>
                         <div className="card-header rounded-0">
                             Projects
                         </div>

@@ -31,10 +31,8 @@ const SendMessage = () => {
         e.preventDefault();
 
         emailjs.sendForm(env.REACT_APP_EMAIL_SERVICE_NAME, env.REACT_APP_EMAIL_TEMPLATE_NAME, form.current, env.REACT_APP_EMAIL_ACCOUNT_TOKEN)
-            .then(
-                (result) => console.log(successNotify()),
-                (error) => console.log(errorNotify())
-            );
+            .then((result) => successNotify())
+            .catch((error) => errorNotify());
     }
 
     return (

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 
@@ -27,6 +27,10 @@ const SendMessage = () => {
 
     const form = useRef();
 
+    const [subject, setSubject] = useState([]);
+    const [from, setFrom] = useState([]);
+    const [message, setmessage] = useState([]);
+
     const submit = e => {
         e.preventDefault();
 
@@ -44,15 +48,15 @@ const SendMessage = () => {
                 <p>Send your messages directly to my email with using this form. Or you can send it with composing an email in your email panel.</p>
                 <form ref={form} onSubmit={submit}>
                     <label className="form-label" for="subject">Subject</label>
-                    <input className="form-control" id="subject" placeholder="Subject" name='subject' />
+                    <input className="form-control" id="subject" placeholder="Subject" name='subject' onChange={(e) => setSubject(e.target.value)} />
                     <br/>
                     <label className="form-label" for="from">From</label>
-                    <input className="form-control" id="from" placeholder="From" name='from' />
+                    <input className="form-control" id="from" placeholder="From" name='from' onChange={(e) => setFrom(e.target.value)} />
                     <br/>
                     <label className="form-label" for="message">Message</label>
-                    <textarea className="form-control" id="message" placeholder="Message" name='message' rows="5"></textarea>
+                    <textarea className="form-control" id="message" placeholder="Message" name='message' rows="5" onChange={(e) => setmessage(e.target.value)}></textarea>
                     <br/>
-                    <button type='submit' className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg">Send message</button>
+                    <button type='submit' className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg" disabled={ true }>Send message</button>
                 </form>
             </div>
         </div>

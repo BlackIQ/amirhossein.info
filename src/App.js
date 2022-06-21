@@ -26,30 +26,30 @@ function App() {
         progress: undefined,
     });
 
-    // useEffect(() => {
-    //     const d = new Date();
+    useEffect(() => {
+        const d = new Date();
 
-    //     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    //     const data = {
-    //         "timestamp": d.toString(),
-    //         "specific": {
-    //             "time": {
-    //                 "minutes": d.getMinutes(),
-    //                 "hour": d.getHours()
-    //             },
-    //             "date": {
-    //                 "day": d.getUTCDay(),
-    //                 "month": monthNames[d.getUTCMonth()],
-    //                 "year": d.getFullYear()
-    //             }
-    //         }
-    //     };
+        const data = {
+            "timestamp": d.toString(),
+            "specific": {
+                "time": {
+                    "minutes": d.getMinutes(),
+                    "hour": d.getHours()
+                },
+                "date": {
+                    "day": d.getUTCDay(),
+                    "month": monthNames[d.getUTCMonth()],
+                    "year": d.getFullYear()
+                }
+            }
+        };
 
-    //     axios.post(env.REACT_APP_API_URL, data)
-    //         .then((res) => welcomeNotify())
-    //         .catch((error) => console.log(error));
-    // });
+        axios.post(env.REACT_APP_API_URL, data)
+            .then((res) => welcomeNotify())
+            .catch((error) => console.log(error));
+    });
 
     return (
         <div className="App">

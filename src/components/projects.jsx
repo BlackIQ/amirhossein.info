@@ -7,7 +7,7 @@ const Projects = () => {
             <div className="card-body">
                 <div className='project'>
                     <div className="d-flex justify-content-start align-items-center">
-                        <h3 className='font-weight-bold darkbluenavy-fore'><a href='https://mbrtrading.com' className='text-reset' target='_blank'>MBR TRADING</a></h3>
+                        <h3 className='font-weight-bold darkbluenavy-fore'><a href='https://mbrtrading.com' className='text-reset' target='_blank'>MBE TRADING</a></h3>
                         &nbsp;
                         <h6>Dubai, UAE</h6>
                     </div>

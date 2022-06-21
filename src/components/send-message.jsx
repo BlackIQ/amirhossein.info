@@ -53,7 +53,7 @@ const SendMessage = () => {
 
     return (
         <div className="card rounded-0 shadow-0 mt-2 mb-3">
-            <div className="card-header rounded-0">
+            <div className="card-header fw-bold rounded-0">
                 Send me a message
             </div>
             <div className="card-body">

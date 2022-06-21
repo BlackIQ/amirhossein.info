@@ -1,7 +1,7 @@
 const SocialMedia = () => {
     return (
         <div className="card rounded-0 shadow-0 mb-3">
-            <div className="card-header rounded-0">
+            <div className="card-header fw-bold rounded-0">
                 Social medias
             </div>
             <div className="card-body">

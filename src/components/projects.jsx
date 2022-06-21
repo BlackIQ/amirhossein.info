@@ -1,7 +1,7 @@
 const Projects = () => {
     return (
         <div className="card rounded-0 shadow-0 mb-3" id='projects'>
-            <div className="card-header rounded-0">
+            <div className="card-header fw-bold rounded-0">
                 Projects
             </div>
             <div className="card-body">
@@ -20,6 +20,7 @@ const Projects = () => {
                     </div>
                 </div>
                 <hr/>
+                <h5>There are other projects that are NARBON EXCLUSIVE.</h5>
             </div>
         </div>
     );

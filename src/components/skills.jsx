@@ -1,7 +1,7 @@
 const Skills = () => {
     return (
         <div className="card rounded-0 shadow-0 mb-3">
-            <div className="card-header rounded-0">
+            <div className="card-header fw-bold rounded-0">
                 Skills
             </div>
             <div className="card-body">

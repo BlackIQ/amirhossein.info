@@ -11,6 +11,7 @@ import AboutMe from './components/about-me';
 import Profile from './components/profile';
 import Skills from './components/skills';
 import Navbar from './components/navbar';
+import Resume from './components/resume';
 
 function App() {
     const env = process.env;
@@ -25,30 +26,30 @@ function App() {
         progress: undefined,
     });
 
-    useEffect(() => {
-        const d = new Date();
+    // useEffect(() => {
+    //     const d = new Date();
 
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    //     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-        const data = {
-            "timestamp": d.toString(),
-            "specific": {
-                "time": {
-                    "minutes": d.getMinutes(),
-                    "hour": d.getHours()
-                },
-                "date": {
-                    "day": d.getUTCDay(),
-                    "month": monthNames[d.getUTCMonth()],
-                    "year": d.getFullYear()
-                }
-            }
-        };
+    //     const data = {
+    //         "timestamp": d.toString(),
+    //         "specific": {
+    //             "time": {
+    //                 "minutes": d.getMinutes(),
+    //                 "hour": d.getHours()
+    //             },
+    //             "date": {
+    //                 "day": d.getUTCDay(),
+    //                 "month": monthNames[d.getUTCMonth()],
+    //                 "year": d.getFullYear()
+    //             }
+    //         }
+    //     };
 
-        axios.post(env.REACT_APP_API_URL, data)
-            .then((res) => welcomeNotify())
-            .catch((error) => console.log(error));
-    });
+    //     axios.post(env.REACT_APP_API_URL, data)
+    //         .then((res) => welcomeNotify())
+    //         .catch((error) => console.log(error));
+    // });
 
     return (
         <div className="App">
@@ -66,6 +67,7 @@ function App() {
                     <div className="col-md-4">
                         <SendMessage />
                         <SocialMedia />
+                        <Resume />
                     </div>
                 </div>
             </div>

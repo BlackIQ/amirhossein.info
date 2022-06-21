@@ -25,6 +25,16 @@ const SendMessage = () => {
         progress: undefined,
     });
 
+    const blankNotify = () => toast.warning('🤔 Did you fill all fields!?', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
     const form = useRef();
 
     const [subject, setSubject] = useState([]);
@@ -34,9 +44,11 @@ const SendMessage = () => {
     const submit = e => {
         e.preventDefault();
 
-        emailjs.sendForm(env.REACT_APP_EMAIL_SERVICE_NAME, env.REACT_APP_EMAIL_TEMPLATE_NAME, form.current, env.REACT_APP_EMAIL_ACCOUNT_TOKEN)
-            .then((result) => successNotify())
-            .catch((error) => errorNotify());
+        if (subject && from && message) {
+            emailjs.sendForm(env.REACT_APP_EMAIL_SERVICE_NAME, env.REACT_APP_EMAIL_TEMPLATE_NAME, form.current, env.REACT_APP_EMAIL_ACCOUNT_TOKEN)
+                .then((result) => successNotify())
+                .catch((error) => errorNotify());
+        } else blankNotify();
     }
 
     return (
@@ -56,7 +68,7 @@ const SendMessage = () => {
                     <label className="form-label" for="message">Message</label>
                     <textarea className="form-control" id="message" placeholder="Message" name='message' rows="5" onChange={(e) => setmessage(e.target.value)}></textarea>
                     <br/>
-                    <button type='submit' className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg" disabled={ true }>Send message</button>
+                    <button type='submit' className="btn btn-lg btn-dark w-100 shadow-0 darkbluenavy-bg" disabled={subject && from && message ? null : true}>Send message</button>
                 </form>
             </div>
         </div>

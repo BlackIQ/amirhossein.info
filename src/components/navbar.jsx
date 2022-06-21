@@ -20,7 +20,6 @@ const Navbar = () => {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
                     <div className="d-flex align-items-center">
-                        <a href="#projects" className="nav-link text-white">Projects</a>
                         <span onClick={hiremeNotify} className="nav-link"><button className="btn btn-light shadow-0">Hire me</button></span>
                     </div>
                 </div>

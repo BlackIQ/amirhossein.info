@@ -22,6 +22,24 @@ const Experience = () => {
                 </div>
                 <hr/>
                 <div className="job">
+                    <h3 className="font-weight-bold darkbluenavy-fore">Software developer</h3>
+                    <div className="d-flex justify-content-start align-items-end">
+                        <h4 className="font-weight-bold">Merh Charitable.</h4>
+                        &nbsp;
+                        <h5>Iran, Tehran</h5>
+                    </div>
+                    <h6>Jun 2022, PRESENT</h6>
+                    <ul>
+                        <li>Build and maintain websites.</li>
+                        <li>Write high-quality code.</li>
+                        <li>Perform quality assurance (QA) testing</li>
+                        <li>Assess efficiency and speed.</li>
+                        <li>Troubleshoot and debug.</li>
+                        <li>Train and support</li>
+                    </ul>
+                </div>
+                <hr/>
+                <div className="job">
                     <h3 className="font-weight-bold darkbluenavy-fore">Back-End developer</h3>
                     <div className="d-flex justify-content-start align-items-end">
                         <h4 className="font-weight-bold">Narbon.</h4>

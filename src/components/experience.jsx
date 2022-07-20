@@ -30,12 +30,12 @@ const Experience = () => {
                     </div>
                     <h6>Jun 2022, PRESENT</h6>
                     <ul>
-                        <li>Build and maintain websites.</li>
-                        <li>Write high-quality code.</li>
-                        <li>Perform quality assurance (QA) testing</li>
-                        <li>Assess efficiency and speed.</li>
-                        <li>Troubleshoot and debug.</li>
-                        <li>Train and support</li>
+                        <li>Designed intuitive graphical user interfaces using knowledge of serial communications and database design to improve user experience.</li>
+                        <li>Validated personal coding and third-party code to verify compliance with internal standards and technical requirements.</li>
+                        <li>Worked with the CEO to synchronize web presence with brand identity and logo.</li>
+                        <li>Collaborated with graphic design personnel to integrate images as basic site components.</li>
+                        <li>Pulled from PHP, SQL, JavaScript and other back-end library knowledge to bolster programming resources.</li>
+                        <li>Translated verbal customer requirements into written use cases and testable development stories.</li>
                     </ul>
                 </div>
                 <hr/>

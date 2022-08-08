@@ -62,7 +62,6 @@ function App() {
                         <Experience />
                         <Languages />
                         <Skills />
-                        <Projects />
                     </div>
                     <div className="col-md-4">
                         <SendMessage />

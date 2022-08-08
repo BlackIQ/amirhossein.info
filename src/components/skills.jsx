@@ -13,9 +13,9 @@ const Skills = () => {
                             </tr>
                             <tr>
                                 <td><li>ReactJs</li></td>
-                                <td><li>Material Design</li></td>
+                                <td><li>Redux</li></td>
+                                <td><li>MUI</li></td>
                                 <td><li>SASS</li></td>
-                                <td><li>Responsive</li></td>
                             </tr>
                             <tr className="darkbluenavy-td">
                                 <td colspan="4" className="font-weight-bold">Back-End development</td>
@@ -24,55 +24,34 @@ const Skills = () => {
                                 <td><li>NodeJs</li></td>
                                 <td><li>ExpressJs</li></td>
                                 <td><li>Laravel</li></td>
-                                <td><li>Flask</li></td>
+                                <td><li>RESTFuL API</li></td>
                             </tr>
                             <tr className="darkbluenavy-td">
                                 <td colspan="4" className="font-weight-bold">Mobile development</td>
                             </tr>
                             <tr>
-                                <td><li>Dart</li></td>
                                 <td><li>Flutter</li></td>
-                                <td><li>iOS development</li></td>
-                                <td><li>Android development</li></td>
-                            </tr>
-                            <tr>
                                 <td><li>Firebase</li></td>
-                                <td><li>MongoDB</li></td>
-                                <td></td>
-                                <td></td>
+                                <td><li>Material UI</li></td>
+                                <td><li>Swift UI</li></td>
                             </tr>
                             <tr className="darkbluenavy-td">
                                 <td colspan="4" className="font-weight-bold">Database</td>
                             </tr>
                             <tr>
-                                <td><li>Firebase Firestore</li></td>
-                                <td><li>PostgresSQL</li></td>
                                 <td><li>MongoDB</li></td>
                                 <td><li>MariaDB</li></td>
+                                <td><li>Firestore</li></td>
+                                <td><li>LowDB</li></td>
                             </tr>
                             <tr className="darkbluenavy-td">
                                 <td colspan="4" className="font-weight-bold">Languages</td>
                             </tr>
                             <tr>
-                                <td><li>Php</li></td>
-                                <td><li>Python</li></td>
+                                <td><li>Javascript</li></td>
                                 <td><li>Php</li></td>
                                 <td><li>Dart</li></td>
-                            </tr>
-                            <tr>
-                                <td><li>C</li></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr className="darkbluenavy-td">
-                                <td colspan="4" className="font-weight-bold">Others</td>
-                            </tr>
-                            <tr>
-                                <td><li>APIs</li></td>
-                                <td><li>Documentation</li></td>
-                                <td><li>Git</li></td>
-                                <td><li>Linux</li></td>
+                                <td><li>Python</li></td>
                             </tr>
                         </tbody>
                     </table>

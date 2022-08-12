@@ -22,7 +22,7 @@ const Experience = () => {
                         &nbsp;
                         <h6>Iran, Tehran</h6>
                     </div>
-                    <h6>Nov 2021, PRESENT</h6>
+                    <h6>Nov 2021, Aug 2022</h6>
                 </div>
                 <hr/>
                 <div className="job">

@@ -6,7 +6,6 @@ import SocialMedia from './components/social-media';
 import SendMessage from './components/send-message';
 import Experience from './components/experience';
 import Languages from './components/languages';
-import Projects from './components/projects';
 import AboutMe from './components/about-me';
 import Profile from './components/profile';
 import Skills from './components/skills';
@@ -29,21 +28,8 @@ function App() {
     useEffect(() => {
         const d = new Date();
 
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
         const data = {
             "timestamp": d.toString(),
-            "specific": {
-                "time": {
-                    "minutes": d.getMinutes(),
-                    "hour": d.getHours()
-                },
-                "date": {
-                    "day": d.getUTCDay(),
-                    "month": monthNames[d.getUTCMonth()],
-                    "year": d.getFullYear()
-                }
-            }
         };
 
         axios.post(env.REACT_APP_API_URL, data)

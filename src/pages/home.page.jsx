@@ -14,7 +14,12 @@ import {
 
 import { AppCard } from "../components/card.component";
 
+import ExperiencesCard from "../cards/experiences.card";
+import DownloadCard from "../cards/download.card";
+import MessageCard from "../cards/message.card";
 import AboutMeCard from "../cards/about.card";
+import SkillsCard from "../cards/skills.card";
+import SocialCard from "../cards/social.card";
 import MainCard from "../cards/main.card";
 
 const mainCards = [
@@ -25,13 +30,13 @@ const mainCards = [
         icon: <Person sx={{ color: "white", fontSize: 30 }} />,
     },
     {
-        component: <AboutMeCard />,
+        component: <ExperiencesCard />,
         title: "Experiences",
         subtitle: "Companies I worked",
         icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
     },
     {
-        component: <AboutMeCard />,
+        component: <SkillsCard />,
         title: "Skills",
         subtitle: "Technologies or stuff I can work with",
         icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
@@ -40,19 +45,19 @@ const mainCards = [
 
 const sideCards = [
     {
-        component: <AboutMeCard />,
+        component: <MessageCard />,
         title: "Send a message",
         subtitle: "Talk to me!",
         icon: <Email sx={{ color: "white", fontSize: 30 }} />,
     },
     {
-        component: <AboutMeCard />,
+        component: <SocialCard />,
         title: "Social media",
         subtitle: "Let's contact in social media",
         icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
     },
     {
-        component: <AboutMeCard />,
+        component: <DownloadCard />,
         title: "Download resume",
         subtitle: "Download my resume in PDF",
         icon: <Download sx={{ color: "white", fontSize: 30 }} />,

@@ -1,74 +1,48 @@
-import { useEffect } from 'react';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 
-import SocialMedia from './components/social-media';
-import SendMessage from './components/send-message';
-import Experience from './components/experience';
-import Languages from './components/languages';
-import AboutMe from './components/about-me';
-import Profile from './components/profile';
-import Skills from './components/skills';
-import Navbar from './components/navbar';
-import Resume from './components/resume';
+import {
+    ThemeProvider,
+    createTheme,
+    CssBaseline,
+    colors,
+    Box,
+} from "@mui/material";
+
+import Navbar from "./components/navbar.component";
+
+import HomePage from "./pages/home.page";
 
 function App() {
-    const env = process.env;
-
-    const welcomeNotify = () => toast.info('🍭 Welcome!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
-
-    useEffect(() => {
-        const d = new Date();
-
-        const data = {
-            "timestamp": d.toString(),
-        };
-
-        axios.post(env.REACT_APP_API_URL, data)
-            .then((res) => welcomeNotify())
-            .catch((error) => console.log(error));
+    const theme = createTheme({
+        palette: {
+            background: {
+                default: colors.blueGrey[100],
+            },
+            primary: {
+                main: colors.blueGrey[800],
+            },
+        },
+        typography: {
+            fontFamily: "Quicksand, Boogaloo, Meow Script, Patrick Hand",
+        },
     });
 
     return (
-        <div className="App">
-            <Navbar />
-            <div className="container-fluid pt-3 px-3 main">
-                <div className="row">
-                    <div className="col-md-8">
-                        <Profile />
-                        <AboutMe />
-                        <Experience />
-                        <Languages />
-                        <Skills />
-                    </div>
-                    <div className="col-md-4">
-                        <SendMessage />
-                        <SocialMedia />
-                        <Resume />
-                    </div>
-                </div>
-            </div>
-
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-        </div>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+                <Navbar />
+                <Box>
+                    <Switch>
+                        <Route path="/" exact><HomePage /></Route>
+                    </Switch>
+                </Box>
+            </Router>
+        </ThemeProvider>
     );
 }
 

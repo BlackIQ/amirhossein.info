@@ -56,7 +56,7 @@ const MainCard = () => {
                         alt="Profile photo"
                         component="img"
                         sx={{
-                            width: "100%",
+                            width: "90%",
                             borderRadius: 50,
                         }}
                     />
@@ -65,7 +65,7 @@ const MainCard = () => {
                     md={9}
                     item
                 >
-                    <Box sx={{ pl: 2 }}>
+                    <Box>
                         <Typography
                             variant="h2"
                             fontFamily="Meow Script"

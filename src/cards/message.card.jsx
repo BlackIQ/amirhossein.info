@@ -6,14 +6,25 @@ import {
     TextField,
     Button,
 } from "@mui/material";
+import MakeSnackbar from "../components/snackbar.component";
 
 const MessageCard = () => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
 
-    const sendMessage = (e) => {
-        e.preventDefault();
-        console.log(name, message);
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [snackMessage, setSnackMessage] = useState("");
+
+    const sendMessage = () => {
+        const sent = false;
+
+        if (sent) {
+            setSnackMessage("Message sent! Thanks for your message 👍🏻");
+            setSnackOpen(true);
+        } else {
+            setSnackMessage("Sorry there is an error occurred. Can you ty again!? 😢");
+            setSnackOpen(true);
+        }
     }
 
     return (
@@ -27,7 +38,7 @@ const MessageCard = () => {
             >
                 If you want to contact directly, you can send a message here.
             </Typography>
-            <form onSubmit={sendMessage}>
+            <Box>
                 <TextField
                     variant="outlined"
                     color="primary"
@@ -66,7 +77,13 @@ const MessageCard = () => {
                 >
                     Send message
                 </Button>
-            </form>
+            </Box>
+
+            <MakeSnackbar
+                open={snackOpen}
+                close={() => setSnackOpen(false)}
+                message={snackMessage}
+            />
         </Box>
     );
 }

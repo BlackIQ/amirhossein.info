@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
     Box,
     Grid,
@@ -12,6 +14,7 @@ import {
     Download,
 } from "@mui/icons-material";
 
+import MakeSnackbar from "../components/snackbar.component";
 import { AppCard } from "../components/card.component";
 
 import ExperiencesCard from "../cards/experiences.card";
@@ -65,6 +68,14 @@ const sideCards = [
 ];
 
 const HomePage = () => {
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [snackMessage, setSnackMessage] = useState("");
+
+    useEffect(() => {
+        setSnackMessage("Welcome 🎉");
+        setSnackOpen(true);
+    }, []);
+
     return (
         <Box sx={{ mx: 2, mt: 2 }}>
             <Grid
@@ -105,6 +116,12 @@ const HomePage = () => {
                     }
                 </Grid>
             </Grid>
+
+            <MakeSnackbar
+                open={snackOpen}
+                close={() => setSnackOpen(false)}
+                message={snackMessage}
+            />
         </Box>
     );
 }

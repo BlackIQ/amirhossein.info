@@ -2,6 +2,7 @@ import {
     Grid,
     Box,
     Typography,
+    Button,
 } from "@mui/material";
 
 const skills = [
@@ -78,23 +79,15 @@ const SkillsCard = () => {
                     {
                         skill.items.map((item) => (
                             <Grid item>
-                                <Box
+                                <Button
+                                    variant="contained"
+                                    disableElevation
                                     sx={{
-                                        bgcolor: "primary.main",
-                                        p: 1,
-                                        borderRadius: 2,
+                                        fontWeight: "bold",
                                     }}
                                 >
-                                    <Typography
-                                        variant="body1"
-                                        fontWeight="bold"
-                                        sx={{
-                                            color: "white"
-                                        }}
-                                    >
-                                        { item }
-                                    </Typography>
-                                </Box>
+                                    { item }
+                                </Button>
                             </Grid>
                         ))
                     }

@@ -14,8 +14,6 @@ import Axios from "axios";
 const env = process.env;
 const baseUrl = env.REACT_APP_API_URL;
 
-console.log(env)
-
 const MessageCard = () => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");

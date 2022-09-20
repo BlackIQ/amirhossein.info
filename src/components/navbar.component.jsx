@@ -6,6 +6,7 @@ import {
     Typography,
     Button,
     Box,
+    Container,
 } from "@mui/material";
 
 import MakeSnackbar from "./snackbar.component";
@@ -21,30 +22,31 @@ const Navbar = () => {
 
     return (
         <Box>
-            <AppBar elevation={0} sx={{ px: 10 }}>
-                <Toolbar>
-                    <Typography
-                        variant="h5"
-                        fontFamily="Boogaloo"
-                        sx={{
-                            flexGrow: 1,
-                        }}
-                    >
-                        amirhossein
-                    </Typography>
-                    <Button
-                        color="inherit"
-                        variant="text"
-                        onClick={hireMe}
-                        sx={{
-                            fontWeight: "bold"
-                        }}
-                    >
-                        Hire me
-                    </Button>
-                </Toolbar>
+            <AppBar elevation={0}>
+                <Container maxWidth="xl">
+                    <Toolbar>
+                        <Typography
+                            variant="h5"
+                            fontFamily="Boogaloo"
+                            sx={{
+                                flexGrow: 1,
+                            }}
+                        >
+                            amirhossein
+                        </Typography>
+                        <Button
+                            color="inherit"
+                            variant="text"
+                            onClick={hireMe}
+                            sx={{
+                                fontWeight: "bold"
+                            }}
+                        >
+                            Hire me
+                        </Button>
+                    </Toolbar>
+                </Container>
             </AppBar>
-            <Toolbar />
 
             <MakeSnackbar
                 open={snackOpen}

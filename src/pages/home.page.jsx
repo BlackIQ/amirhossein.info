@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import {
     Box,
     Grid,
+    Toolbar,
 } from "@mui/material";
 
 import {
@@ -17,6 +18,8 @@ import {
 import MakeSnackbar from "../components/snackbar.component";
 import { AppCard } from "../components/card.component";
 
+import Axios from "axios";
+
 import ExperiencesCard from "../cards/experiences.card";
 import DownloadCard from "../cards/download.card";
 import MessageCard from "../cards/message.card";
@@ -24,6 +27,9 @@ import AboutMeCard from "../cards/about.card";
 import SkillsCard from "../cards/skills.card";
 import SocialCard from "../cards/social.card";
 import MainCard from "../cards/main.card";
+
+const env = process.env;
+const baseUrl = env.REACT_APP_API_URL;
 
 const mainCards = [
     {
@@ -72,12 +78,20 @@ const HomePage = () => {
     const [snackMessage, setSnackMessage] = useState("");
 
     useEffect(() => {
-        setSnackMessage("Welcome 🎉");
-        setSnackOpen(true);
+        Axios.post(`${baseUrl}/view`)
+            .then((result) => {
+                setSnackMessage("Welcome 🎉");
+                setSnackOpen(true);
+            })
+            .catch((error) => {
+                setSnackMessage("Sorry but welcome 🎉");
+                setSnackOpen(true);
+            });
     }, []);
 
     return (
         <Box sx={{ mx: 2, mt: 2 }}>
+            <Toolbar />
             <Grid
                 spacing={2}
                 container

@@ -6,25 +6,54 @@ import {
     TextField,
     Button,
 } from "@mui/material";
+
 import MakeSnackbar from "../components/snackbar.component";
+
+import Axios from "axios";
+
+const env = process.env;
+const baseUrl = env.REACT_APP_API_URL;
+
+console.log(env)
 
 const MessageCard = () => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
     const [snackOpen, setSnackOpen] = useState(false);
     const [snackMessage, setSnackMessage] = useState("");
 
     const sendMessage = () => {
-        const sent = false;
+        setLoading(true);
+        setError(false);
 
-        if (sent) {
-            setSnackMessage("Message sent! Thanks for your message 👍🏻");
-            setSnackOpen(true);
-        } else {
-            setSnackMessage("Sorry there is an error occurred. Can you ty again!? 😢");
-            setSnackOpen(true);
-        }
+        const sendingData = {
+            name,
+            message
+        };
+
+        Axios.post(`${baseUrl}/message`, sendingData)
+            .then((result) => {
+                setLoading(false);
+
+                setName("");
+                setMessage("");
+
+                setSnackMessage("Message sent! Thanks for your message 👍🏻");
+                setSnackOpen(true);
+            })
+            .catch((error) => {
+                const errorMessage = error.response.data.error;
+
+                setLoading(false);
+                setError(true);
+
+                setSnackMessage(`${errorMessage} 😢`);
+                setSnackOpen(true);
+            });
     }
 
     return (
@@ -45,6 +74,7 @@ const MessageCard = () => {
                     label="Name"
                     placeholder="Your name"
                     value={name}
+                    error={error}
                     onChange={(e) => setName(e.target.value)}
                     sx={{
                         mb: 2,
@@ -57,6 +87,7 @@ const MessageCard = () => {
                     label="Message"
                     placeholder="Your message"
                     value={message}
+                    error={error}
                     onChange={(e) => setMessage(e.target.value)}
                     sx={{
                         mb: 2,
@@ -72,6 +103,7 @@ const MessageCard = () => {
                     sx={{
                         fontWeight: "bold",
                     }}
+                    disabled={loading}
                     disableElevation
                     fullWidth
                 >

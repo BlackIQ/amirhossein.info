@@ -45,24 +45,34 @@ const MainCard = () => {
                 sx={{
                     p: 0,
                     m: 0,
+                    height: "1000",
                 }}
             >
                 <Grid
-                    md={3}
+                    md={4}
                     item
                 >
                     <Box
-                        src="https://avatars.githubusercontent.com/u/55284339?v=4"
-                        alt="Profile photo"
-                        component="img"
                         sx={{
-                            width: "90%",
-                            borderRadius: 50,
+                            display: "flex",
+                            height: "100%",
+                            alignItems: "center",
                         }}
-                    />
+                    >
+                        <Box
+                            src="https://avatars.githubusercontent.com/u/55284339?v=4"
+                            alt="Profile photo"
+                            component="img"
+                            sx={{
+                                width: "90%",
+                                borderRadius: 50,
+                                
+                            }}
+                        />
+                    </Box>
                 </Grid>
                 <Grid
-                    md={9}
+                    md={8}
                     item
                 >
                     <Box>

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
     Box,
@@ -23,6 +25,12 @@ const env = process.env;
 const baseUrl = env.REACT_APP_API_URL;
 
 const PanelPage = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const session = useSelector(state => state.session);
+    if (!session) history.push("/authentication");
+
     const [snackOpen, setSnackOpen] = useState(false);
     const [snackMessage, setSnackMessage] = useState("");
 
@@ -36,7 +44,8 @@ const PanelPage = () => {
                 setMessages(messages.reverse());
             })
             .catch((error) => {
-                console.log(error.response.data.error);
+                setSnackOpen(true);
+                setSnackMessage(error.response.data.error);
             });
 
         Axios.get(`${baseUrl}/view`)
@@ -45,7 +54,8 @@ const PanelPage = () => {
                 setViews(views.reverse());
             })
             .catch((error) => {
-                console.log(error.response.data.error);
+                setSnackOpen(true);
+                setSnackMessage(error.response.data.error);
             });
     }, []);
 
@@ -71,7 +81,7 @@ const PanelPage = () => {
                                 <List>
                                     {
                                         messages.map((message) => (
-                                            <ListItem disablePadding>
+                                            <ListItem key={message._id} disablePadding>
                                                 <ListItemButton>
                                                     <ListItemText
                                                         primary={`${message.message.slice(0, 10)} ....`}

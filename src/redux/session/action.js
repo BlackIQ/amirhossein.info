@@ -1,12 +1,11 @@
-export const setSession = (token) => {
+export const setSession = () => {
     return {
         type: "SET_SESSION",
-        payload: token,
-    };
+    }
 }
 
 export const unsetSession = () => {
     return {
-        type: "UNSER_SESSION",
+        type: "UNSET_SESSION",
     }
 }

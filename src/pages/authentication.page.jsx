@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
     Box,
@@ -14,10 +16,19 @@ import MakeSnackbar from "../components/snackbar.component";
 
 import Axios from "axios";
 
+import { setSession } from "../redux/session/action";
+import { setUserToken } from "../redux/user/action";
+
 const env = process.env;
 const baseUrl = env.REACT_APP_API_URL;
 
 const AuthenticationPage = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const session = useSelector(state => state.session);
+    if (session) history.push("/panel");
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -38,10 +49,15 @@ const AuthenticationPage = () => {
 
         Axios.post(`${baseUrl}/authentication/login`, sendingData)
             .then((result) => {
+                const { id } = result.data;
+
                 setLoading(false);
 
                 setUsername("");
                 setPassword("");
+
+                dispatch(setSession());
+                dispatch(setUserToken(id));
 
                 setSnackMessage("Welcome Amir 👍🏻");
                 setSnackOpen(true);

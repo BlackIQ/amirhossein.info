@@ -45,7 +45,7 @@ const MainCard = () => {
                 sx={{
                     p: 0,
                     m: 0,
-                    height: "1000",
+                    height: "100%",
                 }}
             >
                 <Grid
@@ -54,9 +54,9 @@ const MainCard = () => {
                 >
                     <Box
                         sx={{
-                            display: "flex",
-                            height: "100%",
                             alignItems: "center",
+                            height: "100%",
+                            display: "flex",
                         }}
                     >
                         <Box
@@ -65,8 +65,7 @@ const MainCard = () => {
                             component="img"
                             sx={{
                                 width: "90%",
-                                borderRadius: 50,
-                                
+                                borderRadius: "100%",
                             }}
                         />
                     </Box>
@@ -75,38 +74,46 @@ const MainCard = () => {
                     md={8}
                     item
                 >
-                    <Box>
-                        <Typography
-                            variant="h2"
-                            fontFamily="Meow Script"
-                        >
-                            hello
-                        </Typography>
-                        <Typography
-                            variant="h4"
-                            fontFamily="Boogaloo"
-                            gutterBottom
-                        >
-                            I'm Amirhossein Mohammadi
-                        </Typography>
-                        <List>
-                            {
-                                aboutItems.map((item) => (
-                                    <ListItem key={item} disablePadding>
-                                        <ListItemIcon
-                                            sx={{
-                                                color: "primary.main",
-                                            }}
-                                        >
-                                            { item.icon }
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            primary={item.text}
-                                        />
-                                    </ListItem>
-                                ))
-                            }
-                        </List>
+                    <Box
+                        sx={{
+                            alignItems: "center",
+                            height: "100%",
+                            display: "flex",
+                        }}
+                    >
+                        <Box>
+                            <Typography
+                                variant="h2"
+                                fontFamily="Meow Script"
+                            >
+                                hello
+                            </Typography>
+                            <Typography
+                                variant="h4"
+                                fontFamily="Boogaloo"
+                                gutterBottom
+                            >
+                                I'm Amirhossein Mohammadi
+                            </Typography>
+                            <List>
+                                {
+                                    aboutItems.map((item) => (
+                                        <ListItem key={item} disablePadding>
+                                            <ListItemIcon
+                                                sx={{
+                                                    color: "primary.main",
+                                                }}
+                                            >
+                                                { item.icon }
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={item.text}
+                                            />
+                                        </ListItem>
+                                    ))
+                                }
+                            </List>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>

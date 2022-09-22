@@ -84,7 +84,7 @@ const PanelPage = () => {
                                             <ListItem key={message._id} disablePadding>
                                                 <ListItemButton>
                                                     <ListItemText
-                                                        primary={`${message.message.slice(0, 10)} ....`}
+                                                        primary={message.message}
                                                     />
                                                 </ListItemButton>
                                             </ListItem>

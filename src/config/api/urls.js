@@ -1,5 +1,4 @@
 const urls = {
-  view: "/view",
   message: "/message",
   auth: {
     login: "/authentication/login",

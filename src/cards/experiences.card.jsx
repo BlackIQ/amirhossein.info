@@ -97,12 +97,8 @@ const ExperiencesCard = () => {
   return (
     <Box>
       {experiences.map((experience) => (
-        <Box>
-          <Typography
-            variant="h6"
-            fontWeight="bold"
-            // gutterBottom
-          >
+        <Box key={experience.role}>
+          <Typography variant="h6" fontWeight="bold">
             {experience.role}
           </Typography>
           <Typography fontWeight="bold" variant="body2">
@@ -113,7 +109,7 @@ const ExperiencesCard = () => {
           </Typography>
           <List>
             {experience.jobs.map((job) => (
-              <ListItem disablePadding>
+              <ListItem key={job} disablePadding>
                 <ListItemText
                   primary={<Typography variant="subtitle2">- {job}</Typography>}
                 />
@@ -122,7 +118,7 @@ const ExperiencesCard = () => {
           </List>
           <Grid spacing={2} container>
             {experience.skills.map((skill) => (
-              <Grid item>
+              <Grid key={skill} item>
                 <Button
                   variant="outlined"
                   sx={{

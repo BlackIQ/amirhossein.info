@@ -33,7 +33,7 @@ const aboutItems = [
 
 const MainCard = () => {
   return (
-    <Card>
+    <Card.AboutCard>
       <Grid
         spacing={2}
         container
@@ -79,7 +79,7 @@ const MainCard = () => {
               </Typography>
               <List>
                 {aboutItems.map((item) => (
-                  <ListItem key={item} disablePadding>
+                  <ListItem key={item.text} disablePadding>
                     <ListItemIcon
                       sx={{
                         color: "primary.main",
@@ -95,7 +95,7 @@ const MainCard = () => {
           </Box>
         </Grid>
       </Grid>
-    </Card>
+    </Card.AboutCard>
   );
 };
 

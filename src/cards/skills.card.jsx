@@ -26,6 +26,7 @@ const skills = [
 const SkillsCard = () => {
   return skills.map((skill) => (
     <Box
+      key={skill.title}
       sx={{
         mb: 2,
       }}
@@ -40,7 +41,7 @@ const SkillsCard = () => {
       </Typography>
       <Grid spacing={2} container>
         {skill.items.map((item) => (
-          <Grid item>
+          <Grid key={item} item>
             <Button
               variant="contained"
               disableElevation

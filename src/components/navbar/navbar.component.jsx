@@ -9,18 +9,23 @@ import {
   Button,
   Box,
   Container,
+  IconButton,
 } from "@mui/material";
+
+import { LightMode, DarkMode } from "@mui/icons-material";
 
 import MakeSnackbar from "../snackbar/snackbar.component";
 
 import { unsetSession } from "../../redux/session/action";
 import { unsetUserToken } from "../../redux/user/action";
+import { setTheme } from "../../redux/theme/action";
 
 const Navbar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const session = useSelector((state) => state.session);
+  const mode = useSelector((state) => state.theme);
 
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
@@ -30,11 +35,24 @@ const Navbar = () => {
     dispatch(unsetUserToken());
   };
 
+  const changeTheme = () => {
+    dispatch(setTheme(mode === "light" ? "dark" : "light"));
+  };
+
   const login = () => history.push("/authentication");
 
   const hireMe = () => {
     setSnackMessage("Please leave a message in the send message form 🙏🏻");
     setSnackOpen(true);
+  };
+
+  const modeIcons = {
+    light: {
+      icon: <DarkMode />,
+    },
+    dark: {
+      icon: <LightMode />,
+    },
   };
 
   return (
@@ -85,6 +103,9 @@ const Navbar = () => {
                 Panel
               </Button>
             )}
+            <IconButton color="inherit" onClick={changeTheme}>
+              {modeIcons[mode].icon}
+            </IconButton>
           </Toolbar>
         </Container>
       </AppBar>

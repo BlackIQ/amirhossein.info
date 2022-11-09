@@ -12,30 +12,23 @@ import {
 } from "@mui/icons-material";
 
 import { Snackbar, Card } from "../../components";
-
-import ExperiencesCard from "../../cards/experiences.card";
-import DownloadCard from "../../cards/download.card";
-import MessageCard from "../../cards/message.card";
-import AboutMeCard from "../../cards/about.card";
-import SkillsCard from "../../cards/skills.card";
-import SocialCard from "../../cards/social.card";
-import MainCard from "../../cards/main.card";
+import * as Cards from "../../cards";
 
 const mainCards = [
   {
-    component: <AboutMeCard />,
+    component: <Cards.AboutMeCard />,
     title: "About me",
     subtitle: "Read about this guy",
     icon: <Person sx={{ color: "white", fontSize: 30 }} />,
   },
   {
-    component: <ExperiencesCard />,
+    component: <Cards.ExperiencesCard />,
     title: "Experiences",
     subtitle: "Companies I worked",
     icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
   },
   {
-    component: <SkillsCard />,
+    component: <Cards.SkillsCard />,
     title: "Skills",
     subtitle: "Technologies or stuff I can work with",
     icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
@@ -44,19 +37,19 @@ const mainCards = [
 
 const sideCards = [
   {
-    component: <MessageCard />,
+    component: <Cards.MessageCard />,
     title: "Send a message",
     subtitle: "Talk to me!",
     icon: <Email sx={{ color: "white", fontSize: 30 }} />,
   },
   {
-    component: <SocialCard />,
+    component: <Cards.SocialCard />,
     title: "Social media",
     subtitle: "Let's contact in social media",
     icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
   },
   {
-    component: <DownloadCard />,
+    component: <Cards.DownloadCard />,
     title: "Download resume",
     subtitle: "Download my resume in PDF",
     icon: <Download sx={{ color: "white", fontSize: 30 }} />,
@@ -77,28 +70,28 @@ const HomePage = () => {
       <Toolbar />
       <Grid spacing={2} container>
         <Grid md={8} item>
-          <MainCard />
+          <Cards.MainCard />
           {mainCards.map((card) => (
-            <Card
+            <Card.AppCard
               key={card.title}
               title={card.title}
               subtitle={card.subtitle}
               icon={card.icon}
             >
               {card.component}
-            </Card>
+            </Card.AppCard>
           ))}
         </Grid>
         <Grid md={4} item>
           {sideCards.map((card) => (
-            <Card
+            <Card.AppCard
               key={card.title}
               title={card.title}
               subtitle={card.subtitle}
               icon={card.icon}
             >
               {card.component}
-            </Card>
+            </Card.AppCard>
           ))}
         </Grid>
       </Grid>

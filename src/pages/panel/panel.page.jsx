@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import {
   Box,
   Grid,
-  Typography,
   Card,
   CardHeader,
   CardContent,
@@ -18,11 +17,7 @@ import {
 } from "@mui/material";
 
 import { Snackbar } from "../../components";
-
-import Axios from "axios";
-
-const env = process.env;
-const baseUrl = env.REACT_APP_API_URL;
+import { MessageServices } from "../../services";
 
 const PanelPage = () => {
   const history = useHistory();
@@ -34,28 +29,19 @@ const PanelPage = () => {
   const [snackMessage, setSnackMessage] = useState("");
 
   const [messages, setMessages] = useState("");
-  const [views, setViews] = useState("");
+
+  const getData = async () => {
+    try {
+      const data = await MessageServices.readAll();
+      setMessages(data.messages.reverse());
+    } catch (error) {
+      setSnackOpen(true);
+      setSnackMessage(error.response.data.error);
+    }
+  };
 
   useEffect(() => {
-    Axios.get(`${baseUrl}/message`)
-      .then((result) => {
-        const { messages } = result.data;
-        setMessages(messages.reverse());
-      })
-      .catch((error) => {
-        setSnackOpen(true);
-        setSnackMessage(error.response.data.error);
-      });
-
-    Axios.get(`${baseUrl}/view`)
-      .then((result) => {
-        const { views } = result.data;
-        setViews(views.reverse());
-      })
-      .catch((error) => {
-        setSnackOpen(true);
-        setSnackMessage(error.response.data.error);
-      });
+    getData();
   }, []);
 
   return (
@@ -82,7 +68,7 @@ const PanelPage = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid md={6} item>
+        {/* <Grid md={6} item>
           <Card variant="outlined">
             <CardHeader title="Views" />
             <CardContent>
@@ -93,7 +79,7 @@ const PanelPage = () => {
               )}
             </CardContent>
           </Card>
-        </Grid>
+        </Grid> */}
       </Grid>
 
       <Snackbar

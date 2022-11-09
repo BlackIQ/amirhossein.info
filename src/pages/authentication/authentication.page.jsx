@@ -46,26 +46,31 @@ const AuthenticationPage = () => {
     try {
       const data = await AuthServices.login(sendingData);
 
-      const { id } = data;
+      if (data.id) {
+        const { id } = data;
 
-      setLoading(false);
+        setUsername("");
+        setPassword("");
 
-      setUsername("");
-      setPassword("");
+        dispatch(setSession());
+        dispatch(setUserToken(id));
 
-      dispatch(setSession());
-      dispatch(setUserToken(id));
+        setSnackMessage("Welcome Amir 👍🏻");
+        setSnackOpen(true);
+      } else {
+        setError(true);
+        setLoading(false);
 
-      setSnackMessage("Welcome Amir 👍🏻");
-      setSnackOpen(true);
+        setSnackMessage(`${data.response.data.error} 😢`);
+        setSnackOpen(true);
+      }
+
+      console.log(data.id ? true : data.response.status);
     } catch (error) {
-      const errorMessage = error.message;
-
-      setLoading(false);
-      setError(true);
-
-      setSnackMessage(`${errorMessage} 😢`);
-      setSnackOpen(true);
+      // setLoading(false);
+      // setError(true);
+      // setSnackMessage(`${error} 😢`);
+      // setSnackOpen(true);
     }
   };
 

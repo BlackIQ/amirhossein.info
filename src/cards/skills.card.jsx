@@ -1,25 +1,119 @@
 import { Grid, Box, Typography, Button } from "@mui/material";
+import { Star, StarBorder } from "@mui/icons-material";
 
 const skills = [
   {
-    title: "Front-End Development",
-    items: ["ReactJs", "ReduxJs", "MUI", "SASS"],
+    title: "Back-End Development",
+    items: [
+      {
+        name: "ExpresJs",
+        star: true,
+      },
+      {
+        name: "NodeJs",
+        star: true,
+      },
+      {
+        name: "Laravel",
+        star: false,
+      },
+      {
+        name: "Restful API",
+        star: true,
+      },
+      {
+        name: "Ruby on Rails",
+        star: false,
+      },
+    ],
   },
   {
-    title: "Back-End Development",
-    items: ["ExpresJs", "NodeJs", "Laravel", "Restful API", "Ruby on Rails"],
+    title: "Front-End Development",
+    items: [
+      {
+        name: "ReactJs",
+        star: true,
+      },
+      {
+        name: "ReduxJs",
+        star: true,
+      },
+      {
+        name: "MUI",
+        star: true,
+      },
+      {
+        name: "SASS",
+        star: true,
+      },
+    ],
   },
   {
     title: "Mobile Development",
-    items: ["Flutter", "React Native", "Material UI", "Swift UI"],
+    items: [
+      {
+        name: "Flutter",
+        star: true,
+      },
+      {
+        name: "Material UI",
+        star: true,
+      },
+      {
+        name: "Swift UI",
+        star: false,
+      },
+    ],
   },
   {
     title: "Database",
-    items: ["MongoDB", "MariaDB", "Firestore", "PostgreSQL", "LowDB"],
+    items: [
+      {
+        name: "MongoDB",
+        star: true,
+      },
+      {
+        name: "MariaDB",
+        star: true,
+      },
+      {
+        name: "SQL Server",
+        star: true,
+      },
+      {
+        name: "Firestore",
+        star: false,
+      },
+      {
+        name: "PostgreSQL",
+        star: true,
+      },
+    ],
   },
   {
     title: "Languages",
-    items: ["JavaScript", "Php", "Dart", "Python", "Ruby"],
+    items: [
+      {
+        name: "JavaScript",
+        star: true,
+      },
+      {
+        name: "Php",
+        star: true,
+      },
+      {
+        name: "Dart",
+        star: true,
+      },
+      {
+        name: "Python",
+        star: true,
+      },
+      {
+        name: "Ruby",
+        star: false,
+      },
+    ],
   },
 ];
 
@@ -32,7 +126,7 @@ const SkillsCard = () => {
       }}
     >
       <Typography
-        variant="h5"
+        variant="h6"
         fontWeight="bold"
         color="primary.main"
         gutterBottom
@@ -45,11 +139,13 @@ const SkillsCard = () => {
             <Button
               variant="contained"
               disableElevation
+              size="small"
+              startIcon={item.star ? <Star /> : <StarBorder />}
               sx={{
                 fontWeight: "bold",
               }}
             >
-              {item}
+              {item.name}
             </Button>
           </Grid>
         ))}

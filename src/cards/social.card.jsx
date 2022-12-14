@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { GitHub, LinkedIn, Twitter, Email } from "@mui/icons-material";
+import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 
 const medias = [
   {
@@ -22,14 +22,9 @@ const medias = [
     path: "https://linkedin.com/in/amirhosseinmohammadi",
   },
   {
-    icon: <Twitter />,
-    text: "Twitter",
-    path: "https://twitter.com/GNU_Amir",
-  },
-  {
     icon: <Email />,
     text: "Email",
-    path: "mailto:amirhosseinmohammadi1380@yahoo.com",
+    path: "mailto:hi@amirhossein.info",
   },
 ];
 

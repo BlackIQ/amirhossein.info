@@ -13,8 +13,6 @@ export const store = createStore(
 
 store.subscribe(() =>
   saveState({
-    session: store.getState().session,
-    user: store.getState().user,
     theme: store.getState().theme,
   })
 );

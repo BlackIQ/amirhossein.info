@@ -9,6 +9,7 @@ import {
   Email,
   Tag,
   Download,
+  Settings,
 } from "@mui/icons-material";
 
 import { Snackbar, Card } from "../../components";
@@ -27,6 +28,13 @@ const mainCards = [
     title: "Experiences",
     subtitle: "Companies I worked",
     icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
+    hide: false,
+  },
+  {
+    component: <Cards.APICard />,
+    title: "API",
+    subtitle: "Services and APIs introduction",
+    icon: <Settings sx={{ color: "white", fontSize: 30 }} />,
     hide: false,
   },
 ];

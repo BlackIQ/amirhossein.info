@@ -64,6 +64,16 @@ const Navbar = () => {
             <Button
               color="inherit"
               variant="text"
+              onClick={() => window.open("https://api.amirhossein.info")}
+              sx={{
+                fontWeight: "bold",
+              }}
+            >
+              Services
+            </Button>
+            <Button
+              color="inherit"
+              variant="text"
               onClick={hireMe}
               sx={{
                 fontWeight: "bold",

@@ -3,51 +3,50 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
   ListItemButton,
   Typography,
 } from "@mui/material";
 
-import ReactCountryFlag from "react-country-flag";
+import { useEffect, useState } from "react";
 
-const resumes = [
-  {
-    flag: <ReactCountryFlag countryCode="US" />,
-    language: "English",
-    path: "https://amirhossein.info/cv/en",
-  },
-  {
-    flag: <ReactCountryFlag countryCode="DE" />,
-    language: "Dutch",
-    path: "https://amirhossein.info/cv/de",
-  },
-  {
-    flag: <ReactCountryFlag countryCode="IR" />,
-    language: "Persian",
-    path: "https://amirhossein.info/cv/fa",
-  },
-];
+import { API } from "../api";
+import { Loading } from "../components";
 
 const DownloadCard = () => {
+  const [resumes, setResums] = useState([]);
+
+  const getSkills = async () => {
+    try {
+      const data = await API.get("resumes");
+
+      setResums(data.data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getSkills();
+  }, []);
+
   return (
     <Box>
       <Typography variant="body1" gutterButton>
-        You can download my resume in English, Dutch and Persian.
+        You can download my resume in different languages.
       </Typography>
-      <List>
-        {resumes.map((resume) => (
-          <ListItem key={resume.language} disablePadding divider>
-            <ListItemButton
-              onClick={() => window.location.replace(resume.path)}
-            >
-              <ListItemIcon sx={{ color: "primary.main" }}>
-                {resume.flag}
-              </ListItemIcon>
-              <ListItemText primary={resume.language} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      {resumes.length > 0 ? (
+        <List>
+          {resumes.map((resume) => (
+            <ListItem key={resume._id} disablePadding divider>
+              <ListItemButton onClick={() => window.open(resume.url)}>
+                <ListItemText primary={resume.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      ) : (
+        <Loading />
+      )}
     </Box>
   );
 };

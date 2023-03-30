@@ -37,7 +37,7 @@ const sideCards = [
     title: "Send a message",
     subtitle: "Talk to me!",
     icon: <Email sx={{ color: "white", fontSize: 30 }} />,
-    hide: true,
+    hide: false,
   },
   {
     component: <Cards.SocialCard />,
@@ -58,7 +58,7 @@ const sideCards = [
     title: "Download resume",
     subtitle: "Download my resume in PDF",
     icon: <Download sx={{ color: "white", fontSize: 30 }} />,
-    hide: true,
+    hide: false,
   },
 ];
 

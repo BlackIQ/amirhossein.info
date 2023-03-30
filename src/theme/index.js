@@ -12,6 +12,7 @@ export const theme = (mode) =>
       },
     },
     typography: {
-      fontFamily: "Quicksand, Boogaloo, Meow Script, Patrick Hand",
+      fontFamily:
+        "Vazirmatn, Noto Serif Georgian, Boogaloo, Meow Script, Patrick Hand",
     },
   });

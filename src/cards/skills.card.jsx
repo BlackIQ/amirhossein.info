@@ -38,17 +38,10 @@ const SkillsCard = () => {
         >
           {skill.name}
         </Typography>
-        <Grid spacing={2} container>
+        <Grid spacing={1} container>
           {skill.children.map((item) => (
             <Grid key={item} item>
-              <Chip
-                label={item.name}
-                color="primary"
-                size="medium"
-                sx={{
-                  fontWeight: "bold",
-                }}
-              />
+              <Chip label={item.name} color="primary" size="medium" />
             </Grid>
           ))}
         </Grid>

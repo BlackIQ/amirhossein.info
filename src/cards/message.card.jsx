@@ -27,7 +27,7 @@ const MessageCard = () => {
     try {
       const data = await API.post("messages", sendingData);
 
-      setSnackMessage(data.data);
+      setSnackMessage(data.data.message);
       setSnackOpen(true);
 
       setLoading(false);

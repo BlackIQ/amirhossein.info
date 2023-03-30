@@ -35,13 +35,13 @@ const ExperiencesCard = () => {
     <Box>
       {experiences.map((experience) => (
         <Box key={experience._id}>
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h5" fontSize={25} fontWeight={400}>
             {experience.position}
           </Typography>
-          <Typography fontWeight="bold" variant="body2">
+          <Typography variant="body1" fontSize={18}>
             {experience.company_name} - {experience.location}
           </Typography>
-          <Typography variant="body2" fontWeight="bold" color="text.secondary">
+          <Typography variant="body1" fontSize={16} color="text.secondary">
             {experience.start_date} - {experience.end_date}
           </Typography>
           <List>
@@ -49,13 +49,15 @@ const ExperiencesCard = () => {
               <ListItem key={duty._id} disablePadding>
                 <ListItemText
                   primary={
-                    <Typography variant="subtitle2">- {duty.name}</Typography>
+                    <Typography variant="body2" fontSize={15}>
+                      - {duty.name}
+                    </Typography>
                   }
                 />
               </ListItem>
             ))}
           </List>
-          <Grid spacing={2} container>
+          <Grid spacing={1} container>
             {experience.skills.map((skill) => (
               <Grid key={skill._id} item>
                 <Chip
@@ -63,9 +65,6 @@ const ExperiencesCard = () => {
                   variant="outlined"
                   color="primary"
                   size="medium"
-                  sx={{
-                    fontWeight: "bold",
-                  }}
                 />
               </Grid>
             ))}

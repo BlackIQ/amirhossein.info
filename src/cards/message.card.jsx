@@ -2,12 +2,8 @@ import { useState } from "react";
 
 import { Box, Typography, TextField, Button } from "@mui/material";
 
+import { API } from "../api";
 import { Snackbar } from "../components";
-
-import Axios from "axios";
-
-const env = process.env;
-const baseUrl = env.REACT_APP_API_URL;
 
 const MessageCard = () => {
   const [name, setName] = useState("");
@@ -19,7 +15,7 @@ const MessageCard = () => {
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     setLoading(true);
     setError(false);
 
@@ -28,25 +24,19 @@ const MessageCard = () => {
       message,
     };
 
-    Axios.post(`${baseUrl}/message`, sendingData)
-      .then((result) => {
-        setLoading(false);
+    try {
+      const data = await API.post("messages", sendingData);
 
-        setName("");
-        setMessage("");
+      setSnackMessage(data.data);
+      setSnackOpen(true);
 
-        setSnackMessage("Message sent! Thanks for your message 👍🏻");
-        setSnackOpen(true);
-      })
-      .catch((error) => {
-        const errorMessage = error.response.data.error;
+      setLoading(false);
+    } catch (error) {
+      setSnackMessage(error.response.data.message);
+      setSnackOpen(true);
 
-        setLoading(false);
-        setError(true);
-
-        setSnackMessage(`${errorMessage} 😢`);
-        setSnackOpen(true);
-      });
+      setLoading(false);
+    }
   };
 
   return (

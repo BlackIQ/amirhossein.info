@@ -1,157 +1,62 @@
-import { Grid, Box, Typography, Button } from "@mui/material";
-import { Star, StarBorder } from "@mui/icons-material";
+import { Grid, Box, Typography, Chip } from "@mui/material";
 
-const skills = [
-  {
-    title: "Back-End Development",
-    items: [
-      {
-        name: "ExpresJs",
-        star: true,
-      },
-      {
-        name: "NodeJs",
-        star: true,
-      },
-      {
-        name: "Laravel",
-        star: false,
-      },
-      {
-        name: "Restful API",
-        star: true,
-      },
-      {
-        name: "Ruby on Rails",
-        star: false,
-      },
-    ],
-  },
-  {
-    title: "Front-End Development",
-    items: [
-      {
-        name: "ReactJs",
-        star: true,
-      },
-      {
-        name: "ReduxJs",
-        star: true,
-      },
-      {
-        name: "MUI",
-        star: true,
-      },
-      {
-        name: "SASS",
-        star: true,
-      },
-    ],
-  },
-  {
-    title: "Mobile Development",
-    items: [
-      {
-        name: "Flutter",
-        star: true,
-      },
-      {
-        name: "Material UI",
-        star: true,
-      },
-      {
-        name: "Swift UI",
-        star: false,
-      },
-    ],
-  },
-  {
-    title: "Database",
-    items: [
-      {
-        name: "MongoDB",
-        star: true,
-      },
-      {
-        name: "MariaDB",
-        star: true,
-      },
-      {
-        name: "SQL Server",
-        star: true,
-      },
-      {
-        name: "Firestore",
-        star: false,
-      },
-      {
-        name: "PostgreSQL",
-        star: true,
-      },
-    ],
-  },
-  {
-    title: "Languages",
-    items: [
-      {
-        name: "JavaScript",
-        star: true,
-      },
-      {
-        name: "Php",
-        star: true,
-      },
-      {
-        name: "Dart",
-        star: true,
-      },
-      {
-        name: "Python",
-        star: true,
-      },
-      {
-        name: "Ruby",
-        star: false,
-      },
-    ],
-  },
-];
+import { useEffect, useState } from "react";
+
+import { API } from "../api";
+import { Loading } from "../components";
 
 const SkillsCard = () => {
-  return skills.map((skill) => (
-    <Box
-      key={skill.title}
-      sx={{
-        mb: 2,
-      }}
-    >
-      <Typography
-        variant="h6"
-        fontWeight="bold"
-        color="primary.main"
-        gutterBottom
+  const [skills, setSkills] = useState([]);
+
+  const getSkills = async () => {
+    try {
+      const data = await API.get("skills");
+
+      setSkills(data.data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getSkills();
+  }, []);
+
+  return skills.length > 0 ? (
+    skills.map((skill) => (
+      <Box
+        key={skill._id}
+        sx={{
+          mb: 2,
+        }}
       >
-        {skill.title}
-      </Typography>
-      <Grid spacing={2} container>
-        {skill.items.map((item) => (
-          <Grid key={item} item>
-            <Button
-              variant="contained"
-              disableElevation
-              size="small"
-              startIcon={item.star ? <Star /> : <StarBorder />}
-              sx={{
-                fontWeight: "bold",
-              }}
-            >
-              {item.name}
-            </Button>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  ));
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          color="primary.main"
+          gutterBottom
+        >
+          {skill.name}
+        </Typography>
+        <Grid spacing={2} container>
+          {skill.children.map((item) => (
+            <Grid key={item} item>
+              <Chip
+                label={item.name}
+                color="primary"
+                size="medium"
+                sx={{
+                  fontWeight: "bold",
+                }}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    ))
+  ) : (
+    <Loading />
+  );
 };
 
 export default SkillsCard;

@@ -12,7 +12,7 @@ import {
   IconButton,
 } from "@mui/material";
 
-import { LightMode, DarkMode } from "@mui/icons-material";
+import { LightMode, DarkMode, GitHub } from "@mui/icons-material";
 
 import MakeSnackbar from "../snackbar/snackbar.component";
 
@@ -64,6 +64,7 @@ const Navbar = () => {
             <Button
               color="inherit"
               variant="text"
+              size="large"
               onClick={() => window.open("https://api.amirhossein.info")}
               sx={{
                 fontWeight: "bold",
@@ -74,6 +75,7 @@ const Navbar = () => {
             <Button
               color="inherit"
               variant="text"
+              size="large"
               onClick={hireMe}
               sx={{
                 fontWeight: "bold",
@@ -81,6 +83,14 @@ const Navbar = () => {
             >
               Hire me
             </Button>
+            <IconButton
+              color="inherit"
+              onClick={() =>
+                window.open("https://github.com/BlackIQ/amirhossein.info")
+              }
+            >
+              <GitHub />
+            </IconButton>
             <IconButton color="inherit" onClick={changeTheme}>
               {modeIcons[mode].icon}
             </IconButton>

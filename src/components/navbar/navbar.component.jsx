@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -14,12 +14,12 @@ import {
 
 import { LightMode, DarkMode, GitHub } from "@mui/icons-material";
 
-import MakeSnackbar from "../snackbar/snackbar.component";
+import MakeSnackbar from "@/components/snackbar/snackbar.component";
 
-import { setTheme } from "../../redux/theme/action";
+import { setTheme } from "@/redux/theme/action";
 
 const Navbar = () => {
-  const history = useHistory();
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const mode = useSelector((state) => state.theme);
@@ -53,7 +53,7 @@ const Navbar = () => {
             <Typography
               variant="h5"
               fontFamily="Boogaloo"
-              onClick={() => history.push("/")}
+              onClick={() => router.push("/")}
               sx={{
                 flexGrow: 1,
                 cursor: "pointer",

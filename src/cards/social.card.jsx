@@ -13,7 +13,7 @@ const SocialCard = ({ socials }) => {
   return (
     <Box>
       <Typography variant="body1" gutterButton>
-        Let's have a connection in social medias!
+        Lets have a connection in social medias!
       </Typography>
       {socials.error ? (
         <Error message={socials.error.message} />

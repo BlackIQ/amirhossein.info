@@ -75,7 +75,7 @@ const MainCard = () => {
                 hello
               </Typography>
               <Typography variant="h4" fontFamily="Boogaloo" gutterBottom>
-                I'm Amirhossein Mohammadi
+                I am Amirhossein Mohammadi
               </Typography>
               <List>
                 {aboutItems.map((item) => (

@@ -1,7 +1,6 @@
 import axios from "axios";
 
-import config from "../config";
-
 export const API = axios.create({
-  baseURL: config.axiosBaseUrl,
+  // baseURL: "https://resume.amirhossein.info/api",
+  baseURL: "http://localhost:8000/api",
 });

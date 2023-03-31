@@ -1,15 +1,11 @@
 import { createStore } from "redux";
 
-import { saveState, loadState } from "./localstorage";
-import { allReducers } from "./reducers";
+import { saveState, loadState } from "@/redux/localstorage";
+import { allReducers } from "@/redux/reducers";
 
 const presentedState = loadState();
 
-export const store = createStore(
-  allReducers,
-  presentedState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+export const store = createStore(allReducers, presentedState);
 
 store.subscribe(() =>
   saveState({

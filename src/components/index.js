@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar/navbar.component";
 import Snackbar from "@/components/snackbar/snackbar.component";
 import Loading from "@/components/loading/loading.component";
+import Error from "@/components/error/error.component";
 import * as Card from "@/components/card/card.component";
 
-export { Navbar, Snackbar, Loading, Card };
+export { Navbar, Snackbar, Loading, Error, Card };

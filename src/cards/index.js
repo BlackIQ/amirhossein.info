@@ -1,5 +1,5 @@
 import ExperiencesCard from "./experiences.card";
-import DownloadCard from "./download.card";
+import ResumeCard from "./resume.card";
 import MessageCard from "./message.card";
 import AboutMeCard from "./about.card";
 import SkillsCard from "./skills.card";
@@ -9,7 +9,7 @@ import APICard from "./api.card";
 
 export {
   ExperiencesCard,
-  DownloadCard,
+  ResumeCard,
   MessageCard,
   AboutMeCard,
   SkillsCard,

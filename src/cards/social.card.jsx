@@ -7,36 +7,19 @@ import {
   Typography,
 } from "@mui/material";
 
-import { useEffect, useState } from "react";
+import { Loading, Error } from "../components";
 
-import { API } from "../api";
-import { Loading } from "../components";
-
-const SocialCard = () => {
-  const [medias, setMedias] = useState([]);
-
-  const getSocials = async () => {
-    try {
-      const data = await API.get("socials");
-
-      setMedias(data.data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    getSocials();
-  }, []);
-
+const SocialCard = ({ socials }) => {
   return (
     <Box>
       <Typography variant="body1" gutterButton>
         Let's have a connection in social medias!
       </Typography>
-      {medias.length > 0 ? (
+      {socials.error ? (
+        <Error message={socials.error.message} />
+      ) : socials.data.length > 0 ? (
         <List>
-          {medias.map((media) => (
+          {socials.data.map((media) => (
             <ListItem key={media._id} disablePadding divider>
               <ListItemButton onClick={() => window.open(media.url)}>
                 <ListItemText primary={media.label} />

@@ -1,29 +1,12 @@
 import { Grid, Box, Typography, Chip } from "@mui/material";
 
-import { useEffect, useState } from "react";
+import { Loading, Error } from "../components";
 
-import { API } from "../api";
-import { Loading } from "../components";
-
-const SkillsCard = () => {
-  const [skills, setSkills] = useState([]);
-
-  const getSkills = async () => {
-    try {
-      const data = await API.get("skills");
-
-      setSkills(data.data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    getSkills();
-  }, []);
-
-  return skills.length > 0 ? (
-    skills.map((skill) => (
+const SkillsCard = ({ skills }) => {
+  return skills.error ? (
+    <Error message={skills.error.message} />
+  ) : skills.data.length > 0 ? (
+    skills.data.map((skill) => (
       <Box
         key={skill._id}
         sx={{

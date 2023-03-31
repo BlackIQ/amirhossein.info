@@ -7,36 +7,19 @@ import {
   Typography,
 } from "@mui/material";
 
-import { useEffect, useState } from "react";
+import { Loading, Error } from "@/components";
 
-import { API } from "../api";
-import { Loading } from "../components";
-
-const DownloadCard = () => {
-  const [resumes, setResums] = useState([]);
-
-  const getSkills = async () => {
-    try {
-      const data = await API.get("resumes");
-
-      setResums(data.data);
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    getSkills();
-  }, []);
-
+const ResumeCard = ({ resumes }) => {
   return (
     <Box>
       <Typography variant="body1" gutterButton>
         You can download my resume in different languages.
       </Typography>
-      {resumes.length > 0 ? (
+      {resumes.error ? (
+        <Error message={resumes.error.message} />
+      ) : resumes.data.length > 0 ? (
         <List>
-          {resumes.map((resume) => (
+          {resumes.data.map((resume) => (
             <ListItem key={resume._id} disablePadding divider>
               <ListItemButton onClick={() => window.open(resume.url)}>
                 <ListItemText primary={resume.name} />
@@ -51,4 +34,4 @@ const DownloadCard = () => {
   );
 };
 
-export default DownloadCard;
+export default ResumeCard;

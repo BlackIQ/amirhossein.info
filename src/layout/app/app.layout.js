@@ -4,7 +4,7 @@ import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { useSelector } from "react-redux";
 
 import { Navbar } from "@/components";
-import { theme } from "@/theme";
+import { appTheme } from "@/theme";
 
 export const AppLayout = ({ children }) => {
   const mode = useSelector((state) => state.theme);
@@ -12,9 +12,9 @@ export const AppLayout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Amirhossein Mohammadi </title>
+        <title>Amirhossein Mohammadi</title>
       </Head>
-      <ThemeProvider theme={theme(mode)}>
+      <ThemeProvider theme={appTheme(mode)}>
         <CssBaseline />
         <Box>
           <Navbar />

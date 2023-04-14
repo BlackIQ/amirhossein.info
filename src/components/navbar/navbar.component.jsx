@@ -65,7 +65,7 @@ const Navbar = () => {
               color="inherit"
               variant="text"
               size="large"
-              onClick={() => window.open("https://api.amirhossein.info")}
+              onClick={() => window.open("https://status.amirhossein.info")}
               sx={{
                 fontWeight: "bold",
               }}

@@ -1,5 +1,22 @@
 const forms = [
   {
+    name: "login",
+    fields: {
+      username: {
+        type: "text",
+        label: "Username",
+        placeholder: "Enter username",
+        secure: false,
+      },
+      password: {
+        type: "text",
+        label: "Password",
+        placeholder: "Enter password",
+        secure: true,
+      },
+    },
+  },
+  {
     name: "socials",
     fields: {
       label: {

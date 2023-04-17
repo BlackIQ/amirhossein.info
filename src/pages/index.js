@@ -13,6 +13,7 @@ import {
 } from "@mui/icons-material";
 
 import { Snackbar, Card } from "@/components";
+import { AppLayout } from "@/layout";
 import * as Cards from "@/cards";
 import { API } from "@/api";
 
@@ -123,47 +124,49 @@ export default function Home({ data }) {
   }, []);
 
   return (
-    <Box sx={{ mx: 2, mt: 2 }}>
-      <Toolbar />
-      <Grid spacing={2} container>
-        <Grid md={8} width="100%" item>
-          <Cards.MainCard />
-          {mainCards.map(
-            (card) =>
-              !card.hide && (
-                <Card.AppCard
-                  key={card.title}
-                  title={card.title}
-                  subtitle={card.subtitle}
-                  icon={card.icon}
-                >
-                  {card.component}
-                </Card.AppCard>
-              )
-          )}
+    <AppLayout>
+      <Box sx={{ mx: 2, mt: 2 }}>
+        <Toolbar />
+        <Grid spacing={2} container>
+          <Grid md={8} width="100%" item>
+            <Cards.MainCard />
+            {mainCards.map(
+              (card) =>
+                !card.hide && (
+                  <Card.AppCard
+                    key={card.title}
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    icon={card.icon}
+                  >
+                    {card.component}
+                  </Card.AppCard>
+                )
+            )}
+          </Grid>
+          <Grid md={4} width="100%" item>
+            {sideCards.map(
+              (card) =>
+                !card.hide && (
+                  <Card.AppCard
+                    key={card.title}
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    icon={card.icon}
+                  >
+                    {card.component}
+                  </Card.AppCard>
+                )
+            )}
+          </Grid>
         </Grid>
-        <Grid md={4} width="100%" item>
-          {sideCards.map(
-            (card) =>
-              !card.hide && (
-                <Card.AppCard
-                  key={card.title}
-                  title={card.title}
-                  subtitle={card.subtitle}
-                  icon={card.icon}
-                >
-                  {card.component}
-                </Card.AppCard>
-              )
-          )}
-        </Grid>
-      </Grid>
 
-      <Snackbar
-        open={snackOpen}
-        close={() => setSnackOpen(false)}
-        message={snackMessage}
-      />
-    </Box>
+        <Snackbar
+          open={snackOpen}
+          close={() => setSnackOpen(false)}
+          message={snackMessage}
+        />
+      </Box>
+    </AppLayout>
   );
 }

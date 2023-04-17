@@ -18,7 +18,7 @@ import MakeSnackbar from "@/components/snackbar/snackbar.component";
 
 import { setTheme } from "@/redux/actions/theme";
 
-const Navbar = () => {
+const Panav = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -31,10 +31,28 @@ const Navbar = () => {
     dispatch(setTheme(mode === "light" ? "dark" : "light"));
   };
 
-  const hireMe = () => {
-    setSnackMessage("Please use Social media card and send an Email 🙏🏻");
-    setSnackOpen(true);
-  };
+  const pages = [
+    {
+      path: "/panel/socials",
+      label: "Socials",
+    },
+    {
+      path: "/panel/duties",
+      label: "Duties",
+    },
+    {
+      path: "/panel/messages",
+      label: "Messages",
+    },
+    {
+      path: "/panel/resumes",
+      label: "Resumes",
+    },
+    {
+      path: "/panel/skills",
+      label: "Skills",
+    },
+  ];
 
   const modeIcons = {
     light: {
@@ -53,36 +71,28 @@ const Navbar = () => {
             <Typography
               variant="h5"
               fontFamily="Boogaloo"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/panel")}
               sx={{
                 flexGrow: 1,
                 cursor: "pointer",
               }}
             >
-              amirhossein
+              amirhossein Panel
             </Typography>
-            <Button
-              color="inherit"
-              variant="text"
-              size="large"
-              onClick={() => window.open("https://status.amirhossein.info")}
-              sx={{
-                fontWeight: "bold",
-              }}
-            >
-              Services
-            </Button>
-            <Button
-              color="inherit"
-              variant="text"
-              size="large"
-              onClick={hireMe}
-              sx={{
-                fontWeight: "bold",
-              }}
-            >
-              Hire me
-            </Button>
+            {pages.map((page) => (
+              <Button
+                color="inherit"
+                key={page.label}
+                variant="text"
+                size="large"
+                onClick={() => router.push(page.path)}
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                {page.label}
+              </Button>
+            ))}
             <IconButton
               color="inherit"
               onClick={() =>
@@ -107,4 +117,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Panav;

@@ -26,8 +26,6 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
 
   const onSubmit = (data) => callback(data);
 
-  console.log(def);
-
   return (
     <Box sx={{ width: "100%" }}>
       {Object.entries(form.fields).map(([name, field]) => {

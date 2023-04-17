@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 
-import { themeReducer } from "./theme/reducer";
+import { themeReducer } from "./reducers/theme";
+import { tokenReducer } from "./reducers/token";
 
 export const allReducers = combineReducers({
   theme: themeReducer,
+  token: tokenReducer,
 });

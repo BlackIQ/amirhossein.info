@@ -63,11 +63,12 @@ const TableComponent = ({ table, data, change }) => {
           <TableHead>
             {renderRows.map((d) => (
               <TableRow
+                key={d}
                 onClick={() => change(d)}
                 sx={{ "&:hover": { cursor: "pointer", background: "#fafafa" } }}
               >
                 {Object.keys(tbl.fields).map((item) => (
-                  <TableCell>{renderSwitch(d, item)}</TableCell>
+                  <TableCell key={item}>{renderSwitch(d, item)}</TableCell>
                 ))}
               </TableRow>
             ))}

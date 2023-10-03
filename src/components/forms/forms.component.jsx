@@ -38,6 +38,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
                   <RadioGroup defaultValue={def && def[name]} row>
                     {field.items.map((item) => (
                       <FormControlLabel
+                        key={item.value}
                         value={item.value}
                         {...register(name)}
                         label={item.label}
@@ -57,6 +58,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
                   <RadioGroup defaultValue={def && def[name]} row>
                     {field.items.map((item) => (
                       <FormControlLabel
+                        key={item.value}
                         value={item.value}
                         {...register(name)}
                         label={item.label}
@@ -79,7 +81,9 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
                   label={field.label}
                 >
                   {field.options.map((option) => (
-                    <MenuItem value={option.value}>{option.label}</MenuItem>
+                    <MenuItem value={option.value} key={option.value}>
+                      {option.label}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>

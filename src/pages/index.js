@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-import { Box, Grid, Toolbar, Typography } from "@mui/material";
+import Head from "next/head";
+
+import { Box, Grid, Toolbar } from "@mui/material";
 
 import {
   Person,
@@ -12,7 +14,7 @@ import {
   Settings,
 } from "@mui/icons-material";
 
-import { Snackbar, Card } from "@/components";
+import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
 import * as Cards from "@/cards";
 import { API } from "@/api";
@@ -124,49 +126,57 @@ export default function Home({ data }) {
   }, []);
 
   return (
-    <AppLayout>
-      <Box sx={{ mx: 2, mt: 2 }}>
-        <Toolbar />
-        <Grid spacing={2} container>
-          <Grid md={8} width="100%" item>
-            <Cards.MainCard />
-            {mainCards.map(
-              (card) =>
-                !card.hide && (
-                  <Card.AppCard
-                    key={card.title}
-                    title={card.title}
-                    subtitle={card.subtitle}
-                    icon={card.icon}
-                  >
-                    {card.component}
-                  </Card.AppCard>
-                )
-            )}
-          </Grid>
-          <Grid md={4} width="100%" item>
-            {sideCards.map(
-              (card) =>
-                !card.hide && (
-                  <Card.AppCard
-                    key={card.title}
-                    title={card.title}
-                    subtitle={card.subtitle}
-                    icon={card.icon}
-                  >
-                    {card.component}
-                  </Card.AppCard>
-                )
-            )}
-          </Grid>
-        </Grid>
+    <>
+      <Head>
+        <title>Amirhossein Mohammadi</title>
+      </Head>
 
-        <Snackbar
-          open={snackOpen}
-          close={() => setSnackOpen(false)}
-          message={snackMessage}
-        />
-      </Box>
-    </AppLayout>
+      <AppLayout>
+        <Navbar />
+
+        <Box sx={{ mx: 2, mt: 2 }}>
+          <Toolbar />
+          <Grid spacing={2} container>
+            <Grid md={8} width="100%" item>
+              <Cards.MainCard />
+              {mainCards.map(
+                (card) =>
+                  !card.hide && (
+                    <Card.AppCard
+                      key={card.title}
+                      title={card.title}
+                      subtitle={card.subtitle}
+                      icon={card.icon}
+                    >
+                      {card.component}
+                    </Card.AppCard>
+                  )
+              )}
+            </Grid>
+            <Grid md={4} width="100%" item>
+              {sideCards.map(
+                (card) =>
+                  !card.hide && (
+                    <Card.AppCard
+                      key={card.title}
+                      title={card.title}
+                      subtitle={card.subtitle}
+                      icon={card.icon}
+                    >
+                      {card.component}
+                    </Card.AppCard>
+                  )
+              )}
+            </Grid>
+          </Grid>
+
+          <Snackbar
+            open={snackOpen}
+            close={() => setSnackOpen(false)}
+            message={snackMessage}
+          />
+        </Box>
+      </AppLayout>
+    </>
   );
 }

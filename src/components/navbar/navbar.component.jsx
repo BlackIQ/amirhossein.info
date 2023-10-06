@@ -91,9 +91,9 @@ const Navbar = () => {
             >
               <GitHub />
             </IconButton>
-            <IconButton color="inherit" onClick={changeTheme}>
+            {/* <IconButton color="inherit" onClick={changeTheme}>
               {modeIcons[mode].icon}
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </Container>
       </AppBar>

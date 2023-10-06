@@ -37,7 +37,7 @@ export const getServerSideProps = async ({ params }) => {
   } catch (error) {
     return {
       props: {
-        data: error.response.data,
+        error: { message: error.response.data },
       },
     };
   }
@@ -49,6 +49,14 @@ export default function Notes({ data }) {
 
     return `${d.getFullYear()}/${d.getMonth()}/${d.getDay()} ${d.getHours()}:${d.getMinutes()}`;
   };
+
+  if (error) {
+    return (
+      <Box>
+        <Typography>{error.message}</Typography>
+      </Box>
+    );
+  }
 
   return (
     <>

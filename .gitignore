@@ -14,6 +14,7 @@
 
 # production
 /build
+*.gz
 
 # misc
 .DS_Store

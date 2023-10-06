@@ -91,7 +91,7 @@ export default function Notes({ data }) {
             }}
           >
             <Typography variant="h4" fontFamily="Boogaloo">
-              Let's take some notes!
+              Lets take some notes!
             </Typography>
             <TextField
               label="Search"

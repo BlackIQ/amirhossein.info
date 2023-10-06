@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 import {
   AppBar,
@@ -16,20 +16,20 @@ import { LightMode, DarkMode, GitHub } from "@mui/icons-material";
 
 import MakeSnackbar from "@/components/snackbar/snackbar.component";
 
-import { setTheme } from "@/redux/actions/theme";
+// import { setTheme } from "@/redux/actions/theme";
 
 const Panav = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const mode = useSelector((state) => state.theme);
+  // const mode = useSelector((state) => state.theme);
 
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
-  const changeTheme = () => {
-    dispatch(setTheme(mode === "light" ? "dark" : "light"));
-  };
+  // const changeTheme = () => {
+  //   dispatch(setTheme(mode === "light" ? "dark" : "light"));
+  // };
 
   const pages = [
     {
@@ -101,9 +101,9 @@ const Panav = () => {
             >
               <GitHub />
             </IconButton>
-            <IconButton color="inherit" onClick={changeTheme}>
+            {/* <IconButton color="inherit" onClick={changeTheme}>
               {modeIcons[mode].icon}
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </Container>
       </AppBar>

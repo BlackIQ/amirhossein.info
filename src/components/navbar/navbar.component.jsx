@@ -65,6 +65,17 @@ const Navbar = () => {
               color="inherit"
               variant="text"
               size="large"
+              onClick={() => router.push("/notes")}
+              sx={{
+                fontWeight: "bold",
+              }}
+            >
+              Notes
+            </Button>
+            <Button
+              color="inherit"
+              variant="text"
+              size="large"
               onClick={hireMe}
               sx={{
                 fontWeight: "bold",

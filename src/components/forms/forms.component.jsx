@@ -17,7 +17,15 @@ import {
 
 import { forms } from "@/config/forms";
 
-const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
+const FormsComponent = ({
+  name,
+  button,
+  btnStyle,
+  def,
+  callback,
+  clear,
+  change,
+}) => {
   const { register, handleSubmit } = useForm({
     defaultValues: def,
   });
@@ -52,20 +60,18 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
             );
           case "checkbox":
             return (
-              <Box>
-                <FormControl margin="normal">
-                  <FormLabel>{field.label}</FormLabel>
-                  <RadioGroup defaultValue={def && def[name]} row>
-                    {field.items.map((item) => (
-                      <FormControlLabel
-                        key={item.value}
-                        value={item.value}
-                        {...register(name)}
-                        label={item.label}
-                        control={<Checkbox />}
+              <Box key={name}>
+                <FormControl>
+                  <FormControlLabel
+                    label={field.label}
+                    value={name}
+                    {...register(name)}
+                    control={
+                      <Checkbox
+                        color={btnStyle.color ? btnStyle.color : "primary"}
                       />
-                    ))}
-                  </RadioGroup>
+                    }
+                  />
                 </FormControl>
                 <br />
               </Box>
@@ -92,7 +98,9 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, clear }) => {
             return (
               <TextField
                 key={name}
-                {...register(name)}
+                {...register(name, {
+                  onChange: (e) => change(e.target.value),
+                })}
                 label={field.label}
                 type="text"
                 placeholder={field.placeholder}

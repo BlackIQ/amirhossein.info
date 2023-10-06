@@ -35,21 +35,29 @@ export const getServerSideProps = async () => {
   } catch (error) {
     return {
       props: {
-        data: error.response.data,
+        error: { message: error.response.data },
       },
     };
   }
 };
 
-export default function Notes({ data }) {
+export default function Notes({ data, error }) {
   const history = useRouter();
+
+  if (error) {
+    return (
+      <Box>
+        <Typography>{error.message}</Typography>
+      </Box>
+    );
+  }
 
   function randNum() {
     return "auto";
     // return Math.floor(Math.random() * 60) + 100;
   }
 
-  const [notes, setNotes] = useState(data);
+  const [notes, setNotes] = useState(data || []);
   const [filter, setFilter] = useState("");
 
   useEffect(() => {

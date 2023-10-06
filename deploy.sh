@@ -1,2 +1,2 @@
 tar -xzvf next.tar.gz
-pm2 restart 0 1
+pm2 restart amir-resume-api amir-resume-client

@@ -78,6 +78,35 @@ const forms = [
       },
     },
   },
+  {
+    name: "newBlog",
+    fields: {
+      title: {
+        type: "text",
+        label: "Title",
+        placeholder: "Enter title",
+        secure: false,
+      },
+      details: {
+        type: "text",
+        label: "Short details",
+        placeholder: "Enter some details",
+        secure: false,
+      },
+      content: {
+        type: "textarea",
+        label: "content",
+        placeholder: "Enter content in Markdown!",
+        secure: false,
+      },
+      private: {
+        type: "checkbox",
+        label: "This is a private note",
+        placeholder: "This is a private note",
+        secure: false,
+      },
+    },
+  },
 ];
 
 export { forms };

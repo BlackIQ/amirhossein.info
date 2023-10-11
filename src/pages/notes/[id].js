@@ -43,7 +43,7 @@ export const getServerSideProps = async ({ params }) => {
   }
 };
 
-export default function Notes({ data }) {
+export default function Notes({ data, error }) {
   const getDateInFormat = (ts) => {
     const d = new Date(ts);
 

@@ -1,4 +1,5 @@
 $primaryColor: #37474f
+$oneLevelDown: #cfd8dc
 
 .markdown
     h1, h2, h3, h4, h5, h6
@@ -12,6 +13,15 @@ $primaryColor: #37474f
         background: $primaryColor
         color: white
         padding: 5px
+        border-radius: 5px
+
+    blockquote
+        background: $oneLevelDown
+        border-left: solid 5px $primaryColor
+        margin: 0
+        padding: 0.5rem
+        padding-left: 2rem
+        font-style: italic
         border-radius: 5px
 
     pre

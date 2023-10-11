@@ -5,7 +5,7 @@ export const appTheme = (mode) =>
     palette: {
       mode,
       background: {
-        default: mode === "light" ? colors.blueGrey[100] : colors.grey[900],
+        default: mode === "light" ? colors.blueGrey[50] : colors.grey[900],
       },
       primary: {
         main: mode === "light" ? colors.blueGrey[800] : colors.blueGrey[500],

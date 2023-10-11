@@ -107,7 +107,7 @@ export default function Notes() {
             </Box>
             <br />
             <br />
-            <Masonry columns={3} spacing={3}>
+            <Masonry columns={{ md: 3, sm: 12 }} spacing={3}>
               {notes.map((note) => (
                 <Card key={note._id} elevation={10}>
                   <CardMedia

@@ -53,7 +53,7 @@ export default function Notes({ data, error }) {
   return (
     <>
       <Head>
-        <title>{data.title}</title>
+        <title>{data ? data.title : error.message}</title>
       </Head>
 
       {error ? (

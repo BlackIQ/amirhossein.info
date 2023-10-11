@@ -23,25 +23,7 @@ import { Masonry } from "@mui/lab";
 
 import { useRouter } from "next/navigation";
 
-export const getServerSideProps = async () => {
-  try {
-    const notes = await API.get("notes");
-
-    return {
-      props: {
-        data: notes.data,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        error: { message: error.response.data },
-      },
-    };
-  }
-};
-
-export default function Notes({ data, error }) {
+export default function Notes() {
   const history = useRouter();
 
   function randNum() {
@@ -49,8 +31,24 @@ export default function Notes({ data, error }) {
     // return Math.floor(Math.random() * 60) + 100;
   }
 
-  const [notes, setNotes] = useState(data);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [data, setData] = useState([]);
+  const [notes, setNotes] = useState([]);
   const [filter, setFilter] = useState("");
+
+  const getData = async () => {
+    try {
+      const notes = await API.get("notes");
+
+      setData(notes.data);
+      setNotes(notes.data);
+    } catch (error) {
+      alert(error.response.data);
+    }
+  };
 
   useEffect(() => {
     doFilter();
@@ -78,9 +76,9 @@ export default function Notes({ data, error }) {
         <title>Notes</title>
       </Head>
 
-      {error ? (
+      {!data ? (
         <Box>
-          <Typography>{error.message}</Typography>
+          <Typography>Loading</Typography>
         </Box>
       ) : (
         <AppLayout>

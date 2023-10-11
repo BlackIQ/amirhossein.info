@@ -8,7 +8,8 @@ import { AppLayout } from "@/layout";
 import { API } from "@/api";
 
 import Head from "next/head";
-import { Navbar } from "@/components";
+import { Navbar, Loading } from "@/components";
+import { useEffect, useState } from "react";
 
 export const getServerSidePaths = async () => {
   const paths = [];
@@ -26,39 +27,45 @@ export const getServerSidePaths = async () => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  try {
-    const note = await API.get(`notes/${params.id}`);
-
-    return {
-      props: {
-        data: note.data,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        error: { message: error.response.data },
-      },
-    };
-  }
+  return {
+    props: {
+      params,
+    },
+  };
 };
 
-export default function Notes({ data, error }) {
+export default function Notes({ params }) {
   const getDateInFormat = (ts) => {
     const d = new Date(ts);
 
     return `${d.getFullYear()}/${d.getMonth()}/${d.getDay()} ${d.getHours()}:${d.getMinutes()}`;
   };
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const note = await API.get(`notes/${params.id}`);
+
+      setData(note.data);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>{data ? data.title : error.message}</title>
+        <title>{data ? data.title : "Error"}</title>
       </Head>
 
-      {error ? (
+      {!data ? (
         <Box>
-          <Typography>{error.message}</Typography>
+          <Loading />
         </Box>
       ) : (
         <AppLayout>

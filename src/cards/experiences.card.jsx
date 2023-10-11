@@ -16,7 +16,7 @@ const ExperiencesCard = ({ experiences }) => {
     <Box>
       {experiences.error ? (
         <Error message={experiences.error.message} />
-      ) : experiences.data.length > 0 ? (
+      ) : experiences.data ? (
         <Box>
           {experiences.data.map((experience) => (
             <Box key={experience._id}>

@@ -5,7 +5,7 @@ import { Loading, Error } from "../components";
 const SkillsCard = ({ skills }) => {
   return skills.error ? (
     <Error message={skills.error.message} />
-  ) : skills.data.length > 0 ? (
+  ) : skills.data ? (
     skills.data.map((skill) => (
       <Box
         key={skill._id}

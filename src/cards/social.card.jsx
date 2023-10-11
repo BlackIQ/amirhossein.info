@@ -17,7 +17,7 @@ const SocialCard = ({ socials }) => {
       </Typography>
       {socials.error ? (
         <Error message={socials.error.message} />
-      ) : socials.data.length > 0 ? (
+      ) : socials.data ? (
         <List>
           {socials.data.map((media) => (
             <ListItem key={media._id} disablePadding divider>

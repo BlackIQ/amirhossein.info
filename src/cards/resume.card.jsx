@@ -17,7 +17,7 @@ const ResumeCard = ({ resumes }) => {
       </Typography>
       {resumes.error ? (
         <Error message={resumes.error.message} />
-      ) : resumes.data.length > 0 ? (
+      ) : resumes.data ? (
         <List>
           {resumes.data.map((resume) => (
             <ListItem key={resume._id} disablePadding divider>

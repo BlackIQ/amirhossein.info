@@ -78,10 +78,20 @@ const New = () => {
                 <Grid md={6} item>
                   <Card
                     variant="outlined"
-                    sx={{ mt: "1rem", border: "none", borderRadius: 5 }}
+                    sx={{
+                      mt: "1rem",
+                      border: "none",
+                      borderRadius: 5,
+                    }}
                   >
                     <CardContent>
-                      <Box className="markdown">
+                      <Box
+                        className="markdown"
+                        sx={{
+                          height: "100vh",
+                          overflow: "scroll",
+                        }}
+                      >
                         <ReactMarkdown>{content}</ReactMarkdown>
                       </Box>
                     </CardContent>

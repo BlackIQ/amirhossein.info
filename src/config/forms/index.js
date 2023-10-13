@@ -93,6 +93,12 @@ const forms = [
         placeholder: "Enter some details",
         secure: false,
       },
+      thumbnail: {
+        type: "text",
+        label: "Thumbnail details",
+        placeholder: "Enter Thumbnail",
+        secure: false,
+      },
       content: {
         type: "textarea",
         label: "content",

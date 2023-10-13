@@ -26,11 +26,6 @@ import { useRouter } from "next/navigation";
 export default function Notes() {
   const history = useRouter();
 
-  function randNum() {
-    return "auto";
-    // return Math.floor(Math.random() * 60) + 100;
-  }
-
   useEffect(() => {
     getData();
   }, []);
@@ -112,9 +107,11 @@ export default function Notes() {
                 <Card key={note._id} elevation={10}>
                   <CardMedia
                     component="img"
-                    height={randNum()}
-                    image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-                    alt="green iguana"
+                    width="100%"
+                    image={note.thumbnail}
+                    onClick={() => history.push(`/notes/${note._id}`)}
+                    sx={{ cursor: "pointer" }}
+                    alt={`Image of note ${note.title}`}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

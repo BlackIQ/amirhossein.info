@@ -77,9 +77,23 @@ export default function Notes({ params }) {
 
   return (
     <>
-      <Head>
-        <title>{data ? data.title : "Error"}</title>
-      </Head>
+      {data ? (
+        <Head>
+          <title>{data.title}</title>
+          <meta name="description" content={data.details} />
+          <meta property="og:title" content={data.title} />
+          <meta property="og:description" content={data.details} />
+          <meta property="og:image" content={data.thumbnail} />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:title" content={data.title} />
+          <meta property="twitter:description" content={data.details} />
+          <meta property="twitter:image" content={data.thumbnail} />
+        </Head>
+      ) : (
+        <Head>
+          <title>Loading . . .</title>
+        </Head>
+      )}
 
       {!data ? (
         <Box>

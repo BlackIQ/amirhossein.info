@@ -99,7 +99,7 @@ const FormsComponent = ({
               <TextField
                 key={name}
                 {...register(name, {
-                  onChange: (e) => change(e.target.value),
+                  onChange: (e) => change && change(e.target.value),
                 })}
                 label={field.label}
                 type="text"

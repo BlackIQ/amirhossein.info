@@ -1,33 +1,23 @@
 import { useState } from "react";
 
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { API } from "../api";
-import { Snackbar } from "../components";
+import { Snackbar, Forms } from "../components";
 
 const MessageCard = () => {
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
 
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
-  const sendMessage = async () => {
+  const sendMessage = async (data) => {
     setLoading(true);
-    setError(false);
-
-    const sendingData = {
-      name,
-      message,
-    };
 
     try {
-      const data = await API.post("messages", sendingData);
+      const response = await API.post("messages", data);
 
-      setSnackMessage(data.data.message);
+      setSnackMessage(response.data.message);
       setSnackOpen(true);
 
       setLoading(false);
@@ -51,47 +41,13 @@ const MessageCard = () => {
         If you want to contact directly, you can send a message here.
       </Typography>
       <Box>
-        <TextField
-          variant="outlined"
-          color="primary"
-          label="Name"
-          placeholder="Your name"
-          value={name}
-          error={error}
-          onChange={(e) => setName(e.target.value)}
-          sx={{
-            mb: 2,
-          }}
-          fullWidth
+        <Forms
+          name="message"
+          button={loading ? "Wait" : "Send message"}
+          btnStyle={{ fullWidth: true, disabled: loading }}
+          callback={sendMessage}
+          def={{}}
         />
-        <TextField
-          variant="outlined"
-          color="primary"
-          label="Message"
-          placeholder="Your message"
-          value={message}
-          error={error}
-          onChange={(e) => setMessage(e.target.value)}
-          sx={{
-            mb: 2,
-          }}
-          rows={5}
-          multiline
-          fullWidth
-        />
-        <Button
-          variant="contained"
-          size="large"
-          onClick={sendMessage}
-          sx={{
-            fontWeight: "bold",
-          }}
-          disabled={loading}
-          disableElevation
-          fullWidth
-        >
-          Send message
-        </Button>
       </Box>
 
       <Snackbar

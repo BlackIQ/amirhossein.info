@@ -8,17 +8,17 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { Work, Public, Cake, Apartment } from "@mui/icons-material";
+import { Work, Public, Cake, Apartment, Phone, Email, Smartphone } from "@mui/icons-material";
 
 import { Card } from "../components";
 
 const aboutItems = [
   {
-    text: "Software developer",
+    text: "Software developer, DevOps, Network",
     icon: <Work />,
   },
   {
-    text: "SBB Iran",
+    text: "KMC (Kerman Motor Company)",
     icon: <Apartment />,
   },
   {
@@ -28,6 +28,14 @@ const aboutItems = [
   {
     text: "Nov 20, 2003",
     icon: <Cake />,
+  },
+  {
+    text: "+98 919 268 0633",
+    icon: <Smartphone />,
+  },
+  {
+    text: "amirhosseinmohammadi1380@yahoo.com",
+    icon: <Email />,
   },
 ];
 

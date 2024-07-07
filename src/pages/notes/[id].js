@@ -7,7 +7,6 @@ import {
   Toolbar,
   Typography,
   Divider,
-  Button,
 } from "@mui/material";
 
 import { AppLayout } from "@/layout";
@@ -17,7 +16,6 @@ import { API } from "@/api";
 import Head from "next/head";
 import { Navbar, Loading } from "@/components";
 import { useEffect, useState } from "react";
-import { VolunteerActivism } from "@mui/icons-material";
 
 export const getServerSidePaths = async () => {
   const paths = [];
@@ -65,16 +63,6 @@ export default function Notes({ params }) {
     }
   };
 
-  const clap = async () => {
-    try {
-      await API.patch(`notes/clap/${params.id}`);
-
-      getData();
-    } catch (error) {
-      alert(error.response.data.message);
-    }
-  };
-
   return (
     <>
       {data ? (
@@ -104,7 +92,7 @@ export default function Notes({ params }) {
           <Navbar />
           <Toolbar />
           <Container sx={{ py: 3 }}>
-            <Box className="markdown">
+            <Box className="markdown" sx={{ direction: data.dir }}>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {data.content}
               </ReactMarkdown>
@@ -140,11 +128,6 @@ export default function Notes({ params }) {
                 }}
               >
                 <Typography variant="body1">Amirhossein Mohammadi</Typography>
-                <Button
-                  startIcon={<VolunteerActivism color="error" onClick={clap} />}
-                >
-                  {data.clap}
-                </Button>
               </Box>
             </Box>
           </Container>

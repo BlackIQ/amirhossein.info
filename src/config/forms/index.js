@@ -128,10 +128,10 @@ const forms = [
         placeholder: "Enter content in Markdown!",
         secure: false,
       },
-      private: {
-        type: "checkbox",
-        label: "This is a private note",
-        placeholder: "This is a private note",
+      dir: {
+        type: "text",
+        label: "Post direction",
+        placeholder: "Enter direction",
         secure: false,
       },
     },

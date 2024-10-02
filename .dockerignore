@@ -1,2 +1,7 @@
-api/node_modules
-api/npm-debug.log
+# Ignore node_modules directory
+node_modules/
+
+# Ignore development and local configuration files
+.env.development.local
+.env.test.local
+.env.production.local

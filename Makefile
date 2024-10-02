@@ -18,3 +18,5 @@ stop:
 # Clean up
 clean:
 	docker rmi $(IMAGE_NAME):$(TAG)
+
+all: stop clean build run

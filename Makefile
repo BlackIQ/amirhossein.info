@@ -9,7 +9,7 @@ build:
 
 # Run the Docker container
 run:
-	docker run --name $(CONTAINER_NAME) --detach --network app --restart always $(IMAGE_NAME):$(TAG)
+	docker run --name $(CONTAINER_NAME) --detach --network application-network --restart always $(IMAGE_NAME):$(TAG)
 
 # Stop the Docker container
 stop:

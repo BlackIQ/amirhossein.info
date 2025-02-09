@@ -5,6 +5,7 @@ import {
   CardContent,
   Card,
   Box,
+  Typography,
 } from "@mui/material";
 
 import ReactMarkdown from "react-markdown";
@@ -59,50 +60,77 @@ const New = () => {
       </Head>
 
       <AppLayout>
-        <Navbar />
-        <Toolbar />
         <Box sx={{ py: 3 }}>
           {session ? (
-            <Container maxWidth="xl">
-              <Grid spacing={3} container>
-                <Grid md={6} item>
-                  <Forms
-                    name="newBlog"
-                    button="Add note"
-                    btnStyle={{ fullWidth: true, disabled: false }}
-                    callback={addBlog}
-                    def={{}}
-                    change={changeToParse}
-                  />
+            <>
+              <Navbar />
+              <Toolbar />
+
+              <Container maxWidth="xl">
+                <Grid spacing={3} container>
+                  <Grid md={6} item>
+                    <Forms
+                      name="newBlog"
+                      button="Add note"
+                      btnStyle={{ fullWidth: true, disabled: false }}
+                      callback={addBlog}
+                      def={{}}
+                      change={changeToParse}
+                    />
+                  </Grid>
+                  <Grid md={6} item>
+                    <Card
+                      variant="outlined"
+                      sx={{
+                        mt: "1rem",
+                        border: "none",
+                        borderRadius: 5,
+                      }}
+                    >
+                      <CardContent>
+                        <Box
+                          className="markdown"
+                          sx={{
+                            height: "100vh",
+                            overflow: "scroll",
+                          }}
+                        >
+                          <ReactMarkdown>{content}</ReactMarkdown>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Grid>
                 </Grid>
-                <Grid md={6} item>
-                  <Card
-                    variant="outlined"
-                    sx={{
-                      mt: "1rem",
-                      border: "none",
-                      borderRadius: 5,
-                    }}
-                  >
-                    <CardContent>
-                      <Box
-                        className="markdown"
-                        sx={{
-                          height: "100vh",
-                          overflow: "scroll",
-                        }}
-                      >
-                        <ReactMarkdown>{content}</ReactMarkdown>
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Container>
+              </Container>
+            </>
           ) : (
-            <Container maxWidth="sm">
-              <Card elevation={10}>
-                <CardContent>
+            <Container maxWidth="xs">
+              <Box
+                sx={{
+                  textAlign: "center",
+                  height: "100vh",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    backdropFilter: "blur(15px)",
+                    bgcolor: "rgba(255, 255, 255, 0.1)",
+                    p: 4,
+                    borderRadius: 2,
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    color="primary.main"
+                    fontWeight="500"
+                    fontSize={30}
+                    gutterBottom
+                  >
+                    Login
+                  </Typography>
                   <Forms
                     name="login"
                     button="Login"
@@ -110,8 +138,8 @@ const New = () => {
                     callback={login}
                     def={{}}
                   />
-                </CardContent>
-              </Card>
+                </Box>
+              </Box>
             </Container>
           )}
         </Box>

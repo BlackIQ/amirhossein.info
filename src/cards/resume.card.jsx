@@ -2,17 +2,14 @@ import {
   Box,
   List,
   ListItem,
-  ListItemText,
   ListItemButton,
   ListItemIcon,
-  colors,
+  ListItemText,
+  Skeleton,
+  Typography,
 } from "@mui/material";
-
 import Flag from "react-world-flags";
-
 import { API } from "@/api";
-
-import { Loading } from "../components";
 import { useEffect, useState } from "react";
 import { Warning } from "@mui/icons-material";
 
@@ -24,9 +21,9 @@ const ResumeCard = () => {
     setLoading(true);
     try {
       const { data } = await API.get("resumes");
-
       setResumes(data);
     } catch (error) {
+      console.error("Error fetching resumes:", error);
       alert("Error fetching resumes");
     }
     setLoading(false);
@@ -42,28 +39,49 @@ const ResumeCard = () => {
     de: <Flag code="de" style={{ width: 24, height: 16 }} />,
   };
 
-  return !loading ? (
+  return (
     <Box>
-      <List>
-        {resumes.map((resume) => (
-          <ListItem key={resume._id} disablePadding>
-            <ListItemButton
-              sx={{
-                borderRadius: 3,
-              }}
-              onClick={() => window.open(resume.url)}
-            >
-              <ListItemIcon>
-                {icons[resume.value] || <Warning color="warning" />}
-              </ListItemIcon>
-              <ListItemText primary={resume.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      {loading ? (
+        <List>
+          {[...Array(2)].map((_, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton sx={{ borderRadius: 3, py: 1 }}>
+                <ListItemIcon>
+                  <Skeleton variant="rectangular" width={24} height={16} />
+                </ListItemIcon>
+                <Skeleton variant="text" width="60%" />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      ) : (
+        <List>
+          {resumes.map((resume) => (
+            <ListItem key={resume._id} disablePadding>
+              <ListItemButton
+                sx={{
+                  borderRadius: 3,
+                  py: 1,
+                  "&:hover": { bgcolor: "grey.100" },
+                }}
+                onClick={() => window.open(resume.url, "_blank")}
+              >
+                <ListItemIcon sx={{ minWidth: 36 }}>
+                  {icons[resume.value] || <Warning color="warning" />}
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body2" color="text.primary">
+                      {resume.label}
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      )}
     </Box>
-  ) : (
-    <Loading />
   );
 };
 

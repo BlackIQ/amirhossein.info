@@ -1,76 +1,90 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
-  Box,
   Container,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-
 import MakeSnackbar from "@/components/snackbar/snackbar.component";
 
 const Navbar = () => {
   const router = useRouter();
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
-  const hireMe = () => {
-    setSnackMessage("Please use Social media card and send an Email 🙏🏻");
+  const handleHireMe = () => {
+    setSnackMessage("Please use the Social Media card to send an email 🙏");
     setSnackOpen(true);
   };
 
   return (
-    <Box>
-      <AppBar elevation={0}>
-        <Container maxWidth="xl">
-          <Toolbar>
+    <>
+      <AppBar
+        position="sticky"
+        elevation={2}
+        sx={{
+          bgcolor: "white",
+          color: "primary.main",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)", // Subtle shadow like LinkedIn
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar disableGutters>
             <Typography
-              variant="h5"
-              fontFamily="Boogaloo"
+              variant={isMobile ? "h6" : "h5"}
+              fontWeight={600}
               onClick={() => router.push("/")}
               sx={{
                 flexGrow: 1,
                 cursor: "pointer",
+                color: "primary.main",
+                "&:hover": { opacity: 0.8 },
               }}
             >
-              amirhossein
+              Amirhossein
             </Typography>
             <Button
-              color="inherit"
+              color="primary"
               variant="text"
-              size="large"
-              onClick={() => window.open("https://blog.amirhossein.info")}
+              size={isMobile ? "small" : "large"}
+              onClick={() =>
+                window.open("https://blog.amirhossein.info", "_blank")
+              }
               sx={{
-                fontWeight: "bold",
+                fontWeight: 500,
+                mx: 1,
+                "&:hover": { bgcolor: "grey.100" },
               }}
             >
               Notes
             </Button>
             <Button
-              color="inherit"
-              variant="text"
-              size="large"
-              onClick={hireMe}
+              color="primary"
+              variant="contained"
+              size={isMobile ? "small" : "large"}
+              onClick={handleHireMe}
               sx={{
-                fontWeight: "bold",
+                fontWeight: 500,
+                "&:hover": { bgcolor: "primary.dark" },
               }}
             >
-              Hire me
+              Hire Me
             </Button>
           </Toolbar>
         </Container>
       </AppBar>
-
       <MakeSnackbar
         open={snackOpen}
         close={() => setSnackOpen(false)}
         message={snackMessage}
       />
-    </Box>
+    </>
   );
 };
 

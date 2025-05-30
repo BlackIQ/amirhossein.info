@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-
 import Head from "next/head";
-
-import { Box, Grid, Toolbar } from "@mui/material";
-
+import { Box, Grid, Container } from "@mui/material";
 import {
   Person,
   Handyman,
@@ -12,16 +9,13 @@ import {
   Download,
   BusinessCenter,
 } from "@mui/icons-material";
-
 import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
-
 import AboutMeCard from "@/cards/about.card";
 import ExperiencesCard from "@/cards/experiences.card";
 import MainCard from "@/cards/main.card";
 import MessageCard from "@/cards/message.card";
 import ResumeCard from "@/cards/resume.card";
-// import SkillsCard from "@/cards/SkillsCard";
 import SocialCard from "@/cards/social.card";
 
 export default function Home() {
@@ -61,7 +55,6 @@ export default function Home() {
       hide: false,
     },
     {
-      // component: <SkillsCard skills={data ? data.skills : []} />,
       title: "Skills",
       subtitle: "Technologies or stuff I can work with",
       icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
@@ -88,12 +81,10 @@ export default function Home() {
       </Head>
 
       <AppLayout>
-        <Navbar />
-
-        <Box sx={{ mx: 2, mt: 2 }}>
-          <Toolbar />
-          <Grid spacing={2} container>
-            <Grid md={8} width="100%" item>
+        <Navbar sx={{ position: "sticky", top: 0, zIndex: 1100 }} />
+        <Container maxWidth="lg" sx={{ my: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={8}>
               <MainCard />
               {mainCards.map(
                 (card) =>
@@ -103,35 +94,38 @@ export default function Home() {
                       title={card.title}
                       subtitle={card.subtitle}
                       icon={card.icon}
+                      sx={{ mb: 3 }}
                     >
                       {card.component}
                     </Card.AppCard>
                   )
               )}
             </Grid>
-            <Grid md={4} width="100%" item>
-              {sideCards.map(
-                (card) =>
-                  !card.hide && (
-                    <Card.AppCard
-                      key={card.title}
-                      title={card.title}
-                      subtitle={card.subtitle}
-                      icon={card.icon}
-                    >
-                      {card.component}
-                    </Card.AppCard>
-                  )
-              )}
+            <Grid item xs={12} md={4}>
+              <Box sx={{ position: "sticky", top: 80 }}>
+                {sideCards.map(
+                  (card) =>
+                    !card.hide && (
+                      <Card.AppCard
+                        key={card.title}
+                        title={card.title}
+                        subtitle={card.subtitle}
+                        icon={card.icon}
+                        sx={{ mb: 3 }}
+                      >
+                        {card.component}
+                      </Card.AppCard>
+                    )
+                )}
+              </Box>
             </Grid>
           </Grid>
-
           <Snackbar
             open={snackOpen}
             close={() => setSnackOpen(false)}
             message={snackMessage}
           />
-        </Box>
+        </Container>
       </AppLayout>
     </>
   );

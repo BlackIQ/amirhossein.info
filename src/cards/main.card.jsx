@@ -7,7 +7,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-
+import Image from "next/image";
 import {
   Work,
   Public,
@@ -16,101 +16,75 @@ import {
   Email,
   Smartphone,
 } from "@mui/icons-material";
-
-import { Card } from "../components";
+import { AboutCard } from "../components/card/card.component";
 
 const aboutItems = [
-  {
-    text: "Software developer, DevOps, Network",
-    icon: <Work />,
-  },
-  {
-    text: "KMC (Kerman Motor Company)",
-    icon: <Apartment />,
-  },
-  {
-    text: "Iran, Tehran",
-    icon: <Public />,
-  },
-  {
-    text: "Nov 20, 2003",
-    icon: <Cake />,
-  },
-  {
-    text: "+98 919 268 0633",
-    icon: <Smartphone />,
-  },
-  {
-    text: "amirhosseinmohammadi1380@yahoo.com",
-    icon: <Email />,
-  },
+  { text: "Software Developer, DevOps, Network", icon: <Work /> },
+  { text: "KMC (Kerman Motor Company)", icon: <Apartment /> },
+  { text: "Tehran, Iran", icon: <Public /> },
+  { text: "Nov 20, 2003", icon: <Cake /> },
+  { text: "+98 919 268 0633", icon: <Smartphone /> },
+  { text: "amirhosseinmohammadi1380@yahoo.com", icon: <Email /> },
 ];
 
 const MainCard = () => {
   return (
-    <Card.AboutCard>
-      <Grid
-        spacing={2}
-        container
-        sx={{
-          p: 0,
-          m: 0,
-          height: "100%",
-        }}
-      >
-        <Grid md={4} item>
+    <AboutCard>
+      <Grid container spacing={2} sx={{ p: 2 }}>
+        <Grid item xs={12} md={4}>
           <Box
             sx={{
+              display: "flex",
+              justifyContent: "center",
               alignItems: "center",
               height: "100%",
-              display: "flex",
             }}
           >
-            <Box
+            <Image
               src="https://avatars.githubusercontent.com/u/55284339?v=4"
               alt="Profile photo"
-              component="img"
-              sx={{
-                width: "90%",
-                borderRadius: "100%",
-              }}
+              width={200}
+              height={200}
+              style={{ borderRadius: "50%", objectFit: "cover" }}
+              priority
             />
           </Box>
         </Grid>
-        <Grid md={8} item>
+        <Grid item xs={12} md={8}>
           <Box
             sx={{
-              alignItems: "center",
-              height: "100%",
               display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              height: "100%",
             }}
           >
-            <Box>
-              <Typography variant="h2" fontFamily="Meow Script">
-                hello
-              </Typography>
-              <Typography variant="h4" fontFamily="Boogaloo" gutterBottom>
-                I am Amirhossein Mohammadi
-              </Typography>
-              <List>
-                {aboutItems.map((item) => (
-                  <ListItem key={item.text} disablePadding>
-                    <ListItemIcon
-                      sx={{
-                        color: "primary.main",
-                      }}
-                    >
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={item.text} />
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
+            <Typography variant="h5" fontWeight={600} gutterBottom>
+              Amirhossein Mohammadi
+            </Typography>
+            <Typography variant="body1" color="text.secondary" gutterBottom>
+              Software Engineer & DevOps Specialist
+            </Typography>
+            <List dense>
+              {aboutItems.map((item) => (
+                <ListItem key={item.text} disablePadding>
+                  <ListItemIcon sx={{ color: "primary.main", minWidth: 36 }}>
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={
+                      <Typography variant="body2" color="text.primary">
+                        {item.text}
+                      </Typography>
+                    }
+                  />
+                </ListItem>
+              ))}
+            </List>
           </Box>
         </Grid>
       </Grid>
-    </Card.AboutCard>
+    </AboutCard>
   );
 };
 

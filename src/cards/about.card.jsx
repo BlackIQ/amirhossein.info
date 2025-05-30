@@ -3,10 +3,10 @@ import { Typography } from "@mui/material";
 const AboutMeCard = () => {
   return (
     <Typography variant="body1" lineHeight={1.7} color="text.primary">
-      I'm a multi-disciplinary Software Engineer and DevOps Specialist with a
-      proven track record of building robust systems from the ground up. Over
-      the past several years, I've taken on roles ranging from backend developer
-      to technical manager, co-founder, and CTO, leading both product
+      I&apos;m a multi-disciplinary Software Engineer and DevOps Specialist with
+      a proven track record of building robust systems from the ground up. Over
+      the past several years, I&apos;ve taken on roles ranging from backend
+      developer to technical manager, co-founder, and CTO, leading both product
       development and infrastructure design across startups and large
       organizations. At OpenHubble, as Founder and CEO, I oversee everything
       from code to cloud—combining full-stack engineering with DevOps, security,

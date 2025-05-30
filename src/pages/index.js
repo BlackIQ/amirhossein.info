@@ -1,3 +1,4 @@
+// pages/index.js
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import { Box, Grid, Container } from "@mui/material";
@@ -11,6 +12,7 @@ import {
 } from "@mui/icons-material";
 import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
+import { API } from "@/api";
 
 import AboutMeCard from "@/cards/about.card";
 import ExperiencesCard from "@/cards/experiences.card";
@@ -20,7 +22,13 @@ import MessageCard from "@/cards/message.card";
 import ResumeCard from "@/cards/resume.card";
 import SocialCard from "@/cards/social.card";
 
-export default function Home() {
+export default function Home({
+  experiences,
+  resumes,
+  skillGroups,
+  socials,
+  error,
+}) {
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
@@ -33,7 +41,7 @@ export default function Home() {
       hide: false,
     },
     {
-      component: <ExperiencesCard />,
+      component: <ExperiencesCard experiences={experiences} error={error} />,
       title: "Experiences",
       subtitle: "Companies I worked",
       icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
@@ -50,21 +58,21 @@ export default function Home() {
       hide: false,
     },
     {
-      component: <SocialCard />,
+      component: <SocialCard socials={socials} error={error} />,
       title: "Social media",
       subtitle: "Let's contact in social media",
       icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <SkillsCard />,
+      component: <SkillsCard skillGroups={skillGroups} error={error} />,
       title: "Skills",
       subtitle: "Technologies or stuff I can work with",
       icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <ResumeCard />,
+      component: <ResumeCard resumes={resumes} error={error} />,
       title: "Download resume",
       subtitle: "Download my resume in PDF",
       icon: <Download sx={{ color: "white", fontSize: 30 }} />,
@@ -73,9 +81,9 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    setSnackMessage("Welcome 🎉");
+    setSnackMessage(error ? "Error fetching data" : "Welcome 🎉");
     setSnackOpen(true);
-  }, []);
+  }, [error]);
 
   return (
     <>
@@ -132,4 +140,37 @@ export default function Home() {
       </AppLayout>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    // Fetch all data in parallel
+    const [experiencesRes, resumesRes, skillsRes, socialsRes] =
+      await Promise.all([
+        API.get("experiences"),
+        API.get("resumes"),
+        API.get("skills"),
+        API.get("socials"),
+      ]);
+
+    return {
+      props: {
+        experiences: experiencesRes.data,
+        resumes: resumesRes.data,
+        skillGroups: skillsRes.data,
+        socials: socialsRes.data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        experiences: [],
+        resumes: [],
+        skillGroups: [],
+        socials: [],
+        error: "Error fetching data",
+      },
+    };
+  }
 }

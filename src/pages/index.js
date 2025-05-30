@@ -6,62 +6,20 @@ import { Box, Grid, Toolbar } from "@mui/material";
 
 import {
   Person,
-  BusinessCenter,
   Handyman,
   Email,
   Tag,
   Download,
-  Settings,
+  BusinessCenter,
 } from "@mui/icons-material";
 
 import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
 import * as Cards from "@/cards";
-import { API } from "@/api";
 
 export default function Home() {
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
-
-  const [data, setData] = useState(null);
-
-  const getData = async () => {
-    const data = {};
-
-    try {
-      const resumes = await API.get("resumes");
-
-      data["resumes"] = { data: resumes.data };
-    } catch (error) {
-      data["resumes"] = { error: error.response.data };
-    }
-
-    try {
-      const skills = await API.get("skills");
-
-      data["skills"] = { data: skills.data };
-    } catch (error) {
-      data["skills"] = { error: error.response.data };
-    }
-
-    try {
-      const socials = await API.get("socials");
-
-      data["socials"] = { data: socials.data };
-    } catch (error) {
-      data["socials"] = { error: error.response.data };
-    }
-
-    try {
-      const experiences = await API.get("experiences");
-
-      data["experiences"] = { data: experiences.data };
-    } catch (error) {
-      data["experiences"] = { error: error.response.data };
-    }
-
-    setData(data);
-  };
 
   const mainCards = [
     {
@@ -72,19 +30,10 @@ export default function Home() {
       hide: false,
     },
     {
-      component: (
-        <Cards.ExperiencesCard experiences={data ? data.experiences : []} />
-      ),
+      component: <Cards.ExperiencesCard />,
       title: "Experiences",
       subtitle: "Companies I worked",
       icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
-      hide: false,
-    },
-    {
-      component: <Cards.APICard />,
-      title: "API",
-      subtitle: "Services and APIs introduction",
-      icon: <Settings sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
   ];
@@ -98,21 +47,21 @@ export default function Home() {
       hide: false,
     },
     {
-      component: <Cards.SocialCard socials={data ? data.socials : []} />,
+      component: <Cards.SocialCard />,
       title: "Social media",
       subtitle: "Let's contact in social media",
       icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <Cards.SkillsCard skills={data ? data.skills : []} />,
+      // component: <Cards.SkillsCard skills={data ? data.skills : []} />,
       title: "Skills",
       subtitle: "Technologies or stuff I can work with",
       icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <Cards.ResumeCard resumes={data ? data.resumes : []} />,
+      component: <Cards.ResumeCard />,
       title: "Download resume",
       subtitle: "Download my resume in PDF",
       icon: <Download sx={{ color: "white", fontSize: 30 }} />,
@@ -121,7 +70,6 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    getData();
     setSnackMessage("Welcome 🎉");
     setSnackOpen(true);
   }, []);

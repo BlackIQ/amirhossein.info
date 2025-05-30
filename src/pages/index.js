@@ -15,7 +15,14 @@ import {
 
 import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
-import * as Cards from "@/cards";
+
+import AboutMeCard from "@/cards/about.card";
+import ExperiencesCard from "@/cards/experiences.card";
+import MainCard from "@/cards/main.card";
+import MessageCard from "@/cards/message.card";
+import ResumeCard from "@/cards/resume.card";
+// import SkillsCard from "@/cards/SkillsCard";
+import SocialCard from "@/cards/social.card";
 
 export default function Home() {
   const [snackOpen, setSnackOpen] = useState(false);
@@ -23,14 +30,14 @@ export default function Home() {
 
   const mainCards = [
     {
-      component: <Cards.AboutMeCard />,
+      component: <AboutMeCard />,
       title: "About me",
       subtitle: "Read about this guy",
       icon: <Person sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <Cards.ExperiencesCard />,
+      component: <ExperiencesCard />,
       title: "Experiences",
       subtitle: "Companies I worked",
       icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
@@ -40,28 +47,28 @@ export default function Home() {
 
   const sideCards = [
     {
-      component: <Cards.MessageCard />,
+      component: <MessageCard />,
       title: "Send a message",
       subtitle: "Talk to me!",
       icon: <Email sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <Cards.SocialCard />,
+      component: <SocialCard />,
       title: "Social media",
       subtitle: "Let's contact in social media",
       icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      // component: <Cards.SkillsCard skills={data ? data.skills : []} />,
+      // component: <SkillsCard skills={data ? data.skills : []} />,
       title: "Skills",
       subtitle: "Technologies or stuff I can work with",
       icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
     {
-      component: <Cards.ResumeCard />,
+      component: <ResumeCard />,
       title: "Download resume",
       subtitle: "Download my resume in PDF",
       icon: <Download sx={{ color: "white", fontSize: 30 }} />,
@@ -87,7 +94,7 @@ export default function Home() {
           <Toolbar />
           <Grid spacing={2} container>
             <Grid md={8} width="100%" item>
-              <Cards.MainCard />
+              <MainCard />
               {mainCards.map(
                 (card) =>
                   !card.hide && (

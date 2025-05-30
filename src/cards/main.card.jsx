@@ -8,7 +8,14 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { Work, Public, Cake, Apartment, Phone, Email, Smartphone } from "@mui/icons-material";
+import {
+  Work,
+  Public,
+  Cake,
+  Apartment,
+  Email,
+  Smartphone,
+} from "@mui/icons-material";
 
 import { Card } from "../components";
 

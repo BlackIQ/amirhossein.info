@@ -19,6 +19,9 @@ RUN npm run build
 # Use the Node base image for the production stage
 FROM node:alpine AS production
 
+# Install cURL
+RUN apk add curl
+
 # Set the working directory in the container
 WORKDIR /app
 

@@ -1,0 +1,31 @@
+stages:
+  - build
+  # - deploy
+
+build:
+  stage: build
+  script:
+    - echo "CI_COMMIT_TAG -> $CI_COMMIT_TAG"
+    - >
+      if [ -n "$CI_COMMIT_TAG" ]; then
+        echo "Tag found, running build scripts.";
+        bash ./.gitlab/scripts/build.sh;
+      else
+        echo "No tag found, skipping build.";
+      fi
+  only:
+    - tags
+
+# deploy:
+#   stage: deploy
+#   script:
+#     - echo "CI_COMMIT_TAG -> $CI_COMMIT_TAG"
+#     - >
+#       if [ -n "$CI_COMMIT_TAG" ]; then
+#         echo "Tag found, running deploy script.";
+#         ssh $SSH_USER_DEV@$SSH_HOST_DEV -p $SSH_PORT_DEV 'bash -s' < .gitlab/scripts/deploy.sh "$CI_COMMIT_TAG";
+#       else
+#         echo "No tag found, skipping deploy.";
+#       fi
+#   only:
+#     - tags

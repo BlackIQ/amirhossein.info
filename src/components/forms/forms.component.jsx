@@ -130,7 +130,7 @@ const FormsComponent = ({
           color="primary"
           size="large"
           onClick={handleSubmit(onSubmit)}
-          sx={{ color: "white", mt: 1 }}
+          sx={{ color: "white", mt: 1, py: 1.75 }}
           fullWidth={btnStyle.fullWidth}
           disabled={btnStyle.disabled}
           disableElevation
@@ -144,7 +144,7 @@ const FormsComponent = ({
           color="primary"
           size="large"
           onClick={clear}
-          sx={{ mt: 1 }}
+          sx={{ mt: 1, py: 3 }}
           fullWidth={btnStyle.fullWidth}
           disabled={btnStyle.disabled}
           disableElevation

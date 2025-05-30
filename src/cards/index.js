@@ -5,7 +5,6 @@ import AboutMeCard from "./about.card";
 import SkillsCard from "./skills.card";
 import SocialCard from "./social.card";
 import MainCard from "./main.card";
-import APICard from "./api.card";
 
 export {
   ExperiencesCard,
@@ -15,5 +14,4 @@ export {
   SkillsCard,
   SocialCard,
   MainCard,
-  APICard,
 };

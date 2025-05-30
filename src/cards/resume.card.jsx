@@ -4,33 +4,66 @@ import {
   ListItem,
   ListItemText,
   ListItemButton,
-  Typography,
+  ListItemIcon,
+  colors,
 } from "@mui/material";
 
-import { Loading, Error } from "@/components";
+import Flag from "react-world-flags";
 
-const ResumeCard = ({ resumes }) => {
-  return (
+import { API } from "@/api";
+
+import { Loading } from "../components";
+import { useEffect, useState } from "react";
+import { Warning } from "@mui/icons-material";
+
+const ResumeCard = () => {
+  const [loading, setLoading] = useState(true);
+  const [resumes, setResumes] = useState([]);
+
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const { data } = await API.get("resumes");
+
+      setResumes(data);
+    } catch (error) {
+      alert("Error fetching resumes");
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const icons = {
+    us: <Flag code="us" style={{ width: 24, height: 16 }} />,
+    ir: <Flag code="ir" style={{ width: 24, height: 16 }} />,
+    de: <Flag code="de" style={{ width: 24, height: 16 }} />,
+  };
+
+  return !loading ? (
     <Box>
-      <Typography variant="body1" gutterButton>
-        You can download my resume in different languages.
-      </Typography>
-      {resumes.error ? (
-        <Error message={resumes.error.message} />
-      ) : resumes.data ? (
-        <List>
-          {resumes.data.map((resume) => (
-            <ListItem key={resume._id} disablePadding divider>
-              <ListItemButton onClick={() => window.open(resume.url)}>
-                <ListItemText primary={resume.name} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      ) : (
-        <Loading />
-      )}
+      <List>
+        {resumes.map((resume) => (
+          <ListItem key={resume._id} disablePadding>
+            <ListItemButton
+              sx={{
+                borderRadius: 3,
+              }}
+              onClick={() => window.open(resume.url)}
+            >
+              <ListItemIcon>
+                {icons[resume.value] || <Warning color="warning" />}
+              </ListItemIcon>
+              <ListItemText primary={resume.label} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </Box>
+  ) : (
+    <Loading />
   );
 };
 

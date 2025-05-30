@@ -11,9 +11,11 @@ import {
 } from "@mui/icons-material";
 import { Snackbar, Card, Navbar } from "@/components";
 import { AppLayout } from "@/layout";
+
 import AboutMeCard from "@/cards/about.card";
 import ExperiencesCard from "@/cards/experiences.card";
 import MainCard from "@/cards/main.card";
+import SkillsCard from "@/cards/skills.card";
 import MessageCard from "@/cards/message.card";
 import ResumeCard from "@/cards/resume.card";
 import SocialCard from "@/cards/social.card";
@@ -55,6 +57,7 @@ export default function Home() {
       hide: false,
     },
     {
+      component: <SkillsCard />,
       title: "Skills",
       subtitle: "Technologies or stuff I can work with",
       icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,

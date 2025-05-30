@@ -20,11 +20,11 @@ import { AboutCard } from "../components/card/card.component";
 
 const aboutItems = [
   { text: "Software Developer, DevOps, Network", icon: <Work /> },
-  { text: "KMC (Kerman Motor Company)", icon: <Apartment /> },
+  { text: "Peugeot Motorcycle", icon: <Apartment /> },
   { text: "Tehran, Iran", icon: <Public /> },
   { text: "Nov 20, 2003", icon: <Cake /> },
   { text: "+98 919 268 0633", icon: <Smartphone /> },
-  { text: "amirhosseinmohammadi1380@yahoo.com", icon: <Email /> },
+  { text: "hi@amirhossein.info", icon: <Email /> },
 ];
 
 const MainCard = () => {

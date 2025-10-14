@@ -23,14 +23,6 @@ const MakeSnackbar = ({ open, close, message }) => {
           <Close fontSize="small" />
         </IconButton>
       }
-      sx={{
-        "& .MuiSnackbarContent-root": {
-          bgcolor: "grey.900",
-          color: "white",
-          borderRadius: 1,
-          boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-        },
-      }}
     />
   );
 };

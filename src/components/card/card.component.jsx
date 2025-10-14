@@ -12,13 +12,16 @@ export const AppCard = ({ children, icon, title, subtitle }) => {
       variant="outlined"
       sx={{
         borderRadius: 2,
-        borderColor: "grey.300",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        borderColor: (theme) =>
+          theme.palette.mode === "light" ? "grey.300" : "grey.800", // Darker border in dark mode
         mb: 3,
         transition: "transform 0.2s, box-shadow 0.2s",
         "&:hover": {
           transform: "translateY(-4px)",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+          boxShadow: (theme) =>
+            theme.palette.mode === "light"
+              ? "0 4px 12px rgba(0,0,0,0.15)"
+              : "0 4px 12px rgba(0,0,0,0.4)", // Stronger shadow in dark mode
         },
       }}
     >
@@ -37,16 +40,18 @@ export const AppCard = ({ children, icon, title, subtitle }) => {
           <Avatar
             variant="rounded"
             sx={{
-              bgcolor: "primary.main",
+              bgcolor: "primary.main", // Theme-aware primary color
             }}
           >
             {icon}
           </Avatar>
         }
         sx={{
-          bgcolor: "grey.100",
+          bgcolor: (theme) =>
+            theme.palette.mode === "light" ? "grey.100" : "grey.900", // Darker header background
           borderBottom: 1,
-          borderColor: "grey.200",
+          borderColor: (theme) =>
+            theme.palette.mode === "light" ? "grey.200" : "grey.800", // Theme-aware border
         }}
       />
       <CardContent sx={{ pt: 2 }}>{children}</CardContent>
@@ -60,13 +65,16 @@ export const AboutCard = ({ children }) => {
       variant="outlined"
       sx={{
         borderRadius: 2,
-        borderColor: "grey.300",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        borderColor: (theme) =>
+          theme.palette.mode === "light" ? "grey.300" : "grey.800", // Darker border in dark mode
         mb: 3,
         transition: "transform 0.2s, box-shadow 0.2s",
         "&:hover": {
           transform: "translateY(-4px)",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+          boxShadow: (theme) =>
+            theme.palette.mode === "light"
+              ? "0 4px 12px rgba(0,0,0,0.15)"
+              : "0 4px 12px rgba(0,0,0,0.4)", // Stronger shadow in dark mode
         },
       }}
     >

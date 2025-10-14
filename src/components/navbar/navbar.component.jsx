@@ -8,7 +8,9 @@ import {
   Container,
   useMediaQuery,
   useTheme,
+  // IconButton,
 } from "@mui/material";
+// import { DarkMode, LightMode } from "@mui/icons-material";
 import MakeSnackbar from "@/components/snackbar/snackbar.component";
 
 const Navbar = () => {
@@ -29,9 +31,15 @@ const Navbar = () => {
         position="sticky"
         elevation={2}
         sx={{
-          bgcolor: "white",
-          color: "primary.main",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)", // Subtle shadow like LinkedIn
+          bgcolor: (theme) =>
+            theme.palette.mode === "light"
+              ? "white"
+              : theme.palette.background.paper, // Use paper (#1e1e1e) in dark mode
+          color: "primary.main", // Theme-aware primary color (blue[700] or blue[400])
+          boxShadow: (theme) =>
+            theme.palette.mode === "light"
+              ? "0 2px 4px rgba(0,0,0,0.1)"
+              : "0 2px 4px rgba(0,0,0,0.3)", // Stronger shadow in dark mode
         }}
       >
         <Container maxWidth="lg">
@@ -43,27 +51,18 @@ const Navbar = () => {
               sx={{
                 flexGrow: 1,
                 cursor: "pointer",
-                color: "primary.main",
+                color: "primary.main", // Theme-aware primary color
                 "&:hover": { opacity: 0.8 },
               }}
             >
               Amirhossein
             </Typography>
-            <Button
-              color="primary"
-              variant="text"
-              size={isMobile ? "small" : "large"}
-              onClick={() =>
-                window.open("https://blog.amirhossein.info", "_blank")
-              }
-              sx={{
-                fontWeight: 500,
-                mx: 1,
-                "&:hover": { bgcolor: "grey.100" },
-              }}
+            {/* <IconButton
+              sx={{ borderRadius: 1, mr: 1 }}
+              size={isMobile ? "small" : "medium"}
             >
-              Notes
-            </Button>
+              <LightMode color="primary" />
+            </IconButton> */}
             <Button
               color="primary"
               variant="contained"
@@ -71,7 +70,9 @@ const Navbar = () => {
               onClick={handleHireMe}
               sx={{
                 fontWeight: 500,
-                "&:hover": { bgcolor: "primary.dark" },
+                "&:hover": {
+                  bgcolor: "primary.dark",
+                },
               }}
             >
               Hire Me

@@ -1,6 +1,12 @@
 # Use the Node base image as the build stage
 FROM node:alpine AS build
 
+# Arguments
+ARG NEXT_PUBLIC_API_URL
+
+# Export Arg to Env
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 # Set the working directory in the container
 WORKDIR /app
 

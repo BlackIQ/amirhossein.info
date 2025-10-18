@@ -17,7 +17,7 @@ export default function NotFound() {
         fontWeight={700}
         sx={{
           color: "primary.main",
-          textShadow: (theme) => `0 0 16px ${theme.palette.neonGlow.intense}`,
+          // textShadow: (theme) => `0 0 16px ${theme.palette.neonGlow.intense}`,
           fontSize: { xs: "2rem", md: "4rem" },
         }}
       >

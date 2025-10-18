@@ -1,3 +1,4 @@
+// src/components/navbar/navbar.component.jsx
 import { useState } from "react";
 import { useRouter } from "next/router";
 import {
@@ -7,16 +8,16 @@ import {
   Button,
   Container,
   useMediaQuery,
-  useTheme,
-  // IconButton,
+  IconButton,
 } from "@mui/material";
-// import { DarkMode, LightMode } from "@mui/icons-material";
+import { DarkMode, LightMode } from "@mui/icons-material";
 import MakeSnackbar from "@/components/snackbar/snackbar.component";
+import { useThemeContext } from "@/context/ThemeContext";
 
 const Navbar = () => {
   const router = useRouter();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const { mode, toggleTheme } = useThemeContext();
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
@@ -29,17 +30,10 @@ const Navbar = () => {
     <>
       <AppBar
         position="sticky"
-        elevation={2}
         sx={{
-          bgcolor: (theme) =>
-            theme.palette.mode === "light"
-              ? "white"
-              : theme.palette.background.paper, // Use paper (#1e1e1e) in dark mode
-          color: "primary.main", // Theme-aware primary color (blue[700] or blue[400])
-          boxShadow: (theme) =>
-            theme.palette.mode === "light"
-              ? "0 2px 4px rgba(0,0,0,0.1)"
-              : "0 2px 4px rgba(0,0,0,0.3)", // Stronger shadow in dark mode
+          bgcolor: (theme) => theme.palette.background.paper,
+          color: "primary.main",
+          borderBottom: (theme) => `1px solid ${theme.palette.neonGlow.main}`,
         }}
       >
         <Container maxWidth="lg">
@@ -51,18 +45,23 @@ const Navbar = () => {
               sx={{
                 flexGrow: 1,
                 cursor: "pointer",
-                color: "primary.main", // Theme-aware primary color
+                color: "primary.main",
                 "&:hover": { opacity: 0.8 },
               }}
             >
               Amirhossein
             </Typography>
-            {/* <IconButton
+            <IconButton
+              onClick={toggleTheme}
               sx={{ borderRadius: 1, mr: 1 }}
               size={isMobile ? "small" : "medium"}
             >
-              <LightMode color="primary" />
-            </IconButton> */}
+              {mode === "light" ? (
+                <DarkMode color="primary" />
+              ) : (
+                <LightMode color="secondary" />
+              )}
+            </IconButton>
             <Button
               color="primary"
               variant="contained"
@@ -72,6 +71,8 @@ const Navbar = () => {
                 fontWeight: 500,
                 "&:hover": {
                   bgcolor: "primary.dark",
+                  boxShadow: (theme) =>
+                    `0 0 12px ${theme.palette.neonGlow.intense}`,
                 },
               }}
             >

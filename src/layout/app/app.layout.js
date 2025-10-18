@@ -1,14 +1,20 @@
-import { ThemeProvider, CssBaseline, Box } from "@mui/material";
-
-import { theme } from "@/theme";
+// src/layout/app/app.layout.js
+import {
+  ThemeProvider as MuiThemeProvider,
+  CssBaseline,
+  Box,
+} from "@mui/material";
+import { ThemeProvider, useThemeContext } from "@/context/ThemeContext";
 
 export const AppLayout = ({ children }) => {
-  const themeMode = "light";
+  const { theme } = useThemeContext();
 
   return (
-    <ThemeProvider theme={theme(themeMode)}>
-      <CssBaseline />
-      <Box>{children}</Box>
+    <ThemeProvider>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box>{children}</Box>
+      </MuiThemeProvider>
     </ThemeProvider>
   );
 };

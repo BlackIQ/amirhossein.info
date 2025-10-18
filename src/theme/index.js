@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material";
 
 const neonBase = {
   typography: {
-    fontFamily: "'Inter', 'Roboto', sans-serif",
+    fontFamily: "Lato, Caveat, sans-serif",
     h1: { fontWeight: 700, letterSpacing: -0.5 },
     h2: { fontWeight: 600, letterSpacing: -0.3 },
     h3: { fontWeight: 500 },

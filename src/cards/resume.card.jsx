@@ -17,6 +17,7 @@ const ResumeCard = ({ resumes, error }) => {
     us: <Flag code="us" style={{ width: 24, height: 16 }} />,
     ir: <Flag code="ir" style={{ width: 24, height: 16 }} />,
     de: <Flag code="de" style={{ width: 24, height: 16 }} />,
+    ru: <Flag code="ru" style={{ width: 24, height: 16 }} />,
   };
 
   if (error) {
@@ -53,7 +54,6 @@ const ResumeCard = ({ resumes, error }) => {
               sx={{
                 borderRadius: 3,
                 py: 1,
-                "&:hover": { bgcolor: "grey.100" },
               }}
               onClick={() => window.open(resume.url, "_blank")}
             >

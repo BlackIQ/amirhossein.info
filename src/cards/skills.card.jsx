@@ -13,7 +13,7 @@ const SkillsCard = ({ skillGroups, error }) => {
   if (!skillGroups || skillGroups.length === 0) {
     return (
       <Box>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        <Typography variant="body2" color="text.primary" sx={{ mb: 2 }}>
           Technologies and tools I work with
         </Typography>
         {[...Array(2)].map((_, index) => (
@@ -34,14 +34,19 @@ const SkillsCard = ({ skillGroups, error }) => {
 
   return (
     <Box>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+      <Typography variant="body2" color="text.primary" sx={{ mb: 2 }}>
         Technologies and tools I work with
       </Typography>
       {skillGroups
         .filter((group) => group.parent !== null)
         .map((group) => (
           <Box key={group.parent._id} sx={{ mb: 3 }}>
-            <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
+            <Typography
+              variant="h6"
+              color="text.primary"
+              fontWeight={600}
+              sx={{ mb: 1 }}
+            >
               {group.parent.label}
             </Typography>
             <Grid container spacing={1}>

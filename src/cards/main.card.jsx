@@ -59,10 +59,17 @@ const MainCard = () => {
               height: "100%",
             }}
           >
-            <Typography variant="h5" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              // color="secondary.main"
+              fontFamily="Caveat"
+              fontWeight={900}
+              gutterBottom
+            >
               Amirhossein Mohammadi
             </Typography>
-            <Typography variant="body1" color="text.secondary" gutterBottom>
+            <Typography variant="body2" color="text.secondary" gutterBottom>
               Software Engineer & DevOps Specialist
             </Typography>
             <List dense>

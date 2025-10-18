@@ -44,7 +44,7 @@ const ExperiencesCard = ({ experiences, error }) => {
     <Box>
       {experiences.map((experience, index) => (
         <Box key={experience._id} sx={{ mb: 3 }}>
-          <Typography variant="h6" fontWeight={600}>
+          <Typography variant="h6" color="text.primary" fontWeight={600}>
             {experience.position}
           </Typography>
           <Typography variant="body2" color="text.primary">
@@ -88,7 +88,14 @@ const ExperiencesCard = ({ experiences, error }) => {
               </Grid>
             ))}
           </Grid>
-          {index < experiences.length - 1 && <Divider sx={{ my: 2 }} />}
+          {index < experiences.length - 1 && (
+            <Divider
+              sx={{
+                my: 2,
+                borderColor: (theme) => theme.palette.neonGlow.main,
+              }}
+            />
+          )}
         </Box>
       ))}
     </Box>

@@ -63,7 +63,6 @@ const SocialCard = ({ socials, error }) => {
               sx={{
                 borderRadius: 3,
                 py: 1,
-                "&:hover": { bgcolor: "grey.100" },
               }}
               onClick={() => window.open(social.url, "_blank")}
             >

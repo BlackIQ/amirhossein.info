@@ -30,6 +30,7 @@ const Navbar = () => {
     <>
       <AppBar
         position="sticky"
+        variant="outlined"
         sx={{
           bgcolor: (theme) => theme.palette.background.paper,
           color: "primary.main",
@@ -39,8 +40,9 @@ const Navbar = () => {
         <Container maxWidth="lg">
           <Toolbar disableGutters>
             <Typography
-              variant={isMobile ? "h6" : "h5"}
+              variant={isMobile ? "h5" : "h4"}
               fontWeight={600}
+              fontFamily="Caveat"
               onClick={() => router.push("/")}
               sx={{
                 flexGrow: 1,

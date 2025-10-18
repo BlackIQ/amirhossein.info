@@ -1,4 +1,3 @@
-// src/components/card/card.component.jsx
 import {
   Typography,
   Avatar,
@@ -12,20 +11,23 @@ export const AppCard = ({ children, icon, title, subtitle }) => {
     <Card
       variant="outlined"
       sx={{
-        borderRadius: 2,
+        borderRadius: 5,
         borderColor: (theme) => theme.palette.neonGlow.main,
-        bgcolor: (theme) => theme.palette.background.paper,
         mb: 3,
       }}
     >
       <CardHeader
         title={
-          <Typography variant="h6" fontWeight={600} color="primary.main">
+          <Typography
+            variant="h6"
+            fontWeight={600}
+            color="primary.contrastText"
+          >
             {title}
           </Typography>
         }
         subheader={
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="primary.contrastText">
             {subtitle}
           </Typography>
         }
@@ -41,11 +43,13 @@ export const AppCard = ({ children, icon, title, subtitle }) => {
           </Avatar>
         }
         sx={{
-          bgcolor: (theme) => theme.palette.background.paper,
+          bgcolor: (theme) => theme.palette.primary.main,
           borderBottom: (theme) => `1px solid ${theme.palette.neonGlow.main}`,
         }}
       />
-      <CardContent sx={{ pt: 2 }}>{children}</CardContent>
+      <CardContent sx={{ pt: 2, color: "primary.contrastText" }}>
+        {children}
+      </CardContent>
     </Card>
   );
 };
@@ -55,13 +59,14 @@ export const AboutCard = ({ children }) => {
     <Card
       variant="outlined"
       sx={{
-        borderRadius: 2,
+        borderRadius: 5,
         borderColor: (theme) => theme.palette.neonGlow.main,
-        bgcolor: (theme) => theme.palette.background.paper,
         mb: 3,
       }}
     >
-      <CardContent sx={{ pt: 2 }}>{children}</CardContent>
+      <CardContent sx={{ pt: 2, color: "primary.contrastText" }}>
+        {children}
+      </CardContent>
     </Card>
   );
 };

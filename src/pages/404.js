@@ -1,3 +1,4 @@
+// src/pages/404.js
 import { Box, Typography } from "@mui/material";
 
 export default function NotFound() {
@@ -8,10 +9,19 @@ export default function NotFound() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        bgcolor: (theme) => theme.palette.background.default,
       }}
     >
-      <Typography fontSize={40} fontFamily="Boogaloo">
-        What u are looking for!? 404 page :)
+      <Typography
+        variant="h1"
+        fontWeight={700}
+        sx={{
+          color: "primary.main",
+          textShadow: (theme) => `0 0 16px ${theme.palette.neonGlow.intense}`,
+          fontSize: { xs: "2rem", md: "4rem" },
+        }}
+      >
+        404 - Page Not Found!
       </Typography>
     </Box>
   );

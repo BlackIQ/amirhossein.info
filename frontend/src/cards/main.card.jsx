@@ -46,8 +46,7 @@ const MainCard = () => {
                     >
                         <Typography
                             variant="h4"
-                            color="text.primary"
-                            // color="secondary.main"
+                            color="primary.main"
                             fontFamily="Caveat"
                             fontWeight={900}
                             gutterBottom

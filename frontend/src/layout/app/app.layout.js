@@ -1,15 +1,13 @@
-import {Box, CssBaseline, ThemeProvider as MuiThemeProvider,} from "@mui/material";
-import {ThemeProvider, useThemeContext} from "@/context/ThemeContext";
+import {Box, CssBaseline, ThemeProvider as MuiThemeProvider} from "@mui/material";
+import {useThemeContext} from "@/context/ThemeContext";
 
 export const AppLayout = ({children}) => {
     const {theme} = useThemeContext();
 
     return (
-        <ThemeProvider>
-            <MuiThemeProvider theme={theme}>
-                <CssBaseline/>
-                <Box>{children}</Box>
-            </MuiThemeProvider>
-        </ThemeProvider>
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Box sx={{minHeight: "100vh"}}>{children}</Box>
+        </MuiThemeProvider>
     );
 };

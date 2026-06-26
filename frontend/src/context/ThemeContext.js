@@ -4,11 +4,12 @@ import {getTheme} from "@/theme";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({children}) => {
-    const [mode, setMode] = useState("light");
+    const [mode, setMode] = useState("dark"); // Default to dark (recommended)
+
     const theme = useMemo(() => getTheme(mode), [mode]);
 
     const toggleTheme = () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        setMode((prev) => (prev === "light" ? "dark" : "light"));
     };
 
     return (

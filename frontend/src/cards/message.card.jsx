@@ -99,6 +99,7 @@ const MessageCard = () => {
                     onClick={sendMessage}
                     disabled={loading}
                     sx={{mt: 2}}
+                    disableElevation
                 >
                     {loading ? "Sending..." : "Send Message"}
                 </Button>

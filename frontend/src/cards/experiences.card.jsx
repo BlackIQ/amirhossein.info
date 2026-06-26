@@ -92,7 +92,7 @@ const ExperiencesCard = ({experiences, error}) => {
                         <Divider
                             sx={{
                                 my: 2,
-                                borderColor: (theme) => theme.palette.neonGlow.main,
+                                borderColor: (theme) => theme.palette.primary.main,
                             }}
                         />
                     )}

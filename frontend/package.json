@@ -1,8 +1,7 @@
 {
-  "name": "info",
-  "description": "Amirhossein Mohammadi personal page.",
-  "version": "0.1.0",
-  "private": true,
+  "name": "amirhossein.info-frontend",
+  "version": "2.0.0",
+  "description": "Frontend service for amirhossein.info",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -35,5 +34,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BlackIQ/amirhossein.info/issues"
-  }
+  },
+  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme"
 }

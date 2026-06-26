@@ -1,20 +1,18 @@
-// @/components/navbar/navbar.component.jsx
 import {useState} from "react";
 import {useRouter} from "next/router";
-import {AppBar, Button, Container, IconButton, Toolbar, Typography, useMediaQuery,} from "@mui/material";
+import {AppBar, Button, Container, IconButton, Toolbar, Typography, useMediaQuery} from "@mui/material";
 import {DarkMode, LightMode} from "@mui/icons-material";
-import MakeSnackbar from "@/components/snackbar/snackbar.component";
 import {useThemeContext} from "@/context/ThemeContext";
+import Snackbar from "@/components/snackbar/snackbar.component";
 
 const Navbar = () => {
     const router = useRouter();
     const {mode, toggleTheme} = useThemeContext();
     const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
     const [snackOpen, setSnackOpen] = useState(false);
-    const [snackMessage, setSnackMessage] = useState("");
+    const [snackMessage] = useState("Please use the message card to contact me");
 
     const handleHireMe = () => {
-        setSnackMessage("Please use the Social Media card to send an email 🙏");
         setSnackOpen(true);
     };
 
@@ -22,60 +20,41 @@ const Navbar = () => {
         <>
             <AppBar
                 position="sticky"
-                variant="outlined"
                 sx={{
-                    bgcolor: (theme) => theme.palette.background.paper,
-                    color: "primary.main",
-                    borderBottom: (theme) => `1px solid ${theme.palette.neonGlow.main}`,
+                    bgcolor: "background.paper",
+                    borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
                 }}
             >
                 <Container maxWidth="lg">
                     <Toolbar disableGutters>
                         <Typography
                             variant={isMobile ? "h5" : "h4"}
-                            fontWeight={600}
+                            fontWeight={700}
                             fontFamily="Caveat"
                             onClick={() => router.push("/")}
-                            sx={{
-                                flexGrow: 1,
-                                cursor: "pointer",
-                                color: "primary.main",
-                                "&:hover": {opacity: 0.8},
-                            }}
+                            sx={{flexGrow: 1, cursor: "pointer", color: "primary.main"}}
                         >
                             Amirhossein
                         </Typography>
-                        <IconButton
-                            onClick={toggleTheme}
-                            sx={{borderRadius: 1, mr: 1}}
-                            size={isMobile ? "small" : "medium"}
-                        >
-                            {mode === "light" ? (
-                                <DarkMode color="primary"/>
-                            ) : (
-                                <LightMode color="secondary"/>
-                            )}
+
+                        <IconButton onClick={toggleTheme} sx={{mr: 2}}>
+                            {mode === "light" ? <DarkMode sx={{color: "primary.main"}}/> :
+                                <LightMode sx={{color: "primary.main"}}/>}
                         </IconButton>
+
                         <Button
-                            color="primary"
                             variant="contained"
-                            size={isMobile ? "small" : "large"}
                             onClick={handleHireMe}
-                            sx={{
-                                fontWeight: 500,
-                                "&:hover": {
-                                    bgcolor: "primary.dark",
-                                    boxShadow: (theme) =>
-                                        `0 0 12px ${theme.palette.neonGlow.intense}`,
-                                },
-                            }}
+                            size={isMobile ? "small" : "medium"}
+                            disableElevation
                         >
                             Hire Me
                         </Button>
                     </Toolbar>
                 </Container>
             </AppBar>
-            <MakeSnackbar
+
+            <Snackbar
                 open={snackOpen}
                 close={() => setSnackOpen(false)}
                 message={snackMessage}

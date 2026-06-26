@@ -1,49 +1,28 @@
-import {Avatar, Card, CardContent, CardHeader, Typography,} from "@mui/material";
+import {Avatar, Card, CardContent, CardHeader, Typography} from "@mui/material";
 
-export const AppCard = ({children, icon, title, subtitle}) => {
+export const AppCard = ({children, icon, title, subtitle, sx = {}}) => {
     return (
         <Card
             variant="outlined"
             sx={{
-                borderRadius: 5,
-                borderColor: (theme) => theme.palette.neonGlow.main,
-                mb: 3,
+                borderColor: (theme) => theme.palette.divider,
+                ...sx,
             }}
         >
             <CardHeader
                 title={
-                    <Typography
-                        variant="h6"
-                        fontWeight={600}
-                        color="primary.contrastText"
-                    >
+                    <Typography variant="h6" fontWeight={600}>
                         {title}
                     </Typography>
                 }
-                subheader={
-                    <Typography variant="body2" color="primary.contrastText">
-                        {subtitle}
-                    </Typography>
-                }
+                subheader={subtitle}
                 avatar={
-                    <Avatar
-                        variant="rounded"
-                        sx={{
-                            bgcolor: "secondary.main",
-                            boxShadow: (theme) => `0 0 8px ${theme.palette.neonGlow.main}`,
-                        }}
-                    >
+                    <Avatar variant="rounded" sx={{bgcolor: "primary.main", color: "white"}}>
                         {icon}
                     </Avatar>
                 }
-                sx={{
-                    bgcolor: (theme) => theme.palette.primary.main,
-                    borderBottom: (theme) => `1px solid ${theme.palette.neonGlow.main}`,
-                }}
             />
-            <CardContent sx={{pt: 2, color: "primary.contrastText"}}>
-                {children}
-            </CardContent>
+            <CardContent sx={{pt: 2}}>{children}</CardContent>
         </Card>
     );
 };
@@ -52,15 +31,9 @@ export const AboutCard = ({children}) => {
     return (
         <Card
             variant="outlined"
-            sx={{
-                borderRadius: 5,
-                borderColor: (theme) => theme.palette.neonGlow.main,
-                mb: 3,
-            }}
+            sx={{borderColor: (theme) => theme.palette.divider, pb: 3}}
         >
-            <CardContent sx={{pt: 2, color: "primary.contrastText"}}>
-                {children}
-            </CardContent>
+            <CardContent sx={{pt: 3}}>{children}</CardContent>
         </Card>
     );
 };

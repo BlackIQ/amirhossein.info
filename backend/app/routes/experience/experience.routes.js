@@ -1,7 +1,7 @@
 import express from "express";
 
-import { Experience } from "$app/controllers/index.js";
-import { key } from "$app/middlewares/index.js";
+import {Experience} from "$app/controllers/index.js";
+import {key} from "$app/middlewares/index.js";
 
 const router = express.Router();
 

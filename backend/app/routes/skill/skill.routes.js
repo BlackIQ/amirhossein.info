@@ -1,7 +1,7 @@
 import express from "express";
 
-import { Skill } from "$app/controllers/index.js";
-import { key } from "$app/middlewares/index.js";
+import {Skill} from "$app/controllers/index.js";
+import {key} from "$app/middlewares/index.js";
 
 const router = express.Router();
 

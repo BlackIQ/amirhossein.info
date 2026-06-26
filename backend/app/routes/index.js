@@ -6,6 +6,7 @@ import Social from "$app/routes/social/social.routes.js";
 import Resume from "$app/routes/resume/resume.routes.js";
 import Message from "$app/routes/message/message.routes.js";
 import Base from "$app/routes/base/base.routes.js";
+import Note from "$app/routes/note/note.routes.js";
 
 const router = express.Router();
 
@@ -15,5 +16,6 @@ router.use("/socials", Social);
 router.use("/resumes", Resume);
 router.use("/messages", Message);
 router.use("/base", Base);
+router.use("/notes", Note);
 
 export default router;

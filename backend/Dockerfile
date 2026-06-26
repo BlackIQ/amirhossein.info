@@ -11,7 +11,7 @@ WORKDIR /app
 COPY . .
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Expose the container port
 EXPOSE 8000

@@ -1,17 +1,17 @@
-import { appConfig } from "$app/config/index.js";
+import {APP_SECRET} from "$app/config/index.js";
 
 const key = async (req, res, next) => {
-  const { apikey } = req.headers;
+    const {apikey} = req.headers;
 
-  if (!apikey) {
-    return res.status(401).json({ message: "Unautorized" });
-  }
+    if (!apikey) {
+        return res.status(401).json({message: "Unautorized"});
+    }
 
-  if (apikey !== appConfig.key) {
-    return res.status(401).json({ message: "Unautorized" });
-  }
+    if (apikey !== APP_SECRET) {
+        return res.status(401).json({message: "Unautorized"});
+    }
 
-  next();
+    next();
 };
 
 export default key;

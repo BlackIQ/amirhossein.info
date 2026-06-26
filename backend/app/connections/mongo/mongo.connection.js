@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
 
-import { databaseConfig } from "$app/config/index.js";
+import {MONGO_CONNECTION_STRING} from "$app/config/index.js";
 
-const { mongo: mongoCongig } = databaseConfig;
+console.log(MONGO_CONNECTION_STRING);
 
-const url = mongoCongig.connection;
-
-const connection = mongoose.createConnection(url, (error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Connected to mongodb.");
-  }
+export const mongodb = mongoose.createConnection(MONGO_CONNECTION_STRING, (error) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Connected to mongodb.");
+    }
 });
-
-export default connection;

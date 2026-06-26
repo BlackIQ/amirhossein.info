@@ -6,3 +6,4 @@ Source code of my personal website.
 
 - Frontend: NextJs
 - Backend: ExpressJs
+- Webserver: Nginx

@@ -1,4 +1,14 @@
-import databaseConfig from "$app/config/database/database.config.js";
-import appConfig from "$app/config/app/app.config.js";
+import dotenv from "dotenv";
 
-export { appConfig, databaseConfig };
+dotenv.config();
+
+const env = process.env;
+
+// App settings
+export const APP_PORT = env.APP_PORT;
+export const APP_SECRET = env.APP_SECRET;
+export const APP_ENVIRONMENT = env.APP_ENVIRONMENT;
+export const APP_PUBLISHED = APP_ENVIRONMENT ?? "production";
+
+// Database settings
+export const MONGO_CONNECTION_STRING = env.MONGO_CONNECTION_STRING;

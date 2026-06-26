@@ -1,6 +1,6 @@
 import {Avatar, Card, CardContent, CardHeader, Typography} from "@mui/material";
 
-export const AppCard = ({children, icon, title, subtitle, sx = {}}) => {
+export const AppCard = ({children, icon, title, subtitle, header, sx = {}}) => {
     return (
         <Card
             variant="outlined"
@@ -19,7 +19,7 @@ export const AppCard = ({children, icon, title, subtitle, sx = {}}) => {
                 ...sx,
             }}
         >
-            <CardHeader
+            {header && <CardHeader
                 title={
                     <Typography variant="h6" fontWeight={600}>
                         {title}
@@ -27,14 +27,14 @@ export const AppCard = ({children, icon, title, subtitle, sx = {}}) => {
                 }
                 subheader={subtitle}
                 avatar={
-                    <Avatar sx={{bgcolor: "primary.main", color: "white"}}>
+                    <Avatar variant="rounded" sx={{bgcolor: "primary.main", color: "white"}}>
                         {icon}
                     </Avatar>
                 }
                 sx={{
                     borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
                 }}
-            />
+            />}
             <CardContent sx={{pt: 3}}>{children}</CardContent>
         </Card>
     );

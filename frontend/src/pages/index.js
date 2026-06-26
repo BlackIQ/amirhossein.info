@@ -103,6 +103,7 @@ export default function Home({
                                             subtitle={card.subtitle}
                                             icon={card.icon}
                                             sx={{mb: 3}}
+                                            header={true}
                                         >
                                             {card.component}
                                         </Card.AppCard>
@@ -120,6 +121,7 @@ export default function Home({
                                                 subtitle={card.subtitle}
                                                 icon={card.icon}
                                                 sx={{mb: 3}}
+                                                header={true}
                                             >
                                                 {card.component}
                                             </Card.AppCard>

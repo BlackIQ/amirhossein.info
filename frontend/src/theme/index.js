@@ -2,7 +2,7 @@ import {createTheme} from "@mui/material";
 
 const baseTheme = {
     typography: {
-        fontFamily: "'Inter', 'Caveat', sans-serif",
+        fontFamily: "'Inter', 'Caveat', 'JetBrains Mono', sans-serif",
         h1: {fontWeight: 700, letterSpacing: -0.5},
         h2: {fontWeight: 600},
         h3: {fontWeight: 600},

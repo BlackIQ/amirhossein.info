@@ -93,16 +93,20 @@ const Navbar = () => {
                         </IconButton>
 
                         <Button
+                            variant="text"
+                            size={isMobile ? "small" : "medium"}
+                            onClick={() => router.push("/notes")}
+                            disableElevation
+
+                        >
+                            Notes
+                        </Button>
+                        <Button
                             variant="contained"
                             onClick={handleHireMe}
                             size={isMobile ? "small" : "medium"}
                             disableElevation
-                            sx={{
-                                boxShadow: (theme) =>
-                                    theme.palette.mode === "dark"
-                                        ? "0 4px 15px rgba(59, 130, 246, 0.3)"
-                                        : "0 4px 15px rgba(30, 64, 175, 0.25)",
-                            }}
+                            sx={{ml:2}}
                         >
                             Hire Me
                         </Button>

@@ -14,10 +14,10 @@ WORKDIR /app
 COPY package.json .
 
 # Install dependencies
-RUN npm install
+RUN npm install --production
 
 # Copy the rest of the application code to the container
-COPY .. .
+COPY . .
 
 # Build the Next.js app
 RUN npm run build
@@ -26,7 +26,7 @@ RUN npm run build
 FROM node:alpine AS production
 
 # Install cURL
-RUN apk add curl
+RUN apk add --no-cache curl
 
 # Set the working directory in the container
 WORKDIR /app

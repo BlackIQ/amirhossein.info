@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    container_name: resume-backend
+    restart: always
+    networks:
+      - resume-network
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    container_name: resume-frontend
+    restart: always
+    networks:
+      - resume-network
+    depends_on:
+      - backend
+  webserver:
+    build:
+      context: webserver
+      dockerfile: Dockerfile
+    container_name: resume-webserver
+    restart: always
+    networks:
+      - resume-network
+    expose:
+      - 443
+      - 80
+    depends_on:
+      - backend
+      - frontend
+
+networks:
+  resume-network:
+    external: true

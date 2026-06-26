@@ -1,5 +1,5 @@
 import { Box, Grid, Chip, Skeleton, Typography } from "@mui/material";
-import { API } from "@/api";
+import { API } from "frontend/src/api";
 
 const SkillsCard = ({ skillGroups, error }) => {
   if (error) {

@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Flag from "react-world-flags";
-import { API } from "@/api";
+import { API } from "frontend/src/api";
 import { Warning } from "@mui/icons-material";
 
 const ResumeCard = ({ resumes, error }) => {

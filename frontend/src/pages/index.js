@@ -10,18 +10,18 @@ import {
   Download,
   BusinessCenter,
 } from "@mui/icons-material";
-import { Snackbar, Card } from "@/components";
-import { AppLayout } from "@/layout";
-import { API } from "@/api";
-import Navbar from "@/components/navbar/navbar.component";
+import { Snackbar, Card } from "frontend/src/components";
+import { AppLayout } from "frontend/src/layout";
+import { API } from "frontend/src/api";
+import Navbar from "frontend/src/components/navbar/navbar.component";
 
-import AboutMeCard from "@/cards/about.card";
-import ExperiencesCard from "@/cards/experiences.card";
-import MainCard from "@/cards/main.card";
-import SkillsCard from "@/cards/skills.card";
-import MessageCard from "@/cards/message.card";
-import ResumeCard from "@/cards/resume.card";
-import SocialCard from "@/cards/social.card";
+import AboutMeCard from "frontend/src/cards/about.card";
+import ExperiencesCard from "frontend/src/cards/experiences.card";
+import MainCard from "frontend/src/cards/main.card";
+import SkillsCard from "frontend/src/cards/skills.card";
+import MessageCard from "frontend/src/cards/message.card";
+import ResumeCard from "frontend/src/cards/resume.card";
+import SocialCard from "frontend/src/cards/social.card";
 
 export default function Home({
   experiences,

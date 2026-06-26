@@ -8,7 +8,7 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
-import { API } from "@/api";
+import { API } from "frontend/src/api";
 import {
   GitHub,
   LinkedIn,

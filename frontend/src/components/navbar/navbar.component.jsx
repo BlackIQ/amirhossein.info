@@ -11,8 +11,8 @@ import {
   IconButton,
 } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
-import MakeSnackbar from "@/components/snackbar/snackbar.component";
-import { useThemeContext } from "@/context/ThemeContext";
+import MakeSnackbar from "frontend/src/components/snackbar/snackbar.component";
+import { useThemeContext } from "frontend/src/context/ThemeContext";
 
 const Navbar = () => {
   const router = useRouter();

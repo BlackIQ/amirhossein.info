@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, Divider, Chip, Skeleton } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { API } from "@/api";
+import { API } from "frontend/src/api";
 
 const ExperiencesCard = ({ experiences, error }) => {
   if (error) {

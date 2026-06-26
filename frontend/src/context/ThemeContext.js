@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useMemo } from "react";
-import { getTheme } from "@/theme";
+import { getTheme } from "frontend/src/theme";
 
 const ThemeContext = createContext();
 

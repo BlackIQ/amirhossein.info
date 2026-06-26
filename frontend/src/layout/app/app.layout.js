@@ -4,7 +4,7 @@ import {
   CssBaseline,
   Box,
 } from "@mui/material";
-import { ThemeProvider, useThemeContext } from "@/context/ThemeContext";
+import { ThemeProvider, useThemeContext } from "frontend/src/context/ThemeContext";
 
 export const AppLayout = ({ children }) => {
   const { theme } = useThemeContext();

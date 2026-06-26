@@ -89,11 +89,11 @@ export default function Home({
             </Head>
             <AppLayout>
                 <Navbar sx={{position: "sticky", top: 0, zIndex: 1100}}/>
-                <Container maxWidth="lg" sx={{my: 4}}>
+                <Container maxWidth="lg" sx={{my: 4, position: "relative", zIndex: 1}}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={8}>
                             <MainCard/>
-                            <Box sx={{mb: 3}} />
+                            <Box sx={{mb: 3}}/>
                             {mainCards.map(
                                 (card) =>
                                     !card.hide && (

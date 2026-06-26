@@ -1,3 +1,8 @@
-# [Amirhossein Mohammadi](http://amirhossein.info/) - Resume UI
+# [Amirhossein Mohammadi](http://amirhossein.info)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 😄
+Source code of my personal website.
+
+## Structure
+
+- Frontend: NextJs
+- Backend: ExpressJs

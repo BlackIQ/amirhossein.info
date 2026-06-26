@@ -46,7 +46,7 @@ services:
       - 80
     depends_on:
       - backend
-      - frontend
+#      - frontend
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost" ]
       interval: 30s

@@ -5,7 +5,7 @@ import {AboutCard} from "@/components/card/card.component";
 
 const aboutItems = [
     {text: "Software Developer, DevOps, Network", icon: <Work/>},
-    {text: "Peugeot Motorcycle", icon: <Apartment/>},
+    {text: "NarenjCloud", icon: <Apartment/>},
     {text: "Tehran, Iran", icon: <Public/>},
     {text: "Nov 20, 2003", icon: <Cake/>},
     {text: "+98 919 268 0633", icon: <Smartphone/>},

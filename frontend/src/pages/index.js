@@ -93,6 +93,7 @@ export default function Home({
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={8}>
                             <MainCard/>
+                            <Box sx={{mb: 3}} />
                             {mainCards.map(
                                 (card) =>
                                     !card.hide && (

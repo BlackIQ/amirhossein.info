@@ -32,26 +32,26 @@ services:
 #      interval: 30s
 #      timeout: 10s
 #      retries: 3
-#
-#  webserver:
-#    build:
-#      context: webserver
-#      dockerfile: Dockerfile
-#    container_name: resume-webserver
-#    restart: always
-#    networks:
-#      - resume-network
-#    expose:
-#      - 443
-#      - 80
-#    depends_on:
-#      - backend
-#      - frontend
-#    healthcheck:
-#      test: [ "CMD", "curl", "-f", "http://localhost" ]
-#      interval: 30s
-#      timeout: 10s
-#      retries: 3
+
+  webserver:
+    build:
+      context: webserver
+      dockerfile: Dockerfile
+    container_name: resume-webserver
+    restart: always
+    networks:
+      - resume-network
+    expose:
+      - 443
+      - 80
+    depends_on:
+      - backend
+      - frontend
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 networks:
   resume-network:

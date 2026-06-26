@@ -2,7 +2,7 @@
   "name": "amirhossein.info-backend",
   "version": "2.0.0",
   "description": "Backend service for amirhossein.info",
-  "main": "server.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "dev": "link-module-alias && nodemon app.js",

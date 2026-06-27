@@ -71,7 +71,7 @@ const Navbar = () => {
                 color: "primary.main",
               }}
             >
-              Amirhossein
+              Be the best you can be
             </Typography>
 
             {/* Language Selector */}

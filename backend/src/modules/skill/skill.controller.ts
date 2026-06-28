@@ -17,7 +17,9 @@ export const CREATE = async (req: Request, res: Response) => {
     const skill = await Skill.create(data);
     return res.status(201).send(skill);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -51,7 +53,9 @@ export const ALL = async (req: Request, res: Response) => {
 
     return res.status(200).send(response);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -67,7 +71,9 @@ export const SINGLE = async (req: Request, res: Response) => {
 
     return res.status(200).send(skill);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -83,7 +89,9 @@ export const DELETE = async (req: Request, res: Response) => {
 
     return res.status(200).send({ message: "Skill deleted" });
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -100,6 +108,8 @@ export const UPDATE = async (req: Request, res: Response) => {
 
     return res.status(200).send({ message: "Skill updated" });
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };

@@ -21,7 +21,9 @@ export const CREATE = async (req: Request, res: Response) => {
 
     return res.status(200).send({ message: "Thanks for your message" });
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -31,7 +33,9 @@ export const ALL = async (req: Request, res: Response) => {
 
     return res.status(200).send(messages);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -47,7 +51,9 @@ export const SINGLE = async (req: Request, res: Response) => {
 
     return res.status(200).send(message);
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -63,7 +69,9 @@ export const DELETE = async (req: Request, res: Response) => {
 
     return res.status(200).send({ message: "Message deleted" });
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };
 
@@ -80,6 +88,8 @@ export const UPDATE = async (req: Request, res: Response) => {
 
     return res.status(200).send({ message: "Message updated" });
   } catch (error) {
-    return res.status(500).send({ message: error.message });
+    const err = error as Error;
+
+    return res.status(500).send({ message: err.message });
   }
 };

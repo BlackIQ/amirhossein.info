@@ -1,4 +1,4 @@
-import { APP_SECRET } from "$app/config/index.js";
+import { APP_SECRET } from "@src/config/index.js";
 
 const key = async (req, res, next) => {
   const { apikey } = req.headers;

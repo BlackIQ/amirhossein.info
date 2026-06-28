@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 
-import Routes from "$app/routes/index.js";
+import Routes from "@src/routes/index.js";
 
 const app = express();
 

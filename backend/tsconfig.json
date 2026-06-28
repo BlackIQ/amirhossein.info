@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    // "rootDir": "./app",
+    // "rootDir": "./src",
     "outDir": "./dist",
 
     "module": "nodenext",
@@ -16,6 +16,7 @@
 
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "ignoreDeprecations": "6.0",
 
     "skipLibCheck": true,
     "baseUrl": ".",

@@ -2,17 +2,16 @@
   "name": "amirhossein.info-backend",
   "version": "2.0.0",
   "description": "Backend service for amirhossein.info",
-  "main": "app.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "link-module-alias && nodemon app.js",
-    "start": "link-module-alias && node app.js",
-    "postinstall": "link-module-alias"
+    "dev": "tsx watch server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc && tsc-alias"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
-    "link-module-alias": "^1.2.0",
-    "nodemon": "^3.1.0",
+    "tsc-alias": "^1.8.17",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   },
@@ -23,9 +22,6 @@
     "express": "^4.21.2",
     "mongoose": "^8.9.5",
     "morgan": "^1.10.0"
-  },
-  "_moduleAliases": {
-    "$app": "./app"
   },
   "repository": {
     "type": "git",

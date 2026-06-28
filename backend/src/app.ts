@@ -2,9 +2,12 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 
+import { initDB } from "@src/connections/mongo/mongo.connection.js";
 import Routes from "@src/routes/index.js";
 
 const app = express();
+
+initDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

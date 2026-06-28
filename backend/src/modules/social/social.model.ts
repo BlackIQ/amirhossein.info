@@ -1,32 +1,33 @@
-import { mongodb } from "@src/connections/mongo/mongo.connection.js";
+import { Schema, model } from "mongoose";
 
-import mongoose from "mongoose";
+import type { Social } from "@src/modules/social/social.type.js";
 
-const mongooseSchema = mongoose.Schema;
+const schema = new Schema<Social>(
+  {
+    priority: {
+      type: Number,
+      required: true,
+    },
+    label: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+    show: {
+      type: Boolean,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
 
-const schemaModel = {
-  priority: {
-    type: Number,
-    default: null,
-  },
-  label: {
-    type: String,
-    default: null,
-  },
-  value: {
-    type: String,
-    default: null,
-  },
-  url: {
-    type: String,
-    default: null,
-  },
-  show: {
-    type: Boolean,
-    default: true,
-  },
-};
+const SocialModel = model<Social>("Social", schema);
 
-const schema = new mongooseSchema(schemaModel, { timestamps: true });
-
-export default mongodb.model("Social", schema);
+export default SocialModel;

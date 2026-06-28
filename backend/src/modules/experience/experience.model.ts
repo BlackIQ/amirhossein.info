@@ -1,52 +1,53 @@
-import { mongodb } from "@src/connections/mongo/mongo.connection.js";
+import { Schema, model } from "mongoose";
 
-import mongoose from "mongoose";
+import type { Experience } from "@src/modules/experience/experience.type.js";
 
-const mongooseSchema = mongoose.Schema;
+const schema = new Schema<Experience>(
+  {
+    priority: {
+      type: Number,
+      required: true,
+    },
+    show: {
+      type: Boolean,
+      required: true,
+    },
+    position: {
+      type: String,
+      required: true,
+    },
+    companyName: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    startDate: {
+      type: String,
+      required: true,
+    },
+    endDate: {
+      type: String,
+      required: true,
+    },
+    duties: {
+      type: String,
+      required: true,
+    },
+    skills: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
 
-const schemaModel = {
-  priority: {
-    type: Number,
-    default: null,
-  },
-  position: {
-    type: String,
-    default: null,
-  },
-  companyName: {
-    type: String,
-    default: null,
-  },
-  location: {
-    type: String,
-    default: null,
-  },
-  startDate: {
-    type: String,
-    default: null,
-  },
-  endDate: {
-    type: String,
-    default: null,
-  },
-  duties: {
-    type: String,
-    default: null,
-  },
-  skills: {
-    type: String,
-    default: null,
-  },
-  url: {
-    type: String,
-    default: null,
-  },
-  show: {
-    type: Boolean,
-    default: true,
-  },
-};
+const ExperienceModel = model<Experience>("Experience", schema);
 
-const schema = new mongooseSchema(schemaModel, { timestamps: true });
-
-export default mongodb.model("Experience", schema);
+export default ExperienceModel;

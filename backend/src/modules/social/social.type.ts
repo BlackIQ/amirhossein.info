@@ -1,12 +1,9 @@
 import type { Types } from "mongoose";
 
 export interface Social {
-  _id: Types.ObjectId;
   priority: number | null;
+  show: boolean;
   label: string;
   value: string;
-  show: boolean;
   url: string;
-  createdAt?: Date;
-  updatedAt?: Date;
 }

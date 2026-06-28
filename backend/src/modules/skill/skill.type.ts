@@ -1,12 +1,9 @@
 import type { Types } from "mongoose";
 
 export interface Skill {
-  _id: Types.ObjectId;
   priority: number | null;
+  show: boolean;
   label: string;
   value: string;
-  show: boolean;
   parent?: Types.ObjectId | null;
-  createdAt?: Date;
-  updatedAt?: Date;
 }

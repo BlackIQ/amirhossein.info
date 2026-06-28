@@ -1,11 +1,8 @@
-import mongoose from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
-import { mongodb } from "@src/connections/mongo/mongo.connection.js";
 import type { Skill } from "@src/modules/skill/skill.type.js";
 
-const mongooseSchema = mongoose.Schema;
-
-const schema = new mongooseSchema<Skill>(
+const schema = new Schema<Skill>(
   {
     priority: {
       type: Number,
@@ -18,14 +15,13 @@ const schema = new mongooseSchema<Skill>(
     value: {
       type: String,
       required: true,
-      unique: true,
     },
     show: {
       type: Boolean,
       default: true,
     },
     parent: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Types.ObjectId,
       ref: "Skill",
       default: null,
     },
@@ -33,6 +29,6 @@ const schema = new mongooseSchema<Skill>(
   { timestamps: true },
 );
 
-const SkillModel = mongodb.model<Skill>("Skill", schema);
+const SkillModel = model<Skill>("Skill", schema);
 
 export default SkillModel;

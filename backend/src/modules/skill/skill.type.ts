@@ -1,6 +1,6 @@
 import type { Types } from "mongoose";
 
-export type Skill = {
+export interface Skill {
   _id: Types.ObjectId;
   priority: number | null;
   label: string;
@@ -9,4 +9,4 @@ export type Skill = {
   parent?: Types.ObjectId | null;
   createdAt?: Date;
   updatedAt?: Date;
-};
+}

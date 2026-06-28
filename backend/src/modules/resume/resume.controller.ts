@@ -1,6 +1,8 @@
+import type { Request, Response } from "express";
+
 import Resume from "@src/modules/resume/resume.model.js";
 
-export const CREATE = async (req, res) => {
+export const CREATE = async (req: Request, res: Response) => {
   const data = req.body;
 
   try {
@@ -12,7 +14,7 @@ export const CREATE = async (req, res) => {
   }
 };
 
-export const ALL = async (req, res) => {
+export const ALL = async (req: Request, res: Response) => {
   try {
     const resumes = await Resume.find({ show: true }).sort({ priority: 1 });
 
@@ -22,7 +24,7 @@ export const ALL = async (req, res) => {
   }
 };
 
-export const SINGLE = async (req, res) => {
+export const SINGLE = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
@@ -38,7 +40,7 @@ export const SINGLE = async (req, res) => {
   }
 };
 
-export const DELETE = async (req, res) => {
+export const DELETE = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
@@ -54,7 +56,7 @@ export const DELETE = async (req, res) => {
   }
 };
 
-export const UPDATE = async (req, res) => {
+export const UPDATE = async (req: Request, res: Response) => {
   const { id } = req.params;
   const data = req.body;
 

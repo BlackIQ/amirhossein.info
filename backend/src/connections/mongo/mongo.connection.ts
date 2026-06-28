@@ -1,12 +1,14 @@
 import mongoose from "mongoose";
 import { MONGO_CONNECTION_STRING } from "@src/config/index.js";
 
-export const mongodb = mongoose.connect(MONGO_CONNECTION_STRING);
+export const initDB = async () => {
+  await mongoose.connect(MONGO_CONNECTION_STRING);
 
-mongodb.then(() => {
-  console.log("Connected to mongo.");
-});
+  // mongoose.connection.on("connected", () => {
+  //   console.log("Connected to mongo.");
+  // });
 
-mongodb.catch((error) => {
-  console.log("Mongo connection error:", error);
-});
+  // mongoose.connection.on("error", (error) => {
+  //   console.log("Mongo connection error:", error);
+  // });
+};

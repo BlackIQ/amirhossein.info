@@ -10,6 +10,9 @@
     "build": "tsc && tsc-alias"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^26.0.1",
     "tsc-alias": "^1.8.17",
     "tsx": "^4.22.4",

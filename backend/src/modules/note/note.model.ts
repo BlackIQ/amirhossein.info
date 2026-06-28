@@ -1,28 +1,29 @@
-import { mongodb } from "@src/connections/mongo/mongo.connection.js";
+import { Schema, model } from "mongoose";
 
-import mongoose from "mongoose";
+import type { Note } from "@src/modules/note/note.type.js";
 
-const mongooseSchema = mongoose.Schema;
-
-const schemaModel = {
-  title: {
-    type: String,
-    required: true,
+const schema = new Schema<Note>(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    details: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    thumbnail: {
+      type: String,
+      required: true,
+    },
   },
-  details: {
-    type: String,
-    required: true,
-  },
-  content: {
-    type: String,
-    required: true,
-  },
-  thumbnail: {
-    type: String,
-    required: true,
-  },
-};
+  { timestamps: true },
+);
 
-const schema = new mongooseSchema(schemaModel, { timestamps: true });
+const NoteModel = model<Note>("Note", schema);
 
-export default mongodb.model("Note", schema);
+export default NoteModel;

@@ -1,6 +1,6 @@
 import express from "express";
 
-import {Base} from "$app/controllers/index.js";
+import { Base } from "$app/controllers/index.js";
 
 const router = express.Router();
 

@@ -6,4 +6,4 @@ import * as Message from "$app/controllers/message/message.controllers.js";
 import * as Base from "$app/controllers/base/base.controllers.js";
 import * as Note from "$app/controllers/note/note.controllers.js";
 
-export {Social, Skill, Experience, Resume, Message, Base, Note};
+export { Social, Skill, Experience, Resume, Message, Base, Note };

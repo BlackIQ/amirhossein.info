@@ -20,7 +20,7 @@ app.use("*", (req, res) =>
     url: req.originalUrl,
     method: req.method,
     message: "Page not found",
-  })
+  }),
 );
 
 export default app;

@@ -1,6 +1,6 @@
-import { APP_PORT } from "$app/config/index.js";
+import { APP_PORT } from "@src/config/index.js";
 
-import app from "$app";
+import app from "@src/app.js";
 
 import chalk from "chalk";
 

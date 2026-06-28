@@ -10,8 +10,11 @@
     "postinstall": "link-module-alias"
   },
   "devDependencies": {
+    "@types/node": "^26.0.1",
     "link-module-alias": "^1.2.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "chalk": "^5.3.0",

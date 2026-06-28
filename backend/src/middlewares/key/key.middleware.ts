@@ -1,6 +1,8 @@
+import type { Request, Response, NextFunction } from "express";
+
 import { APP_SECRET } from "@src/config/index.js";
 
-const key = async (req, res, next) => {
+const key = async (req: Request, res: Response, next: NextFunction) => {
   const { apikey } = req.headers;
 
   if (!apikey) {

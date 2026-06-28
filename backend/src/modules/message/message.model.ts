@@ -1,24 +1,25 @@
-import { mongodb } from "@src/connections/mongo/mongo.connection.js";
+import { Schema, model } from "mongoose";
 
-import mongoose from "mongoose";
+import type { Message } from "@src/modules/message/message.type.js";
 
-const mongooseSchema = mongoose.Schema;
-
-const schemaModel = {
-  name: {
-    type: String,
-    default: null,
+const schema = new Schema<Message>(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    default: null,
-  },
-  message: {
-    type: String,
-    default: null,
-  },
-};
+  { timestamps: true },
+);
 
-const schema = new mongooseSchema(schemaModel, { timestamps: true });
+const MessageModel = model<Message>("Message", schema);
 
-export default mongodb.model("Message", schema);
+export default MessageModel;

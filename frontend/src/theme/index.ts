@@ -1,3 +1,5 @@
+"use client"
+
 import { createTheme } from "@mui/material";
 
 const baseTheme = {
@@ -79,7 +81,7 @@ const lightThemePalette = {
   divider: "#E2E8F0",
 };
 
-const getTheme = (mode) =>
+const getTheme = (mode: string) =>
   createTheme({
     ...baseTheme,
     palette: mode === "dark" ? darkThemePalette : lightThemePalette,

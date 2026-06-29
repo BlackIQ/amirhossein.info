@@ -1,29 +1,21 @@
 "use client";
 
-// import { useState } from "react";
 // import { useRouter } from "next/router";
 import {
   AppBar,
   Button,
   Container,
-  IconButton,
+  // IconButton,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { DarkMode, LightMode } from "@mui/icons-material";
-// import { useThemeContext } from "@/context/ThemeContext";
+// import { DarkMode, LightMode } from "@mui/icons-material";
 
 const Navbar = () => {
   // const router = useRouter();
-  // const { mode, toggleTheme } = useThemeContext();
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const mode = useMediaQuery((theme) => theme.palette.mode);
-
-  console.log(`Theme is: ${mode}`);
-
-  // const [snackOpen, setSnackOpen] = useState(false);
-  // const [snackMessage] = useState("Please use the message card to contact me");
+  // const mode = useMediaQuery((theme) => theme.palette.mode);
 
   return (
     <>
@@ -37,9 +29,6 @@ const Navbar = () => {
           backdropFilter: "blur(20px)",
           borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
           boxShadow: "none",
-          // position: "sticky",
-          // top: 0,
-          // zIndex: 1100,
         }}
       >
         <Container maxWidth="lg">
@@ -58,17 +47,17 @@ const Navbar = () => {
               Be the best you can be
             </Typography>
 
-            <IconButton onClick={() => {}} sx={{ mr: 2 }}>
+            {/* <IconButton onClick={() => {}} sx={{ mr: 2 }}>
               {mode ? (
                 <DarkMode sx={{ color: "primary.main" }} />
               ) : (
                 <LightMode sx={{ color: "primary.main" }} />
               )}
-            </IconButton>
+            </IconButton> */}
 
             <Button
               variant="contained"
-              onClick={() => {}}
+              // onClick={() => router.push("/")}
               size={isMobile ? "small" : "medium"}
               disableElevation
               sx={{ ml: 2 }}

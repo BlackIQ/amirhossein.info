@@ -2,24 +2,24 @@ import Head from "next/head";
 import { Box, Container, Grid } from "@mui/material";
 
 import {
-  // BusinessCenter,
-  // Download,
-  // Email,
-  // Handyman,
+  BusinessCenter,
+  Download,
+  Email,
+  Handyman,
   Person,
-  // Tag,
+  Tag,
 } from "@mui/icons-material";
 
 import { AppCard } from "@/components/card/card.component";
 import Navbar from "@/components/navbar/navbar.component";
 
 import AboutMeCard from "@/cards/about.card";
-// import ExperiencesCard from "@/cards/experiences.card";
+import ExperiencesCard from "@/cards/experiences.card";
 import MainCard from "@/cards/main.card";
-// import SkillsCard from "@/cards/skills.card";
-// import MessageCard from "@/cards/message.card";
-// import ResumeCard from "@/cards/resume.card";
-// import SocialCard from "@/cards/social.card";
+import SkillsCard from "@/cards/skills.card";
+import MessageCard from "@/cards/message.card";
+import ResumeCard from "@/cards/resume.card";
+import SocialCard from "@/cards/social.card";
 
 export default function Home() {
   const mainCards = [
@@ -30,45 +30,45 @@ export default function Home() {
       icon: <Person sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
-    // {
-    //   component: <ExperiencesCard />,
-    //   title: "Experiences",
-    //   subtitle: "My professional journey",
-    //   icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
-    //   hide: false,
-    // },
+    {
+      component: <ExperiencesCard />,
+      title: "Experiences",
+      subtitle: "My professional journey",
+      icon: <BusinessCenter sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
   ];
 
-  // const sideCards = [
-  //   {
-  //     component: <MessageCard />,
-  //     title: "Send a Message",
-  //     subtitle: "Get in touch!",
-  //     icon: <Email sx={{ color: "white", fontSize: 30 }} />,
-  //     hide: false,
-  //   },
-  //   {
-  //     component: <SkillsCard />,
-  //     title: "Skills",
-  //     subtitle: "Technologies I work with",
-  //     icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
-  //     hide: false,
-  //   },
-  //   {
-  //     component: <SocialCard />,
-  //     title: "Social Media",
-  //     subtitle: "Connect with me online",
-  //     icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
-  //     hide: false,
-  //   },
-  //   {
-  //     component: <ResumeCard />,
-  //     title: "Download Resume",
-  //     subtitle: "Grab my resume in PDF",
-  //     icon: <Download sx={{ color: "white", fontSize: 30 }} />,
-  //     hide: false,
-  //   },
-  // ];
+  const sideCards = [
+    {
+      component: <MessageCard />,
+      title: "Send a Message",
+      subtitle: "Get in touch!",
+      icon: <Email sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
+    {
+      component: <SkillsCard />,
+      title: "Skills",
+      subtitle: "Technologies I work with",
+      icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
+    {
+      component: <SocialCard />,
+      title: "Social Media",
+      subtitle: "Connect with me online",
+      icon: <Tag sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
+    {
+      component: <ResumeCard />,
+      title: "Download Resume",
+      subtitle: "Grab my resume in PDF",
+      icon: <Download sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
+  ];
 
   return (
     <>
@@ -106,11 +106,11 @@ export default function Home() {
               )}
             </Grid>
             <Grid size={{ md: 4, xs: 12 }}>
-              {/* <Box sx={{ position: "sticky", top: 80 }}>
+              <Box sx={{ position: "sticky", top: 80 }}>
                 {sideCards.map(
                   (card) =>
                     !card.hide && (
-                      <Card.AppCard
+                      <AppCard
                         key={card.title}
                         title={card.title}
                         subtitle={card.subtitle}
@@ -119,10 +119,10 @@ export default function Home() {
                         header={true}
                       >
                         {card.component}
-                      </Card.AppCard>
+                      </AppCard>
                     ),
                 )}
-              </Box> */}
+              </Box>
             </Grid>
           </Grid>
         </Container>

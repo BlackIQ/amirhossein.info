@@ -1,3 +1,5 @@
+"use client";
+
 // MUI Components
 import {
   Box,
@@ -19,14 +21,12 @@ import {
   Email,
   Public,
   Smartphone,
-  Work,
 } from "@mui/icons-material";
 
 // Components
 import { AboutCard } from "@/components/card/card.component";
 
 const aboutItems = [
-  { text: "Software Developer, DevOps, Network", icon: <Work /> },
   { text: "NarenjCloud", icon: <Apartment /> },
   { text: "Tehran, Iran", icon: <Public /> },
   { text: "Nov 20, 2003", icon: <Cake /> },
@@ -39,7 +39,7 @@ const MainCard = () => {
   return (
     <AboutCard>
       <Grid container spacing={2} sx={{ p: 2 }}>
-        <Grid item xs={12} md={4}>
+        <Grid size={{ md: 4, xs: 12 }}>
           <Box
             sx={{
               display: "flex",
@@ -58,7 +58,7 @@ const MainCard = () => {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Box
             sx={{
               display: "flex",
@@ -70,14 +70,14 @@ const MainCard = () => {
             <Typography
               variant="h4"
               color="primary.main"
-              fontFamily="Caveat"
-              fontWeight={900}
+              // fontFamily="Caveat"
+              // fontWeight={900}
               gutterBottom
             >
               Amirhossein Mohammadi
             </Typography>
             <Typography variant="body2" color="text.secondary" gutterBottom>
-              Software Engineer & DevOps Specialist
+              Platform & Infrastructure Engineer
             </Typography>
             <List dense>
               {aboutItems.map((item) => (

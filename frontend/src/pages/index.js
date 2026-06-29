@@ -5,7 +5,7 @@ import {
   BusinessCenter,
   Download,
   Email,
-  // Handyman,
+  Handyman,
   Person,
   Tag,
 } from "@mui/icons-material";
@@ -16,7 +16,7 @@ import Navbar from "@/components/navbar/navbar.component";
 import AboutMeCard from "@/cards/about.card";
 import ExperiencesCard from "@/cards/experiences.card";
 import MainCard from "@/cards/main.card";
-// import SkillsCard from "@/cards/skills.card";
+import SkillsCard from "@/cards/skills.card";
 import MessageCard from "@/cards/message.card";
 import ResumeCard from "@/cards/resume.card";
 import SocialCard from "@/cards/social.card";
@@ -50,13 +50,13 @@ export default function Home() {
       icon: <Email sx={{ color: "white", fontSize: 30 }} />,
       hide: false,
     },
-    // {
-    //   component: <SkillsCard />,
-    //   title: "Skills",
-    //   subtitle: "Technologies I work with",
-    //   icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
-    //   hide: false,
-    // },
+    {
+      component: <SkillsCard />,
+      title: "Skills",
+      subtitle: "Technologies I work with",
+      icon: <Handyman sx={{ color: "white", fontSize: 30 }} />,
+      hide: false,
+    },
     {
       component: <SocialCard />,
       title: "Social Media",

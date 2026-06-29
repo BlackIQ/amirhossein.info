@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 // About Card
 const AboutMeCard = () => {
   return (
-    <Typography variant="body1" lineHeight={1.7} color="text.primary">
+    <Typography variant="body1" color="text.primary">
       I&apos;m a multi-disciplinary Software Engineer and DevOps Specialist with
       a proven track record of building robust systems from the ground up. Over
       the past several years, I&apos;ve taken on roles ranging from backend

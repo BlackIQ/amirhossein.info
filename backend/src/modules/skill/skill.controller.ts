@@ -25,15 +25,9 @@ export const CREATE = async (req: Request, res: Response) => {
 
 export const ALL = async (req: Request, res: Response) => {
   try {
-    const skills = await Skill.find({ show: true }).sort({ priority: 1 });
+    const skills = await Skill.find({ show: true });
 
-    const data: { [key: string]: any[] } = {};
-
-    skills.forEach((skill) => {
-      (data[skill.category] ??= []).push(skill);
-    });
-
-    return res.status(200).send(data);
+    return res.status(200).send(skills.reverse());
   } catch (error) {
     const err = error as Error;
 

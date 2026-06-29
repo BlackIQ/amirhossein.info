@@ -23,7 +23,6 @@ const Navbar = () => {
   const [snackOpen, setSnackOpen] = useState(false);
   const [snackMessage] = useState("Please use the message card to contact me");
 
-  // Language Menu
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -51,7 +50,7 @@ const Navbar = () => {
         sx={{
           background: (theme) =>
             theme.palette.mode === "dark"
-              ? "rgba(15, 23, 42, 0.85)" // Deep navy glass
+              ? "rgba(15, 23, 42, 0.85)"
               : "rgba(248, 250, 252, 0.85)",
           backdropFilter: "blur(20px)",
           borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
@@ -74,7 +73,6 @@ const Navbar = () => {
               Be the best you can be
             </Typography>
 
-            {/* Language Selector */}
             <IconButton
               onClick={handleLanguageClick}
               sx={{ mr: 2 }}
@@ -83,7 +81,6 @@ const Navbar = () => {
               <Translate sx={{ color: "primary.main" }} />
             </IconButton>
 
-            {/* Theme Toggle */}
             <IconButton onClick={toggleTheme} sx={{ mr: 2 }}>
               {mode === "light" ? (
                 <DarkMode sx={{ color: "primary.main" }} />

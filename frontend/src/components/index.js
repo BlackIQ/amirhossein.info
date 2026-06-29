@@ -4,4 +4,4 @@ import Navbar from "@/components/navbar/navbar.component";
 
 import * as Card from "@/components/card/card.component";
 
-export {Navbar, Snackbar, Loading, Card};
+export { Navbar, Snackbar, Loading, Card };

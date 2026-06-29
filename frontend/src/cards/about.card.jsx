@@ -1,5 +1,7 @@
+// MUI Components
 import { Typography } from "@mui/material";
 
+// About Card
 const AboutMeCard = () => {
   return (
     <Typography variant="body1" lineHeight={1.7} color="text.primary">

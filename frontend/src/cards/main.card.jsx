@@ -1,3 +1,4 @@
+// MUI Components
 import {
   Box,
   Grid,
@@ -7,7 +8,11 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+
+// NextJs Image
 import Image from "next/image";
+
+// MUI Icons
 import {
   Apartment,
   Cake,
@@ -16,6 +21,8 @@ import {
   Smartphone,
   Work,
 } from "@mui/icons-material";
+
+// Components
 import { AboutCard } from "@/components/card/card.component";
 
 const aboutItems = [
@@ -27,6 +34,7 @@ const aboutItems = [
   { text: "hi@amirhossein.info", icon: <Email /> },
 ];
 
+// Main Card
 const MainCard = () => {
   return (
     <AboutCard>

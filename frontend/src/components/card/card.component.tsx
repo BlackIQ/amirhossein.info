@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   Card,
@@ -34,11 +36,7 @@ export const AppCard = ({
     >
       {header && (
         <CardHeader
-          title={
-            <Typography variant="h6" fontWeight={600}>
-              {title}
-            </Typography>
-          }
+          title={<Typography variant="h6">{title}</Typography>}
           subheader={subtitle}
           avatar={
             <Avatar

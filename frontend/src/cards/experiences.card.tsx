@@ -11,12 +11,15 @@ import remarkGfm from "remark-gfm";
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
 
+// Type
+import { Experience } from "@/types/experience.type";
+
 // Card for Experience
 const ExperiencesCard = () => {
   // Define variables
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(true);
 
   // Get data function
   const getExperiences = async () => {
@@ -26,6 +29,7 @@ const ExperiencesCard = () => {
       } = await NextAPI.get("experience");
 
       setLoading(false);
+      setError(false);
       setExperiences(experiences);
     } catch (error) {
       setError(true);
@@ -63,7 +67,7 @@ const ExperiencesCard = () => {
             />
             <Grid container spacing={1}>
               {[...Array(3)].map((_, i) => (
-                <Grid item key={i}>
+                <Grid key={i}>
                   <Skeleton variant="rounded" width={80} height={32} />
                 </Grid>
               ))}
@@ -85,7 +89,7 @@ const ExperiencesCard = () => {
     <Box>
       {experiences.map((experience, index) => (
         <Box key={experience._id} sx={{ mb: 3 }}>
-          <Typography variant="h6" color="text.primary" fontWeight={600}>
+          <Typography variant="h6" color="text.primary">
             {experience.position}
           </Typography>
           <Typography variant="body2" color="text.primary">
@@ -98,7 +102,7 @@ const ExperiencesCard = () => {
             remarkPlugins={[remarkGfm]}
             components={{
               p: ({ children }) => (
-                <Typography variant="body2" color="text.primary" paragraph>
+                <Typography variant="body2" color="text.primary">
                   {children}
                 </Typography>
               ),
@@ -118,7 +122,7 @@ const ExperiencesCard = () => {
           </ReactMarkdown>
           <Grid container spacing={1}>
             {experience.skills.split(",").map((skill, i) => (
-              <Grid item key={i}>
+              <Grid key={i}>
                 <Chip
                   label={skill.trim()}
                   variant="outlined"

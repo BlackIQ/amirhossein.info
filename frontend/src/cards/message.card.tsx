@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { API } from "@/api";
-import { Snackbar } from "@/components";
 
 const MessageCard = () => {
   const [loading, setLoading] = useState(false);
-  const [snackOpen, setSnackOpen] = useState(false);
-  const [snackMessage, setSnackMessage] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,16 +30,14 @@ const MessageCard = () => {
     }
     setLoading(true);
     try {
-      const response = await API.post("messages", formData);
-      setSnackMessage(response.data.message || "Message sent successfully!");
-      setSnackOpen(true);
+      await API.post("messages", formData);
+
+      alert("Message sent successfully!");
+
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
     } catch (error) {
-      setSnackMessage(
-        error.response?.data?.message || "Failed to send message",
-      );
-      setSnackOpen(true);
+      alert("Failed to send message");
     }
     setLoading(false);
   };
@@ -93,6 +89,7 @@ const MessageCard = () => {
           rows={4}
           size="small"
         />
+
         <Button
           fullWidth
           variant="contained"
@@ -104,11 +101,6 @@ const MessageCard = () => {
           {loading ? "Sending..." : "Send Message"}
         </Button>
       </Box>
-      <Snackbar
-        open={snackOpen}
-        close={() => setSnackOpen(false)}
-        message={snackMessage}
-      />
     </Box>
   );
 };

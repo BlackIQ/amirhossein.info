@@ -19,12 +19,15 @@ import Flag from "react-world-flags";
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
 
+// Type
+import { Resume } from "@/types/resume.type";
+
 // Card for Resume
 const ResumeCard = () => {
   // Define variables
-  const [resumes, setResumes] = useState([]);
+  const [resumes, setResumes] = useState<Resume[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(true);
 
   // Get data function
   const getResumes = async () => {
@@ -34,6 +37,7 @@ const ResumeCard = () => {
       } = await NextAPI.get("resume");
 
       setLoading(false);
+      setError(false);
       setResumes(resumes);
     } catch (error) {
       setError(true);

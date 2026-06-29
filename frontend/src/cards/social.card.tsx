@@ -27,6 +27,9 @@ import {
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
 
+// Type
+import { Social } from "@/types/social.type";
+
 // Define icons
 const icons = {
   github: <GitHub sx={{ color: colors.grey[900] }} />,
@@ -40,9 +43,9 @@ const icons = {
 // Card for Resume
 const SocialCard = () => {
   // Define variables
-  const [socials, setSocials] = useState([]);
+  const [socials, setSocials] = useState<Social[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(true);
 
   // Get data function
   const getSocials = async () => {
@@ -52,6 +55,7 @@ const SocialCard = () => {
       } = await NextAPI.get("social");
 
       setLoading(false);
+      setError(false);
       setSocials(socials);
     } catch (error) {
       setError(true);

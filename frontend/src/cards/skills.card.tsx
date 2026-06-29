@@ -12,7 +12,7 @@ const SkillsCard = () => {
   // Define variables
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(true);
 
   // Get data function
   const getSkills = async () => {
@@ -22,6 +22,7 @@ const SkillsCard = () => {
       } = await NextAPI.get("skill");
 
       setLoading(false);
+      setError(false);
       setSkills(skills);
     } catch (error) {
       setError(true);
@@ -54,7 +55,7 @@ const SkillsCard = () => {
             <Skeleton variant="text" width="40%" height={24} sx={{ mb: 1 }} />
             <Grid container spacing={1}>
               {[...Array(3)].map((_, i) => (
-                <Grid item key={i}>
+                <Grid key={i}>
                   <Skeleton variant="rounded" width={80} height={32} />
                 </Grid>
               ))}
@@ -74,19 +75,22 @@ const SkillsCard = () => {
   return (
     <Box>
       {Object.keys(skills).map((item, index) => (
-        <Box key={item} sx={{ mb: Object.keys(skills).length === index + 1 ? 0 : 3 }}>
+        <Box
+          key={item}
+          sx={{ mb: Object.keys(skills).length === index + 1 ? 0 : 3 }}
+        >
           <Typography
             variant="h6"
             color="text.primary"
-            fontWeight={600}
+            // fontWeight={600}
             sx={{ mb: 1 }}
           >
             {item}
           </Typography>
 
           <Grid container spacing={1}>
-            {skills[item].map((skill) => (
-              <Grid item key={skill._id}>
+            {/* {skills[item].map((skill: Skill) => (
+              <Grid key={skill._id}>
                 <Chip
                   label={skill.label}
                   variant="outlined"
@@ -95,7 +99,7 @@ const SkillsCard = () => {
                   sx={{ fontSize: "0.8125rem" }}
                 />
               </Grid>
-            ))}
+            ))} */}
           </Grid>
         </Box>
       ))}

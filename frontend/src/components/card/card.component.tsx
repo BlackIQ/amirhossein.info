@@ -15,6 +15,13 @@ export const AppCard = ({
   subtitle,
   header,
   sx = {},
+}: {
+  children: React.ReactNode;
+  icon: React.ReactNode;
+  title: string;
+  subtitle?: string;
+  header?: boolean;
+  sx?: object;
 }) => {
   return (
     <Card
@@ -56,7 +63,7 @@ export const AppCard = ({
   );
 };
 
-export const AboutCard = ({ children }) => {
+export const AboutCard = ({ children }: { children: React.ReactNode }) => {
   return (
     <Card
       variant="outlined"

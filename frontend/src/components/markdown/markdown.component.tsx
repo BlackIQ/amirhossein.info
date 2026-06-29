@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Box, Link as MuiLink, Typography } from "@mui/material";
 
-const MarkdownRenderer = ({ content }) => {
+const MarkdownRenderer = ({ content }: { content: string }) => {
   return (
     <Box
       className="markdown"
@@ -130,20 +130,18 @@ const MarkdownRenderer = ({ content }) => {
               {children}
             </td>
           ),
-          tr: ({ children, isHeader }) => (
-            <tr
-              style={{
-                backgroundColor: isHeader
-                  ? undefined
-                  : "rgba(255,255,255,0.03)",
-                "&:nth-of-type(even)": {
-                  backgroundColor: "rgba(255,255,255,0.06)",
-                },
-              }}
-            >
-              {children}
-            </tr>
-          ),
+          // tr: ({ children }) => (
+          //   <tr
+          //     style={{
+          //       backgroundColor: "rgba(255,255,255,0.03)",
+          //       "&:nth-of-type(even)": {
+          //         backgroundColor: "rgba(255,255,255,0.06)",
+          //       },
+          //     }}
+          //   >
+          //     {children}
+          //   </tr>
+          // ),
         }}
       >
         {content}

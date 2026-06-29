@@ -4,13 +4,26 @@ Source code of my personal website.
 
 ## Structure
 
-- Frontend: NextJs
-- Backend: ExpressJs
-- Webserver: Nginx
+This is the stucture of project.
+
+- Frontend
+  - Language: TypeScript
+  - Framework: Next.js
+  - UI Library: Material UI
+- Backend
+  - Language: Python
+  - Framework: FastAPI
+  - ORM: SQLAlchemy
+- Database
+  - Engine: MongoDB
+- Web Server
+  - Server: Nginx
 
 ## Deployment
 
-For the first time I am using a hosting that is not mine and it named **[Vercel](https://vercel.com)**!
+For the first time I'm using a hosting that is not mine and it's **[Vercel](https://vercel.com)**!
 
-TBH, it's fantastic. It even ran both 2 apps at the same project! I mean the frontend and backend.
-So much fascinating! Very very good. 
+TBH, it's fantastic. It can even run both 2 apps at the same project! I mean the frontend and backend.
+So much fascinating! Very very good :)
+
+> Happy devloying with Vercel

@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { API } from "@/api";
+
+interface Errors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
 
 const MessageCard = () => {
   const [loading, setLoading] = useState(false);
@@ -10,10 +16,10 @@ const MessageCard = () => {
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Errors>({});
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Errors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
@@ -42,10 +48,20 @@ const MessageCard = () => {
     setLoading(false);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   return (

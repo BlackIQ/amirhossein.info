@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 
 // Flags
-import Flag from "react-world-flags";
+import Flags from "react-world-flags";
 
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
@@ -95,7 +95,7 @@ const ResumeCard = () => {
               onClick={() => window.open(resume.url, "_blank")}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>
-                <Flag code={resume.value} style={{ width: 24, height: 16 }} />
+                <Flags code={resume.value} style={{ width: 24, height: 16 }} />
               </ListItemIcon>
               <ListItemText
                 primary={

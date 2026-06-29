@@ -1,9 +1,9 @@
-import type { Types } from "mongoose";
+// import type { Types } from "mongoose";
 
 export interface Skill {
   priority: number | null;
   show: boolean;
   label: string;
   value: string;
-  parent?: Types.ObjectId | null;
+  category: string;
 }

@@ -25,33 +25,15 @@ export const CREATE = async (req: Request, res: Response) => {
 
 export const ALL = async (req: Request, res: Response) => {
   try {
-    const skills = await Skill.find({ show: true })
-      .populate("parent", "label value")
-      .select("-createdAt -updatedAt -__v")
-      .sort({ priority: 1 });
+    const skills = await Skill.find({ show: true }).sort({ priority: 1 });
 
-    const groupedSkills = skills.reduce((acc, skill) => {
-      const key = skill.parent ? skill.parent._id.toString() : "top";
-      if (!acc[key]) {
-        acc[key] = {
-          parent: skill.parent || null,
-          children: [],
-        };
-      }
-      acc[key].children.push(skill);
-      return acc;
-    }, {});
+    const data: { [key: string]: any[] } = {};
 
-    const response = Object.values(groupedSkills).map(
-      ({ parent, children }) => ({
-        parent: parent
-          ? { _id: parent._id, label: parent.label, value: parent.value }
-          : null,
-        children: children.sort((a, b) => a.priority - b.priority),
-      }),
-    );
+    skills.forEach((skill) => {
+      (data[skill.category] ??= []).push(skill);
+    });
 
-    return res.status(200).send(response);
+    return res.status(200).send(data);
   } catch (error) {
     const err = error as Error;
 

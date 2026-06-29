@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model } from "mongoose";
 
 import type { Skill } from "@src/modules/skill/skill.type.js";
 
@@ -18,12 +18,11 @@ const schema = new Schema<Skill>(
     },
     show: {
       type: Boolean,
-      default: true,
+      required: true,
     },
-    parent: {
-      type: Types.ObjectId,
-      ref: "Skill",
-      default: null,
+    category: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true },

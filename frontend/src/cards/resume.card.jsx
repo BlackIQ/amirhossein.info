@@ -1,87 +1,111 @@
-import {Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Skeleton, Typography,} from "@mui/material";
+// React Hooks
+import { useState, useEffect } from "react";
+
+// MUI Components
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Skeleton,
+  Typography,
+} from "@mui/material";
+
+// Flags
 import Flag from "react-world-flags";
-import {API} from "@/api";
-import {Warning} from "@mui/icons-material";
 
-const ResumeCard = ({resumes, error}) => {
-    const icons = {
-        us: <Flag code="us" style={{width: 24, height: 16}}/>,
-        ir: <Flag code="ir" style={{width: 24, height: 16}}/>,
-        de: <Flag code="de" style={{width: 24, height: 16}}/>,
-        ru: <Flag code="ru" style={{width: 24, height: 16}}/>,
-    };
+// NextAPI (The API inside NextJs)
+import { NextAPI } from "@/api";
 
-    if (error) {
-        return (
-            <Box>
-                <Typography color="error">Error fetching resumes</Typography>
-            </Box>
-        );
-    }
+// Card for Resume
+const ResumeCard = () => {
+  // Define variables
+  const [resumes, setResumes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    if (!resumes || resumes.length === 0) {
-        return (
-            <List>
-                {[...Array(2)].map((_, index) => (
-                    <ListItem key={index} disablePadding>
-                        <ListItemButton sx={{borderRadius: 3, py: 1}}>
-                            <ListItemIcon>
-                                <Skeleton variant="rectangular" width={24} height={16}/>
-                            </ListItemIcon>
-                            <Skeleton variant="text" width="60%"/>
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        );
-    }
-
-    return (
-        <Box>
-            <List>
-                {resumes.map((resume) => (
-                    <ListItem key={resume._id} disablePadding>
-                        <ListItemButton
-                            sx={{
-                                borderRadius: 3,
-                                py: 1,
-                            }}
-                            onClick={() => window.open(resume.url, "_blank")}
-                        >
-                            <ListItemIcon sx={{minWidth: 36}}>
-                                {icons[resume.value] || <Warning color="warning"/>}
-                            </ListItemIcon>
-                            <ListItemText
-                                primary={
-                                    <Typography variant="body2" color="text.primary">
-                                        {resume.label}
-                                    </Typography>
-                                }
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
-};
-
-export async function getServerSideProps() {
+  // Get data function
+  const getResumes = async () => {
     try {
-        const {data} = await API.get("resumes");
-        return {
-            props: {
-                resumes: data,
-            },
-        };
+      const {
+        data: { resumes },
+      } = await NextAPI.get("resume");
+
+      setLoading(false);
+      setResumes(resumes);
     } catch (error) {
-        console.error("Error fetching resumes:", error);
-        return {
-            props: {
-                error: "Error fetching resumes",
-            },
-        };
+      setError(true);
     }
-}
+  };
+
+  // Where we call get data function
+  useEffect(() => {
+    getResumes();
+  }, []);
+
+  // Having error
+  if (error) {
+    return (
+      <Box>
+        <Typography color="error">Error fetching resumes</Typography>
+      </Box>
+    );
+  }
+
+  // If loading data
+  if (loading) {
+    return (
+      <List>
+        {[...Array(2)].map((_, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ borderRadius: 3, py: 1 }}>
+              <ListItemIcon>
+                <Skeleton variant="rectangular" width={24} height={16} />
+              </ListItemIcon>
+              <Skeleton variant="text" width="60%" />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    );
+  }
+
+  // If no data
+  if (resumes.length === 0) {
+    return <Typography>No resumes found</Typography>;
+  }
+
+  // No loading, no errors, having data
+  return (
+    <Box>
+      <List>
+        {resumes.map((resume) => (
+          <ListItem key={resume._id} disablePadding>
+            <ListItemButton
+              sx={{
+                borderRadius: 3,
+                py: 1,
+              }}
+              onClick={() => window.open(resume.url, "_blank")}
+            >
+              <ListItemIcon sx={{ minWidth: 36 }}>
+                <Flag code={resume.value} style={{ width: 24, height: 16 }} />
+              </ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body2" color="text.primary">
+                    {resume.label}
+                  </Typography>
+                }
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+};
 
 export default ResumeCard;

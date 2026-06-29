@@ -1,4 +1,4 @@
-import type { Types } from "mongoose";
+// import type { Types } from "mongoose";
 
 export interface Social {
   priority: number | null;

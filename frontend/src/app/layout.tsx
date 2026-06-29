@@ -1,8 +1,8 @@
 "use client";
 
 import "@/styles/globals.css";
-import { Box, ThemeProvider, CssBaseline } from "@mui/material";
-// import { ThemeProvider } from "@/context/ThemeContext";
+
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import { getTheme } from "@/theme";
 
@@ -15,11 +15,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+      <head>
+        <title>Amirhossein Mohammadi</title>
+      </head>
+      <body>
+        <div>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
 
-        {children}
-      </ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </div>
+      </body>
     </html>
   );
 }

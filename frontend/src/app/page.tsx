@@ -10,7 +10,7 @@ import {
   // Tag,
 } from "@mui/icons-material";
 
-import { AboutCard, AppCard } from "@/components/card/card.component";
+import { AppCard } from "@/components/card/card.component";
 import Navbar from "@/components/navbar/navbar.component";
 
 import AboutMeCard from "@/cards/about.card";

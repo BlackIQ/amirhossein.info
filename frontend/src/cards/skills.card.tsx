@@ -9,12 +9,29 @@ import { Box, Chip, Grid, Skeleton, Typography } from "@mui/material";
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
 
+// Type
+import { Skill } from "@/types/skill.type";
+
 // Card for Skill
 const SkillsCard = () => {
   // Define variables
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
+
+  const [aggrigatedData, setAggrigatedData] = useState<{
+    [key: string]: Skill[];
+  }>({});
+
+  const aggriateData = (skills: Skill[]) => {
+    const data: { [key: string]: Skill[] } = {};
+
+    skills.forEach((skill) => {
+      (data[skill.category] ??= []).push(skill);
+    });
+
+    setAggrigatedData(data);
+  };
 
   // Get data function
   const getSkills = async () => {
@@ -26,6 +43,8 @@ const SkillsCard = () => {
       setLoading(false);
       setError(false);
       setSkills(skills);
+
+      aggriateData(skills);
     } catch (error) {
       setError(true);
     }
@@ -76,10 +95,10 @@ const SkillsCard = () => {
   // No loading, no errors, having data
   return (
     <Box>
-      {Object.keys(skills).map((item, index) => (
+      {Object.keys(aggrigatedData).map((key, index) => (
         <Box
-          key={item}
-          sx={{ mb: Object.keys(skills).length === index + 1 ? 0 : 3 }}
+          key={key}
+          sx={{ mb: Object.keys(skills).length === index + 1 ? 0 : 2 }}
         >
           <Typography
             variant="h6"
@@ -87,11 +106,10 @@ const SkillsCard = () => {
             // fontWeight={600}
             sx={{ mb: 1 }}
           >
-            {item}
+            {key}
           </Typography>
-
           <Grid container spacing={1}>
-            {/* {skills[item].map((skill: Skill) => (
+            {aggrigatedData[key].map((skill: Skill) => (
               <Grid key={skill._id}>
                 <Chip
                   label={skill.label}
@@ -101,7 +119,7 @@ const SkillsCard = () => {
                   sx={{ fontSize: "0.8125rem" }}
                 />
               </Grid>
-            ))} */}
+            ))}
           </Grid>
         </Box>
       ))}

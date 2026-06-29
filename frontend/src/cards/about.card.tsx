@@ -1,3 +1,5 @@
+"use client";
+
 // MUI Components
 import { Typography } from "@mui/material";
 

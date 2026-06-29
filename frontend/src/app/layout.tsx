@@ -11,7 +11,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const theme = getTheme("dark");
+  const theme = getTheme();
 
   return (
     <html lang="en">

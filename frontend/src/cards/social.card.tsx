@@ -31,13 +31,21 @@ import { NextAPI } from "@/api";
 import { Social } from "@/types/social.type";
 
 // Define icons
-const icons = {
-  github: <GitHub sx={{ color: colors.grey[900] }} />,
-  telegram: <Telegram sx={{ color: colors.blue[600] }} />,
-  linkedin: <LinkedIn sx={{ color: colors.blue[800] }} />,
-  docker: <ViewInAr sx={{ color: colors.blue[600] }} />,
-  npmjs: <Javascript sx={{ color: colors.yellow[800] }} />,
-  pypi: <Warning color="warning" />,
+const getIcons = (name: string) => {
+  switch (name) {
+    case "github":
+      return <GitHub sx={{ color: colors.grey[900] }} />;
+    case "telegram":
+      return <Telegram sx={{ color: colors.grey[900] }} />;
+    case "linkedin":
+      return <LinkedIn sx={{ color: colors.grey[900] }} />;
+    case "docker":
+      return <ViewInAr sx={{ color: colors.grey[900] }} />;
+    case "npmjs":
+      return <Javascript sx={{ color: colors.grey[900] }} />;
+    default:
+      return <Warning color="warning" />;
+  }
 };
 
 // Card for Resume
@@ -113,7 +121,7 @@ const SocialCard = () => {
               onClick={() => window.open(social.url, "_blank")}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>
-                {icons[social.value] || <Warning color="warning" />}
+                {getIcons(social.value)}
               </ListItemIcon>
               <ListItemText
                 primary={

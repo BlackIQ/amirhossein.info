@@ -52,7 +52,7 @@ const ResumeCard = () => {
   }, []);
 
   // Having error
-  if (error) {
+  if (!loading && error) {
     return (
       <Box>
         <Typography color="error">Error fetching resumes</Typography>

@@ -56,7 +56,7 @@ const SkillsCard = () => {
   }, []);
 
   // Having error
-  if (error) {
+  if (!loading && error) {
     return (
       <Box>
         <Typography color="error">Error fetching skills</Typography>

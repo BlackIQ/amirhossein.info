@@ -85,7 +85,7 @@ const SocialCard = () => {
   }, []);
 
   // Having error
-  if (error) {
+  if (!loading && error) {
     return (
       <Box>
         <Typography color="error">Error fetching socials</Typography>

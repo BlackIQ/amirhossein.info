@@ -2,6 +2,8 @@
 
 import { createTheme } from "@mui/material";
 
+import "@/styles/globals.css";
+
 const baseTheme = {
   typography: {
     fontFamily: "'Inter', 'Caveat', 'JetBrains Mono', sans-serif",

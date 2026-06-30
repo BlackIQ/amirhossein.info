@@ -17,14 +17,7 @@ import {
 } from "@mui/material";
 
 // MUI Icons
-import {
-  GitHub,
-  Javascript,
-  LinkedIn,
-  Telegram,
-  ViewInAr,
-  Warning,
-} from "@mui/icons-material";
+import { Warning } from "@mui/icons-material";
 
 // NextAPI (The API inside NextJs)
 import { NextAPI } from "@/api";
@@ -32,19 +25,33 @@ import { NextAPI } from "@/api";
 // Type
 import { Social } from "@/types/social.type";
 
+// React Icons
+import {
+  FaDocker,
+  FaGithub,
+  FaGitlab,
+  FaLinkedin,
+  FaTelegram,
+} from "react-icons/fa";
+import { SiPypi, SiNpm } from "react-icons/si";
+
 // Define icons
 const getIcons = (name: string) => {
   switch (name) {
     case "github":
-      return <GitHub sx={{ color: colors.grey[900] }} />;
+      return <FaGithub color="#181717" size={24} />;
+    case "gitlab":
+      return <FaGitlab color="#FC6D26" size={24} />;
     case "telegram":
-      return <Telegram sx={{ color: colors.grey[900] }} />;
+      return <FaTelegram color="#26A5E4" size={24} />;
     case "linkedin":
-      return <LinkedIn sx={{ color: colors.grey[900] }} />;
+      return <FaLinkedin color="#0A66C2" size={24} />;
     case "docker":
-      return <ViewInAr sx={{ color: colors.grey[900] }} />;
+      return <FaDocker color="#2496ED" size={24} />;
     case "npmjs":
-      return <Javascript sx={{ color: colors.grey[900] }} />;
+      return <SiNpm color="#CB3837" size={24} />;
+    case "pypi":
+      return <SiPypi color="#3776AB" size={24} />;
     default:
       return <Warning color="warning" />;
   }

@@ -69,9 +69,11 @@ const MainCard = () => {
           >
             <Typography
               variant="h4"
-              color="primary.main"
-              // fontFamily="Caveat"
-              // fontWeight={900}
+              color="primary"
+              sx={{
+                fontFamily: "Caveat",
+                fontWeight: 900,
+              }}
               gutterBottom
             >
               Amirhossein Mohammadi

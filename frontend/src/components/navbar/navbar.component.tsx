@@ -40,8 +40,8 @@ const Navbar = () => {
                 flexGrow: 1,
                 cursor: "pointer",
                 color: "primary.main",
-                // fontFamily: "Caveat",
-                // fontWeight: 700,
+                fontFamily: "Caveat",
+                fontWeight: 700,
               }}
             >
               Be the best you can be

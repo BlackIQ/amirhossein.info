@@ -27,7 +27,7 @@ export const ALL = async (req: Request, res: Response) => {
   try {
     const skills = await Skill.find({ show: true });
 
-    return res.status(200).send(skills.reverse());
+    return res.status(200).send(skills);
   } catch (error) {
     const err = error as Error;
 

@@ -7,7 +7,8 @@ import {
   DELETE,
   UPDATE,
 } from "@src/modules/resume/resume.controller.js";
-import { key } from "@src/middlewares/index.js";
+
+import key from "@src/middlewares/key.middleware.js";
 
 const router = express.Router();
 

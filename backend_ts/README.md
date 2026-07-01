@@ -1,3 +1,0 @@
-# Backend
-
-Backend of project.

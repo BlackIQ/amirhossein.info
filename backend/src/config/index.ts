@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// Check if required environment variables are set
 export const required = (name: keyof NodeJS.ProcessEnv): string => {
   const value = process.env[name];
 

@@ -1,0 +1,2 @@
+[tool.fastapi]
+entrypoint = "main:app"

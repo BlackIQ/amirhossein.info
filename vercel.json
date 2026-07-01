@@ -8,7 +8,7 @@
     "backend": {
       "root": "backend",
       "routePrefix": "/backend",
-      "framework": "express"
+      "framework": "fastapi"
     }
   }
 }

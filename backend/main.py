@@ -1,20 +1,29 @@
+# Import pathlib
 from pathlib import Path
 
+# Import FastAPI, Pydantic, SQLAlchemy, SQLAlchemy ORM
 from fastapi import Depends, FastAPI, HTTPException, status
 from pydantic import BaseModel
 from sqlalchemy import Boolean, Column, Integer, String, create_engine
 from sqlalchemy.orm import Session, declarative_base, sessionmaker
 
+# Path to .db file
 DB_PATH = Path(__file__).resolve().parent / "app.db"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
+# DB Engine
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+
+# Session
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Base Model
 Base = declarative_base()
 
 
+# Experience Model
 class ExperienceModel(Base):
-    __tablename__ = "experiences"
+    __tablename__ = "experiences"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     priority = Column(Integer, nullable=False)
@@ -29,8 +38,9 @@ class ExperienceModel(Base):
     url = Column(String, nullable=False)
 
 
+# Skill Model
 class SkillModel(Base):
-    __tablename__ = "skills"
+    __tablename__ = "skills"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     priority = Column(Integer, nullable=False)
@@ -40,8 +50,9 @@ class SkillModel(Base):
     category = Column(String, nullable=False)
 
 
+# Social Model
 class SocialModel(Base):
-    __tablename__ = "socials"
+    __tablename__ = "socials"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     priority = Column(Integer, nullable=False)
@@ -51,8 +62,9 @@ class SocialModel(Base):
     url = Column(String, nullable=False)
 
 
+# Resume Model
 class ResumeModel(Base):
-    __tablename__ = "resumes"
+    __tablename__ = "resumes"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     priority = Column(Integer, nullable=False)
@@ -62,8 +74,9 @@ class ResumeModel(Base):
     url = Column(String, nullable=False)
 
 
+# Message Mode
 class MessageModel(Base):
-    __tablename__ = "messages"
+    __tablename__ = "messages"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
@@ -71,8 +84,9 @@ class MessageModel(Base):
     message = Column(String, nullable=False)
 
 
+# Note Model
 class NoteModel(Base):
-    __tablename__ = "notes"
+    __tablename__ = "notes"  # Table name
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
@@ -81,8 +95,10 @@ class NoteModel(Base):
     thumbnail = Column(String, nullable=False)
 
 
+# Create tables
 Base.metadata.create_all(bind=engine)
 
+# FastAPI app
 app = FastAPI(
     title="Amirhossein Mohammadi Resume API",
     version="1.0.0",
@@ -104,6 +120,7 @@ app = FastAPI(
 )
 
 
+# Pydantic validation model for Experience
 class Experience(BaseModel):
     priority: int
     show: bool
@@ -121,6 +138,7 @@ class ExperienceRead(Experience):
     id: int
 
 
+# Pydantic validation model for Skill
 class Skill(BaseModel):
     priority: int
     show: bool
@@ -133,6 +151,7 @@ class SkillRead(Skill):
     id: int
 
 
+# Pydantic validation model for Social
 class Social(BaseModel):
     priority: int
     show: bool
@@ -145,6 +164,7 @@ class SocialRead(Social):
     id: int
 
 
+# Pydantic validation model for Resume
 class Resume(BaseModel):
     priority: int
     show: bool
@@ -157,6 +177,7 @@ class ResumeRead(Resume):
     id: int
 
 
+# Pydantic validation model for Message
 class Message(BaseModel):
     name: str
     email: str
@@ -167,6 +188,7 @@ class MessageRead(Message):
     id: int
 
 
+# Pydantic validation model for Note
 class Note(BaseModel):
     title: str
     details: str
@@ -178,6 +200,7 @@ class NoteRead(Note):
     id: int
 
 
+# Function to get database
 def get_db():
     db = SessionLocal()
     try:

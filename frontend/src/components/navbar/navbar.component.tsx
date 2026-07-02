@@ -1,21 +1,20 @@
 "use client";
 
-// import { useRouter } from "next/router";
 import {
   AppBar,
   Button,
   Container,
-  // IconButton,
+  IconButton,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-// import { DarkMode, LightMode } from "@mui/icons-material";
+import { DarkMode, LightMode } from "@mui/icons-material";
+import { useTheme } from "@/context/theme.context";
 
 const Navbar = () => {
-  // const router = useRouter();
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  // const mode = useMediaQuery((theme) => theme.palette.mode);
+  const { mode, toggleTheme } = useTheme();
 
   return (
     <>
@@ -47,14 +46,13 @@ const Navbar = () => {
               Be the best you can be
             </Typography>
 
-            {/* Dark Theme change */}
-            {/* <IconButton onClick={() => {}} sx={{ mr: 2 }}>
-              {mode ? (
-                <DarkMode sx={{ color: "primary.main" }} />
-              ) : (
+            <IconButton onClick={toggleTheme} sx={{ mr: 2 }}>
+              {mode === "dark" ? (
                 <LightMode sx={{ color: "primary.main" }} />
+              ) : (
+                <DarkMode sx={{ color: "primary.main" }} />
               )}
-            </IconButton> */}
+            </IconButton>
 
             <Button
               variant="contained"

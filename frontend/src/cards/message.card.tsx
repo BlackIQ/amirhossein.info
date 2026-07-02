@@ -1,7 +1,15 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { Box, Button, TextField, Typography, Snackbar, Alert } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Snackbar,
+  Alert,
+} from "@mui/material";
+import { useLanguage } from "@/context/language.context";
 import { API } from "@/api";
 
 interface Errors {
@@ -17,6 +25,7 @@ interface SnackbarState {
 }
 
 const MessageCard = () => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState<SnackbarState>({
     open: false,
@@ -33,11 +42,14 @@ const MessageCard = () => {
 
   const validateForm = () => {
     const newErrors: Errors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.name.trim())
+      newErrors.name = t("message.validation.nameRequired");
+    if (!formData.email.trim())
+      newErrors.email = t("message.validation.emailRequired");
     else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Email is invalid";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+      newErrors.email = t("message.validation.emailInvalid");
+    if (!formData.message.trim())
+      newErrors.message = t("message.validation.messageRequired");
     return newErrors;
   };
 
@@ -63,15 +75,15 @@ const MessageCard = () => {
     try {
       await API.post("messages", formData);
 
-      showSnackbar("Message sent successfully!", "success");
+      showSnackbar(t("message.success"), "success");
 
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
     } catch (error) {
       console.error("Error sending message:", error);
       showSnackbar(
-        error instanceof Error ? error.message : "Failed to send message",
-        "error"
+        error instanceof Error ? error.message : t("message.error"),
+        "error",
       );
     } finally {
       setLoading(false);
@@ -97,12 +109,12 @@ const MessageCard = () => {
   return (
     <Box>
       <Typography variant="body1" color="text.primary" gutterBottom>
-        Contact me directly by sending a message below.
+        {t("message.description")}
       </Typography>
       <Box component="form" noValidate>
         <TextField
           fullWidth
-          label="Name"
+          label={t("message.form.name")}
           name="name"
           value={formData.name}
           onChange={handleInputChange}
@@ -114,7 +126,7 @@ const MessageCard = () => {
         />
         <TextField
           fullWidth
-          label="Email"
+          label={t("message.form.email")}
           name="email"
           value={formData.email}
           onChange={handleInputChange}
@@ -126,7 +138,7 @@ const MessageCard = () => {
         />
         <TextField
           fullWidth
-          label="Message"
+          label={t("message.form.message")}
           name="message"
           value={formData.message}
           onChange={handleInputChange}
@@ -147,7 +159,7 @@ const MessageCard = () => {
           sx={{ mt: 2 }}
           disableElevation
         >
-          {loading ? "Sending..." : "Send Message"}
+          {loading ? t("message.form.sending") : t("message.form.send")}
         </Button>
       </Box>
 
@@ -155,7 +167,7 @@ const MessageCard = () => {
         open={snackbar.open}
         autoHideDuration={6000}
         onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       >
         <Alert
           onClose={handleSnackbarClose}

@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme } from "@mui/material";
+import { createTheme, type PaletteOptions } from "@mui/material";
 
 import "@/styles/globals.css";
 
@@ -44,7 +44,7 @@ const baseTheme = {
   },
 };
 
-const darkThemePalette = {
+const darkThemePalette: PaletteOptions = {
   mode: "dark",
   primary: {
     main: "#3B82F6",
@@ -64,7 +64,7 @@ const darkThemePalette = {
   divider: "#334155",
 };
 
-const lightThemePalette = {
+const lightThemePalette: PaletteOptions = {
   mode: "light",
   primary: {
     main: "#1E40AF",
@@ -83,11 +83,10 @@ const lightThemePalette = {
   divider: "#E2E8F0",
 };
 
-const getTheme = () =>
+const getTheme = (mode: "light" | "dark" = "dark") =>
   createTheme({
     ...baseTheme,
-    ...darkThemePalette,
-    // palette: mode === "dark" ? darkThemePalette : lightThemePalette,
+    palette: mode === "dark" ? darkThemePalette : lightThemePalette,
   });
 
 export { getTheme };

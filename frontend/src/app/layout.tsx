@@ -7,6 +7,7 @@ import { ThemeProvider as MUIThemeProvider, CssBaseline } from "@mui/material";
 import { getTheme } from "@/theme";
 import { ThemeProvider } from "@/context/theme.context";
 import { useTheme } from "@/context/theme.context";
+import { LanguageProvider } from "@/context/language.context";
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const { mode } = useTheme();
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body>
         <div>
           <ThemeProvider>
-            <LayoutContent>{children}</LayoutContent>
+            <LanguageProvider>
+              <LayoutContent>{children}</LayoutContent>
+            </LanguageProvider>
           </ThemeProvider>
         </div>
       </body>

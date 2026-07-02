@@ -17,20 +17,20 @@ const SkillsCard = () => {
   // Define variables
   const [skills, setSkills] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
-  const [aggrigatedData, setAggrigatedData] = useState<{
+  const [aggregatedData, setAggregatedData] = useState<{
     [key: string]: Skill[];
   }>({});
 
-  const aggriateData = (skills: Skill[]) => {
+  const aggregateData = (skills: Skill[]) => {
     const data: { [key: string]: Skill[] } = {};
 
     skills.forEach((skill) => {
       (data[skill.category] ??= []).push(skill);
     });
 
-    setAggrigatedData(data);
+    setAggregatedData(data);
   };
 
   // Get data function
@@ -40,13 +40,14 @@ const SkillsCard = () => {
         data: { skills },
       } = await NextAPI.get("skill");
 
-      setLoading(false);
-      setError(false);
       setSkills(skills);
-
-      aggriateData(skills);
+      aggregateData(skills);
+      setError(false);
     } catch (error) {
+      console.error("Error fetching skills:", error);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -95,7 +96,7 @@ const SkillsCard = () => {
   // No loading, no errors, having data
   return (
     <Box>
-      {Object.keys(aggrigatedData).map((key, index) => (
+      {Object.keys(aggregatedData).map((key, index) => (
         <Box
           key={key}
           sx={{ mb: Object.keys(skills).length === index + 1 ? 0 : 2 }}
@@ -109,7 +110,7 @@ const SkillsCard = () => {
             {key}
           </Typography>
           <Grid container spacing={1}>
-            {aggrigatedData[key].map((skill: Skill) => (
+            {aggregatedData[key].map((skill: Skill) => (
               <Grid key={skill._id}>
                 <Chip
                   label={skill.label}

@@ -62,7 +62,7 @@ const SocialCard = () => {
   // Define variables
   const [socials, setSocials] = useState<Social[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   // Get data function
   const getSocials = async () => {
@@ -71,11 +71,13 @@ const SocialCard = () => {
         data: { socials },
       } = await NextAPI.get("social");
 
-      setLoading(false);
-      setError(false);
       setSocials(socials);
+      setError(false);
     } catch (error) {
+      console.error("Error fetching socials:", error);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 

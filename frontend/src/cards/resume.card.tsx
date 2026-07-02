@@ -29,7 +29,7 @@ const ResumeCard = () => {
   // Define variables
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   // Get data function
   const getResumes = async () => {
@@ -38,11 +38,13 @@ const ResumeCard = () => {
         data: { resumes },
       } = await NextAPI.get("resume");
 
-      setLoading(false);
-      setError(false);
       setResumes(resumes);
+      setError(false);
     } catch (error) {
+      console.error("Error fetching resumes:", error);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 

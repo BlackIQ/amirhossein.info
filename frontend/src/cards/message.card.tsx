@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography, Snackbar, Alert } from "@mui/material";
 import { API } from "@/api";
 
 interface Errors {
@@ -10,8 +10,19 @@ interface Errors {
   message?: string;
 }
 
+interface SnackbarState {
+  open: boolean;
+  message: string;
+  severity: "success" | "error";
+}
+
 const MessageCard = () => {
   const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState<SnackbarState>({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,6 +41,18 @@ const MessageCard = () => {
     return newErrors;
   };
 
+  const showSnackbar = (message: string, severity: "success" | "error") => {
+    setSnackbar({
+      open: true,
+      message,
+      severity,
+    });
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbar((prev) => ({ ...prev, open: false }));
+  };
+
   const sendMessage = async () => {
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
@@ -40,14 +63,19 @@ const MessageCard = () => {
     try {
       await API.post("messages", formData);
 
-      alert("Message sent successfully!");
+      showSnackbar("Message sent successfully!", "success");
 
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
     } catch (error) {
-      alert("Failed to send message");
+      console.error("Error sending message:", error);
+      showSnackbar(
+        error instanceof Error ? error.message : "Failed to send message",
+        "error"
+      );
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleInputChange = (
@@ -82,6 +110,7 @@ const MessageCard = () => {
           helperText={errors.name}
           margin="normal"
           size="small"
+          disabled={loading}
         />
         <TextField
           fullWidth
@@ -93,6 +122,7 @@ const MessageCard = () => {
           helperText={errors.email}
           margin="normal"
           size="small"
+          disabled={loading}
         />
         <TextField
           fullWidth
@@ -106,6 +136,7 @@ const MessageCard = () => {
           multiline
           rows={4}
           size="small"
+          disabled={loading}
         />
 
         <Button
@@ -119,6 +150,21 @@ const MessageCard = () => {
           {loading ? "Sending..." : "Send Message"}
         </Button>
       </Box>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert
+          onClose={handleSnackbarClose}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

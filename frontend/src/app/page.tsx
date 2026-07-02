@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { Box, Container, Grid } from "@mui/material";
+import type { Metadata } from "next";
 
 import {
   BusinessCenter,
@@ -20,6 +20,12 @@ import SkillsCard from "@/cards/skills.card";
 import MessageCard from "@/cards/message.card";
 import ResumeCard from "@/cards/resume.card";
 import SocialCard from "@/cards/social.card";
+
+export const metadata: Metadata = {
+  title: "Amirhossein Mohammadi",
+  description:
+    "Personal portfolio of Amirhossein Mohammadi - Platform & Infrastructure Engineer",
+};
 
 export default function Home() {
   const mainCards = [
@@ -71,25 +77,32 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <Head>
-        <title>Amirhossein Mohammadi</title>
-        <meta
-          name="description"
-          content="Personal portfolio of Amirhossein Mohammadi"
-        />
-      </Head>
-      <Box>
-        <Navbar />
-        <Container
-          maxWidth="lg"
-          sx={{ my: 4, position: "relative", zIndex: 1 }}
-        >
-          <Grid container spacing={3}>
-            <Grid size={{ md: 8, xs: 12 }}>
-              <MainCard />
-              <Box sx={{ mb: 3 }} />
-              {mainCards.map(
+    <Box>
+      <Navbar />
+      <Container maxWidth="lg" sx={{ my: 4, position: "relative", zIndex: 1 }}>
+        <Grid container spacing={3}>
+          <Grid size={{ md: 8, xs: 12 }}>
+            <MainCard />
+            <Box sx={{ mb: 3 }} />
+            {mainCards.map(
+              (card) =>
+                !card.hide && (
+                  <AppCard
+                    key={card.title}
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    icon={card.icon}
+                    sx={{ mb: 3 }}
+                    header={true}
+                  >
+                    {card.component}
+                  </AppCard>
+                ),
+            )}
+          </Grid>
+          <Grid size={{ md: 4, xs: 12 }}>
+            <Box sx={{ position: "sticky", top: 80 }}>
+              {sideCards.map(
                 (card) =>
                   !card.hide && (
                     <AppCard
@@ -104,29 +117,10 @@ export default function Home() {
                     </AppCard>
                   ),
               )}
-            </Grid>
-            <Grid size={{ md: 4, xs: 12 }}>
-              <Box sx={{ position: "sticky", top: 80 }}>
-                {sideCards.map(
-                  (card) =>
-                    !card.hide && (
-                      <AppCard
-                        key={card.title}
-                        title={card.title}
-                        subtitle={card.subtitle}
-                        icon={card.icon}
-                        sx={{ mb: 3 }}
-                        header={true}
-                      >
-                        {card.component}
-                      </AppCard>
-                    ),
-                )}
-              </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Container>
-      </Box>
-    </>
+        </Grid>
+      </Container>
+    </Box>
   );
 }

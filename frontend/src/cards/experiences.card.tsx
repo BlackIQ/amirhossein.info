@@ -21,7 +21,7 @@ const ExperiencesCard = () => {
   // Define variables
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   // Get data function
   const getExperiences = async () => {
@@ -30,11 +30,13 @@ const ExperiencesCard = () => {
         data: { experiences },
       } = await NextAPI.get("experience");
 
-      setLoading(false);
-      setError(false);
       setExperiences(experiences);
+      setError(false);
     } catch (error) {
+      console.error("Error fetching experiences:", error);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 

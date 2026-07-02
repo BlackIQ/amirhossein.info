@@ -2,17 +2,29 @@
 
 import "@/styles/globals.css";
 
-import { ThemeProvider, CssBaseline } from "@mui/material";
+import { ThemeProvider as MUIThemeProvider, CssBaseline } from "@mui/material";
 
 import { getTheme } from "@/theme";
+import { ThemeProvider } from "@/context/theme.context";
+import { useTheme } from "@/context/theme.context";
+
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  const { mode } = useTheme();
+  const theme = getTheme(mode);
+
+  return (
+    <MUIThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </MUIThemeProvider>
+  );
+}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const theme = getTheme();
-
   return (
     <html lang="en">
       <head>
@@ -20,10 +32,8 @@ export default function RootLayout({
       </head>
       <body>
         <div>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-
-            {children}
+          <ThemeProvider>
+            <LayoutContent>{children}</LayoutContent>
           </ThemeProvider>
         </div>
       </body>

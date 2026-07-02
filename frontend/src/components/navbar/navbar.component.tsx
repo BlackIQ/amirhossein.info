@@ -47,6 +47,7 @@ const Navbar = () => {
               Be the best you can be
             </Typography>
 
+            {/* Dark Theme change */}
             {/* <IconButton onClick={() => {}} sx={{ mr: 2 }}>
               {mode ? (
                 <DarkMode sx={{ color: "primary.main" }} />

@@ -123,7 +123,7 @@ const SocialCard = () => {
     <Box>
       <List>
         {socials.map((social) => (
-          <ListItem key={social._id} disablePadding>
+          <ListItem key={social.id} disablePadding>
             <ListItemButton
               sx={{
                 borderRadius: 3,

@@ -9,7 +9,7 @@ export interface Experience {
   duties: string;
   skills: string;
   url: string;
-  _id: string;
+  id: string;
   createdAt: Date;
   updatedAt: Date;
 }

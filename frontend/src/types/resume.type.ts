@@ -4,7 +4,7 @@ export interface Resume {
   label: string;
   value: string;
   url: string;
-  _id: string;
+  id: string;
   createdAt: Date;
   updatedAt: Date;
 }

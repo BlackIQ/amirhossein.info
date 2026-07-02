@@ -111,7 +111,7 @@ const SkillsCard = () => {
           </Typography>
           <Grid container spacing={1}>
             {aggregatedData[key].map((skill: Skill) => (
-              <Grid key={skill._id}>
+              <Grid key={skill.id}>
                 <Chip
                   label={skill.label}
                   variant="outlined"

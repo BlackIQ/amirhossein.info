@@ -90,7 +90,7 @@ const ResumeCard = () => {
     <Box>
       <List>
         {resumes.map((resume) => (
-          <ListItem key={resume._id} disablePadding>
+          <ListItem key={resume.id} disablePadding>
             <ListItemButton
               sx={{
                 borderRadius: 3,

@@ -92,7 +92,7 @@ const ExperiencesCard = () => {
   return (
     <Box>
       {experiences.map((experience, index) => (
-        <Box key={experience._id} sx={{ mb: 3 }}>
+        <Box key={experience.id} sx={{ mb: 3 }}>
           <Typography variant="h6" color="text.primary">
             {experience.position}
           </Typography>

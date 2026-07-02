@@ -4,7 +4,7 @@ export interface Skill {
   label: string;
   value: string;
   category: string;
-  _id: string;
+  id: string;
   createAt: Date;
   updatedAt: Date;
 }

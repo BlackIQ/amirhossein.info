@@ -7,6 +7,7 @@ name = "pypi"
 fastapi = {extras = ["standard"], version = "*"}
 uvicorn = "*"
 sqlalchemy = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 

@@ -11,11 +11,11 @@ class Note(BaseModel):
     details: str
     content: str
     thumbnail: str
+    comments: list[CommentRead] = []
 
 
 # Schema for id of note
 class NoteRead(Note):
     id: int
-    comments: list[CommentRead] = []
 
     model_config = ConfigDict(from_attributes=True)

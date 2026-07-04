@@ -7,7 +7,7 @@ from settings import settings
 
 # Separate Production and Development databases
 if settings.APP_MODE == 'production':
-    DATABASE_URL = settings.POSTGRES_PROD_URL
+    DATABASE_URL = settings.POSTGRES_PROD_URL.replace("postgres://", "postgresql+psycopg2://")
 else:
     DATABASE_URL = settings.POSTGRES_DEV_URL
 

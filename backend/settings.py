@@ -6,7 +6,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     # Application
     APP_MODE: str = ''  # development | production
-    IS_PRODUCTION: bool = APP_MODE == 'production'
 
     # Security
     API_KEY: str = ''
@@ -39,6 +38,3 @@ class Settings(BaseSettings):
 
 # Run the settings
 settings = Settings()
-
-# TODO: REMOVE THIS BITCH
-print(settings)

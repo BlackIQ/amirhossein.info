@@ -11,7 +11,7 @@ from settings import settings
 # else:
 #     DATABASE_URL = settings.POSTGRES_DEV_URL
 
-DATABASE_URL = settings.POSTGRES_URL.replace("postgres://", "postgres+psycopg2://")
+DATABASE_URL = settings.POSTGRES_URL_NON_POOLING.replace("postgres://", "postgres+psycopg2://")
 
 # TODO: CHECK DATABASE CONNECTION STRING
 print(DATABASE_URL)

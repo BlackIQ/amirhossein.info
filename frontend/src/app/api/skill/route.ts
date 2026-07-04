@@ -1,12 +1,10 @@
 import { API } from "@/api";
 
-import { NextRequest, NextResponse } from "next/server";
-
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
   try {
     const { data } = await API.get("skills");
 
-    return NextResponse.json(
+    return Response.json(
       {
         message: "Skills fetched",
         skills: data,
@@ -14,7 +12,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       { status: 200 },
     );
   } catch (error) {
-    return NextResponse.json(
+    return Response.json(
       {
         message: "Error fetching skills",
         error,

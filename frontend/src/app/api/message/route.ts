@@ -1,12 +1,12 @@
 import { API } from "@/api";
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 import { Message } from "@/types/message.type";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   if (req.method !== "POST") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    return Response.json({ error: "Method not allowed" }, { status: 405 });
   }
 
   try {
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     await API.post("messages", data);
 
-    return NextResponse.json(
+    return Response.json(
       {
         message: "Message created",
       },
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   } catch (error) {
     console.error("Error creating message", error);
 
-    return NextResponse.json(
+    return Response.json(
       {
         message: "Error creating message",
         error,

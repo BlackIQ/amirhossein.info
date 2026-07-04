@@ -1,3 +1,4 @@
+from schemas.comment import Comment, CommentRead
 from schemas.experience import Experience, ExperienceRead
 from schemas.message import Message, MessageRead
 from schemas.note import Note, NoteRead

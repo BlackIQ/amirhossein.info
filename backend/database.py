@@ -5,9 +5,6 @@ from sqlalchemy.orm import sessionmaker
 # Settings
 from settings import settings
 
-# Empty DATABASE_URL
-DATABASE_URL: str = ''
-
 # Separate Production and Development databases
 if settings.IS_PRODUCTION:
     DATABASE_URL = settings.POSTGRES_URL_NON_POOLING.replace("postgres://", "postgres+psycopg2://")

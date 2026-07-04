@@ -1,5 +1,6 @@
 export interface Experience {
-  priority: number | null;
+  id: number;
+  priority: number;
   show: boolean;
   position: string;
   companyName: string;
@@ -9,7 +10,4 @@ export interface Experience {
   duties: string;
   skills: string;
   url: string;
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
 }

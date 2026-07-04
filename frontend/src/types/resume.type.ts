@@ -1,10 +1,8 @@
 export interface Resume {
-  priority: number | null;
+  id: string;
+  priority: number;
   show: boolean;
   label: string;
   value: string;
   url: string;
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
 }

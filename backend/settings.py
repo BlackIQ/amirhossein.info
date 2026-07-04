@@ -39,4 +39,5 @@ class Settings(BaseSettings):
 # Run the settings
 settings = Settings()
 
+# TODO: REMOVE THIS PRINT
 print(settings)

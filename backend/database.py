@@ -11,6 +11,9 @@ if settings.APP_MODE == 'production':
 else:
     DATABASE_URL = settings.POSTGRES_DEV_URL
 
+# TODO: REMOVE THIS PRINT
+print(DATABASE_URL)
+
 # DB Engine
 engine = create_engine(DATABASE_URL)
 

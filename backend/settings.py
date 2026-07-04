@@ -38,3 +38,5 @@ class Settings(BaseSettings):
 
 # Run the settings
 settings = Settings()
+
+print(settings)

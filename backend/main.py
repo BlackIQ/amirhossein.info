@@ -105,7 +105,7 @@ async def ping():
 # Get all Experiences
 @app.get("/api/experiences", response_model=list[ExperienceRead], tags=["Experiences"])
 async def all_experiences(db: Session = Depends(get_db)):
-    return db.query(ExperienceModel).all()
+    return db.query(ExperienceModel).where(ExperienceModel.show == True).order_by(ExperienceModel.priority).all()
 
 
 # Create one Experience
@@ -161,7 +161,7 @@ async def delete_experience(experience_id: int, db: Session = Depends(get_db)):
 # Get all Skills
 @app.get("/api/skills", response_model=list[SkillRead], tags=["Skills"])
 async def all_skills(db: Session = Depends(get_db)):
-    return db.query(SkillModel).all()
+    return db.query(SkillModel).where(SkillModel.show == True).order_by(SkillModel.priority).all()
 
 
 # Create one Skill
@@ -217,7 +217,7 @@ async def delete_skill(skill_id: int, db: Session = Depends(get_db)):
 # Get all Socials
 @app.get("/api/socials", response_model=list[SocialRead], tags=["Socials"])
 async def all_socials(db: Session = Depends(get_db)):
-    return db.query(SocialModel).all()
+    return db.query(SocialModel).where(SocialModel.show == True).order_by(SocialModel.priority).all()
 
 
 # Create one Social
@@ -273,7 +273,7 @@ async def delete_social(social_id: int, db: Session = Depends(get_db)):
 # Get all Resumes
 @app.get("/api/resumes", response_model=list[ResumeRead], tags=["Resumes"])
 async def all_resumes(db: Session = Depends(get_db)):
-    return db.query(ResumeModel).all()
+    return db.query(ResumeModel).where(ResumeModel.show == True).order_by(ResumeModel.priority).all()
 
 
 # Create one Resume
@@ -327,14 +327,13 @@ async def delete_resume(resume_id: int, db: Session = Depends(get_db)):
 # ---------- Message ---------- #
 
 # Get all Messages
-@app.get("/api/messages", response_model=list[MessageRead], tags=["Message"])
+@app.get("/api/messages", response_model=list[MessageRead], tags=["Message"], dependencies=[Depends(handle_apikey)])
 async def all_messages(db: Session = Depends(get_db)):
     return db.query(MessageModel).all()
 
 
 # Create one Message
-@app.post("/api/messages", response_model=MessageRead, status_code=status.HTTP_201_CREATED, tags=["Message"],
-          dependencies=[Depends(handle_apikey)])
+@app.post("/api/messages", response_model=MessageRead, status_code=status.HTTP_201_CREATED, tags=["Message"])
 async def create_message(message: Message, db: Session = Depends(get_db)):
     db_item = MessageModel(**message.model_dump())
     db.add(db_item)
@@ -344,7 +343,8 @@ async def create_message(message: Message, db: Session = Depends(get_db)):
 
 
 # Get one Message
-@app.get("/api/messages/{message_id}", response_model=MessageRead, tags=["Message"])
+@app.get("/api/messages/{message_id}", response_model=MessageRead, tags=["Message"],
+         dependencies=[Depends(handle_apikey)])
 async def get_message(message_id: int, db: Session = Depends(get_db)):
     item = db.get(MessageModel, message_id)
     if not item:
@@ -385,7 +385,7 @@ async def delete_message(message_id: int, db: Session = Depends(get_db)):
 # Get all Notes
 @app.get("/api/notes", response_model=list[NoteRead], tags=["Note"])
 async def all_notes(db: Session = Depends(get_db)):
-    return db.query(NoteModel).all()
+    return db.query(NoteModel).order_by(NoteModel.id).all()
 
 
 # Create one Note

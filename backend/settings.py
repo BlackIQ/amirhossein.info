@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     # Development PostgreSQL URL
     POSTGRES_DEV_URL: str = ''
 
+    # Production PostgreSQL URL
+    POSTGRES_PROD_URL: str = ''
+
     # SupaBase PostgreSQL
     POSTGRES_URL_NON_POOLING: str = ''
 

@@ -7,10 +7,10 @@ from settings import settings
 
 DATABASE_URL: str = settings.POSTGRES_URL.replace("postgres://", "postgres+psycopg2://")
 
-# if settings.IS_PRODUCTION:
-#     DATABASE_URL = settings.POSTGRES_URL_NON_POOLING.replace("postgres://", "postgres+psycopg2://")
-# else:
-#     DATABASE_URL = settings.
+if settings.IS_PRODUCTION:
+    DATABASE_URL = settings.POSTGRES_URL_NON_POOLING.replace("postgres://", "postgres+psycopg2://")
+else:
+    DATABASE_URL = settings.POSTGRES_DEV_URL
 
 # DB Engine
 engine = create_engine(DATABASE_URL)

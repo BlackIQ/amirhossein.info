@@ -39,3 +39,6 @@ class Settings(BaseSettings):
 
 # Run the settings
 settings = Settings()
+
+# TODO: REMOVE THIS BITCH
+print(settings)

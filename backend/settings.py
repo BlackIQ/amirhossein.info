@@ -14,10 +14,10 @@ class Settings(BaseSettings):
     POSTGRES_DEV_URL: str = ''
 
     # SupaBase PostgreSQL
-    POSTGRES_URL: str = ''
     POSTGRES_URL_NON_POOLING: str = ''
 
     # SupaBase other env
+    POSTGRES_URL: str = ''
     POSTGRES_USER: str = ''
     POSTGRES_PASSWORD: str = ''
     POSTGRES_HOST: str = ''

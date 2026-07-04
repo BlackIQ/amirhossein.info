@@ -1,3 +1,4 @@
+from models.comment import CommentModel
 from models.experience import ExperienceModel
 from models.message import MessageModel
 from models.note import NoteModel

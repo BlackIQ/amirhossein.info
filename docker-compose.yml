@@ -1,6 +1,26 @@
 version: "3"
 
 services:
+  database:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: always
+    networks:
+      - resume-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   backend:
     build:
       context: backend
@@ -9,10 +29,15 @@ services:
     restart: always
     networks:
       - resume-network
-    env_file:
-      - ./backend/.env
+    environment:
+      APP_MODE: ${APP_MODE}
+      API_KEY: ${API_KEY}
+      POSTGRES_DEV_URL: ${POSTGRES_DEV_URL}
+      POSTGRES_PROD_URL: ${POSTGRES_PROD_URL}
+    depends_on:
+      - database
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8000/api/ping" ]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/ping"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -25,10 +50,12 @@ services:
     restart: always
     networks:
       - resume-network
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
     depends_on:
       - backend
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:3000/api/ping" ]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/ping"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -48,7 +75,7 @@ services:
       - backend
       - frontend
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 30s
       timeout: 10s
       retries: 3

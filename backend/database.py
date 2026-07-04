@@ -12,7 +12,7 @@ from settings import settings
 # DB_PATH = Path(__file__).resolve().parent / "app.db"
 # DATABASE_URL = f"sqlite:///{DB_PATH}"
 
-DATABASE_URL = f"postgresql+psycopg2://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@{settings.POSTGRES_HOST}/{settings.POSTGRES_DATABASE}"
+DATABASE_URL = f"postgresql+psycopg2://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@{settings.POSTGRES_HOST}/{settings.POSTGRES_DATABASE}?sslmode=require&supa=base-pooler.x"
 
 # DB Engine
 engine = create_engine(

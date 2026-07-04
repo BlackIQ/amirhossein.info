@@ -10,7 +10,9 @@ import {
   Alert,
 } from "@mui/material";
 import { useLanguage } from "@/context/language.context";
-import { API } from "@/api";
+import { NextAPI } from "@/api";
+
+import { Message } from "@/types/message.type";
 
 interface Errors {
   name?: string;
@@ -33,7 +35,7 @@ const MessageCard = () => {
     severity: "success",
   });
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Message>({
     name: "",
     email: "",
     message: "",
@@ -73,7 +75,7 @@ const MessageCard = () => {
     }
     setLoading(true);
     try {
-      await API.post("messages", formData);
+      await NextAPI.post("message", formData);
 
       showSnackbar(t("message.success"), "success");
 

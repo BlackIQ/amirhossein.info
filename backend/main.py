@@ -3,12 +3,31 @@ from fastapi import Depends, FastAPI, HTTPException, status, Security
 from fastapi.security import APIKeyHeader
 from sqlalchemy.orm import Session
 
-# Local imports
-from database import SessionLocal
-from models import ExperienceModel, SkillModel, SocialModel, ResumeModel, MessageModel, NoteModel
-from repositories import Experience, ExperienceRead, Skill, SkillRead, Social, SocialRead, Resume, ResumeRead, Message, \
-    MessageRead, Note, NoteRead
+# Database
+from database import engine, SessionLocal
+# SQLAlchemy Base
+from db.base import Base
+# Models
+from models.experience import ExperienceModel
+from models.message import MessageModel
+from models.note import NoteModel
+from models.resume import ResumeModel
+from models.skill import SkillModel
+from models.social import SocialModel
+# Schemas
+from schemas.experience import Experience, ExperienceRead
+from schemas.message import Message, MessageRead
+from schemas.note import Note, NoteRead
+from schemas.resume import Resume, ResumeRead
+from schemas.skill import Skill, SkillRead
+from schemas.social import Social, SocialRead
+# Settings
 from settings import settings
+
+# import models
+
+# Create tables
+Base.metadata.create_all(bind=engine)
 
 # FastAPI app
 app = FastAPI(

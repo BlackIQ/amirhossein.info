@@ -11,7 +11,7 @@ from settings import settings
 # Path to .db file
 # DB_PATH = Path(__file__).resolve().parent / "app.db"
 # DATABASE_URL = f"sqlite:///{DB_PATH}"
-DATABASE_URL = settings.DATABASE_URL
+DATABASE_URL = settings.POSTGRES_URL
 
 # DB Engine
 engine = create_engine(

@@ -1,5 +1,7 @@
 # SQLAlchemy types
 from sqlalchemy import Column, Integer, String
+# SQLAlchemy ORM
+from sqlalchemy.orm import relationship
 
 # SQLAlchemy DeclarativeBase
 from db.base import Base
@@ -14,3 +16,5 @@ class NoteModel(Base):
     details = Column(String, nullable=False)
     content = Column(String, nullable=False)
     thumbnail = Column(String, nullable=False)
+
+    comments = relationship("CommentModel", back_populates="note")

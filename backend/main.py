@@ -9,7 +9,7 @@ from db.base import Base
 from middlewares.apikey import apikey_middleware
 # Routes
 from routes import (
-    experience, skill, note, message, resume, social
+    experience, skill, note, message, resume, social, comment
 )
 
 # Models
@@ -36,6 +36,7 @@ app = FastAPI(
         {"name": "Resumes", "description": "Manage downloadable resumes"},
         {"name": "Message", "description": "Handle contact messages"},
         {"name": "Note", "description": "Manage notes"},
+        {"name": "Comment", "description": "Manage comments"},
     ],
 )
 
@@ -77,3 +78,4 @@ app.include_router(message.router, prefix="/api")
 app.include_router(note.router, prefix="/api")
 app.include_router(resume.router, prefix="/api")
 app.include_router(social.router, prefix="/api")
+app.include_router(comment.router, prefix="/api")

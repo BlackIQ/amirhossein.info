@@ -15,13 +15,13 @@ This is the stucture of project.
   - Framework: FastAPI
   - ORM: SQLAlchemy
 - Database
-  - Engine: MongoDB
+  - Engine: PostgreSQL
 - Web Server
   - Server: Nginx
 
 ## Deployment
 
-For the first time I'm using a hosting that is not mine and it's **[Vercel](https://vercel.com)**!
+For the first time I'm using a hosting that is not mine and it's **[Vercel](https://vercel.com)**! Also databse (PostgreSQL) is hosted by **[Supabase](https://supabase.com)**.
 
 TBH, it's fantastic. It can even run both 2 apps at the same project! I mean the frontend and backend.
 So much fascinating! Very very good :)

@@ -1,10 +1,12 @@
 import { API } from "@/api";
 
-export async function GET() {
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const { data } = await API.get("experiences");
 
-    return Response.json(
+    return NextResponse.json(
       {
         message: "Experiences fetched",
         experiences: data,
@@ -12,7 +14,7 @@ export async function GET() {
       { status: 200 },
     );
   } catch (error) {
-    return Response.json(
+    return NextResponse.json(
       {
         message: "Error fetching experiences",
         error,

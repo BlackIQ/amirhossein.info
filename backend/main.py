@@ -1,12 +1,13 @@
 # FastAPI, Pydantic, SQLAlchemy, SQLAlchemy ORM
-from fastapi import Depends, FastAPI, HTTPException, status, Security
-from fastapi.security import APIKeyHeader
+from fastapi import Depends, FastAPI, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Database
 from database import engine, SessionLocal
 # SQLAlchemy Base
 from db.base import Base
+# Middlewares
+from middlewares.apikey import apikey_middleware
 # Models
 from models.experience import ExperienceModel
 from models.message import MessageModel
@@ -21,8 +22,6 @@ from schemas.note import Note, NoteRead
 from schemas.resume import Resume, ResumeRead
 from schemas.skill import Skill, SkillRead
 from schemas.social import Social, SocialRead
-# Settings
-from settings import settings
 
 # import models
 
@@ -60,25 +59,6 @@ def get_db():
         db.close()
 
 
-# Middlewares
-header_schema = APIKeyHeader(name="X-API-KEY", description="API Key in header")
-
-
-# Handle API-Key
-async def handle_apikey(api_key: str = Security(header_schema)):
-    if not api_key:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Missing API key"
-        )
-
-    if api_key != settings.api_key:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API key"
-        )
-
-
 # ---------- Routes ---------- #
 
 
@@ -89,7 +69,7 @@ async def read_root():
 
 
 # Welcome
-@app.get("/api", dependencies=[Depends(handle_apikey)])
+@app.get("/api", dependencies=[Depends(apikey_middleware)])
 async def api():
     return {"message": "Welcome to Amirhossein FastAPI backend"}
 
@@ -110,7 +90,7 @@ async def all_experiences(db: Session = Depends(get_db)):
 
 # Create one Experience
 @app.post("/api/experiences", response_model=ExperienceRead, status_code=status.HTTP_201_CREATED, tags=["Experiences"],
-          dependencies=[Depends(handle_apikey)])
+          dependencies=[Depends(apikey_middleware)])
 async def create_experience(experience: Experience, db: Session = Depends(get_db)):
     db_item = ExperienceModel(**experience.model_dump())
     db.add(db_item)
@@ -130,7 +110,7 @@ async def get_experience(experience_id: int, db: Session = Depends(get_db)):
 
 # Update one Experience
 @app.put("/api/experiences/{experience_id}", response_model=ExperienceRead, tags=["Experiences"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_experience(experience_id: int, experience: Experience, db: Session = Depends(get_db)):
     item = db.get(ExperienceModel, experience_id)
     if not item:
@@ -146,7 +126,7 @@ async def update_experience(experience_id: int, experience: Experience, db: Sess
 
 # Delete one Experience
 @app.delete("/api/experiences/{experience_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Experiences"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_experience(experience_id: int, db: Session = Depends(get_db)):
     item = db.get(ExperienceModel, experience_id)
     if not item:
@@ -166,7 +146,7 @@ async def all_skills(db: Session = Depends(get_db)):
 
 # Create one Skill
 @app.post("/api/skills", response_model=SkillRead, status_code=status.HTTP_201_CREATED, tags=["Skills"],
-          dependencies=[Depends(handle_apikey)])
+          dependencies=[Depends(apikey_middleware)])
 async def create_skill(skill: Skill, db: Session = Depends(get_db)):
     db_item = SkillModel(**skill.model_dump())
     db.add(db_item)
@@ -186,7 +166,7 @@ async def get_skill(skill_id: int, db: Session = Depends(get_db)):
 
 # Update one Skill
 @app.put("/api/skills/{skill_id}", response_model=SkillRead, tags=["Skills"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_skill(skill_id: int, skill: Skill, db: Session = Depends(get_db)):
     item = db.get(SkillModel, skill_id)
     if not item:
@@ -202,7 +182,7 @@ async def update_skill(skill_id: int, skill: Skill, db: Session = Depends(get_db
 
 # Delete one Skill
 @app.delete("/api/skills/{skill_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Skills"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_skill(skill_id: int, db: Session = Depends(get_db)):
     item = db.get(SkillModel, skill_id)
     if not item:
@@ -222,7 +202,7 @@ async def all_socials(db: Session = Depends(get_db)):
 
 # Create one Social
 @app.post("/api/socials", response_model=SocialRead, status_code=status.HTTP_201_CREATED, tags=["Socials"],
-          dependencies=[Depends(handle_apikey)])
+          dependencies=[Depends(apikey_middleware)])
 async def create_social(social: Social, db: Session = Depends(get_db)):
     db_item = SocialModel(**social.model_dump())
     db.add(db_item)
@@ -242,7 +222,7 @@ async def get_social(social_id: int, db: Session = Depends(get_db)):
 
 # Update one Social
 @app.put("/api/socials/{social_id}", response_model=SocialRead, tags=["Socials"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_social(social_id: int, social: Social, db: Session = Depends(get_db)):
     item = db.get(SocialModel, social_id)
     if not item:
@@ -258,7 +238,7 @@ async def update_social(social_id: int, social: Social, db: Session = Depends(ge
 
 # Delete one Social
 @app.delete("/api/socials/{social_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Socials"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_social(social_id: int, db: Session = Depends(get_db)):
     item = db.get(SocialModel, social_id)
     if not item:
@@ -278,7 +258,7 @@ async def all_resumes(db: Session = Depends(get_db)):
 
 # Create one Resume
 @app.post("/api/resumes", response_model=ResumeRead, status_code=status.HTTP_201_CREATED, tags=["Resumes"],
-          dependencies=[Depends(handle_apikey)])
+          dependencies=[Depends(apikey_middleware)])
 async def create_resume(resume: Resume, db: Session = Depends(get_db)):
     db_item = ResumeModel(**resume.model_dump())
     db.add(db_item)
@@ -298,7 +278,7 @@ async def get_resume(resume_id: int, db: Session = Depends(get_db)):
 
 # Update one Resume
 @app.put("/api/resumes/{resume_id}", response_model=ResumeRead, tags=["Resumes"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_resume(resume_id: int, resume: Resume, db: Session = Depends(get_db)):
     item = db.get(ResumeModel, resume_id)
     if not item:
@@ -314,7 +294,7 @@ async def update_resume(resume_id: int, resume: Resume, db: Session = Depends(ge
 
 # Delete one Resume
 @app.delete("/api/resumes/{resume_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Resumes"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_resume(resume_id: int, db: Session = Depends(get_db)):
     item = db.get(ResumeModel, resume_id)
     if not item:
@@ -327,7 +307,7 @@ async def delete_resume(resume_id: int, db: Session = Depends(get_db)):
 # ---------- Message ---------- #
 
 # Get all Messages
-@app.get("/api/messages", response_model=list[MessageRead], tags=["Message"], dependencies=[Depends(handle_apikey)])
+@app.get("/api/messages", response_model=list[MessageRead], tags=["Message"], dependencies=[Depends(apikey_middleware)])
 async def all_messages(db: Session = Depends(get_db)):
     return db.query(MessageModel).all()
 
@@ -344,7 +324,7 @@ async def create_message(message: Message, db: Session = Depends(get_db)):
 
 # Get one Message
 @app.get("/api/messages/{message_id}", response_model=MessageRead, tags=["Message"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def get_message(message_id: int, db: Session = Depends(get_db)):
     item = db.get(MessageModel, message_id)
     if not item:
@@ -354,7 +334,7 @@ async def get_message(message_id: int, db: Session = Depends(get_db)):
 
 # Update one Message
 @app.put("/api/messages/{message_id}", response_model=MessageRead, tags=["Message"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_message(message_id: int, message: Message, db: Session = Depends(get_db)):
     item = db.get(MessageModel, message_id)
     if not item:
@@ -370,7 +350,7 @@ async def update_message(message_id: int, message: Message, db: Session = Depend
 
 # Delete one Message
 @app.delete("/api/messages/{message_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Message"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_message(message_id: int, db: Session = Depends(get_db)):
     item = db.get(MessageModel, message_id)
     if not item:
@@ -390,7 +370,7 @@ async def all_notes(db: Session = Depends(get_db)):
 
 # Create one Note
 @app.post("/api/notes", response_model=NoteRead, status_code=status.HTTP_201_CREATED, tags=["Note"],
-          dependencies=[Depends(handle_apikey)])
+          dependencies=[Depends(apikey_middleware)])
 async def create_note(note: Note, db: Session = Depends(get_db)):
     db_item = NoteModel(**note.model_dump())
     db.add(db_item)
@@ -410,7 +390,7 @@ async def get_note(note_id: int, db: Session = Depends(get_db)):
 
 # Update one Note
 @app.put("/api/notes/{note_id}", response_model=NoteRead, tags=["Note"],
-         dependencies=[Depends(handle_apikey)])
+         dependencies=[Depends(apikey_middleware)])
 async def update_note(note_id: int, note: Note, db: Session = Depends(get_db)):
     item = db.get(NoteModel, note_id)
     if not item:
@@ -426,7 +406,7 @@ async def update_note(note_id: int, note: Note, db: Session = Depends(get_db)):
 
 # Delete one Note
 @app.delete("/api/notes/{note_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Note"],
-            dependencies=[Depends(handle_apikey)])
+            dependencies=[Depends(apikey_middleware)])
 async def delete_note(note_id: int, db: Session = Depends(get_db)):
     item = db.get(NoteModel, note_id)
     if not item:

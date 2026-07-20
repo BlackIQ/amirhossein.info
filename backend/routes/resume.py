@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Resume  # Models
-from schemas.resume import ResumeCreate, ResumeRead  # Schemas
+from schemas.resume import ResumeCreate, ResumeUpdate, ResumeRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -66,7 +66,7 @@ async def get_resume(
 @router.put("/{resume_id}", response_model=ResumeRead)
 async def update_resume(
     resume_id: int,
-    resume_data: ResumeCreate,
+    resume_data: ResumeUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -78,7 +78,7 @@ async def update_resume(
             detail="Resume not found",
         )
 
-    for key, value in resume_data.model_dump().items():
+    for key, value in resume_data.model_dump(exclude_unset=True).items():
         setattr(db_resume, key, value)
 
     db.commit()

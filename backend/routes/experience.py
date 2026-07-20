@@ -7,7 +7,11 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Experience  # Models
-from schemas.experience import ExperienceRead, ExperienceCreate  # Schemas
+from schemas.experience import (
+    ExperienceRead,
+    ExperienceUpdate,
+    ExperienceCreate,
+)  # Schemas
 
 # Router
 router = APIRouter(
@@ -66,7 +70,7 @@ async def get_experience(
 @router.put("/{experience_id}", response_model=ExperienceRead)
 async def update_experience(
     experience_id: int,
-    experience_data: ExperienceCreate,
+    experience_data: ExperienceUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -78,7 +82,7 @@ async def update_experience(
             detail="Experience not found",
         )
 
-    for key, value in experience_data.model_dump().items():
+    for key, value in experience_data.model_dump(exclude_unset=True).items():
         setattr(db_experience, key, value)
 
     db.commit()

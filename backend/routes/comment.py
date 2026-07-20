@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Comment  # Models
-from schemas.comment import CommentCreate, CommentRead  # Schemas
+from schemas.comment import CommentCreate, CommentUpdate, CommentRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -64,7 +64,7 @@ async def get_comment(
 @router.put("/{comment_id}", response_model=CommentRead)
 async def update_comment(
     comment_id: int,
-    comment_data: CommentCreate,
+    comment_data: CommentUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -76,7 +76,7 @@ async def update_comment(
             detail="Comment not found",
         )
 
-    for key, value in comment_data.model_dump().items():
+    for key, value in comment_data.model_dump(exclude_unset=True).items():
         setattr(db_comment, key, value)
 
     db.commit()

@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Skill  # Models
-from schemas.skill import SkillCreate, SkillRead  # Schemas
+from schemas.skill import SkillCreate, SkillUpdate, SkillRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -66,7 +66,7 @@ async def get_skill(
 @router.put("/{skill_id}", response_model=SkillRead)
 async def update_skill(
     skill_id: int,
-    skill_data: SkillCreate,
+    skill_data: SkillUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -78,7 +78,7 @@ async def update_skill(
             detail="Skill not found",
         )
 
-    for key, value in skill_data.model_dump().items():
+    for key, value in skill_data.model_dump(exclude_unset=True).items():
         setattr(db_skill, key, value)
 
     db.commit()

@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Message  # Models
-from schemas.message import MessageCreate, MessageRead  # Schemas
+from schemas.message import MessageCreate, MessageUpdate, MessageRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -66,7 +66,7 @@ async def get_message(
 @router.put("/{message_id}", response_model=MessageRead)
 async def update_message(
     message_id: int,
-    message_data: MessageCreate,
+    message_data: MessageUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -78,7 +78,7 @@ async def update_message(
             detail="Message not found",
         )
 
-    for key, value in message_data.model_dump().items():
+    for key, value in message_data.model_dump(exclude_unset=True).items():
         setattr(db_message, key, value)
 
     db.commit()

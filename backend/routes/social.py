@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Social  # Models
-from schemas.social import SocialCreate, SocialRead  # Schemas
+from schemas.social import SocialCreate, SocialUpdate, SocialRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -66,7 +66,7 @@ async def get_social(
 @router.put("/{social_id}", response_model=SocialRead)
 async def update_social(
     social_id: int,
-    social_data: SocialCreate,
+    social_data: SocialUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -78,7 +78,7 @@ async def update_social(
             detail="Social not found",
         )
 
-    for key, value in social_data.model_dump().items():
+    for key, value in social_data.model_dump(exclude_unset=True).items():
         setattr(db_social, key, value)
 
     db.commit()

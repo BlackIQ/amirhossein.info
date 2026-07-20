@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Note  # Models
-from schemas.note import NoteCreate, NoteRead  # Schemas
+from schemas.note import NoteCreate, NoteUpdate, NoteRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -65,7 +65,7 @@ async def get_note(
 @router.put("/{note_id}", response_model=NoteRead)
 async def update_note(
     note_id: int,
-    note_data: NoteCreate,
+    note_data: NoteUpdate,
     apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
@@ -77,7 +77,7 @@ async def update_note(
             detail="Note not found",
         )
 
-    for key, value in note_data.model_dump().items():
+    for key, value in note_data.model_dump(exclude_unset=True).items():
         setattr(db_note, key, value)
 
     db.commit()

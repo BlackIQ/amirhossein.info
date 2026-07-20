@@ -24,6 +24,7 @@ app = FastAPI(
         "email": "hi@amirhossein.info",
     },
     openapi_tags=[
+        {"name": "Application", "description": "Application thingss"},
         {"name": "Experiences", "description": "Manage portfolio experiences"},
         {"name": "Skills", "description": "Manage displayed skills"},
         {"name": "Socials", "description": "Manage social links"},
@@ -38,7 +39,7 @@ app = FastAPI(
 
 
 # Health check route
-@app.get("/")
+@app.get("/", tags=["Application"])
 async def ping():
     return {"message": "pong"}
 

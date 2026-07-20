@@ -1,29 +1,23 @@
 # FastAPI, SQLAlchemy ORM
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 
-# Database
-from database import engine, SessionLocal
-# SQLAlchemy Base
-from db.base import Base
-# Middlewares
-from middlewares.apikey import apikey_middleware
 # Routes
 from routes import (
-    experience, skill, note, message, resume, social, comment
+    experience,
+    skill,
+    note,
+    message,
+    resume,
+    social,
+    comment,
 )
-
-# Models
-# import models
-
-# Create tables
-Base.metadata.create_all(bind=engine)
 
 # FastAPI app
 app = FastAPI(
     title="Amirhossein Mohammadi Resume API",
     version="1.0.0",
     summary="FastAPI backend for the personal portfolio site",
-    description="SQLite-backed API for experiences, skills, socials, resumes, messages, and notes",
+    description="Using FastAPI, Pydantic, Pydantic Settings, SQLAlchemy, SQLAlchemy ORM, Alembic and PostgreSQL",
     contact={
         "name": "Amirhossein Mohammadi",
         "url": "https://amirhossein.info",
@@ -40,33 +34,11 @@ app = FastAPI(
     ],
 )
 
-
-# Function to get database
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
 # ---------- Routes ---------- #
 
 
-# Root
-@app.get("/")
-async def read_root():
-    return {"message": "Amirhossein FastAPI backend is running"}
-
-
-# Welcome
-@app.get("/api", dependencies=[Depends(apikey_middleware)])
-async def api():
-    return {"message": "Welcome to Amirhossein FastAPI backend"}
-
-
 # Health check route
-@app.get("/api/ping")
+@app.get("/")
 async def ping():
     return {"message": "pong"}
 

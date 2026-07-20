@@ -1,17 +1,31 @@
-# SQLAlchemy types
-from sqlalchemy import Boolean, Column, Integer, String
+# SQLAlchemy
+from sqlalchemy.orm import Mapped, mapped_column
 
-# SQLAlchemy DeclarativeBase
-from db.base import Base
+# Application
+from base import BaseModel  # Base Model
 
 
 # Skill Model
-class SkillModel(Base):
-    __tablename__ = "skills"  # Table name
+class Skill(BaseModel):
+    __tablename__ = "skills"
 
-    id = Column(Integer, primary_key=True, index=True)
-    priority = Column(Integer, nullable=False)
-    show = Column(Boolean, nullable=False)
-    label = Column(String, nullable=False)
-    value = Column(String, nullable=False)
-    category = Column(String, nullable=False)
+    # Columns
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        index=True,
+    )
+    priority: Mapped[int] = mapped_column(
+        nullable=False,
+    )
+    show: Mapped[bool] = mapped_column(
+        nullable=False,
+    )
+    label: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    value: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    category: Mapped[str] = mapped_column(
+        nullable=False,
+    )

@@ -1,20 +1,34 @@
-# SQLAlchemy types
-from sqlalchemy import Column, Integer, String
-# SQLAlchemy ORM
-from sqlalchemy.orm import relationship
+# SQLAlchemy
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-# SQLAlchemy DeclarativeBase
-from db.base import Base
+# Application
+from base import BaseModel  # Base Model
 
 
 # Note Model
-class NoteModel(Base):
-    __tablename__ = "notes"  # Table name
+class Note(BaseModel):
+    __tablename__ = "notes"
 
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
-    details = Column(String, nullable=False)
-    content = Column(String, nullable=False)
-    thumbnail = Column(String, nullable=False)
+    # Columns
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        index=True,
+    )
+    title: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    details: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    content: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    thumbnail: Mapped[str] = mapped_column(
+        nullable=False,
+    )
 
-    comments = relationship("CommentModel", back_populates="note")
+    # Relations
+    comments = relationship(
+        "Comment",
+        back_populates="note",
+    )

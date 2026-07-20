@@ -1,22 +1,46 @@
-# SQLAlchemy types
-from sqlalchemy import Boolean, Column, Integer, String
+# SQLAlchemy
+from sqlalchemy.orm import Mapped, mapped_column
 
-# SQLAlchemy DeclarativeBase
-from db.base import Base
+# Application
+from base import BaseModel  # Base Model
 
 
 # Experience Model
-class ExperienceModel(Base):
-    __tablename__ = "experiences"  # Table name
+class Experience(BaseModel):
+    __tablename__ = "experiences"
 
-    id = Column(Integer, primary_key=True, index=True)
-    priority = Column(Integer, nullable=False)
-    show = Column(Boolean, nullable=False)
-    position = Column(String, nullable=False)
-    companyName = Column(String, nullable=False)
-    location = Column(String, nullable=False)
-    startDate = Column(String, nullable=False)
-    endDate = Column(String, nullable=False)
-    duties = Column(String, nullable=False)
-    skills = Column(String, nullable=False)
-    url = Column(String, nullable=False)
+    # Columns
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        index=True,
+    )
+    priority: Mapped[int] = mapped_column(
+        nullable=False,
+    )
+    show: Mapped[bool] = mapped_column(
+        nullable=False,
+    )
+    position: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    companyName: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    location: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    startDate: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    endDate: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    duties: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    skills: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    url: Mapped[str] = mapped_column(
+        nullable=False,
+    )

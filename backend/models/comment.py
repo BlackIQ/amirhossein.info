@@ -1,20 +1,38 @@
-# SQLAlchemy types
-from sqlalchemy import Column, Integer, String, ForeignKey
-# SQLAlchemy ORM
-from sqlalchemy.orm import relationship
+# SQLAlchemy
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-# SQLAlchemy DeclarativeBase
-from db.base import Base
+# Application
+from base import BaseModel  # Base Model
 
 
 # Comment Model
-class CommentModel(Base):
-    __tablename__ = "comments"  # Table name
+class Comment(BaseModel):
+    __tablename__ = "comments"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
-    message = Column(String, nullable=False)
-    note_id = Column(Integer, ForeignKey("notes.id"), nullable=False)
+    # Columns
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        index=True,
+    )
+    name: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    email: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    message: Mapped[str] = mapped_column(
+        nullable=False,
+    )
 
-    note = relationship("NoteModel", back_populates="comments")
+    # Foreign Keys
+    note_id: Mapped[int] = mapped_column(
+        ForeignKey("notes.id"),
+        nullable=False,
+    )
+
+    # Relations
+    note = relationship(
+        "Note",
+        back_populates="comments",
+    )

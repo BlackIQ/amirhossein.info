@@ -1,15 +1,25 @@
-# SQLAlchemy types
-from sqlalchemy import Column, Integer, String
+# SQLAlchemy
+from sqlalchemy.orm import Mapped, mapped_column
 
-# SQLAlchemy DeclarativeBase
-from db.base import Base
+# Application
+from base import BaseModel  # Base Model
 
 
 # Message Model
-class MessageModel(Base):
-    __tablename__ = "messages"  # Table name
+class Message(BaseModel):
+    __tablename__ = "messages"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
-    message = Column(String, nullable=False)
+    # Columns
+    id: Mapped[int] = mapped_column(
+        primary_key=True,
+        index=True,
+    )
+    name: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    email: Mapped[str] = mapped_column(
+        nullable=False,
+    )
+    message: Mapped[str] = mapped_column(
+        nullable=False,
+    )

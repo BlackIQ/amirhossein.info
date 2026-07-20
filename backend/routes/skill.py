@@ -1,15 +1,13 @@
-# FastAPI, SQLAlchemy
+# FastAPI
 from fastapi import APIRouter, Depends, HTTPException, status
+
+# SQLAlchemy
 from sqlalchemy.orm import Session
 
-# Dependencies
-from dependencies import get_db
-# Middlewares
-from middlewares.apikey import apikey_middleware
-# Models
-from models.skill import SkillModel
-# Schema
-from schemas.skill import Skill, SkillRead
+# Application
+from dependencies import apikey, get_db  # Dependencies
+from models import Skill  # Models
+from schemas.skill import SkillCreate, SkillRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -18,53 +16,89 @@ router = APIRouter(
 )
 
 
-# Get all Skills
 @router.get("", response_model=list[SkillRead])
-async def all_skills(db: Session = Depends(get_db)):
-    return db.query(SkillModel).where(SkillModel.show == True).order_by(SkillModel.priority).all()
+async def all_skills(
+    db: Session = Depends(get_db),
+):
+    db_skills = (
+        db.query(Skill)
+        .where(
+            Skill.show == True,
+        )
+        .order_by(Skill.priority)
+        .all()
+    )
+
+    return db_skills
 
 
-# Create one Skill
-@router.post("", response_model=SkillRead, status_code=status.HTTP_201_CREATED,
-             dependencies=[Depends(apikey_middleware)])
-async def create_skill(skill: Skill, db: Session = Depends(get_db)):
-    db_item = SkillModel(**skill.model_dump())
-    db.add(db_item)
+@router.post("", response_model=SkillRead, status_code=status.HTTP_201_CREATED)
+async def create_skill(
+    skill_data: SkillCreate,
+    db: Session = Depends(get_db),
+):
+    db_skill = Skill(**skill_data.model_dump())
+
+    db.add(db_skill)
     db.commit()
-    db.refresh(db_item)
-    return db_item
+    db.refresh(db_skill)
+
+    return db_skill
 
 
-# Get one Skill
 @router.get("/{skill_id}", response_model=SkillRead)
-async def get_skill(skill_id: int, db: Session = Depends(get_db)):
-    item = db.get(SkillModel, skill_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Skill not found")
-    return item
+async def get_skill(
+    skill_id: int,
+    db: Session = Depends(get_db),
+):
+    db_skill = db.get(Skill, skill_id)
+
+    if not db_skill:
+        raise HTTPException(
+            status_code=404,
+            detail="Skill not found",
+        )
+
+    return db_skill
 
 
-# Update one Skill
-@router.put("/{skill_id}", response_model=SkillRead, dependencies=[Depends(apikey_middleware)])
-async def update_skill(skill_id: int, skill: Skill, db: Session = Depends(get_db)):
-    item = db.get(SkillModel, skill_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Skill not found")
+@router.put("/{skill_id}", response_model=SkillRead)
+async def update_skill(
+    skill_id: int,
+    skill_data: SkillCreate,
+    db: Session = Depends(get_db),
+):
+    db_skill = db.get(Skill, skill_id)
 
-    for key, value in skill.model_dump().items():
-        setattr(item, key, value)
+    if not db_skill:
+        raise HTTPException(
+            status_code=404,
+            detail="Skill not found",
+        )
+
+    for key, value in skill_data.model_dump().items():
+        setattr(db_skill, key, value)
 
     db.commit()
-    db.refresh(item)
-    return item
+    db.refresh(db_skill)
+
+    return db_skill
 
 
-# Delete one Skill
-@router.delete("/{skill_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(apikey_middleware)])
-async def delete_skill(skill_id: int, db: Session = Depends(get_db)):
-    item = db.get(SkillModel, skill_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Skill not found")
-    db.delete(item)
+@router.delete("/{skill_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_skill(
+    skill_id: int,
+    db: Session = Depends(get_db),
+):
+    db_skill = db.get(Skill, skill_id)
+
+    if not db_skill:
+        raise HTTPException(
+            status_code=404,
+            detail="Skill not found",
+        )
+
+    db.delete(db_skill)
     db.commit()
+
     return None

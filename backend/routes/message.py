@@ -1,15 +1,13 @@
-# FastAPI, SQLAlchemy
+# FastAPI
 from fastapi import APIRouter, Depends, HTTPException, status
+
+# SQLAlchemy
 from sqlalchemy.orm import Session
 
-# Dependencies
-from dependencies import get_db
-# Middlewares
-from middlewares.apikey import apikey_middleware
-# Models
-from models.message import MessageModel
-# Schema
-from schemas.message import Message, MessageRead
+# Application
+from dependencies import apikey, get_db  # Dependencies
+from models import Message  # Models
+from schemas.message import MessageCreate, MessageRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -18,52 +16,88 @@ router = APIRouter(
 )
 
 
-# Get all Messages
-@router.get("", response_model=list[MessageRead], dependencies=[Depends(apikey_middleware)])
-async def all_messages(db: Session = Depends(get_db)):
-    return db.query(MessageModel).all()
+@router.get("", response_model=list[MessageRead])
+async def all_messages(
+    db: Session = Depends(get_db),
+):
+    db_messages = (
+        db.query(Message)
+        .order_by(
+            Message.id.desc(),
+        )
+        .all()
+    )
+
+    return db_messages
 
 
-# Create one Message
 @router.post("", response_model=MessageRead, status_code=status.HTTP_201_CREATED)
-async def create_message(message: Message, db: Session = Depends(get_db)):
-    db_item = MessageModel(**message.model_dump())
-    db.add(db_item)
+async def create_message(
+    message_data: MessageCreate,
+    db: Session = Depends(get_db),
+):
+    db_message = Message(**message_data.model_dump())
+
+    db.add(db_message)
     db.commit()
-    db.refresh(db_item)
-    return db_item
+    db.refresh(db_message)
+
+    return db_message
 
 
-# Get one Message
-@router.get("/{message_id}", response_model=MessageRead, dependencies=[Depends(apikey_middleware)])
-async def get_message(message_id: int, db: Session = Depends(get_db)):
-    item = db.get(MessageModel, message_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Message not found")
-    return item
+@router.get("/{message_id}", response_model=MessageRead)
+async def get_message(
+    message_id: int,
+    db: Session = Depends(get_db),
+):
+    db_message = db.get(Message, message_id)
+
+    if not db_message:
+        raise HTTPException(
+            status_code=404,
+            detail="Message not found",
+        )
+
+    return db_message
 
 
-# Update one Message
-@router.put("/{message_id}", response_model=MessageRead, dependencies=[Depends(apikey_middleware)])
-async def update_message(message_id: int, message: Message, db: Session = Depends(get_db)):
-    item = db.get(MessageModel, message_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Message not found")
+@router.put("/{message_id}", response_model=MessageRead)
+async def update_message(
+    message_id: int,
+    message_data: MessageCreate,
+    db: Session = Depends(get_db),
+):
+    db_message = db.get(Message, message_id)
 
-    for key, value in message.model_dump().items():
-        setattr(item, key, value)
+    if not db_message:
+        raise HTTPException(
+            status_code=404,
+            detail="Message not found",
+        )
+
+    for key, value in message_data.model_dump().items():
+        setattr(db_message, key, value)
 
     db.commit()
-    db.refresh(item)
-    return item
+    db.refresh(db_message)
+
+    return db_message
 
 
-# Delete one Message
-@router.delete("/{message_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(apikey_middleware)])
-async def delete_message(message_id: int, db: Session = Depends(get_db)):
-    item = db.get(MessageModel, message_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Message not found")
-    db.delete(item)
+@router.delete("/{message_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_message(
+    message_id: int,
+    db: Session = Depends(get_db),
+):
+    db_message = db.get(Message, message_id)
+
+    if not db_message:
+        raise HTTPException(
+            status_code=404,
+            detail="Message not found",
+        )
+
+    db.delete(db_message)
     db.commit()
+
     return None

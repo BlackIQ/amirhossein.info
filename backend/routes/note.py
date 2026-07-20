@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 # Application
 from dependencies import apikey, get_db  # Dependencies
 from models import Note  # Models
-from schemas.note import NoteCreate, NoteUpdate, NoteRead  # Schemas
+from schemas.note import NoteCreate, NoteUpdate, NoteRead, NoteReadDetail  # Schemas
 
 # Router
 router = APIRouter(
@@ -46,7 +46,7 @@ async def create_note(
     return db_note
 
 
-@router.get("/{note_id}", response_model=NoteRead)
+@router.get("/{note_id}", response_model=NoteReadDetail)
 async def get_note(
     note_id: int,
     db: Session = Depends(get_db),

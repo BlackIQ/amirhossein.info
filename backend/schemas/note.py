@@ -25,4 +25,7 @@ class NoteUpdate(BaseSchema):
 class NoteRead(NoteCreate):
     id: int
 
-    comments: list[CommentRead] = []
+
+# Read Note Detaild
+class NoteReadDetail(NoteRead):
+    comments: list[CommentRead]

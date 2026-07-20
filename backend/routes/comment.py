@@ -1,15 +1,13 @@
-# FastAPI, SQLAlchemy
+# FastAPI
 from fastapi import APIRouter, Depends, HTTPException, status
+
+# SQLAlchemy
 from sqlalchemy.orm import Session
 
-# Dependencies
-from dependencies import get_db
-# Middlewares
-from middlewares.apikey import apikey_middleware
-# Models
-from models.comment import CommentModel
-# Schema
-from schemas.comment import Comment, CommentRead
+# Application
+from dependencies import apikey, get_db  # Dependencies
+from models import Comment  # Models
+from schemas.comment import CommentCreate, CommentRead  # Schemas
 
 # Router
 router = APIRouter(
@@ -18,52 +16,88 @@ router = APIRouter(
 )
 
 
-# Get all Comments
-@router.get("", response_model=list[CommentRead], dependencies=[Depends(apikey_middleware)])
-async def all_comments(db: Session = Depends(get_db)):
-    return db.query(CommentModel).all()
+@router.get("", response_model=list[CommentRead])
+async def all_comments(
+    db: Session = Depends(get_db),
+):
+    db_comments = (
+        db.query(Comment)
+        .order_by(
+            Comment.id.desc(),
+        )
+        .all()
+    )
+
+    return db_comments
 
 
-# Create one Comment
 @router.post("", response_model=CommentRead, status_code=status.HTTP_201_CREATED)
-async def create_comment(comment: Comment, db: Session = Depends(get_db)):
-    db_item = CommentModel(**comment.model_dump())
-    db.add(db_item)
+async def create_comment(
+    comment_data: CommentCreate,
+    db: Session = Depends(get_db),
+):
+    db_comment = Comment(**comment_data.model_dump())
+
+    db.add(db_comment)
     db.commit()
-    db.refresh(db_item)
-    return db_item
+    db.refresh(db_comment)
+
+    return db_comment
 
 
-# Get one Comment
-@router.get("/{comment_id}", response_model=CommentRead, dependencies=[Depends(apikey_middleware)])
-async def get_comment(comment_id: int, db: Session = Depends(get_db)):
-    item = db.get(CommentModel, comment_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Comment not found")
-    return item
+@router.get("/{comment_id}", response_model=CommentRead)
+async def get_comment(
+    comment_id: int,
+    db: Session = Depends(get_db),
+):
+    db_comment = db.get(Comment, comment_id)
+
+    if not db_comment:
+        raise HTTPException(
+            status_code=404,
+            detail="Comment not found",
+        )
+
+    return db_comment
 
 
-# Update one Comment
-@router.put("/{comment_id}", response_model=CommentRead, dependencies=[Depends(apikey_middleware)])
-async def update_comment(comment_id: int, comment: Comment, db: Session = Depends(get_db)):
-    item = db.get(CommentModel, comment_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Comment not found")
+@router.put("/{comment_id}", response_model=CommentRead)
+async def update_comment(
+    comment_id: int,
+    comment_data: CommentCreate,
+    db: Session = Depends(get_db),
+):
+    db_comment = db.get(Comment, comment_id)
 
-    for key, value in comment.model_dump().items():
-        setattr(item, key, value)
+    if not db_comment:
+        raise HTTPException(
+            status_code=404,
+            detail="Comment not found",
+        )
+
+    for key, value in comment_data.model_dump().items():
+        setattr(db_comment, key, value)
 
     db.commit()
-    db.refresh(item)
-    return item
+    db.refresh(db_comment)
+
+    return db_comment
 
 
-# Delete one Comment
-@router.delete("/{comment_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(apikey_middleware)])
-async def delete_comment(comment_id: int, db: Session = Depends(get_db)):
-    item = db.get(CommentModel, comment_id)
-    if not item:
-        raise HTTPException(status_code=404, detail="Comment not found")
-    db.delete(item)
+@router.delete("/{comment_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_comment(
+    comment_id: int,
+    db: Session = Depends(get_db),
+):
+    db_comment = db.get(Comment, comment_id)
+
+    if not db_comment:
+        raise HTTPException(
+            status_code=404,
+            detail="Comment not found",
+        )
+
+    db.delete(db_comment)
     db.commit()
+
     return None

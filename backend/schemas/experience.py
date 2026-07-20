@@ -16,6 +16,20 @@ class ExperienceCreate(BaseSchema):
     url: str
 
 
+# Update Experience
+class ExperienceUpdate(BaseSchema):
+    priority: int | None = None
+    show: bool | None = None
+    position: str | None = None
+    companyName: str | None = None
+    location: str | None = None
+    startDate: str | None = None
+    endDate: str | None = None
+    duties: str | None = None
+    skills: str | None = None
+    url: str | None = None
+
+
 # Read Experience
 class ExperienceRead(ExperienceCreate):
     id: int

@@ -9,6 +9,13 @@ class MessageCreate(BaseSchema):
     message: str
 
 
+# Update Message
+class MessageUpdate(BaseSchema):
+    name: str | None = None
+    email: str | None = None
+    message: str | None = None
+
+
 # Read Message
 class MessageRead(MessageCreate):
     id: int

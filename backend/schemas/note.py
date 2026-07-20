@@ -1,21 +1,20 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
-# Comment
+# Schemas
 from schemas.comment import CommentRead
 
 
-# Schema of a note
-class Note(BaseModel):
+# Create Note
+class NoteCreate(BaseSchema):
     title: str
     details: str
     content: str
     thumbnail: str
-    comments: list[CommentRead] = []
 
 
-# Schema for id of note
-class NoteRead(Note):
+# Read Note
+class NoteRead(NoteCreate):
     id: int
 
-    model_config = ConfigDict(from_attributes=True)
+    comments: list[CommentRead] = []

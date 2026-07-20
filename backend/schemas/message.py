@@ -1,16 +1,14 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of a message
-class Message(BaseModel):
+# Create Message
+class MessageCreate(BaseSchema):
     name: str
     email: str
     message: str
 
 
-# Schema for id of message
-class MessageRead(Message):
+# Read Message
+class MessageRead(MessageCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

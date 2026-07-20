@@ -1,9 +1,9 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of a skill
-class Skill(BaseModel):
+# Create Skill
+class SkillCreate(BaseSchema):
     priority: int
     show: bool
     label: str
@@ -11,8 +11,6 @@ class Skill(BaseModel):
     category: str
 
 
-# Schema for id of skill
-class SkillRead(Skill):
+# Read Skill
+class SkillRead(SkillCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

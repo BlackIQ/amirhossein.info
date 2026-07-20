@@ -1,9 +1,9 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of a social
-class Social(BaseModel):
+# Create Social
+class SocialCreate(BaseSchema):
     priority: int
     show: bool
     label: str
@@ -11,8 +11,6 @@ class Social(BaseModel):
     url: str
 
 
-# Schema for id of social
-class SocialRead(Social):
+# Read Social
+class SocialRead(SocialCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

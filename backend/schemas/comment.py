@@ -1,17 +1,15 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of a comment
-class Comment(BaseModel):
+# Create Comment
+class CommentCreate(BaseSchema):
     name: str
     email: str
     message: str
     note_id: int
 
 
-# Schema for id of comment
-class CommentRead(Comment):
+# Read Comment
+class CommentRead(CommentCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

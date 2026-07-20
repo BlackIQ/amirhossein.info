@@ -1,9 +1,9 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of a resume
-class Resume(BaseModel):
+# Create Resume
+class ResumeCreate(BaseSchema):
     priority: int
     show: bool
     label: str
@@ -11,8 +11,6 @@ class Resume(BaseModel):
     url: str
 
 
-# Schema for id of resume
-class ResumeRead(Resume):
+# Read Resume
+class ResumeRead(ResumeCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

@@ -1,9 +1,9 @@
-# Pydantic
-from pydantic import BaseModel, ConfigDict
+# Application
+from base import BaseSchema
 
 
-# Schema of an experience
-class Experience(BaseModel):
+# Create Experience
+class ExperienceCreate(BaseSchema):
     priority: int
     show: bool
     position: str
@@ -16,8 +16,6 @@ class Experience(BaseModel):
     url: str
 
 
-# Schema for id of experience
-class ExperienceRead(Experience):
+# Read Experience
+class ExperienceRead(ExperienceCreate):
     id: int
-
-    model_config = ConfigDict(from_attributes=True)

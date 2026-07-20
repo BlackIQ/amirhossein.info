@@ -35,6 +35,7 @@ async def all_experiences(
 @router.post("", response_model=ExperienceRead, status_code=status.HTTP_201_CREATED)
 async def create_experience(
     experience_data: ExperienceCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_item = Experience(**experience_data.model_dump())
@@ -66,6 +67,7 @@ async def get_experience(
 async def update_experience(
     experience_id: int,
     experience_data: ExperienceCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_experience = db.get(Experience, experience_id)
@@ -88,6 +90,7 @@ async def update_experience(
 @router.delete("/{experience_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_experience(
     experience_id: int,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_experience = db.get(Experience, experience_id)

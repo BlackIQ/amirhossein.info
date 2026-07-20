@@ -35,6 +35,7 @@ async def all_resumes(
 @router.post("", response_model=ResumeRead, status_code=status.HTTP_201_CREATED)
 async def create_resume(
     resume_data: ResumeCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_resume = Resume(**resume_data.model_dump())
@@ -66,6 +67,7 @@ async def get_resume(
 async def update_resume(
     resume_id: int,
     resume_data: ResumeCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_resume = db.get(Resume, resume_id)
@@ -88,6 +90,7 @@ async def update_resume(
 @router.delete("/{resume_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_resume(
     resume_id: int,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_resume = db.get(Resume, resume_id)

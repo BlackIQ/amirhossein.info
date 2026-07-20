@@ -34,6 +34,7 @@ async def all_notes(
 @router.post("", response_model=NoteRead, status_code=status.HTTP_201_CREATED)
 async def create_note(
     note_data: NoteCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_note = Note(**note_data.model_dump())
@@ -65,6 +66,7 @@ async def get_note(
 async def update_note(
     note_id: int,
     note_data: NoteCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_note = db.get(Note, note_id)
@@ -87,6 +89,7 @@ async def update_note(
 @router.delete("/{note_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_note(
     note_id: int,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_note = db.get(Note, note_id)

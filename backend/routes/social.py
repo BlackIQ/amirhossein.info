@@ -35,6 +35,7 @@ async def all_socials(
 @router.post("", response_model=SocialRead, status_code=status.HTTP_201_CREATED)
 async def create_social(
     social_data: SocialCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_social = Social(**social_data.model_dump())
@@ -66,6 +67,7 @@ async def get_social(
 async def update_social(
     social_id: int,
     social_data: SocialCreate,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_social = db.get(Social, social_id)
@@ -88,6 +90,7 @@ async def update_social(
 @router.delete("/{social_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_social(
     social_id: int,
+    apikey: str = Depends(apikey),
     db: Session = Depends(get_db),
 ):
     db_social = db.get(Social, social_id)

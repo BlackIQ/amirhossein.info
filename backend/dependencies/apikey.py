@@ -20,3 +20,5 @@ async def apikey(api_key: str = Security(header_schema)):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid API key"
         )
+
+    return api_key

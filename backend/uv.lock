@@ -21,6 +21,35 @@ wheels = [
 ]
 
 [[package]]
+name = "amirhossein-backend"
+version = "2.0.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "alembic" },
+    { name = "fastapi", extra = ["standard"] },
+    { name = "psycopg2-binary" },
+    { name = "pwdlib", extra = ["argon2"] },
+    { name = "pydantic-settings" },
+    { name = "pyjwt" },
+    { name = "python-dotenv" },
+    { name = "sqlalchemy" },
+    { name = "websockets" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "alembic", specifier = ">=1.18.5" },
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.139.2" },
+    { name = "psycopg2-binary", specifier = ">=2.9.12" },
+    { name = "pwdlib", extras = ["argon2"], specifier = ">=0.3.0" },
+    { name = "pydantic-settings", specifier = ">=2.14.2" },
+    { name = "pyjwt", specifier = ">=2.13.0" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "sqlalchemy", specifier = ">=2.0.51" },
+    { name = "websockets", specifier = ">=16.1.1" },
+]
+
+[[package]]
 name = "annotated-doc"
 version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
@@ -91,35 +120,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/74/cd/15777dfde1c29d96de7f18edf4cc94c385646852e7c7b0320aa91ccca583/argon2_cffi_bindings-25.1.0-cp39-abi3-win32.whl", hash = "sha256:473bcb5f82924b1becbb637b63303ec8d10e84c8d241119419897a26116515d2", size = 27180, upload-time = "2025-07-30T10:01:57.759Z" },
     { url = "https://files.pythonhosted.org/packages/e2/c6/a759ece8f1829d1f162261226fbfd2c6832b3ff7657384045286d2afa384/argon2_cffi_bindings-25.1.0-cp39-abi3-win_amd64.whl", hash = "sha256:a98cd7d17e9f7ce244c0803cad3c23a7d379c301ba618a5fa76a67d116618b98", size = 31715, upload-time = "2025-07-30T10:01:58.56Z" },
     { url = "https://files.pythonhosted.org/packages/42/b9/f8d6fa329ab25128b7e98fd83a3cb34d9db5b059a9847eddb840a0af45dd/argon2_cffi_bindings-25.1.0-cp39-abi3-win_arm64.whl", hash = "sha256:b0fdbcf513833809c882823f98dc2f931cf659d9a1429616ac3adebb49f5db94", size = 27149, upload-time = "2025-07-30T10:01:59.329Z" },
-]
-
-[[package]]
-name = "backend"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "alembic" },
-    { name = "fastapi", extra = ["standard"] },
-    { name = "psycopg2-binary" },
-    { name = "pwdlib", extra = ["argon2"] },
-    { name = "pydantic-settings" },
-    { name = "pyjwt" },
-    { name = "python-dotenv" },
-    { name = "sqlalchemy" },
-    { name = "websockets" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "alembic", specifier = ">=1.18.5" },
-    { name = "fastapi", extras = ["standard"], specifier = ">=0.139.2" },
-    { name = "psycopg2-binary", specifier = ">=2.9.12" },
-    { name = "pwdlib", extras = ["argon2"], specifier = ">=0.3.0" },
-    { name = "pydantic-settings", specifier = ">=2.14.2" },
-    { name = "pyjwt", specifier = ">=2.13.0" },
-    { name = "python-dotenv", specifier = ">=1.2.2" },
-    { name = "sqlalchemy", specifier = ">=2.0.51" },
-    { name = "websockets", specifier = ">=16.1.1" },
 ]
 
 [[package]]

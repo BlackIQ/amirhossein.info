@@ -15,7 +15,7 @@ from routes import (
 # FastAPI app
 app = FastAPI(
     title="Amirhossein Mohammadi Resume API",
-    version="1.0.0",
+    version="2.0.0",
     summary="FastAPI backend for the personal portfolio site",
     description="Using FastAPI, Pydantic, Pydantic Settings, SQLAlchemy, SQLAlchemy ORM, Alembic and PostgreSQL",
     contact={

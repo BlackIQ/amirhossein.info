@@ -4,9 +4,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Settings
 class Settings(BaseSettings):
-    # Application
-    APP_MODE: str = ""  # development | production
-
     # Security
     API_KEY: str = ""
 

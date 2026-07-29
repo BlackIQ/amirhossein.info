@@ -1,7 +1,11 @@
-# FastAPI, SQLAlchemy ORM
+# FastAPI
 from fastapi import FastAPI
 
-# Routes
+# Sentry
+import sentry_sdk
+
+# Application
+from core.settings import settings  # Settings
 from routes import (
     experience,
     skill,
@@ -10,6 +14,11 @@ from routes import (
     resume,
     social,
     comment,
+)  # Routers
+
+sentry_sdk.init(
+    dsn=settings.SENTRY_DSN,
+    send_default_pii=True,
 )
 
 # FastAPI app

@@ -7,8 +7,11 @@ class Settings(BaseSettings):
     # Security
     API_KEY: str = ""
 
-    # Production PostgreSQL
+    # PostgreSQL
     POSTGRES_URL: str = ""
+
+    # Sentry
+    SENTRY_DSN: str = ""
 
     model_config = SettingsConfigDict(env_file=".env")
 

@@ -3,7 +3,6 @@
 import "@/styles/globals.css";
 
 import { ThemeProvider as MUIThemeProvider, CssBaseline } from "@mui/material";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { getTheme } from "@/theme";
 import { ThemeProvider } from "@/context/theme.context";
@@ -40,7 +39,6 @@ export default function RootLayout({
             </LanguageProvider>
           </ThemeProvider>
         </div>
-        <SpeedInsights />
       </body>
     </html>
   );

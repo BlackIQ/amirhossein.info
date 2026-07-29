@@ -32,6 +32,7 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "pyjwt" },
     { name = "python-dotenv" },
+    { name = "sentry-sdk" },
     { name = "sqlalchemy" },
     { name = "websockets" },
 ]
@@ -45,6 +46,7 @@ requires-dist = [
     { name = "pydantic-settings", specifier = ">=2.14.2" },
     { name = "pyjwt", specifier = ">=2.13.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "sentry-sdk", specifier = ">=2.66.1" },
     { name = "sqlalchemy", specifier = ">=2.0.51" },
     { name = "websockets", specifier = ">=16.1.1" },
 ]

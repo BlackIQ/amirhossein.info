@@ -12,6 +12,7 @@ dependencies = [
     "pydantic-settings>=2.14.2",
     "pyjwt>=2.13.0",
     "python-dotenv>=1.2.2",
+    "sentry-sdk>=2.66.1",
     "sqlalchemy>=2.0.51",
     "websockets>=16.1.1",
 ]

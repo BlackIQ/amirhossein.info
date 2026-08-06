@@ -1,4 +1,5 @@
 # SQLAlchemy
+from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 # Application
@@ -27,7 +28,17 @@ class Note(BaseModel):
         nullable=False,
     )
 
+    # Foreign Keys
+    user_id: Mapped[int] = mapped_column(
+        ForeignKey("users.id"),
+        nullable=False,
+    )
+
     # Relations
+    user = relationship(
+        "User",
+        back_populates="notes",
+    )
     comments = relationship(
         "Comment",
         back_populates="note",

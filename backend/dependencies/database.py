@@ -1,5 +1,5 @@
 # Loading Session
-from core.database import SessionLocal
+from database.database import SessionLocal
 
 
 # Get DB Dependency

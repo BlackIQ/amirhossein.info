@@ -5,9 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Note  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.note import NoteCreate, NoteUpdate, NoteRead, NoteReadDetail  # Schemas
+from models import Note  # Models
 
 # Router
 router = APIRouter(
@@ -34,7 +35,7 @@ async def all_notes(
 @router.post("", response_model=NoteRead, status_code=status.HTTP_201_CREATED)
 async def create_note(
     note_data: NoteCreate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_note = Note(**note_data.model_dump())
@@ -66,7 +67,7 @@ async def get_note(
 async def update_note(
     note_id: int,
     note_data: NoteUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_note = db.get(Note, note_id)
@@ -89,7 +90,7 @@ async def update_note(
 @router.delete("/{note_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_note(
     note_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_note = db.get(Note, note_id)

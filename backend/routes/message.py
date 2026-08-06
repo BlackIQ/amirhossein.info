@@ -5,9 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Message  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.message import MessageCreate, MessageUpdate, MessageRead  # Schemas
+from models import Message  # Models
 
 # Router
 router = APIRouter(
@@ -18,7 +19,7 @@ router = APIRouter(
 
 @router.get("", response_model=list[MessageRead])
 async def all_messages(
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_messages = (
@@ -49,7 +50,7 @@ async def create_message(
 @router.get("/{message_id}", response_model=MessageRead)
 async def get_message(
     message_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_message = db.get(Message, message_id)
@@ -67,7 +68,7 @@ async def get_message(
 async def update_message(
     message_id: int,
     message_data: MessageUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_message = db.get(Message, message_id)
@@ -90,7 +91,7 @@ async def update_message(
 @router.delete("/{message_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_message(
     message_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_message = db.get(Message, message_id)

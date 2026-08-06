@@ -5,9 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Skill  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.skill import SkillCreate, SkillUpdate, SkillRead  # Schemas
+from models import Skill  # Models
 
 # Router
 router = APIRouter(
@@ -35,7 +36,7 @@ async def all_skills(
 @router.post("", response_model=SkillRead, status_code=status.HTTP_201_CREATED)
 async def create_skill(
     skill_data: SkillCreate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_skill = Skill(**skill_data.model_dump())
@@ -67,7 +68,7 @@ async def get_skill(
 async def update_skill(
     skill_id: int,
     skill_data: SkillUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_skill = db.get(Skill, skill_id)
@@ -90,7 +91,7 @@ async def update_skill(
 @router.delete("/{skill_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_skill(
     skill_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_skill = db.get(Skill, skill_id)

@@ -5,9 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Social  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.social import SocialCreate, SocialUpdate, SocialRead  # Schemas
+from models import Social  # Models
 
 # Router
 router = APIRouter(
@@ -35,7 +36,7 @@ async def all_socials(
 @router.post("", response_model=SocialRead, status_code=status.HTTP_201_CREATED)
 async def create_social(
     social_data: SocialCreate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_social = Social(**social_data.model_dump())
@@ -67,7 +68,7 @@ async def get_social(
 async def update_social(
     social_id: int,
     social_data: SocialUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_social = db.get(Social, social_id)
@@ -90,7 +91,7 @@ async def update_social(
 @router.delete("/{social_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_social(
     social_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_social = db.get(Social, social_id)

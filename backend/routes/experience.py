@@ -5,13 +5,14 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Experience  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.experience import (
     ExperienceRead,
     ExperienceUpdate,
     ExperienceCreate,
 )  # Schemas
+from models import Experience  # Models
 
 # Router
 router = APIRouter(
@@ -39,7 +40,7 @@ async def all_experiences(
 @router.post("", response_model=ExperienceRead, status_code=status.HTTP_201_CREATED)
 async def create_experience(
     experience_data: ExperienceCreate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_item = Experience(**experience_data.model_dump())
@@ -54,6 +55,7 @@ async def create_experience(
 @router.get("/{experience_id}", response_model=ExperienceRead)
 async def get_experience(
     experience_id: int,
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_experience = db.get(Experience, experience_id)
@@ -71,7 +73,7 @@ async def get_experience(
 async def update_experience(
     experience_id: int,
     experience_data: ExperienceUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_experience = db.get(Experience, experience_id)
@@ -94,7 +96,7 @@ async def update_experience(
 @router.delete("/{experience_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_experience(
     experience_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_experience = db.get(Experience, experience_id)

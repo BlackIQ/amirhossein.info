@@ -5,9 +5,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Application
-from dependencies import apikey, get_db  # Dependencies
-from models import Comment  # Models
+from dependencies.token import get_current_user  # JWT Dependency
+from dependencies.database import get_db  # Database Dependency
 from schemas.comment import CommentCreate, CommentUpdate, CommentRead  # Schemas
+from models import Comment  # Models
 
 # Router
 router = APIRouter(
@@ -65,7 +66,7 @@ async def get_comment(
 async def update_comment(
     comment_id: int,
     comment_data: CommentUpdate,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_comment = db.get(Comment, comment_id)
@@ -88,7 +89,7 @@ async def update_comment(
 @router.delete("/{comment_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_comment(
     comment_id: int,
-    apikey: str = Depends(apikey),
+    current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     db_comment = db.get(Comment, comment_id)

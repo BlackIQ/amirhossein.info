@@ -6,6 +6,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     # Security
     API_KEY: str = ""
+    SECRET: str = ""
+    ALGORITHM: str = ""
 
     # PostgreSQL
     POSTGRES_URL: str = ""

@@ -1,5 +1,9 @@
 # SQLAlchemy
+from sqlalchemy import Uuid
 from sqlalchemy.orm import Mapped, mapped_column
+
+# UUID
+from uuid import UUID
 
 # Application
 from base import BaseModel  # Base Model
@@ -10,7 +14,8 @@ class Social(BaseModel):
     __tablename__ = "socials"
 
     # Columns
-    id: Mapped[int] = mapped_column(
+    id: Mapped[UUID] = mapped_column(
+        Uuid,
         primary_key=True,
         index=True,
     )

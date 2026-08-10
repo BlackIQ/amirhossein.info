@@ -3,7 +3,7 @@ from sqlalchemy import Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 # UUID
-from uuid import UUID
+import uuid
 
 # Application
 from base import BaseModel  # Base Model
@@ -14,10 +14,11 @@ class Experience(BaseModel):
     __tablename__ = "experiences"
 
     # Columns
-    id: Mapped[UUID] = mapped_column(
+    id: Mapped[uuid.UUID] = mapped_column(
         Uuid,
         primary_key=True,
         index=True,
+        default=uuid.uuid4,
     )
     priority: Mapped[int] = mapped_column(
         nullable=False,

@@ -1,3 +1,6 @@
+# UUID
+from uuid import UUID
+
 # Application
 from base import BaseSchema
 
@@ -22,4 +25,4 @@ class ResumeUpdate(BaseSchema):
 
 # Read Resume
 class ResumeRead(ResumeCreate):
-    id: int
+    id: UUID

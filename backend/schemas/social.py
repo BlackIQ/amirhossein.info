@@ -1,3 +1,6 @@
+# UUID
+from uuid import UUID
+
 # Application
 from base import BaseSchema
 
@@ -22,4 +25,4 @@ class SocialUpdate(BaseSchema):
 
 # Read Social
 class SocialRead(SocialCreate):
-    id: int
+    id: UUID

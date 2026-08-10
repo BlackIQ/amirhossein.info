@@ -1,3 +1,6 @@
+# UUID
+from uuid import UUID
+
 # Application
 from base import BaseSchema
 
@@ -18,4 +21,4 @@ class MessageUpdate(BaseSchema):
 
 # Read Message
 class MessageRead(MessageCreate):
-    id: int
+    id: UUID

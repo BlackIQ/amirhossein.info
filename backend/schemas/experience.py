@@ -1,3 +1,6 @@
+# UUID
+from uuid import UUID
+
 # Application
 from base import BaseSchema
 
@@ -32,4 +35,4 @@ class ExperienceUpdate(BaseSchema):
 
 # Read Experience
 class ExperienceRead(ExperienceCreate):
-    id: int
+    id: UUID

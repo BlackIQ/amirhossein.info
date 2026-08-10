@@ -9,11 +9,9 @@ from core.settings import settings  # Settings
 from routes import (
     experience,
     skill,
-    note,
     message,
     resume,
     social,
-    comment,
 )  # Routers
 
 sentry_sdk.init(
@@ -39,8 +37,6 @@ app = FastAPI(
         {"name": "Socials", "description": "Manage social links"},
         {"name": "Resumes", "description": "Manage downloadable resumes"},
         {"name": "Message", "description": "Handle contact messages"},
-        {"name": "Note", "description": "Manage notes"},
-        {"name": "Comment", "description": "Manage comments"},
     ],
 )
 
@@ -57,7 +53,5 @@ async def ping():
 app.include_router(experience.router, prefix="/api")
 app.include_router(skill.router, prefix="/api")
 app.include_router(message.router, prefix="/api")
-app.include_router(note.router, prefix="/api")
 app.include_router(resume.router, prefix="/api")
 app.include_router(social.router, prefix="/api")
-app.include_router(comment.router, prefix="/api")

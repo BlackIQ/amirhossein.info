@@ -4,6 +4,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 # SQLAlchemy
 from sqlalchemy.orm import Session
 
+# UUID
+from uuid import UUID
+
 # Application
 from dependencies.token import get_current_user  # JWT Dependency
 from dependencies.database import get_db  # Database Dependency
@@ -50,7 +53,7 @@ async def create_social(
 
 @router.get("/{social_id}", response_model=SocialRead)
 async def get_social(
-    social_id: int,
+    social_id: UUID,
     db: Session = Depends(get_db),
 ):
     db_social = db.get(Social, social_id)
@@ -66,7 +69,7 @@ async def get_social(
 
 @router.put("/{social_id}", response_model=SocialRead)
 async def update_social(
-    social_id: int,
+    social_id: UUID,
     social_data: SocialUpdate,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
@@ -90,7 +93,7 @@ async def update_social(
 
 @router.delete("/{social_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_social(
-    social_id: int,
+    social_id: UUID,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):

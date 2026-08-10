@@ -4,6 +4,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 # SQLAlchemy
 from sqlalchemy.orm import Session
 
+# UUID
+from uuid import UUID
+
 # Application
 from dependencies.token import get_current_user  # JWT Dependency
 from dependencies.database import get_db  # Database Dependency
@@ -50,7 +53,7 @@ async def create_skill(
 
 @router.get("/{skill_id}", response_model=SkillRead)
 async def get_skill(
-    skill_id: int,
+    skill_id: UUID,
     db: Session = Depends(get_db),
 ):
     db_skill = db.get(Skill, skill_id)
@@ -66,7 +69,7 @@ async def get_skill(
 
 @router.put("/{skill_id}", response_model=SkillRead)
 async def update_skill(
-    skill_id: int,
+    skill_id: UUID,
     skill_data: SkillUpdate,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
@@ -90,7 +93,7 @@ async def update_skill(
 
 @router.delete("/{skill_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_skill(
-    skill_id: int,
+    skill_id: UUID,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):

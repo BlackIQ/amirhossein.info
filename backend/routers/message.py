@@ -4,6 +4,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 # SQLAlchemy
 from sqlalchemy.orm import Session
 
+# UUID
+from uuid import UUID
+
 # Application
 from dependencies.token import get_current_user  # JWT Dependency
 from dependencies.database import get_db  # Database Dependency
@@ -49,7 +52,7 @@ async def create_message(
 
 @router.get("/{message_id}", response_model=MessageRead)
 async def get_message(
-    message_id: int,
+    message_id: UUID,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
@@ -66,7 +69,7 @@ async def get_message(
 
 @router.put("/{message_id}", response_model=MessageRead)
 async def update_message(
-    message_id: int,
+    message_id: UUID,
     message_data: MessageUpdate,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
@@ -90,7 +93,7 @@ async def update_message(
 
 @router.delete("/{message_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_message(
-    message_id: int,
+    message_id: UUID,
     current_user: str = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):

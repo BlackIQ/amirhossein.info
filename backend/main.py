@@ -6,7 +6,7 @@ import sentry_sdk
 
 # Application
 from core.settings import settings  # Settings
-from routes import (
+from routers import (
     experience,
     skill,
     message,

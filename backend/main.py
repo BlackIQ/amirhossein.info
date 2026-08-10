@@ -7,6 +7,7 @@ import sentry_sdk
 # Application
 from core.settings import settings  # Settings
 from routers import (
+    authentication,
     experience,
     skill,
     message,
@@ -32,6 +33,7 @@ app = FastAPI(
     },
     openapi_tags=[
         {"name": "Application", "description": "Application thingss"},
+        {"name": "Authentication", "description": "Authentication"},
         {"name": "Experiences", "description": "Manage portfolio experiences"},
         {"name": "Skills", "description": "Manage displayed skills"},
         {"name": "Socials", "description": "Manage social links"},
@@ -50,6 +52,7 @@ async def ping():
 
 
 # Routes
+app.include_router(authentication.router, prefix="/api")
 app.include_router(experience.router, prefix="/api")
 app.include_router(skill.router, prefix="/api")
 app.include_router(message.router, prefix="/api")

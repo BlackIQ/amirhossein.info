@@ -10,7 +10,7 @@ import jwt
 from jwt.exceptions import PyJWTError
 
 # UUID
-from uuid import UUID
+import uuid
 
 # Application
 from core.settings import settings  # Settings
@@ -51,7 +51,7 @@ def get_current_user(
         raise credentials_exception
 
     try:
-        parsed_user_id = UUID(str(user_id))
+        parsed_user_id = uuid.UUID(str(user_id))
     except ValueError:
         raise credentials_exception
 

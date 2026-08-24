@@ -1,118 +1,76 @@
 "use client";
 
-// React Hooks
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-// MUI Components
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Skeleton,
-  Typography,
-} from "@mui/material";
-
-// Flags
-import Flags from "react-world-flags";
-
-// NextAPI (The API inside NextJs)
-import { NextAPI } from "@/api";
-
-// Type
+import { API } from "@/api";
 import { Resume } from "@/types/resume.type";
 
-// Card for Resume
 const ResumeCard = () => {
-  // Define variables
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Get data function
-  const getResumes = async () => {
-    try {
-      const {
-        data: { resumes },
-      } = await NextAPI.get("resume");
-
-      setResumes(resumes);
-      setError(false);
-    } catch (error) {
-      console.error("Error fetching resumes:", error);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Where we call get data function
   useEffect(() => {
+    const getResumes = async () => {
+      try {
+        const { data: resumes } = await API.get("resumes");
+
+        setResumes(resumes);
+        setError(false);
+      } catch (error) {
+        console.error("Error fetching resumes:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getResumes();
   }, []);
 
-  // Having error
-  if (!loading && error) {
-    return (
-      <Box>
-        <Typography color="error">Error fetching resumes</Typography>
-      </Box>
-    );
-  }
-
-  // If loading data
   if (loading) {
     return (
-      <List>
-        {[...Array(2)].map((_, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton sx={{ borderRadius: 3, py: 1 }}>
-              <ListItemIcon>
-                <Skeleton variant="rectangular" width={24} height={16} />
-              </ListItemIcon>
-              <Skeleton variant="text" width="60%" />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <section id="resume" className="site-section">
+        <h2 className="section-heading">Resume</h2>
+        <p>Loading resumes...</p>
+      </section>
     );
   }
 
-  // If no data
-  if (resumes.length === 0) {
-    return <Typography>No resumes found</Typography>;
+  if (error) {
+    return (
+      <section id="resume" className="site-section">
+        <h2 className="section-heading">Resume</h2>
+        <p>
+          <strong>Error:</strong> Unable to load resumes.
+        </p>
+      </section>
+    );
   }
 
-  // No loading, no errors, having data
+  if (resumes.length === 0) {
+    return (
+      <section id="resume" className="site-section">
+        <h2 className="section-heading">Resume</h2>
+        <p>No resumes found.</p>
+      </section>
+    );
+  }
+
   return (
-    <Box>
-      <List>
+    <section id="resume" className="site-section">
+      <h2 className="section-heading">Resume</h2>
+
+      <ul className="plain-list">
         {resumes.map((resume) => (
-          <ListItem key={resume.id} disablePadding>
-            <ListItemButton
-              sx={{
-                borderRadius: 3,
-                py: 1,
-              }}
-              onClick={() => window.open(resume.url, "_blank")}
-            >
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                <Flags code={resume.value} style={{ width: 24, height: 16 }} />
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body2" color="text.primary">
-                    {resume.label}
-                  </Typography>
-                }
-              />
-            </ListItemButton>
-          </ListItem>
+          <li key={resume.id}>
+            <a href={resume.url} target="_blank" rel="noreferrer">
+              {resume.label}
+            </a>
+          </li>
         ))}
-      </List>
-    </Box>
+      </ul>
+    </section>
   );
 };
 

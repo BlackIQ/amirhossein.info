@@ -90,13 +90,13 @@ const ExperiencesCard = () => {
             </p>
           )}
 
-          {experience.url && (
+          {/* {experience.url && (
             <p>
               <a href={experience.url} target="_blank" rel="noreferrer">
                 Visit company website
               </a>
             </p>
-          )}
+          )} */}
 
           {index < experiences.length - 1 && <hr />}
         </article>

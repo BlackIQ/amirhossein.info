@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { useLanguage } from "@/context/language.context";
+
 import { API } from "@/api";
 import { Resume } from "@/types/resume.type";
 
 const ResumeCard = () => {
+  const { t } = useLanguage();
+
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -31,8 +35,9 @@ const ResumeCard = () => {
   if (loading) {
     return (
       <section id="resume" className="site-section">
-        <h2 className="section-heading">Resume</h2>
+        <h2 className="section-heading">{t("resume.title")}</h2>
         <p>Loading resumes...</p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -40,10 +45,11 @@ const ResumeCard = () => {
   if (error) {
     return (
       <section id="resume" className="site-section">
-        <h2 className="section-heading">Resume</h2>
+        <h2 className="section-heading">{t("resume.title")}</h2>
         <p>
           <strong>Error:</strong> Unable to load resumes.
         </p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -51,15 +57,16 @@ const ResumeCard = () => {
   if (resumes.length === 0) {
     return (
       <section id="resume" className="site-section">
-        <h2 className="section-heading">Resume</h2>
+        <h2 className="section-heading">{t("resume.title")}</h2>
         <p>No resumes found.</p>
+        {/* TODO: Language */}
       </section>
     );
   }
 
   return (
     <section id="resume" className="site-section">
-      <h2 className="section-heading">Resume</h2>
+      <h2 className="section-heading">{t("resume.title")}</h2>
 
       <ul className="plain-list">
         {resumes.map((resume) => (

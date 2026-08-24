@@ -1,44 +1,24 @@
-"use client";
+import type { Metadata } from "next";
 
 import "@/styles/globals.css";
 
-import { ThemeProvider as MUIThemeProvider, CssBaseline } from "@mui/material";
-
-import { getTheme } from "@/theme";
-import { ThemeProvider } from "@/context/theme.context";
-import { useTheme } from "@/context/theme.context";
 import { LanguageProvider } from "@/context/language.context";
 
-function LayoutContent({ children }: { children: React.ReactNode }) {
-  const { mode } = useTheme();
-  const theme = getTheme(mode);
-
-  return (
-    <MUIThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </MUIThemeProvider>
-  );
-}
+export const metadata: Metadata = {
+  title: "Amirhossein Mohammadi",
+  description:
+    "Personal homepage of Amirhossein Mohammadi, Platform & Infrastructure Engineer.",
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <head>
-        <title>Amirhossein Mohammadi</title>
-      </head>
       <body>
-        <div>
-          <ThemeProvider>
-            <LanguageProvider>
-              <LayoutContent>{children}</LayoutContent>
-            </LanguageProvider>
-          </ThemeProvider>
-        </div>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

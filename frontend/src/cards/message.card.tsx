@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import { useLanguage } from "@/context/language.context";
+
 import { API } from "@/api";
 import { Message } from "@/types/message.type";
 
@@ -98,7 +99,7 @@ const MessageCard = () => {
 
   return (
     <section id="contact" className="site-section">
-      <h2 className="section-heading">Contact</h2>
+      <h2 className="section-heading">{t("message.title")}</h2>
 
       <p>{t("message.description")}</p>
 

@@ -1,17 +1,9 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  Snackbar,
-  Alert,
-} from "@mui/material";
-import { useLanguage } from "@/context/language.context";
-import { NextAPI } from "@/api";
+import { ChangeEvent, FormEvent, useState } from "react";
 
+import { useLanguage } from "@/context/language.context";
+import { API } from "@/api";
 import { Message } from "@/types/message.type";
 
 interface Errors {
@@ -20,166 +12,155 @@ interface Errors {
   message?: string;
 }
 
-interface SnackbarState {
-  open: boolean;
-  message: string;
-  severity: "success" | "error";
-}
-
 const MessageCard = () => {
   const { t } = useLanguage();
+
   const [loading, setLoading] = useState(false);
-  const [snackbar, setSnackbar] = useState<SnackbarState>({
-    open: false,
-    message: "",
-    severity: "success",
-  });
 
   const [formData, setFormData] = useState<Message>({
     name: "",
     email: "",
     message: "",
   });
+
   const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const validateForm = () => {
     const newErrors: Errors = {};
-    if (!formData.name.trim())
+
+    if (!formData.name.trim()) {
       newErrors.name = t("message.validation.nameRequired");
-    if (!formData.email.trim())
+    }
+
+    if (!formData.email.trim()) {
       newErrors.email = t("message.validation.emailRequired");
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = t("message.validation.emailInvalid");
-    if (!formData.message.trim())
+    }
+
+    if (!formData.message.trim()) {
       newErrors.message = t("message.validation.messageRequired");
+    }
+
     return newErrors;
   };
 
-  const showSnackbar = (message: string, severity: "success" | "error") => {
-    setSnackbar({
-      open: true,
-      message,
-      severity,
-    });
+  const handleInputChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+
+    setErrors((previous) => ({
+      ...previous,
+      [name]: undefined,
+    }));
+
+    setStatus("idle");
   };
 
-  const handleSnackbarClose = () => {
-    setSnackbar((prev) => ({ ...prev, open: false }));
-  };
+  const sendMessage = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-  const sendMessage = async () => {
     const formErrors = validateForm();
+
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
+
     setLoading(true);
+    setStatus("idle");
+
     try {
-      await NextAPI.post("message", formData);
+      await API.post("messages", formData);
 
-      showSnackbar(t("message.success"), "success");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
 
-      setFormData({ name: "", email: "", message: "" });
       setErrors({});
+      setStatus("success");
     } catch (error) {
       console.error("Error sending message:", error);
-      showSnackbar(
-        error instanceof Error ? error.message : t("message.error"),
-        "error",
-      );
+      setStatus("error");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
-  };
-
   return (
-    <Box>
-      <Typography variant="body1" color="text.primary" gutterBottom>
-        {t("message.description")}
-      </Typography>
-      <Box component="form" noValidate>
-        <TextField
-          fullWidth
-          label={t("message.form.name")}
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          error={!!errors.name}
-          helperText={errors.name}
-          margin="normal"
-          size="small"
-          disabled={loading}
-        />
-        <TextField
-          fullWidth
-          label={t("message.form.email")}
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          error={!!errors.email}
-          helperText={errors.email}
-          margin="normal"
-          size="small"
-          disabled={loading}
-        />
-        <TextField
-          fullWidth
-          label={t("message.form.message")}
-          name="message"
-          value={formData.message}
-          onChange={handleInputChange}
-          error={!!errors.message}
-          helperText={errors.message}
-          margin="normal"
-          multiline
-          rows={4}
-          size="small"
-          disabled={loading}
-        />
+    <section id="contact" className="site-section">
+      <h2 className="section-heading">Contact</h2>
 
-        <Button
-          fullWidth
-          variant="contained"
-          onClick={sendMessage}
-          disabled={loading}
-          sx={{ mt: 2 }}
-          disableElevation
-        >
+      <p>{t("message.description")}</p>
+
+      <form className="contact-form" onSubmit={sendMessage}>
+        <div className="form-field">
+          <label htmlFor="name">{t("message.form.name")}</label>
+
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleInputChange}
+            disabled={loading}
+          />
+
+          {errors.name && <p className="form-error">{errors.name}</p>}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="email">{t("message.form.email")}</label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            disabled={loading}
+          />
+
+          {errors.email && <p className="form-error">{errors.email}</p>}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="message">{t("message.form.message")}</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows={6}
+            value={formData.message}
+            onChange={handleInputChange}
+            disabled={loading}
+          />
+
+          {errors.message && <p className="form-error">{errors.message}</p>}
+        </div>
+
+        <button className="form-submit" type="submit" disabled={loading}>
           {loading ? t("message.form.sending") : t("message.form.send")}
-        </Button>
-      </Box>
+        </button>
 
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={6000}
-        onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-      >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity={snackbar.severity}
-          sx={{ width: "100%" }}
-        >
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
-    </Box>
+        {status === "success" && (
+          <p className="form-success">{t("message.success")}</p>
+        )}
+
+        {status === "error" && (
+          <p className="form-error">{t("message.error")}</p>
+        )}
+      </form>
+    </section>
   );
 };
 

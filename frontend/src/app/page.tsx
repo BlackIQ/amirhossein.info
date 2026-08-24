@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar.component";
+import Footer from "@/components/footer.component";
 
 import AboutMeCard from "@/cards/about.card";
 import ExperiencesCard from "@/cards/experiences.card";
@@ -28,20 +29,7 @@ export default function Home() {
         </aside>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-links">
-          <a href="/">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
-        </div>
-
-        <div>Last updated: August 24, 2026</div>
-
-        <div>© 2026 Amirhossein Mohammadi</div>
-      </footer>
+      <Footer />
     </div>
   );
 }

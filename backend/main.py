@@ -1,5 +1,6 @@
 # FastAPI
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # Sentry
 import sentry_sdk
@@ -42,7 +43,17 @@ app = FastAPI(
     ],
 )
 
-# ---------- Routes ---------- #
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=[
+        "https://amirhossein.info",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-API-KEY"],
+)
 
 
 # Health check route

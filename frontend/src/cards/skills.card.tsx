@@ -36,8 +36,7 @@ const SkillsCard = () => {
     return (
       <section id="skills" className="site-section">
         <h2 className="section-heading">{t("skills.title")}</h2>
-        <p>Loading skills...</p>
-        {/* TODO: Language */}
+        <p>{t("skills.loading")}</p>
       </section>
     );
   }
@@ -47,8 +46,7 @@ const SkillsCard = () => {
       <section id="skills" className="site-section">
         <h2 className="section-heading">{t("skills.title")}</h2>
         <p>
-          <strong>Error:</strong> Unable to load skills.
-          {/* TODO: Language */}
+          <strong>{t("common.error")}:</strong> {t("skills.error")}
         </p>
       </section>
     );
@@ -58,8 +56,7 @@ const SkillsCard = () => {
     return (
       <section id="skills" className="site-section">
         <h2 className="section-heading">{t("skills.title")}</h2>
-        <p>No skills found.</p>
-        {/* TODO: Language */}
+        <p>{t("skills.empty")}</p>
       </section>
     );
   }

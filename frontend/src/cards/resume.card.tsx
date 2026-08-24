@@ -36,8 +36,7 @@ const ResumeCard = () => {
     return (
       <section id="resume" className="site-section">
         <h2 className="section-heading">{t("resume.title")}</h2>
-        <p>Loading resumes...</p>
-        {/* TODO: Language */}
+        <p>{t("resume.loading")}</p>
       </section>
     );
   }
@@ -47,9 +46,8 @@ const ResumeCard = () => {
       <section id="resume" className="site-section">
         <h2 className="section-heading">{t("resume.title")}</h2>
         <p>
-          <strong>Error:</strong> Unable to load resumes.
+          <strong>{t("common.error")}:</strong> {t("resume.error")}
         </p>
-        {/* TODO: Language */}
       </section>
     );
   }
@@ -58,8 +56,7 @@ const ResumeCard = () => {
     return (
       <section id="resume" className="site-section">
         <h2 className="section-heading">{t("resume.title")}</h2>
-        <p>No resumes found.</p>
-        {/* TODO: Language */}
+        <p>{t("resume.empty")}</p>
       </section>
     );
   }

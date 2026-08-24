@@ -1,12 +1,18 @@
-const aboutItems = [
-  { text: "NarenjCloud", title: "Company" },
-  { text: "Tehran, Iran", title: "Location" },
-  { text: "Nov 20, 2003", title: "Birthdate" },
-  { text: "+98 919 268 0633", title: "Number" },
-  { text: "hi@amirhossein.info", title: "Email" },
-];
+"use client";
+
+import { useLanguage } from "@/context/language.context";
 
 const MainCard = () => {
+  const { t } = useLanguage();
+
+  const aboutItems = [
+    { text: "NarenjCloud", title: t("profile.company") },
+    { text: "Tehran, Iran", title: t("profile.location") },
+    { text: "Nov 20, 2003", title: t("profile.birthdate") },
+    { text: "+98 919 268 0633", title: t("profile.phone") },
+    { text: "hi@amirhossein.info", title: t("profile.email") },
+  ];
+
   return (
     <section className="site-section">
       <div className="profile">

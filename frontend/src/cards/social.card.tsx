@@ -36,8 +36,7 @@ const SocialCard = () => {
     return (
       <section id="social" className="site-section">
         <h2 className="section-heading">{t("social.title")}</h2>
-        <p>Loading links...</p>
-        {/* TODO: Language */}
+        <p>{t("social.loading")}</p>
       </section>
     );
   }
@@ -47,9 +46,8 @@ const SocialCard = () => {
       <section id="social" className="site-section">
         <h2 className="section-heading">{t("social.title")}</h2>
         <p>
-          <strong>Error:</strong> Unable to load social links.
+          <strong>{t("common.error")}:</strong> {t("social.error")}
         </p>
-        {/* TODO: Language */}
       </section>
     );
   }
@@ -59,7 +57,7 @@ const SocialCard = () => {
       <section id="social" className="site-section">
         <h2 className="section-heading">{t("social.title")}</h2>
         <p>No social links found.</p>
-        {/* TODO: Language */}
+        <p>{t("social.empty")}</p>
       </section>
     );
   }

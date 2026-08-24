@@ -36,8 +36,7 @@ const ExperiencesCard = () => {
     return (
       <section id="experience" className="site-section">
         <h2 className="section-heading">{t("experiences.title")}</h2>
-        <p>Loading experiences...</p>
-        {/* TODO: Language */}
+        <p>{t("experiences.loading")}</p>
       </section>
     );
   }
@@ -47,9 +46,8 @@ const ExperiencesCard = () => {
       <section id="experience" className="site-section">
         <h2 className="section-heading">{t("experiences.title")}</h2>
         <p>
-          <strong>Error:</strong> Unable to load experiences.{" "}
+          <strong>{t("common.error")}:</strong> {t("experiences.error")}
         </p>
-        {/* TODO: Language */}
       </section>
     );
   }
@@ -58,8 +56,7 @@ const ExperiencesCard = () => {
     return (
       <section id="experience" className="site-section">
         <h2 className="section-heading">{t("experiences.title")}</h2>
-        <p>No experiences found.</p>
-        {/* TODO: Language */}
+        <p>{t("experiences.empty")}</p>
       </section>
     );
   }
@@ -88,7 +85,7 @@ const ExperiencesCard = () => {
 
           {experience.skills && (
             <p className="experience-skills">
-              <strong>Technologies:</strong>{" "}
+              <strong>{t("common.technologies")}:</strong>{" "}
               {experience.skills
                 .split(",")
                 .map((skill) => skill.trim())
@@ -100,7 +97,7 @@ const ExperiencesCard = () => {
           {/* {experience.url && (
             <p>
               <a href={experience.url} target="_blank" rel="noreferrer">
-                Visit company website
+                {t("common.visitWebsite")}
               </a>
             </p>
           )} */}

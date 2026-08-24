@@ -2,14 +2,12 @@
   "navbar.tagline": "做最好的自己",
   "navbar.hire": "聘请我",
   "about.title": "关于我",
-  "about.subtitle": "一点关于我是谁",
   "about.bio": "我是一名多学科的软件工程师和DevOps专家，在从零开始构建强大系统方面有着卓越的记录。在过去的几年里，我从事从后端开发人员到技术经理、联合创始人和首席技术官的各种角色，领导初创公司和大型组织的产品开发和基础设施设计。作为OpenHubble的创始人兼首席执行官，我监督从代码到云的一切——结合全栈工程、DevOps、安全和团队领导。我带来了以产品为驱动的心态、深厚的技术工具包以及指导工程团队实现可扩展、安全和可维护解决方案的能力。",
   "experiences.title": "经验",
-  "experiences.subtitle": "我的职业历程",
   "skills.title": "技能",
-  "skills.subtitle": "我使用的技术",
+  "social.title": "社交媒体",
+  "resume.title": "下载简历",
   "message.title": "发送消息",
-  "message.subtitle": "联系我！",
   "message.description": "请在下方发送消息直接与我联系。",
   "message.form.name": "姓名",
   "message.form.email": "电子邮件",
@@ -21,9 +19,5 @@
   "message.validation.emailInvalid": "电子邮件无效",
   "message.validation.messageRequired": "需要消息",
   "message.success": "消息发送成功！",
-  "message.error": "发送消息失败",
-  "social.title": "社交媒体",
-  "social.subtitle": "在线与我联系",
-  "resume.title": "下载简历",
-  "resume.subtitle": "获取我的 PDF 简历"
+  "message.error": "发送消息失败"
 }

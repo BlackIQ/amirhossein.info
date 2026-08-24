@@ -1,17 +1,16 @@
 "use client";
 
-// MUI Components
-import { Typography } from "@mui/material";
 import { useLanguage } from "@/context/language.context";
 
-// About Card
 const AboutMeCard = () => {
   const { t } = useLanguage();
 
   return (
-    <Typography variant="body1" color="text.primary">
-      {t("about.bio")}
-    </Typography>
+    <section id="about" className="site-section">
+      <h2 className="section-heading">About Me</h2>
+
+      <p>{t("about.bio")}</p>
+    </section>
   );
 };
 

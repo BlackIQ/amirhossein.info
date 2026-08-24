@@ -7,7 +7,7 @@ const AboutMeCard = () => {
 
   return (
     <section id="about" className="site-section">
-      <h2 className="section-heading">About Me</h2>
+      <h2 className="section-heading">{t("about.title")}</h2>
 
       <p>{t("about.bio")}</p>
     </section>

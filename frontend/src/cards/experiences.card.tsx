@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { useLanguage } from "@/context/language.context";
+
 import { API } from "@/api";
 import { Experience } from "@/types/experience.type";
 
 const ExperiencesCard = () => {
+  const { t } = useLanguage();
+
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -31,8 +35,9 @@ const ExperiencesCard = () => {
   if (loading) {
     return (
       <section id="experience" className="site-section">
-        <h2 className="section-heading">Experience</h2>
+        <h2 className="section-heading">{t("experiences.title")}</h2>
         <p>Loading experiences...</p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -40,10 +45,11 @@ const ExperiencesCard = () => {
   if (error) {
     return (
       <section id="experience" className="site-section">
-        <h2 className="section-heading">Experience</h2>
+        <h2 className="section-heading">{t("experiences.title")}</h2>
         <p>
-          <strong>Error:</strong> Unable to load experiences.
+          <strong>Error:</strong> Unable to load experiences.{" "}
         </p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -51,15 +57,16 @@ const ExperiencesCard = () => {
   if (experiences.length === 0) {
     return (
       <section id="experience" className="site-section">
-        <h2 className="section-heading">Experience</h2>
+        <h2 className="section-heading">{t("experiences.title")}</h2>
         <p>No experiences found.</p>
+        {/* TODO: Language */}
       </section>
     );
   }
 
   return (
     <section id="experience" className="site-section">
-      <h2 className="section-heading">Experience</h2>
+      <h2 className="section-heading">{t("experiences.title")}</h2>
 
       {experiences.map((experience, index) => (
         <article className="experience" key={experience.id}>

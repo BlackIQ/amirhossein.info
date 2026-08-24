@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { useLanguage } from "@/context/language.context";
+
 import { API } from "@/api";
 import { Social } from "@/types/social.type";
 
 const SocialCard = () => {
+  const { t } = useLanguage();
+
   const [socials, setSocials] = useState<Social[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -31,8 +35,9 @@ const SocialCard = () => {
   if (loading) {
     return (
       <section id="social" className="site-section">
-        <h2 className="section-heading">Elsewhere</h2>
+        <h2 className="section-heading">{t("social.title")}</h2>
         <p>Loading links...</p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -40,10 +45,11 @@ const SocialCard = () => {
   if (error) {
     return (
       <section id="social" className="site-section">
-        <h2 className="section-heading">Elsewhere</h2>
+        <h2 className="section-heading">{t("social.title")}</h2>
         <p>
           <strong>Error:</strong> Unable to load social links.
         </p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -51,15 +57,16 @@ const SocialCard = () => {
   if (socials.length === 0) {
     return (
       <section id="social" className="site-section">
-        <h2 className="section-heading">Elsewhere</h2>
+        <h2 className="section-heading">{t("social.title")}</h2>
         <p>No social links found.</p>
+        {/* TODO: Language */}
       </section>
     );
   }
 
   return (
     <section id="social" className="site-section">
-      <h2 className="section-heading">Elsewhere</h2>
+      <h2 className="section-heading">{t("social.title")}</h2>
 
       <ul className="plain-list">
         {socials.map((social) => (

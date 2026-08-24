@@ -1,12 +1,43 @@
 {
-  "navbar.tagline": "做最好的自己",
-  "navbar.hire": "聘请我",
+  "common.loading": "加载中...",
+  "common.error": "错误",
+  "common.unableToLoad": "无法加载",
+  "common.notFound": "未找到数据",
+  "common.technologies": "技术",
+  "common.visitWebsite": "访问公司网站",
+
+  "navbar.description": "Amirhossein Mohammadi 的个人主页",
+  "navbar.navigation": "主导航",
+  "navbar.home": "首页",
+  "navbar.about": "关于我",
+  "navbar.projects": "项目",
+  "navbar.writing": "写作",
+  "navbar.contact": "联系",
+  "navbar.language": "语言",
+
   "about.title": "关于我",
   "about.bio": "我是一名多学科的软件工程师和DevOps专家，在从零开始构建强大系统方面有着卓越的记录。在过去的几年里，我从事从后端开发人员到技术经理、联合创始人和首席技术官的各种角色，领导初创公司和大型组织的产品开发和基础设施设计。作为OpenHubble的创始人兼首席执行官，我监督从代码到云的一切——结合全栈工程、DevOps、安全和团队领导。我带来了以产品为驱动的心态、深厚的技术工具包以及指导工程团队实现可扩展、安全和可维护解决方案的能力。",
+
   "experiences.title": "经验",
+  "experiences.loading": "正在加载经验...",
+  "experiences.error": "无法加载经验。",
+  "experiences.empty": "未找到经验。",
+
   "skills.title": "技能",
+  "skills.loading": "正在加载技能...",
+  "skills.error": "无法加载技能。",
+  "skills.empty": "未找到技能。",
+
   "social.title": "社交媒体",
+  "social.loading": "正在加载链接...",
+  "social.error": "无法加载社交链接。",
+  "social.empty": "未找到社交链接。",
+
   "resume.title": "下载简历",
+  "resume.loading": "正在加载简历...",
+  "resume.error": "无法加载简历。",
+  "resume.empty": "未找到简历。",
+
   "message.title": "发送消息",
   "message.description": "请在下方发送消息直接与我联系。",
   "message.form.name": "姓名",
@@ -19,5 +50,20 @@
   "message.validation.emailInvalid": "电子邮件无效",
   "message.validation.messageRequired": "需要消息",
   "message.success": "消息发送成功！",
-  "message.error": "发送消息失败"
+  "message.error": "发送消息失败",
+
+  "profile.company": "公司",
+  "profile.location": "位置",
+  "profile.birthdate": "出生日期",
+  "profile.phone": "电话",
+  "profile.email": "电子邮件",
+
+  "footer.home": "首页",
+  "footer.about": "关于我",
+  "footer.experience": "经验",
+  "footer.skills": "技能",
+  "footer.resume": "简历",
+  "footer.contact": "联系",
+  "footer.lastUpdated": "最后更新",
+  "footer.copyright": "© 2026 Amirhossein Mohammadi"
 }

@@ -1,12 +1,43 @@
 {
-  "navbar.tagline": "Be the best you can be",
-  "navbar.hire": "Hire Me",
+  "common.loading": "Loading...",
+  "common.error": "Error",
+  "common.unableToLoad": "Unable to load",
+  "common.notFound": "No data found",
+  "common.technologies": "Technologies",
+  "common.visitWebsite": "Visit company website",
+
+  "navbar.description": "Amirhossein Mohammadi's personal homepage",
+  "navbar.navigation": "Main navigation",
+  "navbar.home": "Home",
+  "navbar.about": "About",
+  "navbar.projects": "Projects",
+  "navbar.writing": "Writing",
+  "navbar.contact": "Contact",
+  "navbar.language": "Language",
+
   "about.title": "About Me",
   "about.bio": "I'm a multi-disciplinary Software Engineer and DevOps Specialist with a proven track record of building robust systems from the ground up. Over the past several years, I've taken on roles ranging from backend developer to technical manager, co-founder, and CTO, leading both product development and infrastructure design across startups and large organizations. At OpenHubble, as Founder and CEO, I oversee everything from code to cloud—combining full-stack engineering with DevOps, security, and team leadership. I bring a product-driven mindset, a deep technical toolkit, and the ability to guide engineering teams toward scalable, secure, and maintainable solutions.",
+
   "experiences.title": "Experiences",
+  "experiences.loading": "Loading experiences...",
+  "experiences.error": "Unable to load experiences.",
+  "experiences.empty": "No experiences found.",
+
   "skills.title": "Skills",
+  "skills.loading": "Loading skills...",
+  "skills.error": "Unable to load skills.",
+  "skills.empty": "No skills found.",
+
   "social.title": "Social Media",
+  "social.loading": "Loading links...",
+  "social.error": "Unable to load social links.",
+  "social.empty": "No social links found.",
+
   "resume.title": "Download Resume",
+  "resume.loading": "Loading resumes...",
+  "resume.error": "Unable to load resumes.",
+  "resume.empty": "No resumes found.",
+
   "message.title": "Send a Message",
   "message.description": "Contact me directly by sending a message below.",
   "message.form.name": "Name",
@@ -19,5 +50,20 @@
   "message.validation.emailInvalid": "Email is invalid",
   "message.validation.messageRequired": "Message is required",
   "message.success": "Message sent successfully!",
-  "message.error": "Failed to send message"
+  "message.error": "Failed to send message",
+
+  "profile.company": "Company",
+  "profile.location": "Location",
+  "profile.birthdate": "Birthdate",
+  "profile.phone": "Phone",
+  "profile.email": "Email",
+
+  "footer.home": "Home",
+  "footer.about": "About",
+  "footer.experience": "Experience",
+  "footer.skills": "Skills",
+  "footer.resume": "Resume",
+  "footer.contact": "Contact",
+  "footer.lastUpdated": "Last updated",
+  "footer.copyright": "© 2026 Amirhossein Mohammadi"
 }

@@ -1,12 +1,43 @@
 {
-  "navbar.tagline": "Будьте лучшей версией себя",
-  "navbar.hire": "Нанять меня",
+  "common.loading": "Загрузка...",
+  "common.error": "Ошибка",
+  "common.unableToLoad": "Не удалось загрузить",
+  "common.notFound": "Данные не найдены",
+  "common.technologies": "Технологии",
+  "common.visitWebsite": "Посетить сайт компании",
+
+  "navbar.description": "Персональная страница Амирхоссейна Мохаммади",
+  "navbar.navigation": "Основная навигация",
+  "navbar.home": "Главная",
+  "navbar.about": "Обо мне",
+  "navbar.projects": "Проекты",
+  "navbar.writing": "Письмо",
+  "navbar.contact": "Контакты",
+  "navbar.language": "Язык",
+
   "about.title": "Обо мне",
   "about.bio": "Я многопрофильный инженер-программист и специалист по DevOps с доказанным опытом создания надежных систем с нуля. За последние несколько лет я занимал должности от backend-разработчика до технического менеджера, соучредителя и CTO, руководя разработкой продуктов и проектированием инфраструктуры в стартапах и крупных организациях. В OpenHubble, как основатель и генеральный директор, я контролирую все, от кода до облака, комбинируя полнофункциональную инженерию с DevOps, безопасностью и лидерством команды. Я привношу менталитет, ориентированный на продукт, глубокий технический арсенал и способность направлять инженерные команды к масштабируемым, безопасным и поддерживаемым решениям.",
+
   "experiences.title": "Опыт",
+  "experiences.loading": "Загрузка опыта...",
+  "experiences.error": "Не удалось загрузить опыт.",
+  "experiences.empty": "Опыт не найден.",
+
   "skills.title": "Навыки",
+  "skills.loading": "Загрузка навыков...",
+  "skills.error": "Не удалось загрузить навыки.",
+  "skills.empty": "Навыки не найдены.",
+
   "social.title": "Социальные сети",
+  "social.loading": "Загрузка ссылок...",
+  "social.error": "Не удалось загрузить социальные ссылки.",
+  "social.empty": "Социальные ссылки не найдены.",
+
   "resume.title": "Скачать резюме",
+  "resume.loading": "Загрузка резюме...",
+  "resume.error": "Не удалось загрузить резюме.",
+  "resume.empty": "Резюме не найдены.",
+
   "message.title": "Отправить сообщение",
   "message.description": "Свяжитесь со мной напрямую, отправив сообщение ниже.",
   "message.form.name": "Имя",
@@ -19,5 +50,20 @@
   "message.validation.emailInvalid": "Адрес электронной почты неверный",
   "message.validation.messageRequired": "Сообщение обязательно",
   "message.success": "Сообщение успешно отправлено!",
-  "message.error": "Ошибка при отправке сообщения"
+  "message.error": "Ошибка при отправке сообщения",
+
+  "profile.company": "Компания",
+  "profile.location": "Местоположение",
+  "profile.birthdate": "Дата рождения",
+  "profile.phone": "Телефон",
+  "profile.email": "Электронная почта",
+
+  "footer.home": "Главная",
+  "footer.about": "Обо мне",
+  "footer.experience": "Опыт",
+  "footer.skills": "Навыки",
+  "footer.resume": "Резюме",
+  "footer.contact": "Контакты",
+  "footer.lastUpdated": "Последнее обновление",
+  "footer.copyright": "© 2026 Amirhossein Mohammadi"
 }

@@ -1,12 +1,43 @@
 {
-  "navbar.tagline": "Seien Sie die beste Version Ihrer selbst",
-  "navbar.hire": "Stellen Sie mich ein",
+  "common.loading": "Laden...",
+  "common.error": "Fehler",
+  "common.unableToLoad": "Kann nicht geladen werden",
+  "common.notFound": "Keine Daten gefunden",
+  "common.technologies": "Technologien",
+  "common.visitWebsite": "Firmenwebsite besuchen",
+
+  "navbar.description": "Persönliche Homepage von Amirhossein Mohammadi",
+  "navbar.navigation": "Hauptnavigation",
+  "navbar.home": "Startseite",
+  "navbar.about": "Über mich",
+  "navbar.projects": "Projekte",
+  "navbar.writing": "Schreiben",
+  "navbar.contact": "Kontakt",
+  "navbar.language": "Sprache",
+
   "about.title": "Über mich",
   "about.bio": "Ich bin ein vielseitiger Software-Ingenieur und DevOps-Spezialist mit einer nachgewiesenen Erfolgsbilanz beim Aufbau robuster Systeme von Grund auf. In den letzten Jahren habe ich verschiedene Rollen vom Backend-Entwickler bis zum technischen Manager, Mitgründer und CTO übernommen und sowohl die Produktentwicklung als auch das Infrastruktur-Design in Startups und großen Organisationen geleitet. Bei OpenHubble beaufsichtige ich als Gründer und CEO alles vom Code bis zur Cloud und kombiniere vollständige Software-Engineering mit DevOps, Sicherheit und Teamleitung. Ich bringe eine produktgetriebene Denkweise, ein tiefes technisches Toolkit und die Fähigkeit mit, Engineering-Teams zu skalierbaren, sicheren und wartbaren Lösungen zu führen.",
+
   "experiences.title": "Erfahrungen",
+  "experiences.loading": "Erfahrungen werden geladen...",
+  "experiences.error": "Erfahrungen können nicht geladen werden.",
+  "experiences.empty": "Keine Erfahrungen gefunden.",
+
   "skills.title": "Fähigkeiten",
+  "skills.loading": "Fähigkeiten werden geladen...",
+  "skills.error": "Fähigkeiten können nicht geladen werden.",
+  "skills.empty": "Keine Fähigkeiten gefunden.",
+
   "social.title": "Soziale Medien",
+  "social.loading": "Links werden geladen...",
+  "social.error": "Soziale Links können nicht geladen werden.",
+  "social.empty": "Keine sozialen Links gefunden.",
+
   "resume.title": "Lebenslauf herunterladen",
+  "resume.loading": "Lebensläufe werden geladen...",
+  "resume.error": "Lebensläufe können nicht geladen werden.",
+  "resume.empty": "Keine Lebensläufe gefunden.",
+
   "message.title": "Nachricht senden",
   "message.description": "Kontaktieren Sie mich direkt, indem Sie unten eine Nachricht senden.",
   "message.form.name": "Name",
@@ -19,5 +50,20 @@
   "message.validation.emailInvalid": "E-Mail ist ungültig",
   "message.validation.messageRequired": "Nachricht ist erforderlich",
   "message.success": "Nachricht erfolgreich versendet!",
-  "message.error": "Fehler beim Senden der Nachricht"
+  "message.error": "Fehler beim Senden der Nachricht",
+
+  "profile.company": "Unternehmen",
+  "profile.location": "Standort",
+  "profile.birthdate": "Geburtsdatum",
+  "profile.phone": "Telefon",
+  "profile.email": "E-Mail",
+
+  "footer.home": "Startseite",
+  "footer.about": "Über mich",
+  "footer.experience": "Erfahrung",
+  "footer.skills": "Fähigkeiten",
+  "footer.resume": "Lebenslauf",
+  "footer.contact": "Kontakt",
+  "footer.lastUpdated": "Zuletzt aktualisiert",
+  "footer.copyright": "© 2026 Amirhossein Mohammadi"
 }

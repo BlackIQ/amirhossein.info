@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/language.context";
 import { languages, type Language } from "@/config/languages";
 
 const Navbar = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
@@ -16,20 +16,18 @@ const Navbar = () => {
         <a href="/">AMIRHOSSEIN.INFO</a>
       </div>
 
-      <div className="site-description">
-        Amirhossein Mohammadi&apos;s personal homepage
-      </div>
+      <div className="site-description">{t("navbar.description")}</div>
 
-      <nav className="site-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
+      <nav className="site-nav" aria-label={t("navbar.navigation")}>
+        <a href="/">{t("navbar.home")}</a>
+        <a href="#about">{t("navbar.about")}</a>
+        <a href="#experience">{t("experiences.title")}</a>
+        <a href="#skills">{t("skills.title")}</a>
+        <a href="#contact">{t("navbar.contact")}</a>
       </nav>
 
       <div className="language-nav">
-        Language:{" "}
+        {t("navbar.language")}:{" "}
         {(Object.entries(languages) as [Language, string][]).map(
           ([langCode, langName], index) => (
             <span key={langCode}>

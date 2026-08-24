@@ -1,153 +1,107 @@
 "use client";
 
-// React Hooks
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-// MUI Components
-import { Box, Chip, Divider, Grid, Skeleton, Typography } from "@mui/material";
-
-// Markdown
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-
-// NextAPI (The API inside NextJs)
-import { NextAPI } from "@/api";
-
-// Type
+import { API } from "@/api";
 import { Experience } from "@/types/experience.type";
 
-// Card for Experience
 const ExperiencesCard = () => {
-  // Define variables
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Get data function
-  const getExperiences = async () => {
-    try {
-      const {
-        data: { experiences },
-      } = await NextAPI.get("experience");
-
-      setExperiences(experiences);
-      setError(false);
-    } catch (error) {
-      console.error("Error fetching experiences:", error);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Where we call get data function
   useEffect(() => {
+    const getExperiences = async () => {
+      try {
+        const { data: experiences } = await API.get("experiences");
+
+        setExperiences(experiences);
+        setError(false);
+      } catch (error) {
+        console.error("Error fetching experiences:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getExperiences();
   }, []);
 
-  // Having error
-  if (!loading && error) {
-    return (
-      <Box>
-        <Typography color="error">Error fetching experiences</Typography>
-      </Box>
-    );
-  }
-
-  // If loading data
   if (loading) {
     return (
-      <Box>
-        {[...Array(2)].map((_, index) => (
-          <Box key={index} sx={{ mb: 3 }}>
-            <Skeleton variant="text" width="60%" height={32} />
-            <Skeleton variant="text" width="40%" height={24} />
-            <Skeleton variant="text" width="30%" height={20} />
-            <Skeleton
-              variant="rectangular"
-              width="100%"
-              height={60}
-              sx={{ mb: 1 }}
-            />
-            <Grid container spacing={1}>
-              {[...Array(3)].map((_, i) => (
-                <Grid key={i}>
-                  <Skeleton variant="rounded" width={80} height={32} />
-                </Grid>
-              ))}
-            </Grid>
-            {index < 1 && <Divider sx={{ my: 2 }} />}
-          </Box>
-        ))}
-      </Box>
+      <section id="experience" className="site-section">
+        <h2 className="section-heading">Experience</h2>
+        <p>Loading experiences...</p>
+      </section>
     );
   }
 
-  // If no data
-  if (experiences.length === 0) {
-    return <Typography>No experiences found</Typography>;
+  if (error) {
+    return (
+      <section id="experience" className="site-section">
+        <h2 className="section-heading">Experience</h2>
+        <p>
+          <strong>Error:</strong> Unable to load experiences.
+        </p>
+      </section>
+    );
   }
 
-  // No loading, no errors, having data
+  if (experiences.length === 0) {
+    return (
+      <section id="experience" className="site-section">
+        <h2 className="section-heading">Experience</h2>
+        <p>No experiences found.</p>
+      </section>
+    );
+  }
+
   return (
-    <Box>
+    <section id="experience" className="site-section">
+      <h2 className="section-heading">Experience</h2>
+
       {experiences.map((experience, index) => (
-        <Box key={experience.id} sx={{ mb: 3 }}>
-          <Typography variant="h6" color="text.primary">
-            {experience.position}
-          </Typography>
-          <Typography variant="body2" color="text.primary">
-            {experience.companyName} • {experience.location}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+        <article className="experience" key={experience.id}>
+          <h3 className="experience-title">{experience.position}</h3>
+
+          <div className="experience-company">
+            {experience.companyName}
+            {" · "}
+            {experience.location}
+          </div>
+
+          <div className="experience-date">
             {experience.startDate} – {experience.endDate}
-          </Typography>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              p: ({ children }) => (
-                <Typography variant="body2" color="text.primary">
-                  {children}
-                </Typography>
-              ),
-              ul: ({ children }) => (
-                <Box component="ul" sx={{ pl: 2, my: 1 }}>
-                  {children}
-                </Box>
-              ),
-              li: ({ children }) => (
-                <Typography component="li" variant="body2" color="text.primary">
-                  {children}
-                </Typography>
-              ),
-            }}
-          >
-            {experience.duties}
-          </ReactMarkdown>
-          <Grid container spacing={1}>
-            {experience.skills.split(",").map((skill, i) => (
-              <Grid key={i}>
-                <Chip
-                  label={skill.trim()}
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                  sx={{ fontSize: "0.8125rem" }}
-                />
-              </Grid>
-            ))}
-          </Grid>
-          {index < experiences.length - 1 && (
-            <Divider
-              sx={{
-                my: 2,
-                borderColor: (theme) => theme.palette.primary.main,
-              }}
-            />
+          </div>
+
+          {experience.duties && (
+            <div className="experience-duties">{experience.duties}</div>
           )}
-        </Box>
+
+          {experience.skills && (
+            <p className="experience-skills">
+              <strong>Technologies:</strong>{" "}
+              {experience.skills
+                .split(",")
+                .map((skill) => skill.trim())
+                .filter(Boolean)
+                .join(", ")}
+            </p>
+          )}
+
+          {experience.url && (
+            <p>
+              <a href={experience.url} target="_blank" rel="noreferrer">
+                Visit company website
+              </a>
+            </p>
+          )}
+
+          {index < experiences.length - 1 && <hr />}
+        </article>
       ))}
-    </Box>
+    </section>
   );
 };
 

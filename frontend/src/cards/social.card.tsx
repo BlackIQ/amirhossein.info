@@ -1,151 +1,76 @@
 "use client";
 
-// React Hooks
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-// MUI Components
-import {
-  Box,
-  colors,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Skeleton,
-  Typography,
-} from "@mui/material";
-
-// MUI Icons
-import { Warning } from "@mui/icons-material";
-
-// NextAPI (The API inside NextJs)
-import { NextAPI } from "@/api";
-
-// Type
+import { API } from "@/api";
 import { Social } from "@/types/social.type";
 
-// React Icons
-import {
-  FaDocker,
-  FaGithub,
-  FaGitlab,
-  FaLinkedin,
-  FaTelegram,
-} from "react-icons/fa";
-import { SiPypi, SiNpm } from "react-icons/si";
-
-// Define icons
-const getIcons = (name: string) => {
-  switch (name) {
-    case "github":
-      return <FaGithub color="#181717" size={24} />;
-    case "gitlab":
-      return <FaGitlab color="#FC6D26" size={24} />;
-    case "telegram":
-      return <FaTelegram color="#26A5E4" size={24} />;
-    case "linkedin":
-      return <FaLinkedin color="#0A66C2" size={24} />;
-    case "docker":
-      return <FaDocker color="#2496ED" size={24} />;
-    case "npmjs":
-      return <SiNpm color="#CB3837" size={24} />;
-    case "pypi":
-      return <SiPypi color="#3776AB" size={24} />;
-    default:
-      return <Warning color="warning" />;
-  }
-};
-
-// Card for Resume
 const SocialCard = () => {
-  // Define variables
   const [socials, setSocials] = useState<Social[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Get data function
-  const getSocials = async () => {
-    try {
-      const {
-        data: { socials },
-      } = await NextAPI.get("social");
-
-      setSocials(socials);
-      setError(false);
-    } catch (error) {
-      console.error("Error fetching socials:", error);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Where we call get data function
   useEffect(() => {
+    const getSocials = async () => {
+      try {
+        const { data: socials } = await API.get("socials");
+
+        setSocials(socials);
+        setError(false);
+      } catch (error) {
+        console.error("Error fetching socials:", error);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getSocials();
   }, []);
 
-  // Having error
-  if (!loading && error) {
-    return (
-      <Box>
-        <Typography color="error">Error fetching socials</Typography>
-      </Box>
-    );
-  }
-
-  // If loading data
   if (loading) {
     return (
-      <List>
-        {[...Array(3)].map((_, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton sx={{ borderRadius: 3, py: 1 }}>
-              <ListItemIcon>
-                <Skeleton variant="circular" width={24} height={24} />
-              </ListItemIcon>
-              <Skeleton variant="text" width="60%" />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <section id="social" className="site-section">
+        <h2 className="section-heading">Elsewhere</h2>
+        <p>Loading links...</p>
+      </section>
     );
   }
 
-  // If no data
-  if (socials.length === 0) {
-    return <Typography>No socials found</Typography>;
+  if (error) {
+    return (
+      <section id="social" className="site-section">
+        <h2 className="section-heading">Elsewhere</h2>
+        <p>
+          <strong>Error:</strong> Unable to load social links.
+        </p>
+      </section>
+    );
   }
 
-  // No loading, no errors, having data
+  if (socials.length === 0) {
+    return (
+      <section id="social" className="site-section">
+        <h2 className="section-heading">Elsewhere</h2>
+        <p>No social links found.</p>
+      </section>
+    );
+  }
+
   return (
-    <Box>
-      <List>
+    <section id="social" className="site-section">
+      <h2 className="section-heading">Elsewhere</h2>
+
+      <ul className="plain-list">
         {socials.map((social) => (
-          <ListItem key={social.id} disablePadding>
-            <ListItemButton
-              sx={{
-                borderRadius: 3,
-                py: 1,
-              }}
-              onClick={() => window.open(social.url, "_blank")}
-            >
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                {getIcons(social.value)}
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography variant="body2" color="text.primary">
-                    {social.label}
-                  </Typography>
-                }
-              />
-            </ListItemButton>
-          </ListItem>
+          <li key={social.id}>
+            <a href={social.url} target="_blank" rel="noreferrer">
+              {social.label}
+            </a>
+          </li>
         ))}
-      </List>
-    </Box>
+      </ul>
+    </section>
   );
 };
 

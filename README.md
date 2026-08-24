@@ -9,7 +9,7 @@ This is the stucture of project.
 - Frontend
   - Language: TypeScript
   - Framework: Next.js
-  - UI Library: Material UI
+  - UI Library: HTML, CSS. Even not using Tailwind...
 - Backend
   - Language: Python
   - Framework: FastAPI

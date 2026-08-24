@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { useLanguage } from "@/context/language.context";
+
 import { API } from "@/api";
 import { Skill } from "@/types/skill.type";
 
 const SkillsCard = () => {
+  const { t } = useLanguage();
+
   const [skills, setSkills] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -31,8 +35,9 @@ const SkillsCard = () => {
   if (loading) {
     return (
       <section id="skills" className="site-section">
-        <h2 className="section-heading">Skills</h2>
+        <h2 className="section-heading">{t("skills.title")}</h2>
         <p>Loading skills...</p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -40,9 +45,10 @@ const SkillsCard = () => {
   if (error) {
     return (
       <section id="skills" className="site-section">
-        <h2 className="section-heading">Skills</h2>
+        <h2 className="section-heading">{t("skills.title")}</h2>
         <p>
           <strong>Error:</strong> Unable to load skills.
+          {/* TODO: Language */}
         </p>
       </section>
     );
@@ -51,8 +57,9 @@ const SkillsCard = () => {
   if (skills.length === 0) {
     return (
       <section id="skills" className="site-section">
-        <h2 className="section-heading">Skills</h2>
+        <h2 className="section-heading">{t("skills.title")}</h2>
         <p>No skills found.</p>
+        {/* TODO: Language */}
       </section>
     );
   }
@@ -72,7 +79,7 @@ const SkillsCard = () => {
 
   return (
     <section id="skills" className="site-section">
-      <h2 className="section-heading">Skills</h2>
+      <h2 className="section-heading">{t("skills.title")}</h2>
 
       {Object.entries(aggregatedData).map(([category, categorySkills]) => (
         <div className="skill-group" key={category}>

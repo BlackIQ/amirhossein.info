@@ -39,6 +39,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

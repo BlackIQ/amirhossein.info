@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/BlackIQ/amirhossein.info/issues"
   },
-  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme"
+  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme",
+  "engines": {
+    "node": ">=24"
+  }
 }

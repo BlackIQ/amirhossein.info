@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-
 import "@/styles/globals.css";
-
-import { LanguageProvider } from "@/context/language.context";
 
 export const metadata: Metadata = {
   title: "Amirhossein Mohammadi",
   description:
-    "Personal homepage of Amirhossein Mohammadi, Platform & Infrastructure Engineer.",
+    "Platform & Infrastructure Engineer. Personal homepage of Amirhossein Mohammadi.",
 };
 
 export default function RootLayout({
@@ -17,9 +14,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

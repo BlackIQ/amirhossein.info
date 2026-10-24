@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "16.3.0",
+    "next": "16.4.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -17,5 +17,18 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "typescript": "^7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackIQ/amirhossein.info.git"
+  },
+  "author": "Amirhossein Mohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackIQ/amirhossein.info/issues"
+  },
+  "homepage": "https://github.com/BlackIQ/amirhossein.info#readme",
+  "engines": {
+    "node": ">=24"
   }
 }

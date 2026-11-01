@@ -112,7 +112,7 @@ export default function Home() {
               <div className="project-links">
                 <VentureLink label="Website" url={v.website} />
                 <VentureLink label="LinkedIn" url={v.linkedin} />
-                <VentureLink label="GitHub" url={v.github} />
+                <VentureLink label="GitHub" url={v.gitlab} />
               </div>
             </article>
           ))}

@@ -9,7 +9,7 @@ interface VentureInterface {
   description: string;
   website: string | null;
   linkedin: string | null;
-  github: string | null;
+  gitlab: string | null;
 }
 
 interface ExperienceInterface {
@@ -34,26 +34,26 @@ export const VENTURES: VentureInterface[] = [
     name: "Aban Technologies",
     status: "Building",
     description: "Parent company. Holding brand for Fidoonet and Narenj Cloud.",
-    website: null,
+    website: "https://techaban.ir",
     linkedin: null,
-    github: null,
+    gitlab: "https://gitlab.com/abantech/aban",
   },
   {
     name: "Fidoonet",
     status: "Building",
     description:
       "Enterprise network services, managed contracts and on-site helpdesk solutions.",
-    website: "https://fidoo.net",
+    website: "https://fidoo.techaban.ir",
     linkedin: null,
-    github: null,
+    gitlab: "https://gitlab.com/abantech/fidoonet",
   },
   {
     name: "Narenj Cloud",
     status: "Building",
     description: "Cloud infrastructure and platform solutions for businesses.",
-    website: "https://narenj.cloud",
+    website: "https://narenj.techaban.ir",
     linkedin: null,
-    github: null,
+    gitlab: "https://gitlab.com/abantech/narenj-cloud",
   },
   {
     name: "OpenHubble",
@@ -62,7 +62,7 @@ export const VENTURES: VentureInterface[] = [
       "Open-source metrics and observability platform. Lightweight agent, real-time dashboard and TimescaleDB backend.",
     website: "https://openhubble.com",
     linkedin: "https://linkedin.com/company/openhubble",
-    github: "https://github.com/openhubble",
+    gitlab: "https://gitlab.com/openhubble",
   },
   {
     name: "Rachel Agent",
@@ -71,7 +71,7 @@ export const VENTURES: VentureInterface[] = [
       "AI-powered smart home assistant. Voice and context-aware control of home devices and systems.",
     website: "https://rachel.amirhossein.info",
     linkedin: null,
-    github: "https://github.com/BlackIQ/Rachel",
+    gitlab: "https://github.com/BlackIQ/Rachel",
   },
   {
     name: "TFAsoft",
@@ -80,7 +80,7 @@ export const VENTURES: VentureInterface[] = [
       "Telegram-based multi-factor authentication platform. Full API, SDKs, dashboard and bot. No longer maintained.",
     website: "https://tfasoft.com",
     linkedin: "https://linkedin.com/company/tfasoft",
-    github: "https://github.com/tfasoft",
+    gitlab: "https://gitlab.com/tfasoft",
   },
 ];
 

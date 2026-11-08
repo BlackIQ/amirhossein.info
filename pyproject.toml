@@ -1,7 +1,7 @@
 [project]
 name = "amirhossein-info"
 version = "0.1.0"
-description = "Amirhossein's boring personal website & jornal"
+description = "Personal website, notes, projects, and writings by Amirhossein Mohammadi"
 requires-python = ">=3.13"
 
 [dependency-groups]

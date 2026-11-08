@@ -96,23 +96,27 @@ nav:
     - Experience: experience/index.md
   - "":
     - Open Source: open-source/index.md
-    - I live in terminal!: open-source/terminal.md
+    - Terminal: open-source/terminal.md
     - Packages:
+      - Packages Overview: open-source/packages/index.md
       - NPM: open-source/packages/npm.md
       - PyPI: open-source/packages/pypi.md
       - Docker Images: open-source/packages/images.md
+    - Platforms:
+      - Platforms Overview: open-source/platforms/index.md
+      - OpenHubble: open-source/platforms/openhubble.md
+      - TFASoft: open-source/platforms/tfasoft.md
+    - Products:
+      - Products Overview: open-source/products/index.md
+      - Coffee Roaster: open-source/products/coffee-roaster.md
+      - pgPoolAdmin: open-source/products/pgpooladmin.md
+      - Since: open-source/products/since.md
+      - VUI: open-source/products/vui.md
     - Projects:
+      - Projects Overview: open-source/projects/index.md
       - Hello World: open-source/projects/hello-world.md
       - TGJU API: open-source/projects/tgju-api.md
       - Rachel: open-source/projects/rachel.md
-    - Platforms:
-      - OpenHubble: projects/platforms/openhubble.md
-      - TFASoft: projects/platforms/tfasoft.md
-    - Products:
-      - Coffee Roaster: projects/products/coffee-roaster.md
-      - PGPoolAdmin: projects/products/pgpooladmin.md
-      - Since: projects/products/since.md
-      - VUI: projects/products/vui.md
 
 extra:
   social:

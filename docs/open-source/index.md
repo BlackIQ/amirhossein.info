@@ -7,4 +7,3 @@ Also I have tools, images, packages published on **npm**, **pypi**, **dockerhub*
 - [NPM Packages](npm.md)
 - [PyPi Packages](pypi.md)
 - [Docker Images](images.md)
-- [MCP Servers](mcp.md)

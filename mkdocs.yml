@@ -92,6 +92,14 @@ theme:
 
 nav:
   - Home: index.md
+  - "":
+    - Open Source: open-source/index.md
+    - NPM Packages: open-source/npm.md
+    - PyPi Packages: open-source/pypi.md
+    - Docker Containers: open-source/containers.md
+  - "":
+    - Projects: projects/index.md
+    - MCP Servers: projects/mcp.md
 
 extra:
   social:

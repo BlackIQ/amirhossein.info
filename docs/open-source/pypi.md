@@ -1,6 +1,6 @@
 # PyPi Packages
 
-I've created a few **Python** packages.
+I've created a few **PyPi packages**.
 
 ## Packages
 

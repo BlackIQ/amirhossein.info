@@ -1,6 +1,6 @@
-# Docker Containers
+# Docker Images
 
-I've created a few **Docker** images.
+I've created a few **Docker images**.
 
 ## Images
 

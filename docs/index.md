@@ -1,45 +1,51 @@
 # Amirhossein Mohammadi
 
-## Who I Am
+Software Engineer · Backend & Platform Infrastructure
 
-I'm Amirhossein Mohammadi, a software and infrastructure engineer interested in building reliable backend systems, developer tools, and technology platforms.
+I'm Amirhossein Mohammadi, a software engineer focused on backend development, platform engineering, and infrastructure.
 
-My work focuses on backend engineering, platform infrastructure, automation, and cloud technologies. I enjoy designing systems, building practical tools, and working across the software development lifecycle. From implementation to deployment and operation.
+I build backend systems, developer tools, and infrastructure solutions, with an interest in reliable software architecture, automation, and open-source technologies.
 
-## Areas of Interest
-
-My primary areas of interest include:
+## Areas of Focus
 
 - **Backend Engineering:** API development, application architecture, and database systems.
-- **Platform & Infrastructure:** Linux, containers, infrastructure management, and automation.
-- **DevOps & Reliability:** Deployment workflows, monitoring, observability, and system operations.
-- **Developer Tools:** Libraries, reusable components, and tools that improve development workflows.
-- **AI & Integration:** Local AI systems, agents, and Model Context Protocol (MCP) integrations.
+- **Platform Engineering:** Linux, containers, infrastructure management, and automation.
+- **DevOps & Reliability:** CI/CD, monitoring, observability, and system operations.
+- **Developer Tools:** Libraries, reusable components, and development utilities.
+- **AI & Integration:** Local AI systems, autonomous agents, and Model Context Protocol (MCP).
 
-## Projects & Initiatives
+## Things I work with
 
-I work on several independent projects and technology initiatives, including:
+| Category                    | Technologies                                                     |
+| --------------------------- | ---------------------------------------------------------------- |
+| **Programming Languages**   | Python, Go, TypeScript, Bash                                     |
+| **Backend Development**     | FastAPI, Gin, Express.js, REST API, WebSockets                   |
+| **Frontend Development**    | React.js, Next.js, Material UI, Redux                            |
+| **Databases & Messaging**   | PostgreSQL, TimescaleDB, MongoDB, Redis, Celery                  |
+| **DevOps & Infrastructure** | Docker, Docker Compose, Nginx, GitLab CI, Linux, VMware, Proxmox |
+| **LLM & Agents**            | MCP, FastMCP, Ollama, Custom Modelfile, Local LLM                |
 
-<!-- - [OpenHubble](projects/openhubble.md) — Infrastructure monitoring and observability.
-- [Rachel](projects/rachel.md) — A local-first AI agent.
-- [Aban Technologies](ventures/aban.md) — A technology group and parent brand.
-- [Fidoonet](ventures/fidoonet.md) — Network infrastructure and technology services.
-- [Narenj Cloud](ventures/narenj.md) — Cloud infrastructure initiative. -->
+## Experience & Projects
 
-You can explore the complete collection through the [Projects](projects/index.md) and [Ventures](ventures/index.md) sections.
+I work on software products and technology initiatives, combining backend engineering, infrastructure, and practical software development.
 
-## About This Documentation
+- **TFASoft** — Professional experience and software engineering activities.
+- **OpenHubble** — Infrastructure monitoring and observability platform.
 
-Amirhossein Docs serves as a central directory for my software packages, container images, MCP servers, projects, and ventures.
+## Open Source
 
-Its purpose is to make technical resources easier to discover and provide a consistent starting point for documentation across different platforms and repositories.
+I actively develop and maintain open-source software, including libraries, developer tools, container images, and MCP servers.
 
-Individual projects and packages may maintain their own dedicated documentation websites. This portal connects those resources without replacing them.
+My published work is available through:
 
-## Links
+- [GitLab](https://gitlab.com/BlackIQ)
+- [NPM Packages](open-source/npm.md)
+- [PyPI Packages](open-source/pypi.md)
+- [Docker Containers](open-source/images.md)
+- [MCP Servers](open-source/mcp.md)
 
-- **Personal Portal:** [amirhossein.info](https://amirhossein.info)
-- **GitLab:** [gitlab.com/BlackIQ](https://gitlab.com/BlackIQ)
-- **GitHub:** [github.com/BlackIQ](https://github.com/BlackIQ)
+## About This Website
 
-For project-specific resources, repositories, and documentation, refer to the relevant section of this website.
+This website is my personal space for documenting my professional experience, projects, open-source contributions, and technical work.
+
+It brings together the things I build, maintain, and contribute to across different areas of software engineering.

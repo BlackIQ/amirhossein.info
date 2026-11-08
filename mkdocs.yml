@@ -93,13 +93,17 @@ theme:
 nav:
   - Home: index.md
   - "":
+    - Experience: experience/index.md
+  - "":
     - Open Source: open-source/index.md
     - NPM Packages: open-source/npm.md
     - PyPi Packages: open-source/pypi.md
-    - Docker Containers: open-source/containers.md
+    - Docker Images: open-source/images.md
+    - MCP Servers: open-source/mcp.md
   - "":
     - Projects: projects/index.md
-    - MCP Servers: projects/mcp.md
+    - OpenHubble: projects/openhubble.md
+    - TFASoft: projects/tfasoft.md
 
 extra:
   social:

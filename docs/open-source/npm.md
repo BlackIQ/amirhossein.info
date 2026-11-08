@@ -1,6 +1,6 @@
 # NPM Packages
 
-I've created a few **Node.js** packages.
+I've created a few **NPM packages**.
 
 ## Packages
 

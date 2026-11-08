@@ -1,174 +1,45 @@
----
-icon: lucide/rocket
----
+# Amirhossein Mohammadi
 
-# Get started
+## Who I Am
 
-For full documentation visit [zensical.org](https://zensical.org/docs/).
+I'm Amirhossein Mohammadi, a software and infrastructure engineer interested in building reliable backend systems, developer tools, and technology platforms.
 
-## Commands
+My work focuses on backend engineering, platform infrastructure, automation, and cloud technologies. I enjoy designing systems, building practical tools, and working across the software development lifecycle. From implementation to deployment and operation.
 
-* [`zensical new`][new] - Create a new project
-* [`zensical serve`][serve] - Start local web server
-* [`zensical build`][build] - Build your site
+## Areas of Interest
 
-  [new]: https://zensical.org/docs/usage/new/
-  [serve]: https://zensical.org/docs/usage/preview/
-  [build]: https://zensical.org/docs/usage/build/
+My primary areas of interest include:
 
-## Examples
+- **Backend Engineering:** API development, application architecture, and database systems.
+- **Platform & Infrastructure:** Linux, containers, infrastructure management, and automation.
+- **DevOps & Reliability:** Deployment workflows, monitoring, observability, and system operations.
+- **Developer Tools:** Libraries, reusable components, and tools that improve development workflows.
+- **AI & Integration:** Local AI systems, agents, and Model Context Protocol (MCP) integrations.
 
-### Admonitions
+## Projects & Initiatives
 
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/)
+I work on several independent projects and technology initiatives, including:
 
-!!! note
+<!-- - [OpenHubble](projects/openhubble.md) — Infrastructure monitoring and observability.
+- [Rachel](projects/rachel.md) — A local-first AI agent.
+- [Aban Technologies](ventures/aban.md) — A technology group and parent brand.
+- [Fidoonet](ventures/fidoonet.md) — Network infrastructure and technology services.
+- [Narenj Cloud](ventures/narenj.md) — Cloud infrastructure initiative. -->
 
-    This is a **note** admonition. Use it to provide helpful information.
+You can explore the complete collection through the [Projects](projects/index.md) and [Ventures](ventures/index.md) sections.
 
-!!! warning
+## About This Documentation
 
-    This is a **warning** admonition. Be careful!
+Amirhossein Docs serves as a central directory for my software packages, container images, MCP servers, projects, and ventures.
 
-### Details
+Its purpose is to make technical resources easier to discover and provide a consistent starting point for documentation across different platforms and repositories.
 
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
+Individual projects and packages may maintain their own dedicated documentation websites. This portal connects those resources without replacing them.
 
-??? info "Click to expand for more info"
+## Links
 
-    This content is hidden until you click to expand it.
-    Great for FAQs or long explanations.
+- **Personal Portal:** [amirhossein.info](https://amirhossein.info)
+- **GitLab:** [gitlab.com/BlackIQ](https://gitlab.com/BlackIQ)
+- **GitHub:** [github.com/BlackIQ](https://github.com/BlackIQ)
 
-## Code Blocks
-
-> Go to [documentation](https://zensical.org/docs/authoring/code-blocks/)
-
-``` python hl_lines="2" title="Code blocks"
-def greet(name):
-    print(f"Hello, {name}!")  # (1)!
-
-
-greet("Python")
-```
-
-1.  > Go to [documentation](https://zensical.org/docs/authoring/code-blocks/#code-annotations)
-
-    Code annotations allow to attach notes to lines of code.
-
-Code can also be highlighted inline: `#!python print("Hello, Python!")`.
-
-## Content tabs
-
-> Go to [documentation](https://zensical.org/docs/authoring/content-tabs/)
-
-=== "Python"
-
-    ``` python
-    print("Hello from Python!")
-    ```
-
-=== "Rust"
-
-    ``` rs
-    println!("Hello from Rust!");
-    ```
-
-## Diagrams
-
-> Go to [documentation](https://zensical.org/docs/authoring/diagrams/)
-
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
-```
-
-## Footnotes
-
-> Go to [documentation](https://zensical.org/docs/authoring/footnotes/)
-
-Here's a sentence with a footnote.[^1]
-
-Hover it, to see a tooltip.
-
-[^1]: This is the footnote.
-
-
-## Formatting
-
-> Go to [documentation](https://zensical.org/docs/authoring/formatting/)
-
-- ==This was marked (highlight)==
-- ^^This was inserted (underline)^^
-- ~~This was deleted (strikethrough)~~
-- H~2~O
-- A^T^A
-- ++ctrl+alt+del++
-
-## Icons, Emojis
-
-> Go to [documentation](https://zensical.org/docs/authoring/icons-emojis/)
-
-* :sparkles: `:sparkles:`
-* :rocket: `:rocket:`
-* :tada: `:tada:`
-* :memo: `:memo:`
-* :eyes: `:eyes:`
-
-## Maths
-
-> Go to [documentation](https://zensical.org/docs/authoring/math/)
-
-$$
-\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
-$$
-
-!!! warning "Needs configuration"
-    Note that MathJax is included via a `script` tag on this page and is not
-    configured in the generated default configuration to avoid including it
-    in a pages that do not need it. See the documentation for details on how
-    to configure it on all your pages if they are more Maths-heavy than these
-    simple starter pages.
-
-<script id="MathJax-script" src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
-
-  document$.subscribe(() => {
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-</script>
-
-## Task Lists
-
-> Go to [documentation](https://zensical.org/docs/authoring/lists/#using-task-lists)
-
-* [x] Install Zensical
-* [x] Configure `zensical.toml`
-* [x] Write amazing documentation
-* [ ] Deploy anywhere
-
-## Tooltips
-
-> Go to [documentation](https://zensical.org/docs/authoring/tooltips/)
-
-[Hover me][example]
-
-  [example]: https://example.com "I'm a tooltip!"
+For project-specific resources, repositories, and documentation, refer to the relevant section of this website.

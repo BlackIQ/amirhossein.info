@@ -1,0 +1,24 @@
+[project]
+name = "amirhossein-backend"
+version = "2.0.0"
+description = "FastAPI backend for the personal portfolio site"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.5",
+    "fastapi[standard]>=0.139.2",
+    "psycopg2-binary>=2.9.12",
+    "pwdlib[argon2]>=0.3.0",
+    "pydantic-settings>=2.14.2",
+    "pyjwt>=2.13.0",
+    "python-dotenv>=1.2.2",
+    "sentry-sdk>=2.66.1",
+    "sqlalchemy>=2.0.51",
+    "websockets>=16.1.1",
+]
+
+[tool.fastapi]
+entrypoint = "main:app"
+
+[tool.vercel]
+entrypoint = "main:app"

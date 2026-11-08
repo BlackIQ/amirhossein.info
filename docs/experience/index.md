@@ -2,8 +2,8 @@
 
 ## Asan-Cycle (Peugeot France)
 
-**Senior Software Engineer**  
-Tehran, Iran · Full-time  
+**Software Engineer**
+Tehran, Iran · Full-time
 March 2025 – May 2026
 
 - Designed and developed backend APIs using Express.js and FastAPI.
@@ -18,8 +18,8 @@ March 2025 – May 2026
 
 ## Dadeh Pardazan Hamenavard
 
-**DevOps Engineer**  
-Tehran, Iran · Full-time  
+**DevOps Engineer**
+Tehran, Iran · Full-time
 March 2024 – March 2025
 
 - Designed and implemented container-based infrastructure using Docker and Docker Compose.
@@ -34,8 +34,8 @@ March 2024 – March 2025
 
 ## Banks Pension Fund
 
-**Software Engineer & DevOps Engineer**  
-Tehran, Iran · Full-time  
+**Software Engineer & DevOps Engineer**
+Tehran, Iran · Full-time
 July 2022 – May 2024
 
 - Developed and maintained backend APIs using Express.js.
@@ -52,8 +52,8 @@ July 2022 – May 2024
 
 ## Shahab Khodro
 
-**Software Developer**  
-Karaj, Iran · Part-time  
+**Software Developer**
+Karaj, Iran · Part-time
 September 2022 – May 2023
 
 - Developed backend APIs using Express.js.
@@ -65,8 +65,8 @@ September 2022 – May 2023
 
 ## Narben Information Technology
 
-**Backend Developer**  
-Tehran, Iran · Full-time  
+**Backend Developer**
+Tehran, Iran · Full-time
 November 2021 – June 2022
 
 - Developed backend applications using Laravel.
@@ -78,8 +78,8 @@ November 2021 – June 2022
 
 ## Narben
 
-**Backend Developer**  
-Tehran, Iran · Part-time  
+**Backend Developer**
+Tehran, Iran · Part-time
 April 2019 – November 2021
 
 - Developed and maintained backend services using PHP.

@@ -103,6 +103,7 @@ nav:
   - "":
     - Projects: projects/index.md
     - OpenHubble: projects/openhubble.md
+    - Rachel: projects/rachel.md
     - TFASoft: projects/tfasoft.md
 
 extra:

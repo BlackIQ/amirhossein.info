@@ -117,6 +117,8 @@ nav:
       - Hello World: open-source/projects/hello-world.md
       - TGJU API: open-source/projects/tgju-api.md
       - Rachel: open-source/projects/rachel.md
+  - "":
+    - Ventures: ventures/index.md
 
 extra:
   social:

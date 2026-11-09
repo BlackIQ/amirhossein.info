@@ -27,6 +27,7 @@ Most of my public work is open source.
 
 - [Experience](experience/index.md)
 - [Open Source](open-source/index.md)
+- [Ventures](ventures/index.md)
 - [Terminal](open-source/terminal.md) — how I approach open source
 
 ---

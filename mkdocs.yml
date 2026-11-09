@@ -14,33 +14,6 @@ theme:
   name: material
   variant: modern
   language: en
-
-  font:
-    text: Inter
-    code: JetBrains Mono
-
-  # palette:
-  #   - media: "(prefers-color-scheme)"
-  #     toggle:
-  #       icon: material/brightness-auto
-  #       name: Switch to light mode
-
-  #   - media: "(prefers-color-scheme: light)"
-  #     scheme: default
-  #     primary: custom
-  #     accent: custom
-  #     toggle:
-  #       icon: material/brightness-7
-  #       name: Switch to dark mode
-
-  #   - media: "(prefers-color-scheme: dark)"
-  #     scheme: slate
-  #     primary: custom
-  #     accent: custom
-  #     toggle:
-  #       icon: material/brightness-4
-  #       name: Switch to system preference
-
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -60,6 +33,9 @@ theme:
       toggle:
         icon: material/lightbulb-outline
         name: Switch to system preference
+  font:
+    text: Inter
+    code: JetBrains Mono
 
   features:
     - content.code.annotate
@@ -122,17 +98,31 @@ nav:
   - Blog:
     - blog/index.md
 
+
 extra:
+  analytics:
+    provider: google
+    property: GTM-K724DZ4N
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! We will improve this page...
   social:
     - icon: fontawesome/brands/gitlab
       link: https://gitlab.com/BlackIQ
-
     - icon: fontawesome/brands/github
       link: https://github.com/BlackIQ
-
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/amirhosseinmohammadi/
-
     - icon: fontawesome/solid/envelope
       link: mailto:hi@amirhossein.info
 

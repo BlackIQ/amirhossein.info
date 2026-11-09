@@ -87,8 +87,8 @@ theme:
   icon:
     repo: octicons/mark-github-24
 
-  # logo: img/favicon.png
-  # favicon: img/favicon.png
+  logo: https://github.com/BlackIQ.png
+  favicon: https://github.com/BlackIQ.png
 
 nav:
   - Home: index.md
@@ -119,6 +119,8 @@ nav:
       - Rachel: open-source/projects/rachel.md
   - "":
     - Ventures: ventures/index.md
+  - Blog:
+    - blog/index.md
 
 extra:
   social:
@@ -133,6 +135,10 @@ extra:
 
     - icon: fontawesome/solid/envelope
       link: mailto:hi@amirhossein.info
+
+plugins:
+  - search
+  - blog
 
 validation:
   unresolved_references: false

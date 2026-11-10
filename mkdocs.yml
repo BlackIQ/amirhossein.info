@@ -66,6 +66,8 @@ theme:
   logo: https://github.com/BlackIQ.png
   favicon: https://github.com/BlackIQ.png
 
+  custom_dir: overrides
+
 nav:
   - Home: index.md
   - "":

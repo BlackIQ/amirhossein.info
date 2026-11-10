@@ -10,7 +10,8 @@ categories:
   - Migration
   - Open Source
 tags:
-  - gitlab
+  - GitLab
+  - GitHub
 comments: true
 ---
 

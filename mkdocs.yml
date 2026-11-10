@@ -5,10 +5,10 @@ site_description: Personal website, notes, projects, and writings by Amirhossein
 site_author: Amirhossein Mohammadi
 site_url: https://amirhossein.info
 
-copyright: Copyright &copy; 2026 Amirhossein Mohammadi
-
 repo_name: BlackIQ/amirhossein.info
 repo_url: https://github.com/BlackIQ/amirhossein.info
+
+copyright: Copyright &copy; 2026 Amirhossein Mohammadi
 
 theme:
   name: material
@@ -36,7 +36,6 @@ theme:
   font:
     text: Vazirmatn
     code: JetBrains Mono
-
   features:
     - content.code.annotate
     - content.code.copy
@@ -59,13 +58,10 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-
   icon:
     repo: octicons/mark-github-24
-
   logo: https://github.com/BlackIQ.png
   favicon: https://github.com/BlackIQ.png
-
   custom_dir: overrides
 
 nav:
@@ -100,7 +96,6 @@ nav:
   - Blog:
     - blog/index.md
 
-
 extra:
   analytics:
     provider: google
@@ -112,6 +107,8 @@ extra:
   #     as to measure the effectiveness of our documentation and whether users
   #     find what they're searching for. With your consent, you're helping us to
   #     make our documentation better.
+  tags:
+    Compatibility: compat
   social:
     - icon: fontawesome/brands/gitlab
       link: https://gitlab.com/BlackIQ
@@ -128,6 +125,7 @@ extra:
 plugins:
   - search
   - blog
+  - tags
 
 validation:
   invalid_links: true

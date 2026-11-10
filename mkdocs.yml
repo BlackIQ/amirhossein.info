@@ -103,19 +103,36 @@ extra:
   analytics:
     provider: google
     property: G-2YJP7776K6
+  # consent:
+  #   title: Cookie consent
+  #   description: >- 
+  #     We use cookies to recognize your repeated visits and preferences, as well
+  #     as to measure the effectiveness of our documentation and whether users
+  #     find what they're searching for. With your consent, you're helping us to
+  #     make our documentation better.
   social:
     - icon: fontawesome/brands/gitlab
       link: https://gitlab.com/BlackIQ
+      name: Follow me in GitLab
     - icon: fontawesome/brands/github
       link: https://github.com/BlackIQ
+      name: Follow me in GitHub
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/amirhosseinmohammadi/
     - icon: fontawesome/solid/envelope
       link: mailto:hi@amirhossein.info
+      name: Connect in LinkedIn
 
 plugins:
   - search
   - blog
 
 validation:
+  invalid_links: true
+  invalid_link_anchors: true
   unresolved_references: false
+  unresolved_footnotes: false
+  unused_definitions: false
+  unused_footnotes: false
+  shadowed_definitions: false
+  shadowed_footnotes: false

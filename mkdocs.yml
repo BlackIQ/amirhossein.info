@@ -34,7 +34,7 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to system preference
   font:
-    text: Inter
+    text: Vazirmatn
     code: JetBrains Mono
 
   features:

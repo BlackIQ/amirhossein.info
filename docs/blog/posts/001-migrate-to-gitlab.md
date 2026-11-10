@@ -9,6 +9,7 @@ categories:
   - GitHub
   - Migration
   - Open Source
+comments: true
 ---
 
 # Migrating from GitHub to GitLab

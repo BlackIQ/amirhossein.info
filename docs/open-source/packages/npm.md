@@ -68,3 +68,4 @@ A lightweight JavaScript library for generating short and readable identifiers.
 - **Package Registry:** [npm](https://www.npmjs.com/package/rayid)
 - **Documentation:** [RayID JavaScript Docs](https://rayid-js.docs.amirhossein.info)
 - **Python Version:** [RayID on PyPI](https://pypi.org/project/rayid/)
+- **Go Version:** [RayID for Go](https://pkg.go.dev/gitlab.com/blackiq-packages/go/rayid)

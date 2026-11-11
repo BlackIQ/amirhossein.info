@@ -4,7 +4,7 @@ I've created a few **Go modules**.
 
 ## Modules
 
-All modules are hosted on GitLab and indexed on [pkg.go.dev](https://pkg.go.dev/).
+All modules are hosted on GitHub and indexed on [pkg.go.dev](https://pkg.go.dev/).
 
 ### RayID (Go)
 
@@ -16,8 +16,11 @@ A lightweight Go library for generating short, readable identifiers.
 | Registry | Go      |
 | License  | MIT     |
 
-- **Source Code:** [GitLab Repository](https://gitlab.com/blackiq-packages/go/rayid)
-- **Module Registry:** [pkg.go.dev](https://pkg.go.dev/gitlab.com/blackiq-packages/go/rayid)
-- **Documentation:** [RayID Go Docs](https://rayid-go.docs.amirhossein.info)
-- **Python Version:** [RayID on PyPI](https://pypi.org/project/rayid/)
-- **JavaScript Version:** [RayID on npm](https://www.npmjs.com/package/rayid)
+- **Source Code** -> [GitHub Repository](https://github.com/BlackIQ/rayid-go)
+- **Module Registry** -> [pkg.go.dev](https://pkg.go.dev/github.com/BlackIQ/rayid-go)
+- **Documentation** -> [RayID Go Docs](https://rayid-go.amirhossein.info)
+
+Also:
+
+- **RayID for Python** -> [RayID for Python](https://rayid-py.amirhossein.info)
+- **RayID for JavaScript** -> [RayID for JavaScript](https://rayid-js.amirhossein.info)

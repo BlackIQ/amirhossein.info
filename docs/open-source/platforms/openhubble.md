@@ -15,9 +15,9 @@ I am the founder and main maintainer of the project.
 
 Typical technologies across the platform include:
 
-- **Backend:** FastAPI, PostgreSQL
-- **Agents & collectors:** Python
-- **Deployment:** Docker, cloud-native setups
+- **Backend** -> FastAPI, PostgreSQL
+- **Agents & collectors** -> Python
+- **Deployment** -> Docker, cloud-native setups
 
 ## Links
 

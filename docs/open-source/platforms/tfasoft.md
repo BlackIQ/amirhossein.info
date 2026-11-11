@@ -14,9 +14,9 @@ It provides APIs, official SDKs, a Telegram bot, a mobile app, and supporting to
 
 ## Stack
 
-- **Backend / Core:** Authentication services and APIs
-- **Clients:** SDKs, Telegram bot, mobile app
-- **Docs:** MkDocs
+- **Backend / Core** -> Authentication services and APIs
+- **Clients** -> SDKs, Telegram bot, mobile app
+- **Docs** -> MkDocs
 
 ## Links
 

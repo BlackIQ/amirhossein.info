@@ -16,9 +16,9 @@ A lightweight Python library providing small helpers for type, presence, and num
 | Registry | PyPI   |
 | License  | MIT    |
 
-- **Source Code:** [GitLab Repository](https://gitlab.com/blackiq-packages/pypi/pyis)
-- **Package Registry:** [PyPI](https://pypi.org/project/pyis/)
-- **Documentation:** [PyIs Docs](https://pyis.docs.amirhossein.info)
+- **Source Code** -> [GitHub Repository](https://github.com/BlackIQ/pyis)
+- **Package Registry** -> [PyPI](https://pypi.org/project/pyis/)
+- **Documentation** -> [PyIs Docs](https://pyis.amirhossein.info)
 
 ---
 
@@ -32,8 +32,11 @@ A lightweight Python library for generating short, readable identifiers.
 | Registry | PyPI    |
 | License  | MIT     |
 
-- **Source Code:** [GitLab Repository](https://gitlab.com/blackiq-packages/pypi/rayid)
-- **Package Registry:** [PyPI](https://pypi.org/project/rayid/)
-- **Documentation:** [RayID Python Docs](https://rayid-py.docs.amirhossein.info)
-- **JavaScript Version:** [npm Package](https://www.npmjs.com/package/rayid) · [Documentation](https://rayid-js.docs.amirhossein.info)
-- **Go Version:** [RayID for Go](https://pkg.go.dev/gitlab.com/blackiq-packages/go/rayid)
+- **Source Code** -> [GitHub Repository](https://github.com/blackiq-packages/pypi/rayid)
+- **Package Registry** -> [PyPI](https://pypi.org/project/rayid/)
+- **Documentation** -> [RayID Python Docs](https://rayid-py.amirhossein.info)
+
+Also:
+
+- **RayID for Go** -> [RayID for Go](https://rayid-go.amirhossein.info)
+- **RayID for JavaScript** -> [RayID for JavaScript](https://rayid-js.amirhossein.info)

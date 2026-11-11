@@ -75,6 +75,7 @@ nav:
       - Packages Overview: open-source/packages/index.md
       - NPM: open-source/packages/npm.md
       - PyPI: open-source/packages/pypi.md
+      - Go: open-source/packages/go.md
       - Docker Images: open-source/packages/images.md
     - Platforms:
       - Platforms Overview: open-source/platforms/index.md

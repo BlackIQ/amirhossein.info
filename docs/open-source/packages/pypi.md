@@ -32,7 +32,7 @@ A lightweight Python library for generating short, readable identifiers.
 | Registry | PyPI    |
 | License  | MIT     |
 
-- **Source Code** -> [GitHub Repository](https://github.com/blackiq-packages/pypi/rayid)
+- **Source Code** -> [GitHub Repository](https://github.com/BlackIQ/rayid-py)
 - **Package Registry** -> [PyPI](https://pypi.org/project/rayid/)
 - **Documentation** -> [RayID Python Docs](https://rayid-py.amirhossein.info)
 

@@ -1,7 +1,6 @@
 ---
 date:
   created: 2026-11-16
-  updated: 2026-11-16
 authors:
   - amirhossein
 categories:
@@ -14,7 +13,7 @@ tags:
 comments: true
 ---
 
-# Gin Backend Framework Context Cheat Sheet
+# Gin Backend Framework Cheat Sheet
 
 A fast and usefull cheat sheet for how to use **Gin**.
 
@@ -22,7 +21,7 @@ First, what is **Gin**?
 
 > The fastest full-featured web framework for Go. Crystal clear.
 >
-> Source: [Official Gin website](https://gin-gonic.com/en/)
+> Source: [Official Gin website](https://gin-gonic.com)
 
 Let's start. I'll write things about how to use **Gin**, what are important things about in and of course about the **Gin Context**.
 

@@ -94,6 +94,8 @@ nav:
       - Rachel: open-source/projects/rachel.md
   - "":
     - Ventures: ventures/index.md
+  - "":
+    - Connect: connect/index.md
   - Blog:
     - blog/index.md
 

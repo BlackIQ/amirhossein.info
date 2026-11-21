@@ -5,6 +5,8 @@ Software Engineer · Backend & Platform Infrastructure
 I build backend systems, developer tools, and infrastructure.  
 Most of my public work is open source.
 
+Currently living at Iran and open to remote collaboration.
+
 ## Focus
 
 - **Backend** — APIs, application architecture, databases
